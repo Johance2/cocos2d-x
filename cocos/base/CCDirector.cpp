@@ -127,7 +127,7 @@ bool Director::init(void)
     _frameRate = 0.0f;
     _FPSLabel = _drawnBatchesLabel = _drawnVerticesLabel = nullptr;
     _totalFrames = 0;
-    _lastUpdate = std::chrono::steady_clock::now();
+    _lastUpdate = boost::chrono::steady_clock::now();
     _secondsPerFrame = 1.0f;
 
     // paused ?
@@ -332,7 +332,7 @@ void Director::drawScene()
 
 void Director::calculateDeltaTime()
 {
-    auto now = std::chrono::steady_clock::now();
+    auto now = boost::chrono::steady_clock::now();
 
     // new delta time. Re-fixed issue #1277
     if (_nextDeltaTimeZero)
@@ -342,7 +342,7 @@ void Director::calculateDeltaTime()
     }
     else
     {
-        _deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
+        _deltaTime = boost::chrono::duration_cast<boost::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
         _deltaTime = MAX(0, _deltaTime);
     }
 
@@ -1212,9 +1212,9 @@ void Director::calculateMPF()
     static float prevSecondsPerFrame = 0;
     static const float MPF_FILTER = 0.10f;
 
-    auto now = std::chrono::steady_clock::now();
+    auto now = boost::chrono::steady_clock::now();
     
-    _secondsPerFrame = std::chrono::duration_cast<std::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
+    _secondsPerFrame = boost::chrono::duration_cast<boost::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
 
     _secondsPerFrame = _secondsPerFrame * MPF_FILTER + (1-MPF_FILTER) * prevSecondsPerFrame;
     prevSecondsPerFrame = _secondsPerFrame;
@@ -1365,7 +1365,7 @@ void Director::setEventDispatcher(EventDispatcher* dispatcher)
 // so we now only support DisplayLinkDirector
 void DisplayLinkDirector::startAnimation()
 {
-    _lastUpdate = std::chrono::steady_clock::now();
+    _lastUpdate = boost::chrono::steady_clock::now();
 
     _invalid = false;
 

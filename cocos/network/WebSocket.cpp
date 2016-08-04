@@ -138,8 +138,8 @@ protected:
     void wsThreadEntryFunc();
 private:
     std::list<WsMessage*>* _subThreadWsMessageQueue;
-    std::mutex   _subThreadWsMessageQueueMutex;
-    std::thread* _subThreadInstance;
+    boost::mutex   _subThreadWsMessageQueueMutex;
+    boost::thread* _subThreadInstance;
     WebSocket* _ws;
     bool _needQuit;
     friend class WebSocket;
@@ -187,7 +187,7 @@ bool WsThreadHelper::createWebSocketThread(const WebSocket& ws)
     _ws = const_cast<WebSocket*>(&ws);
 
     // Creates websocket thread
-    _subThreadInstance = new (std::nothrow) std::thread(&WsThreadHelper::wsThreadEntryFunc, this);
+    _subThreadInstance = new (std::nothrow) boost::thread(&WsThreadHelper::wsThreadEntryFunc, this);
     return true;
 }
 
@@ -218,7 +218,7 @@ void WsThreadHelper::sendMessageToCocosThread(const std::function<void()>& cb)
 
 void WsThreadHelper::sendMessageToWebSocketThread(WsMessage *msg)
 {
-    std::lock_guard<std::mutex> lk(_subThreadWsMessageQueueMutex);
+    std::lock_guard<boost::mutex> lk(_subThreadWsMessageQueueMutex);
     _subThreadWsMessageQueue->push_back(msg);
 }
 
@@ -536,7 +536,7 @@ void WebSocket::closeAsync()
 
 WebSocket::State WebSocket::getReadyState()
 {
-    std::lock_guard<std::mutex> lk(_readStateMutex);
+    std::lock_guard<boost::mutex> lk(_readStateMutex);
     return _readyState;
 }
 
@@ -650,7 +650,7 @@ void WebSocket::onSubThreadEnded()
 
 void WebSocket::onClientWritable()
 {
-    std::lock_guard<std::mutex> lk(_wsHelper->_subThreadWsMessageQueueMutex);
+    std::lock_guard<boost::mutex> lk(_wsHelper->_subThreadWsMessageQueueMutex);
 
     if (_wsHelper->_subThreadWsMessageQueue->empty())
     {

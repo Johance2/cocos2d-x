@@ -76,8 +76,8 @@ protected:
     bool _timeDirty;
     bool _streamingSource;
     ALuint _bufferIds[QUEUEBUFFER_NUM];
-    std::thread _rotateBufferThread;
-    std::mutex _sleepMutex;
+    boost::thread _rotateBufferThread;
+    boost::mutex _sleepMutex;
     std::condition_variable _sleepCondition;
     bool _exitThread;
     bool _readForRemove;

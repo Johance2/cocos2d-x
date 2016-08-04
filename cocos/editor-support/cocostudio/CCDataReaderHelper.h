@@ -201,16 +201,16 @@ protected:
 
     std::condition_variable        _sleepCondition;
 
-    std::thread     *_loadingThread;
+    boost::thread     *_loadingThread;
 
-    std::mutex      _sleepMutex;
+    boost::mutex      _sleepMutex;
 
-    std::mutex      _asyncStructQueueMutex;
-    std::mutex      _dataInfoMutex;
+    boost::mutex      _asyncStructQueueMutex;
+    boost::mutex      _dataInfoMutex;
 
-    std::mutex      _addDataMutex;
+    boost::mutex      _addDataMutex;
 
-    std::mutex      _getFileMutex;
+    boost::mutex      _getFileMutex;
 
       
     unsigned long _asyncRefCount;

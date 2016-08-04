@@ -97,11 +97,11 @@ protected:
 
     bool _alBufferReady;
     bool _loadFail;
-    std::mutex _callbackMutex; 
+    boost::mutex _callbackMutex; 
     std::vector< std::function<void()> > _callbacks;
     std::vector< std::function<void(bool)> > _loadCallbacks;
 
-    std::mutex _readDataTaskMutex;    
+    boost::mutex _readDataTaskMutex;    
 
     int _mp3Encoding;
     

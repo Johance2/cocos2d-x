@@ -225,7 +225,7 @@ private:
     void onConnectionClosed();
 
 private:
-    std::mutex   _readStateMutex;
+    boost::mutex   _readStateMutex;
     State        _readyState;
     std::string  _host;
     unsigned int _port;

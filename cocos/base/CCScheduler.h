@@ -531,7 +531,7 @@ protected:
     
     // Used for "perform Function"
     std::vector<std::function<void()>> _functionsToPerform;
-    std::mutex _performMutex;
+    boost::mutex _performMutex;
 };
 
 // end of base group

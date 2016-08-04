@@ -161,7 +161,7 @@ void TextureCache::addImageAsync(const std::string &path, const std::function<vo
     if (_loadingThread == nullptr)
     {
         // create a new thread to load images
-        _loadingThread = new (std::nothrow) std::thread(&TextureCache::loadImage, this);
+        _loadingThread = new (std::nothrow) boost::thread(&TextureCache::loadImage, this);
         _needQuit = false;
     }
 
@@ -216,8 +216,8 @@ void TextureCache::unbindAllImageAsync()
 void TextureCache::loadImage()
 {
     AsyncStruct *asyncStruct = nullptr;
-    std::mutex signalMutex;
-    std::unique_lock<std::mutex> signal(signalMutex);
+    boost::mutex signalMutex;
+    std::unique_lock<boost::mutex> signal(signalMutex);
     while (!_needQuit)
     {
         // pop an AsyncStruct from request queue

@@ -146,9 +146,9 @@ public:
 
     HttpCookie* getCookie() const {return _cookie; }
 
-    std::mutex& getCookieFileMutex() {return _cookieFileMutex;}
+    boost::mutex& getCookieFileMutex() {return _cookieFileMutex;}
 
-    std::mutex& getSSLCaFileMutex() {return _sslCaFileMutex;}
+    boost::mutex& getSSLCaFileMutex() {return _sslCaFileMutex;}
 private:
     HttpClient();
     virtual ~HttpClient();
@@ -172,28 +172,28 @@ private:
     bool _isInited;
 
     int _timeoutForConnect;
-    std::mutex _timeoutForConnectMutex;
+    boost::mutex _timeoutForConnectMutex;
 
     int _timeoutForRead;
-    std::mutex _timeoutForReadMutex;
+    boost::mutex _timeoutForReadMutex;
 
     int  _threadCount;
-    std::mutex _threadCountMutex;
+    boost::mutex _threadCountMutex;
 
     Scheduler* _scheduler;
-    std::mutex _schedulerMutex;
+    boost::mutex _schedulerMutex;
 
     Vector<HttpRequest*>  _requestQueue;
-    std::mutex _requestQueueMutex;
+    boost::mutex _requestQueueMutex;
 
     Vector<HttpResponse*> _responseQueue;
-    std::mutex _responseQueueMutex;
+    boost::mutex _responseQueueMutex;
 
     std::string _cookieFilename;
-    std::mutex _cookieFileMutex;
+    boost::mutex _cookieFileMutex;
 
     std::string _sslCaFilename;
-    std::mutex _sslCaFileMutex;
+    boost::mutex _sslCaFileMutex;
 
     HttpCookie* _cookie;
 

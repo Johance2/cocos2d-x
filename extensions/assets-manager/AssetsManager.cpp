@@ -206,7 +206,7 @@ bool AssetsManager::checkUpdate()
 
 void AssetsManager::downloadAndUncompress()
 {
-    std::thread([this]()
+    boost::thread([this]()
     {
         do
         {

@@ -224,14 +224,14 @@ public:
 protected:
     struct AsyncStruct;
     
-    std::thread* _loadingThread;
+    boost::thread* _loadingThread;
 
     std::deque<AsyncStruct*> _asyncStructQueue;
     std::deque<AsyncStruct*> _requestQueue;
     std::deque<AsyncStruct*> _responseQueue;
 
-    std::mutex _requestMutex;
-    std::mutex _responseMutex;
+    boost::mutex _requestMutex;
+    boost::mutex _responseMutex;
     
     std::condition_variable _sleepCondition;
 

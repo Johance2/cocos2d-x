@@ -181,7 +181,7 @@ void DataReaderHelper::loadData()
             }
             else
             {
-				std::unique_lock<std::mutex> lk(_sleepMutex);
+				std::unique_lock<boost::mutex> lk(_sleepMutex);
 				_sleepCondition.wait(lk);
                 continue;
             }
@@ -380,7 +380,7 @@ void DataReaderHelper::addDataFromFileAsync(const std::string& imagePath, const 
         _dataQueue = new (std::nothrow) std::queue<DataInfo *>();
 
 		// create a new thread to load images
-		_loadingThread = new std::thread(&DataReaderHelper::loadData, this);
+		_loadingThread = new boost::thread(&DataReaderHelper::loadData, this);
 
         need_quit = false;
     }

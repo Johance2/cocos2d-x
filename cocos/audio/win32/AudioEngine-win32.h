@@ -77,7 +77,7 @@ private:
     //audioID,AudioInfo
     std::unordered_map<int, AudioPlayer>  _audioPlayers;
     
-    std::mutex _threadMutex;
+    boost::mutex _threadMutex;
     
     std::vector<AudioCache*> _toRemoveCaches;
     std::vector<int> _toRemoveAudioIDs;

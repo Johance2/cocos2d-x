@@ -127,7 +127,7 @@ public:
      * @js NA
      * @lua NA
      */
-    inline const std::chrono::high_resolution_clock::time_point& getStartTime(void) { return _startTime; };
+    inline const boost::chrono::high_resolution_clock::time_point& getStartTime(void) { return _startTime; };
 
     /** resets the timer properties
      * @js NA
@@ -136,7 +136,7 @@ public:
     void reset();
 
     std::string _nameStr;
-    std::chrono::high_resolution_clock::time_point _startTime;
+    boost::chrono::high_resolution_clock::time_point _startTime;
     long _averageTime1;
     long _averageTime2;
     long minTime;

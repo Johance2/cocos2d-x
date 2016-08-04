@@ -507,7 +507,7 @@ bool Console::listenOnFileDescriptor(int fd)
     }
 
     _listenfd = fd;
-    _thread = std::thread( std::bind( &Console::loop, this) );
+    _thread = boost::thread( std::bind( &Console::loop, this) );
 
     return true;
 }

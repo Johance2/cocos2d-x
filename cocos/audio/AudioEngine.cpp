@@ -76,7 +76,7 @@ public:
     {
         for (int index = 0; index < threads; ++index)
         {
-            _workers.emplace_back(std::thread(std::bind(&AudioEngineThreadPool::threadFunc, this)));
+            _workers.emplace_back(boost::thread(std::bind(&AudioEngineThreadPool::threadFunc, this)));
             if (_detach)
             {
                 _workers[index].detach();
@@ -85,7 +85,7 @@ public:
     }
 
     void addTask(const std::function<void()> &task){
-        std::unique_lock<std::mutex> lk(_queueMutex);
+        std::unique_lock<boost::mutex> lk(_queueMutex);
         _taskQueue.emplace(task);
         _taskCondition.notify_one();
     }
@@ -93,7 +93,7 @@ public:
     ~AudioEngineThreadPool()
     {
         {
-            std::unique_lock<std::mutex> lk(_queueMutex);
+            std::unique_lock<boost::mutex> lk(_queueMutex);
             _stop = true;
             _taskCondition.notify_all();
         }
@@ -112,7 +112,7 @@ private:
         while (true) {
             std::function<void()> task = nullptr;
             {
-                std::unique_lock<std::mutex> lk(_queueMutex);
+                std::unique_lock<boost::mutex> lk(_queueMutex);
                 if (_stop)
                 {
                     break;
@@ -133,10 +133,10 @@ private:
         }
     }
 
-    std::vector<std::thread>  _workers;
+    std::vector<boost::thread>  _workers;
     std::queue< std::function<void()> > _taskQueue;
 
-    std::mutex _queueMutex;
+    boost::mutex _queueMutex;
     std::condition_variable _taskCondition;
     bool _detach;
     bool _stop;

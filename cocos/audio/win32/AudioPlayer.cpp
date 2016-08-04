@@ -69,7 +69,7 @@ AudioPlayer::~AudioPlayer()
 void AudioPlayer::notifyExitThread()
 {
     if (_audioCache && _audioCache->_queBufferFrames > 0) {
-        std::unique_lock<std::mutex> lk(_sleepMutex);
+        std::unique_lock<boost::mutex> lk(_sleepMutex);
         _exitThread = true;
         _sleepCondition.notify_all();
     }
@@ -116,7 +116,7 @@ bool AudioPlayer::play2d(AudioCache* cache)
 
     if (_streamingSource)
     {
-        _rotateBufferThread = std::thread(&AudioPlayer::rotateBufferThread, this, _audioCache->_queBufferFrames * QUEUEBUFFER_NUM + 1);
+        _rotateBufferThread = boost::thread(&AudioPlayer::rotateBufferThread, this, _audioCache->_queBufferFrames * QUEUEBUFFER_NUM + 1);
         _rotateBufferThread.detach();
     }
     else
@@ -267,13 +267,13 @@ void AudioPlayer::rotateBufferThread(int offsetFrame)
             }
         }
 
-        std::unique_lock<std::mutex> lk(_sleepMutex);
+        std::unique_lock<boost::mutex> lk(_sleepMutex);
         if (_exitThread)
         {
             break;
         }
         
-        _sleepCondition.wait_for(lk,std::chrono::milliseconds(35));
+        _sleepCondition.wait_for(lk,boost::chrono::milliseconds(35));
     }
 ExitBufferThread:
     switch (audioFileFormat)
