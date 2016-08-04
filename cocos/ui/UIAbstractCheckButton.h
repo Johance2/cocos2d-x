@@ -121,7 +121,7 @@ public:
     virtual Node* getVirtualRenderer() override;
     
     /** When user pressed the CheckBox, the button will zoom to a scale.
-     * The final scale of the CheckBox  equals (CheckBox original scale + _zoomScale)
+     * Thescale of the CheckBox  equals (CheckBox original scale + _zoomScale)
      * @since v3.3
      */
     void setZoomScale(float scale);

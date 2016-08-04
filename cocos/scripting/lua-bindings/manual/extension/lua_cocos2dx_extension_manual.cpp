@@ -1105,8 +1105,9 @@ int lua_cocos2dx_extension_ParticlePool_getActiveDataList(lua_State* tolua_S)
             return 1;
         
         int index = 1;
-        for (const auto& obj : ret)
+        for(auto itr = ret.begin(); itr != ret.end(); ++itr)
         {
+        	auto &obj=*itr;
             if (nullptr == obj)
                 continue;
             

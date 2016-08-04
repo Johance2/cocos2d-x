@@ -303,7 +303,7 @@ public:
      */
     const std::string& getViewName() const;
 
-    /** Touch events are handled by default; if you want to customize your handlers, please override this function.
+    /** Touch events are handled by default; if you want to customize your handlers, pleasethis function.
      *
      * @param num The number of touch.
      * @param ids The identity of the touch.
@@ -312,7 +312,7 @@ public:
      */
     virtual void handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[]);
     
-    /** Touch events are handled by default; if you want to customize your handlers, please override this function.
+    /** Touch events are handled by default; if you want to customize your handlers, pleasethis function.
      *
      * @param num The number of touch.
      * @param ids The identity of the touch.
@@ -321,7 +321,7 @@ public:
      */
     virtual void handleTouchesMove(int num, intptr_t ids[], float xs[], float ys[]);
 
-    /** Touch events are handled by default; if you want to customize your handlers, please override this function.
+    /** Touch events are handled by default; if you want to customize your handlers, pleasethis function.
      *
      * @param num The number of touch.
      * @param ids The identity of the touch.
@@ -332,7 +332,7 @@ public:
      */
     virtual void handleTouchesMove(int num, intptr_t ids[], float xs[], float ys[], float fs[], float ms[]);
     
-    /** Touch events are handled by default; if you want to customize your handlers, please override this function.
+    /** Touch events are handled by default; if you want to customize your handlers, pleasethis function.
      *
      * @param num The number of touch.
      * @param ids The identity of the touch.
@@ -341,7 +341,7 @@ public:
      */
     virtual void handleTouchesEnd(int num, intptr_t ids[], float xs[], float ys[]);
     
-    /** Touch events are handled by default; if you want to customize your handlers, please override this function.
+    /** Touch events are handled by default; if you want to customize your handlers, pleasethis function.
      *
      * @param num The number of touch.
      * @param ids The identity of the touch.

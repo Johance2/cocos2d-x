@@ -79,8 +79,9 @@ bool ActionObject::getLoop()
 void ActionObject::setUnitTime(float fTime)
 {
     _fUnitTime = fTime;
-    for(const auto &e : _actionNodeList)
+    for(auto itr0 = _actionNodeList.begin(); itr0 != _actionNodeList.end(); ++itr0)
     {
+    	auto &e=*itr0;
         e->setUnitTime(_fUnitTime);
     }
 }
@@ -216,8 +217,9 @@ void ActionObject::play()
 {
     stop();
     this->updateToFrameByTime(0.0f);
-    for(const auto &e : _actionNodeList)
+    for(auto itr0 = _actionNodeList.begin(); itr0 != _actionNodeList.end(); ++itr0)
     {
+    	auto &e=*itr0;
         e->playAction();
     }
     if (_loop)
@@ -244,8 +246,9 @@ void ActionObject::pause()
 
 void ActionObject::stop()
 {
-    for(const auto &e : _actionNodeList)
-	{
+    for(auto itr0 = _actionNodeList.begin(); itr0 != _actionNodeList.end(); ++itr0)
+    {
+    	auto &e=*itr0;
 		e->stopAction();
 	}
 	_bPlaying = false;
@@ -256,8 +259,9 @@ void ActionObject::stop()
 void ActionObject::updateToFrameByTime(float fTime)
 {
 	_currentTime = fTime;
-    for(const auto &e : _actionNodeList)
-	{
+    for(auto itr0 = _actionNodeList.begin(); itr0 != _actionNodeList.end(); ++itr0)
+    {
+    	auto &e=*itr0;
 		e->updateActionToTimeLine(fTime);
 	}
 }
@@ -266,8 +270,9 @@ void ActionObject::simulationActionUpdate(float dt)
 {
 	bool isEnd = true;
     
-    for(const auto &e : _actionNodeList)
-	{
+    for(auto itr0 = _actionNodeList.begin(); itr0 != _actionNodeList.end(); ++itr0)
+    {
+    	auto &e=*itr0;
 		if (!e->isActionDoneOnce())
 		{
 			isEnd = false;

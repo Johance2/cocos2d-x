@@ -411,7 +411,7 @@ public:
      */
     static __Dictionary* createWithContentsOfFileThreadSafe(const char *pFileName);
 
-    /* override functions 
+    /*functions 
      *  @js NA
      *  @lua NA
      */

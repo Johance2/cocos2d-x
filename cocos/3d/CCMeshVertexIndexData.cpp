@@ -89,7 +89,9 @@ MeshVertexData* MeshVertexData::create(const MeshData& meshdata)
     CC_SAFE_RETAIN(vertexdata->_vertexBuffer);
     
     int offset = 0;
-    for (const auto& it : meshdata.attribs) {
+    for(auto itr0 = meshdata.attribs.begin(); itr0 != meshdata.attribs.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         vertexdata->_vertexData->setStream(vertexdata->_vertexBuffer, VertexStreamAttribute(offset, it.vertexAttrib, it.type, it.size));
         offset += it.attribSizeBytes;
     }
@@ -126,7 +128,9 @@ MeshVertexData* MeshVertexData::create(const MeshData& meshdata)
 
 MeshIndexData* MeshVertexData::getMeshIndexDataById(const std::string& id) const
 {
-    for (auto it : _indexs) {
+    for(auto itr0 = _indexs.begin(); itr0 != _indexs.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it->getId() == id)
             return it;
     }
@@ -135,7 +139,9 @@ MeshIndexData* MeshVertexData::getMeshIndexDataById(const std::string& id) const
 
 bool MeshVertexData::hasVertexAttrib(int attrib) const
 {
-    for (const auto& it : _attribs) {
+    for(auto itr0 = _attribs.begin(); itr0 != _attribs.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it.vertexAttrib == attrib)
             return true;
     }

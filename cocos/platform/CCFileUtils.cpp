@@ -498,8 +498,9 @@ static tinyxml2::XMLElement* generateElementForDict(const ValueMap& dict, tinyxm
 {
     tinyxml2::XMLElement* rootNode = doc->NewElement("dict");
 
-    for (const auto &iter : dict)
+    for(auto itr0 = dict.begin(); itr0 != dict.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         tinyxml2::XMLElement* tmpNode = doc->NewElement("key");
         rootNode->LinkEndChild(tmpNode);
         tinyxml2::XMLText* content = doc->NewText(iter.first.c_str());
@@ -519,7 +520,9 @@ static tinyxml2::XMLElement* generateElementForArray(const ValueVector& array, t
 {
     tinyxml2::XMLElement* rootNode = pDoc->NewElement("array");
 
-    for(const auto &value : array) {
+    for(auto itr0 = array.begin(); itr0 != array.end(); ++itr0)
+    {
+    	auto &value=*itr0;
         tinyxml2::XMLElement *element = generateElementForObject(value, pDoc);
         if (element)
             rootNode->LinkEndChild(element);
@@ -529,7 +532,7 @@ static tinyxml2::XMLElement* generateElementForArray(const ValueVector& array, t
 
 #else
 
-/* The subclass FileUtilsApple should override these two method. */
+/* The subclass FileUtilsApple shouldthese two method. */
 ValueMap FileUtils::getValueMapFromFile(const std::string& filename) {return ValueMap();}
 ValueMap FileUtils::getValueMapFromData(const char* filedata, int filesize) {return ValueMap();}
 ValueVector FileUtils::getValueVectorFromFile(const std::string& filename) {return ValueVector();}
@@ -786,10 +789,12 @@ std::string FileUtils::fullPathForFilename(const std::string &filename) const
 
     std::string fullpath;
 
-    for (const auto& searchIt : _searchPathArray)
+    for(auto itr0 = _searchPathArray.begin(); itr0 != _searchPathArray.end(); ++itr0)
     {
-        for (const auto& resolutionIt : _searchResolutionsOrderArray)
+    	auto &searchIt=*itr0;
+        for(auto itr = _searchResolutionsOrderArray.begin(); itr != _searchResolutionsOrderArray.end(); ++itr)
         {
+        	auto &resolutionIt=*itr;
             fullpath = this->getPathForFilename(newFilename, resolutionIt, searchIt);
 
             if (!fullpath.empty())
@@ -820,8 +825,9 @@ void FileUtils::setSearchResolutionsOrder(const std::vector<std::string>& search
     bool existDefault = false;
     _fullPathCache.clear();
     _searchResolutionsOrderArray.clear();
-    for(const auto& iter : searchResolutionsOrder)
+    for(auto itr0 = searchResolutionsOrder.begin(); itr0 != searchResolutionsOrder.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         std::string resolutionDirectory = iter;
         if (!existDefault && resolutionDirectory == "")
         {
@@ -881,8 +887,9 @@ void FileUtils::setSearchPaths(const std::vector<std::string>& searchPaths)
 
     _fullPathCache.clear();
     _searchPathArray.clear();
-    for (const auto& iter : searchPaths)
+    for(auto itr0 = searchPaths.begin(); itr0 != searchPaths.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         std::string prefix;
         std::string path;
 
@@ -1007,10 +1014,12 @@ bool FileUtils::isDirectoryExist(const std::string& dirPath) const
     }
 
     std::string fullpath;
-    for (const auto& searchIt : _searchPathArray)
+    for(auto itr0 = _searchPathArray.begin(); itr0 != _searchPathArray.end(); ++itr0)
     {
-        for (const auto& resolutionIt : _searchResolutionsOrderArray)
+    	auto &searchIt=*itr0;
+        for(auto itr = _searchResolutionsOrderArray.begin(); itr != _searchResolutionsOrderArray.end(); ++itr)
         {
+        	auto &resolutionIt=*itr;
             // searchPath + file_path + resourceDirectory
             fullpath = fullPathForFilename(searchIt + dirPath + resolutionIt);
             if (isDirectoryExistInternal(fullpath))
@@ -1024,7 +1033,7 @@ bool FileUtils::isDirectoryExist(const std::string& dirPath) const
 }
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-// windows os implement should override in platform specific FileUtiles class
+// windows os implement shouldin platform specific FileUtiles class
 bool FileUtils::isDirectoryExistInternal(const std::string& dirPath) const
 {
     CCASSERT(false, "FileUtils not support isDirectoryExistInternal");
@@ -1063,13 +1072,13 @@ bool FileUtils::renameFile(const std::string &path, const std::string &oldname, 
 
 std::string FileUtils::getSuitableFOpen(const std::string& filenameUtf8) const
 {
-    CCASSERT(false, "getSuitableFOpen should be override by platform FileUtils");
+    CCASSERT(false, "getSuitableFOpen should beby platform FileUtils");
     return filenameUtf8;
 }
 
 long FileUtils::getFileSize(const std::string &filepath)
 {
-    CCASSERT(false, "getFileSize should be override by platform FileUtils");
+    CCASSERT(false, "getFileSize should beby platform FileUtils");
     return 0;
 }
 

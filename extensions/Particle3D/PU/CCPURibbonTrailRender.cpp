@@ -72,7 +72,9 @@ void PURibbonTrailRender::render( Renderer* renderer, const Mat4 &transform, Par
 
     const PUParticleSystem3D::ParticlePoolMap &emitterPool = static_cast<PUParticleSystem3D *>(particleSystem)->getEmittedEmitterParticlePool();
     if (!emitterPool.empty()){
-        for (auto iter : emitterPool){
+        for(auto itr = emitterPool.begin(); itr != emitterPool.end(); ++itr)
+        {
+        	auto &iter=*itr;
             updateParticles(iter.second);
             needDraw = true;
         }
@@ -80,7 +82,9 @@ void PURibbonTrailRender::render( Renderer* renderer, const Mat4 &transform, Par
 
     const PUParticleSystem3D::ParticlePoolMap &systemPool = static_cast<PUParticleSystem3D *>(particleSystem)->getEmittedSystemParticlePool();
     if (!systemPool.empty()){
-        for (auto iter : systemPool){
+        for(auto itr = systemPool.begin(); itr != systemPool.end(); ++itr)
+        {
+        	auto &iter=*itr;
             updateParticles(iter.second);
             needDraw = true;
         }
@@ -385,8 +389,9 @@ void PURibbonTrailRender::updateParticles( const ParticlePool &pool )
 {
     PURibbonTrailVisualData* visualData = nullptr;
     Vec3 basePosition = static_cast<PUParticleSystem3D *>(_particleSystem)->getDerivedPosition();
-    for (auto iter : pool.getActiveDataList())
+    for(auto itr0 = pool.getActiveDataList().begin(); itr0 != pool.getActiveDataList().end(); ++itr0)
     {
+    	auto &iter=*itr0;
         auto particle = static_cast<PUParticle3D *>(iter);
         if (!particle->visualData && !_visualData.empty())
         {

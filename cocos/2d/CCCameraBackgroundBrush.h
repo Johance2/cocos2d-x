@@ -133,7 +133,7 @@ public:
      * Get brush type. Should be BrushType::DEPTH
      * @return brush type
      */
-    virtual BrushType getBrushType() const override { return BrushType::DEPTH; }
+    virtual BrushType getBrushType() const{ return BrushType::DEPTH; }
     
     /**
      * Draw background
@@ -170,7 +170,7 @@ public:
      * Get brush type. Should be BrushType::COLOR
      * @return brush type
      */
-    virtual BrushType getBrushType() const override { return BrushType::COLOR; }
+    virtual BrushType getBrushType() const{ return BrushType::COLOR; }
     
     /**
      * Create a color brush
@@ -210,7 +210,7 @@ public:
      * Get brush type. Should be BrushType::SKYBOX
      * @return brush type
      */
-    virtual BrushType getBrushType() const override { return BrushType::SKYBOX; }
+    virtual BrushType getBrushType() const{ return BrushType::SKYBOX; }
     
     /** Creates a Skybox brush with 6 textures.
      @param positive_x texture for the right side of the texture cube face.

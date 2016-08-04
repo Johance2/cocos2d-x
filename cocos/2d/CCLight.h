@@ -117,7 +117,7 @@ public:
     static DirectionLight* create(const Vec3 &direction, const Color3B &color);
     
     //get light type
-    virtual LightType getLightType() const override { return LightType::DIRECTIONAL; }
+    virtual LightType getLightType() const{ return LightType::DIRECTIONAL; }
     
     /**
      * Sets the Direction in parent.
@@ -159,7 +159,7 @@ public:
     static PointLight* create(const Vec3 &position, const Color3B &color, float range);
     
     //get light type
-    virtual LightType getLightType() const override { return LightType::POINT; }
+    virtual LightType getLightType() const{ return LightType::POINT; }
     
     /** get or set range */
     float getRange() const { return _range; }
@@ -193,7 +193,7 @@ public:
     static SpotLight* create(const Vec3 &direction, const Vec3 &position, const Color3B &color, float innerAngle, float outerAngle, float range);
     
     //get light type
-    virtual LightType getLightType() const override { return LightType::SPOT; }
+    virtual LightType getLightType() const{ return LightType::SPOT; }
     
     /**
      * Sets the Direction in parent.
@@ -282,7 +282,7 @@ public:
     static AmbientLight* create(const Color3B &color);
     
     //get light type
-    virtual LightType getLightType() const override { return LightType::AMBIENT; }
+    virtual LightType getLightType() const{ return LightType::AMBIENT; }
     
 CC_CONSTRUCTOR_ACCESS:
     AmbientLight();

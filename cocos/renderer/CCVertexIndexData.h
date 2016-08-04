@@ -124,7 +124,7 @@ public:
     size_t getVertexStreamCount() const;
     /**
     Set a stream to VertexData,given that stream is identified by semantic, so if the semantic is not
-    specified before, it will add a stream, or it will override the old one.
+    specified before, it will add a stream, or it willthe old one.
     @param buffer The binding buffer of the stream.
     @param stream The binding vertex attribute, its member semantic will be used as the identifier.
     */

@@ -174,8 +174,9 @@ void Sprite1::addNewSpriteWithCoords(Vec2 p)
 
 void Sprite1::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
     
         addNewSpriteWithCoords( location );
@@ -247,8 +248,9 @@ void Sprite1ETC1Alpha::addNewSpriteWithCoords(Vec2 p)
 
 void Sprite1ETC1Alpha::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
 
         addNewSpriteWithCoords(location);
@@ -320,8 +322,9 @@ void SpriteBatchNode1::addNewSpriteWithCoords(Vec2 p)
 
 void SpriteBatchNode1::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto &touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
             
         addNewSpriteWithCoords( location );
@@ -683,7 +686,9 @@ SpriteBatchNodeReorder::SpriteBatchNodeReorder()
     
     auto& children = asmtest->getChildren();
 
-    for(const auto &obj : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &obj=*itr0;
         auto child = static_cast<Sprite*>(obj);
 
         ssize_t currentIndex = child->getAtlasIndex();
@@ -694,7 +699,9 @@ SpriteBatchNodeReorder::SpriteBatchNodeReorder()
     
     prev = -1;
     auto& descendants = asmtest->getDescendants();
-    for(const auto &sprite : descendants) {
+    for(auto itr0 = descendants.begin(); itr0 != descendants.end(); ++itr0)
+    {
+    	auto &sprite=*itr0;
         ssize_t currentIndex = sprite->getAtlasIndex();
         CCASSERT( prev == currentIndex-1, "Child order failed");
         ////----CCLOG("descendant %x - atlasIndex:%d", child, currentIndex);
@@ -1598,7 +1605,9 @@ void SpriteNewTexture::onTouchesEnded(const std::vector<Touch*>& touches, Event*
 
     if( _usingTexture1 )                          //--> win32 : Let's it make just simple sentence
     {
-        for(const auto &obj : children) {
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
+        {
+        	auto &obj=*itr;
             sprite = static_cast<Sprite*>( obj );
             sprite->setTexture(_texture2);
         }
@@ -1607,7 +1616,9 @@ void SpriteNewTexture::onTouchesEnded(const std::vector<Touch*>& touches, Event*
     } 
     else 
     {
-        for(const auto &obj : children) {
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
+        {
+        	auto &obj=*itr;
             sprite = static_cast<Sprite*>( obj );
             sprite->setTexture(_texture1);
         }
@@ -2465,14 +2476,18 @@ void SpriteHybrid::reparentSprite(float dt)
     ////----CCLOG("New parent is: %x", p2);
     
     auto& p1Children = p1->getChildren();
-    for(const auto &node : p1Children) {
+    for(auto itr0 = p1Children.begin(); itr0 != p1Children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         retArray.pushBack(node);
     }
 
     int i=0;
     p1->removeAllChildrenWithCleanup(false);
 
-    for(const auto &node : retArray) {
+    for(auto itr0 = retArray.begin(); itr0 != retArray.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         p2->addChild(node, i, i);
         i++;
     }
@@ -4432,7 +4447,9 @@ void NodeSort::reorderSprite(float dt)
     
     auto& children = _node->getChildren();
     
-    for(const auto &child : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         log("tag %i z %i",(int)child->getTag(),(int)child->getLocalZOrder());
     }
     //z-4
@@ -4441,7 +4458,9 @@ void NodeSort::reorderSprite(float dt)
     _node->sortAllChildren();
     
     log("After reorder--");
-    for(const auto &child : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         log("tag %i z %i",(int)child->getTag(),(int)child->getLocalZOrder());
     }
 }
@@ -4494,7 +4513,9 @@ void SpriteBatchNodeReorderSameIndex::reorderSprite(float dt)
 
     _batchNode->sortAllChildren();
 
-    for(const auto &sprite : _batchNode->getDescendants()) {
+    for(auto itr0 = _batchNode->getDescendants().begin(); itr0 != _batchNode->getDescendants().end(); ++itr0)
+    {
+    	auto &sprite=*itr0;
         log("tag %i", sprite->getTag() );
     }
 }

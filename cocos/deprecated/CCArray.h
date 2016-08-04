@@ -494,7 +494,7 @@ public:
      */
     void reduceMemoryFootprint();
   
-    /* override functions 
+    /*functions 
      * @js NA
      */
     virtual void acceptVisitor(DataVisitor &visitor);

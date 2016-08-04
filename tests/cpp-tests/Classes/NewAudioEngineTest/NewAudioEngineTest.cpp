@@ -699,8 +699,9 @@ bool AudioPerformanceTest::init()
             "audio/SoundEffectsFX009/FX090.mp3"
         };
         
-        for (const auto& audioFile : audioFiles)
+        for(auto itr = audioFiles.begin(); itr != audioFiles.end(); ++itr)
         {
+        	auto &audioFile=*itr;
             AudioEngine::preload(audioFile);
         }
         

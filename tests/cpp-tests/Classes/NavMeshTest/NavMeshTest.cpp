@@ -71,7 +71,9 @@ NavMeshBaseTestDemo::NavMeshBaseTestDemo(void)
 
 NavMeshBaseTestDemo::~NavMeshBaseTestDemo(void)
 {
-    for (auto iter : _agents){
+    for(auto itr0 = _agents.begin(); itr0 != _agents.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         AgentUserData *data = static_cast<AgentUserData *>(iter.first->getUserData());
         delete data;
     }
@@ -224,7 +226,9 @@ Vec3 jump(const Vec3* pV1, const Vec3* pV2, float height, float t)
 
 void NavMeshBaseTestDemo::moveAgents(const cocos2d::Vec3 &des)
 {
-    for (auto iter : _agents){
+    for(auto itr0 = _agents.begin(); itr0 != _agents.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         NavMeshAgent::MoveCallback callback = [](NavMeshAgent *agent, float totalTimeAfterMove){
             AgentUserData *data = static_cast<AgentUserData *>(agent->getUserData());
             if (agent->isOnOffMeshLink()){
@@ -256,7 +260,9 @@ void NavMeshBaseTestDemo::moveAgents(const cocos2d::Vec3 &des)
 
 void NavMeshBaseTestDemo::update(float delta)
 {
-    for (auto iter : _agents){
+    for(auto itr0 = _agents.begin(); itr0 != _agents.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         float speed = iter.first->getCurrentVelocity().length() * 0.2;
         iter.second->setSpeed(0.0f < speed ? speed : 0.0f);
     }

@@ -422,7 +422,9 @@ void PURibbonTrail::update( float deltaTime )
         lastUpdateTime += deltaTime;
     }
 
-    for (auto iter : _nodeToSegMap){
+    for(auto itr0 = _nodeToSegMap.begin(); itr0 != _nodeToSegMap.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         updateTrail(iter.second, iter.first);
     }
 }

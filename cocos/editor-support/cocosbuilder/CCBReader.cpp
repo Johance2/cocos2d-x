@@ -291,7 +291,9 @@ void CCBReader::cleanUpNodeGraph(Node *node)
     node->setUserObject(nullptr);
     
     auto& children = node->getChildren();
-    for(const auto &obj : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &obj=*itr0;
         cleanUpNodeGraph(obj);
     }
 }

@@ -130,7 +130,9 @@ public:
 
     void removeAllDatas(){
         lockAllDatas();
-        for (auto iter : _locked){
+        for(auto itr = _locked.begin(); itr != _locked.end(); ++itr)
+        {
+        	auto &iter=*itr;
             delete iter;
         }
         _locked.clear();
@@ -157,22 +159,22 @@ public:
     };
     
     /**
-     * override function
+     *function
      */
     virtual void update(float delta) override;
     
     /**
-     * override function
+     *function
      */
     virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
     
     /**
-     * override function
+     *function
      */
     virtual void setBlendFunc(const BlendFunc &blendFunc) override;
     
     /**
-     * override function
+     *function
      */
     virtual const BlendFunc &getBlendFunc() const override;
     

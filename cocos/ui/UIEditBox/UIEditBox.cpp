@@ -353,7 +353,7 @@ void EditBox::setReturnType(EditBox::KeyboardReturnType returnType)
     }
 }
 
-/* override function */
+/*function */
 void EditBox::setPosition(const Vec2& pos)
 {
     Widget::setPosition(pos);

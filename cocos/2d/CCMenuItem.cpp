@@ -794,8 +794,9 @@ MenuItemToggle * MenuItemToggle::createWithTarget(Ref* target, SEL_MenuHandler s
     auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
     if (sEngine)
     {
-        for (const auto &item : menuItems)
+        for(auto itr = menuItems.begin(); itr != menuItems.end(); ++itr)
         {
+        	auto &item=*itr;
             if (item)
             {
                 sEngine->retainScriptObject(ret, item);
@@ -818,8 +819,9 @@ MenuItemToggle * MenuItemToggle::createWithCallback(const ccMenuCallback &callba
     auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
     if (sEngine)
     {
-        for (const auto &item : menuItems)
+        for(auto itr = menuItems.begin(); itr != menuItems.end(); ++itr)
         {
+        	auto &item=*itr;
             if (item)
             {
                 sEngine->retainScriptObject(ret, item);
@@ -950,7 +952,9 @@ void MenuItemToggle::addSubItem(MenuItem *item)
 
 void MenuItemToggle::cleanup()
 {
-    for(const auto &item : _subItems) {
+    for(auto itr0 = _subItems.begin(); itr0 != _subItems.end(); ++itr0)
+    {
+    	auto &item=*itr0;
 #if defined(CC_NATIVE_CONTROL_SCRIPT) && !CC_NATIVE_CONTROL_SCRIPT
         ScriptEngineManager::getInstance()->getScriptEngine()->releaseScriptObject(this, item);
 #endif
@@ -1005,7 +1009,9 @@ void MenuItemToggle::setEnabled(bool enabled)
     {
         MenuItem::setEnabled(enabled);
 
-        for(const auto &item : _subItems) {
+        for(auto itr = _subItems.begin(); itr != _subItems.end(); ++itr)
+        {
+        	auto &item=*itr;
             item->setEnabled(enabled);
         }
     }

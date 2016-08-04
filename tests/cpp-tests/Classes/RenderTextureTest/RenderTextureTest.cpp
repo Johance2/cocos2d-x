@@ -278,8 +278,9 @@ std::string RenderTextureZbuffer::subtitle() const
 void RenderTextureZbuffer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
 {
 
-    for (auto &item: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = static_cast<Touch*>(item);
         auto location = touch->getLocation();
 
@@ -297,8 +298,9 @@ void RenderTextureZbuffer::onTouchesBegan(const std::vector<Touch*>& touches, Ev
 
 void RenderTextureZbuffer::onTouchesMoved(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto &item: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = static_cast<Touch*>(item);
         auto location = touch->getLocation();
 
@@ -683,8 +685,9 @@ SpriteRenderTextureBug::SimpleSprite* SpriteRenderTextureBug::addNewSpriteWithCo
 
 void SpriteRenderTextureBug::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto &touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         addNewSpriteWithCoords(location);
     }

@@ -192,11 +192,11 @@ public:
     /** Returns a reverse of ActionTimeline. 
      *  Not implement yet.
      */
-    virtual ActionTimeline* reverse() const override { return nullptr; }
+    virtual ActionTimeline* reverse() const{ return nullptr; }
 
     virtual void step(float delta) override; 
     virtual void startWithTarget(cocos2d::Node *target) override;  
-    virtual bool isDone() const override { return false; }
+    virtual bool isDone() const{ return false; }
     
     /// @{
     /// @name implement Playable Protocol

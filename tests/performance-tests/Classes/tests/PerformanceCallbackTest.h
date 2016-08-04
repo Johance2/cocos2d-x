@@ -35,7 +35,7 @@ public:
     virtual std::string subtitle() const override;
     virtual void onUpdate(float dt) override;
     
-    virtual void update(float dt) override { _placeHolder = 100; };
+    virtual void update(float dt){ _placeHolder = 100; };
     
     void simulateSchedulePerFrame(const std::function<void(float)>& callback)
     {
@@ -66,7 +66,7 @@ public:
     virtual std::string subtitle() const override;
     virtual void onUpdate(float dt) override;
     
-    virtual void update(float dt) override { _placeHolder = 200; };
+    virtual void update(float dt){ _placeHolder = 200; };
     
 private:
     cocos2d::Node* _target;
@@ -85,7 +85,7 @@ public:
     virtual std::string subtitle() const override;
     virtual void onUpdate(float dt) override;
     
-    virtual void update(float dt) override { _placeHolder = 100; };
+    virtual void update(float dt){ _placeHolder = 100; };
 private:
     std::function<void(float)> _callback;
 };

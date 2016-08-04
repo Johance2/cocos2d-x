@@ -2995,8 +2995,9 @@ void ccvaluevector_to_luaval(lua_State* L, const cocos2d::ValueVector& inValue)
         return;
 
     int index  = 1;
-    for (const auto& obj : inValue)
+    for(auto itr0 = inValue.begin(); itr0 != inValue.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         switch (obj.getType())
         {
             case Value::Type::BOOLEAN:

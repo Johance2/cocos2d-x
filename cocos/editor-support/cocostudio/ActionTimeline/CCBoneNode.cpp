@@ -89,8 +89,9 @@ void BoneNode::addSkin(SkinNode* skin, bool isDisplay, bool hideOthers)
     CCASSERT(skin != nullptr, "Argument must be non-nil");
     if (hideOthers)
     {
-        for (auto &bonskin : _boneSkins)
+        for(auto itr = _boneSkins.begin(); itr != _boneSkins.end(); ++itr)
         {
+        	auto &bonskin=*itr;
             bonskin->setVisible(false);
         }
     }
@@ -122,8 +123,9 @@ void BoneNode::removeFromBoneList(BoneNode* bone)
         {
             auto subBones = bone->getAllSubBones();
             subBones.pushBack(bone);
-            for (auto &subBone : subBones)
+            for(auto itr2 = subBones.begin(); itr2 != subBones.end(); ++itr2)
             {
+            	auto &subBone=*itr2;
                 if (subBone->_rootSkeleton == nullptr)
                     continue;
                 subBone->_rootSkeleton = nullptr;
@@ -156,8 +158,9 @@ void BoneNode::addToBoneList(BoneNode* bone)
         {
             auto subBones = bone->getAllSubBones();
             subBones.pushBack(bone);
-            for (auto &subBone : subBones)
+            for(auto itr2 = subBones.begin(); itr2 != subBones.end(); ++itr2)
             {
+            	auto &subBone=*itr2;
                 subBone->_rootSkeleton = _rootSkeleton;
                 auto bonename = subBone->getName();
                 if (_rootSkeleton->_subBonesMap.find(bonename) == _rootSkeleton->_subBonesMap.end())
@@ -196,8 +199,9 @@ void BoneNode::removeFromSkinList(SkinNode* skin)
 
 void BoneNode::displaySkin(SkinNode* skin, bool hideOthers)
 {
-    for (auto boneskin : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &boneskin=*itr0;
         if (boneskin == skin)
         {
             boneskin->setVisible(true);
@@ -211,8 +215,9 @@ void BoneNode::displaySkin(SkinNode* skin, bool hideOthers)
 
 void BoneNode::displaySkin(const std::string &skinName, bool hideOthers)
 {
-    for (auto &skin : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &skin=*itr0;
         if (skinName == skin->getName())
         {
             skin->setVisible(true);
@@ -227,8 +232,9 @@ void BoneNode::displaySkin(const std::string &skinName, bool hideOthers)
 cocos2d::Vector<SkinNode*> BoneNode::getVisibleSkins() const
 {
     cocos2d::Vector<SkinNode*> displayingSkins;
-    for (const auto &boneskin : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &boneskin=*itr0;
         if (boneskin->isVisible())
         {
             displayingSkins.pushBack(boneskin);
@@ -257,8 +263,9 @@ cocos2d::Rect BoneNode::getVisibleSkinsRect() const
         first = false;
     }
 
-    for (const auto& skin : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &skin=*itr0;
         cocos2d::Rect r = skin->getBoundingBox();
         if (!skin->isVisible() || r.equals(cocos2d::Rect::ZERO))
             continue;
@@ -289,8 +296,9 @@ void BoneNode::setBlendFunc(const cocos2d::BlendFunc& blendFunc)
     if (_blendFunc != blendFunc)
     {
         _blendFunc = blendFunc;
-        for (auto & skin : _boneSkins)
+        for(auto itr = _boneSkins.begin(); itr != _boneSkins.end(); ++itr)
         {
+        	auto &skin=*itr;
             auto blendSkin = dynamic_cast<BlendProtocol*>(skin);
             if (nullptr != blendSkin)
             {
@@ -445,8 +453,9 @@ void BoneNode::updateDisplayedColor(const cocos2d::Color3B& parentColor)
 {
     if (_cascadeColorEnabled)
     {
-        for (const auto &child : _boneSkins)
+        for(auto itr = _boneSkins.begin(); itr != _boneSkins.end(); ++itr)
         {
+        	auto &child=*itr;
             child->updateDisplayedColor(_displayedColor);
         }
     }
@@ -456,8 +465,9 @@ void BoneNode::updateDisplayedOpacity(GLubyte parentOpacity)
 {
     if (_cascadeOpacityEnabled)
     {
-        for (const auto& child : _boneSkins)
+        for(auto itr = _boneSkins.begin(); itr != _boneSkins.end(); ++itr)
         {
+        	auto &child=*itr;
             child->updateDisplayedOpacity(_displayedOpacity);
         }
     }
@@ -465,16 +475,18 @@ void BoneNode::updateDisplayedOpacity(GLubyte parentOpacity)
 
 void BoneNode::disableCascadeOpacity()
 {
-    for (const auto& child : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &child=*itr0;
         child->updateDisplayedOpacity(255);
     }
 }
 
 void BoneNode::disableCascadeColor()
 {
-    for (const auto& child : _boneSkins)
+    for(auto itr0 = _boneSkins.begin(); itr0 != _boneSkins.end(); ++itr0)
     {
+    	auto &child=*itr0;
         child->updateDisplayedColor(cocos2d::Color3B::WHITE);
     }
 }
@@ -512,8 +524,9 @@ cocos2d::Vector<BoneNode*> BoneNode::getAllSubBones() const
 {
     cocos2d::Vector<BoneNode*> allBones;
     std::stack<BoneNode*> boneStack; // for avoid recursive
-    for (const auto& bone : _childBones)
+    for(auto itr0 = _childBones.begin(); itr0 != _childBones.end(); ++itr0)
     {
+    	auto &bone=*itr0;
         boneStack.push(bone);
     }
 
@@ -523,8 +536,9 @@ cocos2d::Vector<BoneNode*> BoneNode::getAllSubBones() const
         allBones.pushBack(top);
         boneStack.pop();
         auto topchildren = top->getChildBones();
-        for (const auto& childbone : topchildren)
+        for(auto itr = topchildren.begin(); itr != topchildren.end(); ++itr)
         {
+        	auto &childbone=*itr;
             boneStack.push(childbone);
         }
     }
@@ -535,10 +549,12 @@ cocos2d::Vector<SkinNode*> BoneNode::getAllSubSkins() const
 {
     auto allbones = getAllSubBones();
     cocos2d::Vector<SkinNode*> allskins;
-    for (const auto& bone : allbones)
+    for(auto itr0 = allbones.begin(); itr0 != allbones.end(); ++itr0)
     {
-        for (const auto& skin : bone->getSkins())
+    	auto &bone=*itr0;
+        for(auto itr = bone->getSkins().begin(); itr != bone->getSkins().end(); ++itr)
         {
+        	auto &skin=*itr;
             allskins.pushBack(skin);
         }
     }

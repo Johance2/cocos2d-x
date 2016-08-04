@@ -136,8 +136,9 @@ void FontAtlas::reset()
 
 void FontAtlas::releaseTextures()
 {
-    for( auto &item: _atlasTextures)
+    for(auto itr0 = _atlasTextures.begin(); itr0 != _atlasTextures.end(); ++itr0)
     {
+    	auto &item=*itr0;
         item.second->release();
     }
     _atlasTextures.clear();
@@ -166,7 +167,9 @@ void FontAtlas::addLetterDefinition(char16_t utf16Char, const FontLetterDefiniti
 
 void FontAtlas::scaleFontLetterDefinition(float scaleFactor)
 {
-    for (auto&& fontDefinition : _letterDefinitions) {
+    for(auto itr0 = _letterDefinitions.begin(); itr0 != _letterDefinitions.end(); ++itr0)
+    {
+    	auto &fontDefinition=*itr0;
         auto& letterDefinition = fontDefinition.second;
         letterDefinition.width *= scaleFactor;
         letterDefinition.height *= scaleFactor;
@@ -300,8 +303,9 @@ void FontAtlas::findNewCharacters(const std::u16string& u16Text, std::unordered_
         {
         case FT_ENCODING_UNICODE:
         {
-            for (auto u16Code : newChars)
+            for(auto itr2 = newChars.begin(); itr2 != newChars.end(); ++itr2)
             {
+            	auto &u16Code=*itr2;
                 charCodeMap[u16Code] = u16Code;
             }
             break;
@@ -345,8 +349,9 @@ bool FontAtlas::prepareLetterDefinitions(const std::u16string& utf16Text)
 
     float startY = _currentPageOrigY;
 
-    for (auto&& it : codeMapOfNewChar)
+    for(auto itr0 = codeMapOfNewChar.begin(); itr0 != codeMapOfNewChar.end(); ++itr0)
     {
+    	auto &it=*itr0;
         auto bitmap = _fontFreeType->getGlyphBitmap(it.second, bitmapWidth, bitmapHeight, tempRect, tempDef.xAdvance);
         if (bitmap && bitmapWidth > 0 && bitmapHeight > 0)
         {
@@ -466,8 +471,9 @@ void FontAtlas::setAliasTexParameters()
     if (_antialiasEnabled)
     {
         _antialiasEnabled = false;
-        for (const auto & tex : _atlasTextures)
+        for(auto itr = _atlasTextures.begin(); itr != _atlasTextures.end(); ++itr)
         {
+        	auto &tex=*itr;
             tex.second->setAliasTexParameters();
         }
     }
@@ -478,8 +484,9 @@ void FontAtlas::setAntiAliasTexParameters()
     if (! _antialiasEnabled)
     {
         _antialiasEnabled = true;
-        for (const auto & tex : _atlasTextures)
+        for(auto itr = _atlasTextures.begin(); itr != _atlasTextures.end(); ++itr)
         {
+        	auto &tex=*itr;
             tex.second->setAntiAliasTexParameters();
         }
     }

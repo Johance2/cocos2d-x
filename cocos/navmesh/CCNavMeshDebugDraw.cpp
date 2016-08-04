@@ -79,7 +79,9 @@ void NavMeshDebugDraw::vertex(const float* pos, unsigned int color)
 NavMeshDebugDraw::~NavMeshDebugDraw()
 {
     CC_SAFE_RELEASE(_stateBlock);
-    for (auto iter : _primitiveList){
+    for(auto itr0 = _primitiveList.begin(); itr0 != _primitiveList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
     glDeleteBuffers(1, &_vbo);
@@ -147,7 +149,9 @@ void NavMeshDebugDraw::drawImplement(const cocos2d::Mat4& transform, uint32_t fl
         glBufferData(GL_ARRAY_BUFFER, sizeof(V3F_C4F)* _vertices.size(), &_vertices[0], GL_STATIC_DRAW);
         _dirtyBuffer = false;
     }
-    for (auto &iter : _primitiveList){
+    for(auto itr0 = _primitiveList.begin(); itr0 != _primitiveList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter->type == GL_POINTS)
             continue;
         
@@ -172,7 +176,9 @@ void NavMeshDebugDraw::draw(Renderer* renderer)
 void NavMeshDebugDraw::clear()
 {
     _vertices.clear();
-    for (auto iter : _primitiveList){
+    for(auto itr0 = _primitiveList.begin(); itr0 != _primitiveList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
     _primitiveList.clear();

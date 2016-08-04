@@ -137,7 +137,9 @@ void Sprite3DMaterial::releaseBuiltInMaterial()
 
 void Sprite3DMaterial::releaseCachedMaterial()
 {
-    for (auto& it : _materials) {
+    for(auto itr0 = _materials.begin(); itr0 != _materials.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it.second)
             it.second->release();
     }
@@ -151,8 +153,9 @@ Material* Sprite3DMaterial::clone() const
     {
         RenderState::cloneInto(material);
         
-        for (const auto& technique: _techniques)
+        for(auto itr = _techniques.begin(); itr != _techniques.end(); ++itr)
         {
+        	auto &technique=*itr;
             auto t = technique->clone();
             t->setParent(material);
             for (ssize_t i = 0; i < t->getPassCount(); i++) {
@@ -251,7 +254,9 @@ Sprite3DMaterial* Sprite3DMaterial::createWithGLStateProgram(GLProgramState* pro
 void Sprite3DMaterial::setTexture(Texture2D* tex, NTextureData::Usage usage)
 {
     const auto& passes = getTechnique()->getPasses();
-    for (auto& pass : passes) {
+    for(auto itr0 = passes.begin(); itr0 != passes.end(); ++itr0)
+    {
+    	auto &pass=*itr0;
         pass->getGLProgramState()->setUniformTexture(s_uniformSamplerName[(int)usage], tex);
     }
 }

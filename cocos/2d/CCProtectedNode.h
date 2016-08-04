@@ -152,7 +152,7 @@ public:
     
     /** Event callback that is invoked when the Node enters in the 'stage'.
      * If the Node enters the 'stage' with a transition, this event is called when the transition finishes.
-     * If you override onEnterTransitionDidFinish, you shall call its parent's one, e.g. Node::onEnterTransitionDidFinish()
+     * If youonEnterTransitionDidFinish, you shall call its parent's one, e.g. Node::onEnterTransitionDidFinish()
      * @js NA
      * @lua NA
      */
@@ -162,7 +162,7 @@ public:
      * Event callback that is invoked every time the Node leaves the 'stage'.
      * If the Node leaves the 'stage' with a transition, this event is called when the transition finishes.
      * During onExit you can't access a sibling node.
-     * If you override onExit, you shall call its parent's one, e.g., Node::onExit().
+     * If youonExit, you shall call its parent's one, e.g., Node::onExit().
      * @js NA
      * @lua NA
      */

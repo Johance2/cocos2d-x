@@ -372,7 +372,7 @@ THE SOFTWARE.
 #endif
 
 /** @def CC_ENABLE_ALLOCATOR_GLOBAL_NEW_DELETE
- * Turn on override of global new and delete
+ * Turn onof global new and delete
  * as specified by CC_ALLOCATOR_GLOBAL_NEW_DELETE below.
  */
 #ifndef CC_ENABLE_ALLOCATOR_GLOBAL_NEW_DELETE

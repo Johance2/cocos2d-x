@@ -724,8 +724,8 @@ public:
     virtual void setTotalParticles(int totalParticles);
 
     /** does the alpha value modify color */
-    inline void setOpacityModifyRGB(bool opacityModifyRGB) override { _opacityModifyRGB = opacityModifyRGB; };
-    inline bool isOpacityModifyRGB() const override { return _opacityModifyRGB; };
+    inline void setOpacityModifyRGB(bool opacityModifyRGB){ _opacityModifyRGB = opacityModifyRGB; };
+    inline bool isOpacityModifyRGB() const{ return _opacityModifyRGB; };
     CC_DEPRECATED_ATTRIBUTE inline bool getOpacityModifyRGB() const { return isOpacityModifyRGB(); }
     
     /** Gets the particles movement type: Free or Grouped.

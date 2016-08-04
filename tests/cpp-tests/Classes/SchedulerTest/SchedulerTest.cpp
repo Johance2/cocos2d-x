@@ -584,8 +584,9 @@ void SchedulerUpdate::removeUpdates(float dt)
 {
     auto& children = getChildren();
 
-    for (auto& c : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &c=*itr0;
         auto obj = static_cast<Ref*>(c);
         auto node = static_cast<Node*>(obj);
         

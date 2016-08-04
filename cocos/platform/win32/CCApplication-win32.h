@@ -64,7 +64,7 @@ public:
     /** @deprecated Use getInstance() instead */
     CC_DEPRECATED_ATTRIBUTE static Application* sharedApplication();
     
-    /* override functions */
+    /*functions */
     virtual void setAnimationInterval(float interval);
     virtual LanguageType getCurrentLanguage();
 

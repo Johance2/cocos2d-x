@@ -428,12 +428,12 @@ public:
     *In lua: local setBlendFunc(local src, local dst).
     *@endcode
     */
-    inline void setBlendFunc(const BlendFunc &blendFunc) override { _blendFunc = blendFunc; }
+    inline void setBlendFunc(const BlendFunc &blendFunc){ _blendFunc = blendFunc; }
     /**
     * @js  NA
     * @lua NA
     */
-    inline const BlendFunc& getBlendFunc() const override { return _blendFunc; }
+    inline const BlendFunc& getBlendFunc() const{ return _blendFunc; }
     /// @}
 
     /**

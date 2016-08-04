@@ -76,8 +76,9 @@ public:
 
     void onTouchesEnded(const std::vector<Touch*>& touches, Event *event)
     {
-        for (const auto& touch: touches)
+        for(auto itr = touches.begin(); itr != touches.end(); ++itr)
         {
+        	auto &touch=*itr;
             // FIXME: Node::getBoundBox() doesn't return it in local coordinates... so create one manually.
             Rect localRect = Rect(Vec2::ZERO, _parent->getContentSize());
             if (localRect.containsPoint(_parent->convertTouchToNodeSpace(touch))) {
@@ -1739,8 +1740,9 @@ void RichText::formarRenderers()
     {
         float newContentSizeWidth = 0.0f;
         float nextPosY = 0.0f;
-        for (auto& element: _elementRenders)
+        for(auto itr = _elementRenders.begin(); itr != _elementRenders.end(); ++itr)
         {
+        	auto &element=*itr;
             Vector<Node*>* row = element;
             float nextPosX = 0.0f;
             float maxY = 0.0f;

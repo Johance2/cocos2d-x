@@ -383,7 +383,7 @@ public:
      * they are registered. If a registered resolver returns true (specifying that it handles
      * the specified autoBinding), no further code will be executed for that autoBinding.
      * This allows auto binding resolvers to not only implement new/custom binding strings,
-     * but it also lets them override existing/built-in ones. For this reason, you should
+     * but it also lets themexisting/built-in ones. For this reason, you should
      * ensure that you ONLY return true if you explicitly handle a custom auto binding; return
      * false otherwise.
      *

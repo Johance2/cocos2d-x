@@ -77,7 +77,7 @@ public:
      */
     virtual ~__String();
     
-    /* override assignment operator 
+    /*assignment operator 
      * @js NA
      * @lua NA
      */
@@ -147,7 +147,7 @@ public:
      */
     __Array* componentsSeparatedByString(const char *delimiter);
     
-    /* override functions 
+    /*functions 
      * @js NA
      */
     virtual bool isEqual(const Ref* pObject);

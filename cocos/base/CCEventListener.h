@@ -90,7 +90,7 @@ public:
      */
     virtual bool checkAvailable() = 0;
 
-    /** Clones the listener, its subclasses have to override this method.
+    /** Clones the listener, its subclasses have tothis method.
      */
     virtual EventListener* clone() = 0;
 

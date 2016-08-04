@@ -290,7 +290,9 @@ TMXOrthoTest2::TMXOrthoTest2()
     auto& children = map->getChildren();
     SpriteBatchNode* child = nullptr;
 
-    for(const auto &obj : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &obj=*itr0;
         child = static_cast<SpriteBatchNode*>(obj);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -319,7 +321,9 @@ TMXOrthoTest3::TMXOrthoTest3()
     auto& children = map->getChildren();
     SpriteBatchNode* child = nullptr;
 
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -350,7 +354,9 @@ TMXOrthoTest4::TMXOrthoTest4()
     
     auto& children = map->getChildren();
     
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -656,7 +662,9 @@ TMXUncompressedTest::TMXUncompressedTest()
     TMXLayer* layer;
     
     auto& children = map->getChildren();
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         layer= static_cast<TMXLayer*>(node);
         layer->releaseMap();
     }
@@ -749,8 +757,9 @@ TMXOrthoObjectsTest::TMXOrthoObjectsTest()
 
     auto drawNode = DrawNode::create();
 
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
 
         float x = dict["x"].asFloat();
@@ -802,8 +811,9 @@ TMXIsoObjectsTest::TMXIsoObjectsTest()
     
     auto drawNode = DrawNode::create();
     
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
         
         float x = dict["x"].asFloat();
@@ -1206,8 +1216,9 @@ TMXTilePropertyTest::TMXTilePropertyTest()
     addChild(map ,0 ,kTagTileMap);
 
     for(int i=1;i<=20;i++){
-        for(const auto& value : map->getPropertiesForGID(i).asValueMap())
+        for(auto itr = map->getPropertiesForGID(i).asValueMap().begin(); itr != map->getPropertiesForGID(i).asValueMap().end(); ++itr)
         {
+        	auto &value=*itr;
             log("GID:%i, Properties:%s, %s", i, value.first.c_str(), value.second.asString().c_str());
         }
     }
@@ -1238,7 +1249,9 @@ TMXOrthoFlipTest::TMXOrthoFlipTest()
     log("ContentSize: %f, %f", s.width,s.height);
 
     auto& children = map->getChildren();
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         auto child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -1267,7 +1280,9 @@ TMXOrthoFlipRunTimeTest::TMXOrthoFlipRunTimeTest()
     log("ContentSize: %f, %f", s.width,s.height);
 
     auto& children = map->getChildren();
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         auto child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -1345,7 +1360,9 @@ TMXOrthoFromXMLTest::TMXOrthoFromXMLTest()
     log("ContentSize: %f, %f", s.width,s.height);
 
     auto& children = map->getChildren();
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         auto child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -1377,7 +1394,9 @@ TMXOrthoXMLFormatTest::TMXOrthoXMLFormatTest()
     log("ContentSize: %f, %f", s.width,s.height);
     
     auto& children = map->getChildren();
-    for(const auto &node : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &node=*itr0;
         auto child = static_cast<SpriteBatchNode*>(node);
         child->getTexture()->setAntiAliasTexParameters();
     }
@@ -1409,7 +1428,9 @@ TMXBug987::TMXBug987()
     CCLOG("ContentSize: %f, %f", s1.width,s1.height);
 
     auto& children = map->getChildren();
-    for(const auto &child : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         auto node = static_cast<TMXLayer*>(child);
         node->getTexture()->setAntiAliasTexParameters();
     }
@@ -1471,8 +1492,9 @@ TMXGIDObjectsTest::TMXGIDObjectsTest()
     Color4F color(1.0, 1.0, 1.0, 1.0);
     auto group = map->getObjectGroup("Object Layer 1");
     auto& objects = group->getObjects();
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
         
         float x = dict["x"].asFloat();

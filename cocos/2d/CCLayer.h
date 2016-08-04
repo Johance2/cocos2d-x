@@ -141,7 +141,7 @@ public:
     */
     virtual void onTouchesCancelled(const std::vector<Touch*>&touches, Event *unused_event);
     /** 
-      @deprecated Please override onAcceleration 
+      @deprecated PleaseonAcceleration 
       @js NA
      */
     CC_DEPRECATED_ATTRIBUTE virtual void didAccelerate(Acceleration* accelerationValue) {};
@@ -234,11 +234,11 @@ public:
     */
     virtual void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
 
-    CC_DEPRECATED_ATTRIBUTE virtual bool isKeypadEnabled() const final { return _keyboardEnabled; }
+    CC_DEPRECATED_ATTRIBUTE virtual bool isKeypadEnabled() const{ return _keyboardEnabled; }
     CC_DEPRECATED_ATTRIBUTE virtual void setKeypadEnabled(bool value);
 
     /** 
-      @deprecated Please override onKeyReleased and check the keycode of KeyboardEvent::KeyCode::Menu(KEY_BACKSPACE) instead. 
+      @deprecated PleaseonKeyReleased and check the keycode of KeyboardEvent::KeyCode::Menu(KEY_BACKSPACE) instead. 
       @js NA
      */
     CC_DEPRECATED_ATTRIBUTE virtual void keyBackClicked() {};
@@ -295,22 +295,22 @@ public:
     //
     // Overrides
     //
-    virtual GLubyte getOpacity() const override { return Layer::getOpacity(); }
-    virtual GLubyte getDisplayedOpacity() const override { return Layer::getDisplayedOpacity(); }
-    virtual void setOpacity(GLubyte opacity) override { Layer::setOpacity(opacity); }
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity) override { Layer::updateDisplayedOpacity(parentOpacity); }
-    virtual bool isCascadeOpacityEnabled() const override { return Layer::isCascadeOpacityEnabled(); }
-    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled) override { Layer::setCascadeOpacityEnabled(cascadeOpacityEnabled); }
+    virtual GLubyte getOpacity() const{ return Layer::getOpacity(); }
+    virtual GLubyte getDisplayedOpacity() const{ return Layer::getDisplayedOpacity(); }
+    virtual void setOpacity(GLubyte opacity){ Layer::setOpacity(opacity); }
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity){ Layer::updateDisplayedOpacity(parentOpacity); }
+    virtual bool isCascadeOpacityEnabled() const{ return Layer::isCascadeOpacityEnabled(); }
+    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled){ Layer::setCascadeOpacityEnabled(cascadeOpacityEnabled); }
 
-    virtual const Color3B& getColor() const override { return Layer::getColor(); }
-    virtual const Color3B& getDisplayedColor() const override { return Layer::getDisplayedColor(); }
-    virtual void setColor(const Color3B& color) override { Layer::setColor(color); }
-    virtual void updateDisplayedColor(const Color3B& parentColor) override { Layer::updateDisplayedColor(parentColor); }
-    virtual bool isCascadeColorEnabled() const override { return Layer::isCascadeOpacityEnabled(); }
-    virtual void setCascadeColorEnabled(bool cascadeColorEnabled) override { Layer::setCascadeColorEnabled(cascadeColorEnabled); }
+    virtual const Color3B& getColor() const{ return Layer::getColor(); }
+    virtual const Color3B& getDisplayedColor() const{ return Layer::getDisplayedColor(); }
+    virtual void setColor(const Color3B& color){ Layer::setColor(color); }
+    virtual void updateDisplayedColor(const Color3B& parentColor){ Layer::updateDisplayedColor(parentColor); }
+    virtual bool isCascadeColorEnabled() const{ return Layer::isCascadeOpacityEnabled(); }
+    virtual void setCascadeColorEnabled(bool cascadeColorEnabled){ Layer::setCascadeColorEnabled(cascadeColorEnabled); }
 
-    virtual void setOpacityModifyRGB(bool bValue) override { Layer::setOpacityModifyRGB(bValue); }
-    virtual bool isOpacityModifyRGB() const override { return Layer::isOpacityModifyRGB(); }
+    virtual void setOpacityModifyRGB(bool bValue){ Layer::setOpacityModifyRGB(bValue); }
+    virtual bool isOpacityModifyRGB() const{ return Layer::isOpacityModifyRGB(); }
 
 CC_CONSTRUCTOR_ACCESS:
     __LayerRGBA();
@@ -424,7 +424,7 @@ private:
 
 All features from LayerColor are valid, plus the following new features:
 - direction
-- final color
+-color
 - interpolation mode
 
 Color is interpolated between the startColor and endColor along the given

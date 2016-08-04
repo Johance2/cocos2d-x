@@ -599,7 +599,7 @@ void FontFreeType::renderCharAt(unsigned char *dest,int posX, int posY, unsigned
             {
                 unsigned char cTemp = bitmap[bitmap_y + x];
 
-                // the final pixel
+                // thepixel
                 dest[(iX + ( iY * FontAtlas::CacheTextureWidth ) )] = cTemp;
 
                 iX += 1;

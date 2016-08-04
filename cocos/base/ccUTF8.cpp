@@ -331,8 +331,9 @@ std::string StringUTF8::getAsCharSequence() const
 {
     std::string charSequence;
 
-    for (auto& charUtf8 : _str)
+    for(auto itr0 = _str.begin(); itr0 != _str.end(); ++itr0)
     {
+    	auto &charUtf8=*itr0;
         charSequence.append(charUtf8._char);
     }
 
@@ -424,8 +425,9 @@ long cc_utf8_strlen (const char * p, int max)
 unsigned int cc_utf8_find_last_not_char(const std::vector<unsigned short>& str, unsigned short c)
 {
     std::vector<char16_t> char16Vector;
-    for (const auto& e : str)
+    for(auto itr0 = str.begin(); itr0 != str.end(); ++itr0)
     {
+    	auto &e=*itr0;
         char16Vector.push_back(e);
     }
     

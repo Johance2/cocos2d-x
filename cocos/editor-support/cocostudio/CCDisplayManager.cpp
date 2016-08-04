@@ -347,8 +347,9 @@ void DisplayManager::initDisplayList(BoneData *boneData)
 
     CS_RETURN_IF(!boneData);
 
-    for(auto& object : boneData->displayDataList)
+    for(auto itr0 = boneData->displayDataList.begin(); itr0 != boneData->displayDataList.end(); ++itr0)
     {
+    	auto &object=*itr0;
         DisplayData *displayData = static_cast<DisplayData *>(object);
 
         DecorativeDisplay *decoDisplay = DecorativeDisplay::create();

@@ -48,7 +48,7 @@ class CC_DLL FileUtilsWin32 : public FileUtils
 protected:
     FileUtilsWin32();
 public:
-    /* override functions */
+    /*functions */
     bool init();
     virtual std::string getWritablePath() const override;
     virtual bool isAbsolutePath(const std::string& strPath) const override;
@@ -124,7 +124,7 @@ protected:
     /**
      *  Gets full path for the directory and the filename.
      *
-     *  @note Only iOS and Mac need to override this method since they are using
+     *  @note Only iOS and Mac need tothis method since they are using
      *        `[[NSBundle mainBundle] pathForResource: ofType: inDirectory:]` to make a full path.
      *        Other platforms will use the default implementation of this method.
      *  @param directory The directory contains the file we are looking for.

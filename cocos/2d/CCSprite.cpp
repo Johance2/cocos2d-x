@@ -459,7 +459,7 @@ void Sprite::setTextureRect(const Rect& rect, bool rotated, const Size& untrimme
     _polyInfo.setQuad(&_quad);
 }
 
-// override this method to generate "double scale" sprites
+//this method to generate "double scale" sprites
 void Sprite::setVertexRect(const Rect& rect)
 {
     _rect = rect;
@@ -781,7 +781,9 @@ void Sprite::removeAllChildrenWithCleanup(bool cleanup)
 {
     if (_batchNode)
     {
-        for(const auto &child : _children) {
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+        {
+        	auto &child=*itr;
             Sprite* sprite = dynamic_cast<Sprite*>(child);
             if (sprite)
             {
@@ -834,7 +836,9 @@ void Sprite::setDirtyRecursively(bool bValue)
     _recursiveDirty = bValue;
     setDirty(bValue);
 
-    for(const auto &child: _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         Sprite* sp = dynamic_cast<Sprite*>(child);
         if (sp)
         {

@@ -223,7 +223,9 @@ void Bone::update(float delta)
 
     DisplayFactory::updateDisplay(this, delta, _boneTransformDirty || _armature->getArmatureTransformDirty());
 
-    for(const auto &obj: _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &obj=*itr0;
         Bone *childBone = static_cast<Bone*>(obj);
         childBone->update(delta);
     }
@@ -317,8 +319,9 @@ void Bone::removeChildBone(Bone *bone, bool recursion)
         {
             auto ccbones = bone->_children;
             
-            for(auto& object : ccbones)
+            for(auto itr2 = ccbones.begin(); itr2 != ccbones.end(); ++itr2)
             {
+            	auto &object=*itr2;
                 Bone *ccBone = static_cast<Bone*>(object);
                 bone->removeChildBone(ccBone, recursion);
             }
@@ -455,8 +458,9 @@ void Bone::setColliderFilter(ColliderFilter *filter)
 {
     auto array = _displayManager->getDecorativeDisplayList();
 
-    for(auto& object : array)
+    for(auto itr0 = array.begin(); itr0 != array.end(); ++itr0)
     {
+    	auto &object=*itr0;
         DecorativeDisplay *decoDisplay = static_cast<DecorativeDisplay *>(object);
         if (ColliderDetector *detector = decoDisplay->getColliderDetector())
         {

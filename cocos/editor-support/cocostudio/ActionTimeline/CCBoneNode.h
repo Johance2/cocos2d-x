@@ -107,7 +107,7 @@ public:
 
     // blendFunc
     virtual void setBlendFunc(const cocos2d::BlendFunc &blendFunc) override;
-    virtual const cocos2d::BlendFunc & getBlendFunc() const override { return _blendFunc; }
+    virtual const cocos2d::BlendFunc & getBlendFunc() const{ return _blendFunc; }
 
     // debug draw show, bone's debugdraw can be draw when bone is visible
     // when bone's added to skeleton, DebugDrawEnabled controled by skeleton's DebugDrawEnabled
@@ -193,7 +193,7 @@ protected:
 
     virtual void onDraw(const cocos2d::Mat4 &transform, uint32_t flags); 
 
-    // override Node::visit, just visit bones in children
+    //Node::visit, just visit bones in children
     virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4& parentTransform, uint32_t parentFlags) override;
 
     // a help function for SkeletonNode

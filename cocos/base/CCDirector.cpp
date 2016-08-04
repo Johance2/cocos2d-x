@@ -986,8 +986,9 @@ void Director::reset()
 #if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     if (sEngine)
     {
-        for (const auto &scene : _scenesStack)
+        for(auto itr = _scenesStack.begin(); itr != _scenesStack.end(); ++itr)
         {
+        	auto &scene=*itr;
             if (scene)
                 sEngine->releaseScriptObject(this, scene);
         }

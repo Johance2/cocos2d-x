@@ -77,8 +77,9 @@ PongLayer::PongLayer()
     
     _paddles = paddlesM;
     
-    for (auto& paddle : _paddles)
+    for(auto itr0 = _paddles.begin(); itr0 != _paddles.end(); ++itr0)
     {
+    	auto &paddle=*itr0;
         addChild(paddle);
     }
 
@@ -102,8 +103,9 @@ void PongLayer::doStep(float delta)
 {
     _ball->move(delta);
 
-    for (auto& paddle : _paddles)
+    for(auto itr0 = _paddles.begin(); itr0 != _paddles.end(); ++itr0)
     {
+    	auto &paddle=*itr0;
         _ball->collideWithPaddle( paddle );
     }
 
@@ -151,8 +153,9 @@ void ForceTouchTest::onTouchesBegan(const std::vector<cocos2d::Touch*>& touches,
 
 void ForceTouchTest::onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event)
 {
-    for(auto& t : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &t=*itr0;
         float currentForce = t->getCurrentForce();
         float maxForce = t->getMaxForce();
         sprintf(formatBuffer, _Info_Formatter, currentForce, maxForce);

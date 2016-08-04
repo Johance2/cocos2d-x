@@ -539,8 +539,9 @@ void PhysicsWorld::doAddBody(PhysicsBody* body)
         }
         
         // add shapes to space
-        for (auto& shape : body->getShapes())
+        for(auto itr = body->getShapes().begin(); itr != body->getShapes().end(); ++itr)
         {
+        	auto &shape=*itr;
             addShape(dynamic_cast<PhysicsShape*>(shape));
         }
     }
@@ -571,23 +572,26 @@ void PhysicsWorld::updateBodies()
     // issue #4944, contact callback will be invoked when add/remove body, _delayAddBodies maybe changed, so we need make a copy.
     auto addCopy = _delayAddBodies;
     _delayAddBodies.clear();
-    for (auto& body : addCopy)
+    for(auto itr0 = addCopy.begin(); itr0 != addCopy.end(); ++itr0)
     {
+    	auto &body=*itr0;
         doAddBody(body);
     }
     
     auto removeCopy = _delayRemoveBodies;
     _delayRemoveBodies.clear();
-    for (auto& body : removeCopy)
+    for(auto itr0 = removeCopy.begin(); itr0 != removeCopy.end(); ++itr0)
     {
+    	auto &body=*itr0;
         doRemoveBody(body);
     }
 }
 
 void PhysicsWorld::removeBody(int tag)
 {
-    for (auto& body : _bodies)
+    for(auto itr0 = _bodies.begin(); itr0 != _bodies.end(); ++itr0)
     {
+    	auto &body=*itr0;
         if (body->getTag() == tag)
         {
             removeBody(body);
@@ -606,8 +610,9 @@ void PhysicsWorld::removeBody(PhysicsBody* body)
     
     // destroy the body's joints
     auto removeCopy = body->_joints;
-    for (auto joint : removeCopy)
+    for(auto itr0 = removeCopy.begin(); itr0 != removeCopy.end(); ++itr0)
     {
+    	auto &joint=*itr0;
         removeJoint(joint, true);
     }
     body->_joints.clear();
@@ -680,8 +685,9 @@ void PhysicsWorld::updateJoints()
         return;
     }
     
-    for (auto joint : _delayAddJoints)
+    for(auto itr0 = _delayAddJoints.begin(); itr0 != _delayAddJoints.end(); ++itr0)
     {
+    	auto &joint=*itr0;
         joint->_world = this;
         if (joint->initJoint())
         {
@@ -694,8 +700,9 @@ void PhysicsWorld::updateJoints()
     }
     _delayAddJoints.clear();
 
-    for (auto joint : _delayRemoveJoints)
+    for(auto itr0 = _delayRemoveJoints.begin(); itr0 != _delayRemoveJoints.end(); ++itr0)
     {
+    	auto &joint=*itr0;
         doRemoveJoint(joint);
     }
     _delayRemoveJoints.clear();
@@ -705,8 +712,9 @@ void PhysicsWorld::removeShape(PhysicsShape* shape)
 {
     if (shape)
     {
-        for (auto cps : shape->_cpShapes)
+        for(auto itr = shape->_cpShapes.begin(); itr != shape->_cpShapes.end(); ++itr)
         {
+        	auto &cps=*itr;
             if (cpSpaceContainsShape(_cpSpace, cps))
             {
                 cpSpaceRemoveShape(_cpSpace, cps);
@@ -739,8 +747,9 @@ void PhysicsWorld::addJoint(PhysicsJoint* joint)
 void PhysicsWorld::removeAllJoints(bool destroy)
 {
     auto removeCopy = _joints;
-    for (auto joint : removeCopy)
+    for(auto itr0 = removeCopy.begin(); itr0 != removeCopy.end(); ++itr0)
     {
+    	auto &joint=*itr0;
         removeJoint(joint, destroy);
     }
 }
@@ -749,8 +758,9 @@ void PhysicsWorld::addShape(PhysicsShape* physicsShape)
 {
     if (physicsShape)
     {
-        for (auto shape : physicsShape->_cpShapes)
+        for(auto itr = physicsShape->_cpShapes.begin(); itr != physicsShape->_cpShapes.end(); ++itr)
         {
+        	auto &shape=*itr;
             cpSpaceAddShape(_cpSpace, shape);
         }
     }
@@ -761,8 +771,9 @@ void PhysicsWorld::doRemoveBody(PhysicsBody* body)
     CCASSERT(body != nullptr, "the body can not be nullptr");
     
     // remove shapes
-    for (auto& shape : body->getShapes())
+    for(auto itr0 = body->getShapes().begin(); itr0 != body->getShapes().end(); ++itr0)
     {
+    	auto &shape=*itr0;
         removeShape(shape);
     }
     
@@ -775,8 +786,9 @@ void PhysicsWorld::doRemoveBody(PhysicsBody* body)
 
 void PhysicsWorld::doRemoveJoint(PhysicsJoint* joint)
 {
-    for (auto constraint : joint->_cpConstraints)
+    for(auto itr0 = joint->_cpConstraints.begin(); itr0 != joint->_cpConstraints.end(); ++itr0)
     {
+    	auto &constraint=*itr0;
         cpSpaceRemoveConstraint(_cpSpace, constraint);
     }
     _joints.remove(joint);
@@ -800,8 +812,9 @@ void PhysicsWorld::doRemoveJoint(PhysicsJoint* joint)
 
 void PhysicsWorld::removeAllBodies()
 {
-    for (auto& child : _bodies)
+    for(auto itr0 = _bodies.begin(); itr0 != _bodies.end(); ++itr0)
     {
+    	auto &child=*itr0;
         removeBodyOrDelay(child);
         child->_world = nullptr;
     }
@@ -827,8 +840,9 @@ const Vector<PhysicsBody*>& PhysicsWorld::getAllBodies() const
 
 PhysicsBody* PhysicsWorld::getBody(int tag) const
 {
-    for (auto& body : _bodies)
+    for(auto itr0 = _bodies.begin(); itr0 != _bodies.end(); ++itr0)
     {
+    	auto &body=*itr0;
         if (body->getTag() == tag)
         {
             return body;

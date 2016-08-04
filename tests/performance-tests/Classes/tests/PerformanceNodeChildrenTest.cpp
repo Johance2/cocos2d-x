@@ -297,8 +297,9 @@ void IterateSpriteSheetForLoop::update(float dt)
 
     CC_PROFILER_START(this->profilerName());
 
-    for( const auto &object : children )
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         auto o = static_cast<Ref*>(object);
         auto sprite = static_cast<Sprite*>(o);
         sprite->setVisible(false);

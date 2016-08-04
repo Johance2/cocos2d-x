@@ -139,7 +139,7 @@ namespace tinyobj {
         // thus we must take care to convert the exponent/and or the
         // mantissa to a * 2^E, where a is the mantissa and E is the
         // exponent.
-        // To get the final double we will use ldexp, it requires the
+        // To get thedouble we will use ldexp, it requires the
         // exponent to be in base 2.
         int exponent = 0;
         

@@ -45,8 +45,9 @@ Physics3DRigidBody::~Physics3DRigidBody()
 {
     if (_physicsWorld)
     {
-        for(auto constraint : _constraintList)
+        for(auto itr = _constraintList.begin(); itr != _constraintList.end(); ++itr)
         {
+        	auto &constraint=*itr;
             _physicsWorld->removePhysics3DConstraint(constraint);
         }
         _constraintList.clear();
@@ -412,8 +413,9 @@ public:
 
     Physics3DObject* getPhysicsObject(const btCollisionObject* btObj)
     {
-        for (auto it : _collider->getPhysicsWorld()->getPhysicsObjects())
+        for(auto itr = _collider->getPhysicsWorld()->getPhysicsObjects().begin(); itr != _collider->getPhysicsWorld()->getPhysicsObjects().end(); ++itr)
         {
+        	auto &it=*itr;
             if (it->getObjType() == Physics3DObject::PhysicsObjType::RIGID_BODY)
             {
                 if (static_cast<Physics3DRigidBody*>(it)->getRigidBody() == btObj)

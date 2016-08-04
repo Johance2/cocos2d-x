@@ -407,8 +407,9 @@ bool Value::operator== (const Value& v) const
         {
             const auto &map1 = *(this->_field.mapVal);
             const auto &map2 = *(v._field.mapVal);
-            for (const auto &kvp : map1)
+            for(auto itr2 = map1.begin(); itr2 != map1.end(); ++itr2)
             {
+            	auto &kvp=*itr2;
                 auto it = map2.find(kvp.first);
                 if (it == map2.end() || it->second != kvp.second)
                 {
@@ -421,8 +422,9 @@ bool Value::operator== (const Value& v) const
         {
             const auto &map1 = *(this->_field.intKeyMapVal);
             const auto &map2 = *(v._field.intKeyMapVal);
-            for (const auto &kvp : map1)
+            for(auto itr2 = map1.begin(); itr2 != map1.end(); ++itr2)
             {
+            	auto &kvp=*itr2;
                 auto it = map2.find(kvp.first);
                 if (it == map2.end() || it->second != kvp.second)
                 {
@@ -787,8 +789,9 @@ static std::string visitVector(const ValueVector& v, int depth)
     ret << getTabs(depth) << "[\n";
 
     int i = 0;
-    for (const auto& child : v)
+    for(auto itr0 = v.begin(); itr0 != v.end(); ++itr0)
     {
+    	auto &child=*itr0;
         ret << getTabs(depth+1) << i << ": " << visit(child, depth + 1);
         ++i;
     }

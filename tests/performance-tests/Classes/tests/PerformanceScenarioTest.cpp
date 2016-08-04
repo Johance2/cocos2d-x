@@ -165,7 +165,9 @@ void ScenarioTest::addParticles(int num)
 {
     _particleNumber += num;
 
-    for (auto par : _parsysArray) {
+    for(auto itr0 = _parsysArray.begin(); itr0 != _parsysArray.end(); ++itr0)
+    {
+    	auto &par=*itr0;
         par->setTotalParticles(_particleNumber);
     }
 
@@ -183,7 +185,9 @@ void ScenarioTest::removeParticles()
     int removeNum = MIN(_particleNumber, _parStepNum);
     _particleNumber -= removeNum;
 
-    for (auto par : _parsysArray) {
+    for(auto itr0 = _parsysArray.begin(); itr0 != _parsysArray.end(); ++itr0)
+    {
+    	auto &par=*itr0;
         par->setTotalParticles(_particleNumber);
     }
 

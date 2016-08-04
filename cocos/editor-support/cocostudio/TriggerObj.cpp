@@ -127,8 +127,9 @@ bool TriggerObj::detect()
     
     bool ret = false;
 
-    for (const auto& con : _cons)
+    for(auto itr0 = _cons.begin(); itr0 != _cons.end(); ++itr0)
     {
+    	auto &con=*itr0;
         ret = ret || con->detect();
     }
 
@@ -142,26 +143,30 @@ void TriggerObj::done()
         return;
     }
 
-    for (const auto& act : _acts)
+    for(auto itr0 = _acts.begin(); itr0 != _acts.end(); ++itr0)
     {
+    	auto &act=*itr0;
         act->done();
     }
 }
 
 void TriggerObj::removeAll()
 {
-    for (const auto& con : _cons)
+    for(auto itr0 = _cons.begin(); itr0 != _cons.end(); ++itr0)
     {
+    	auto &con=*itr0;
         con->removeAll();
     }
     
-    for (const auto& act : _acts)
+    for(auto itr0 = _acts.begin(); itr0 != _acts.end(); ++itr0)
     {
+    	auto &act=*itr0;
         act->removeAll();
     }
 
-    for (const auto& lis : _listeners)
+    for(auto itr0 = _listeners.begin(); itr0 != _listeners.end(); ++itr0)
     {
+    	auto &lis=*itr0;
         TriggerMng::getInstance()->removeEventListener(lis);
     }
     

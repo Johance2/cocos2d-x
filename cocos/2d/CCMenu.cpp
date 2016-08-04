@@ -145,8 +145,9 @@ bool Menu::initWithArray(const Vector<MenuItem*>& arrayOfItems)
         
         int z=0;
         
-        for (auto& item : arrayOfItems)
+        for(auto itr = arrayOfItems.begin(); itr != arrayOfItems.end(); ++itr)
         {
+        	auto &item=*itr;
             this->addChild(item, z);
             z++;
         }
@@ -175,7 +176,7 @@ bool Menu::initWithArray(const Vector<MenuItem*>& arrayOfItems)
 }
 
 /*
-* override add:
+*add:
 */
 void Menu::addChild(Node * child)
 {
@@ -338,7 +339,9 @@ void Menu::alignItemsVerticallyWithPadding(float padding)
 
     float y = height / 2.0f;
     
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->setPosition(0, y - child->getContentSize().height * child->getScaleY() / 2.0f);
         y -= child->getContentSize().height * child->getScaleY() + padding;
     }
@@ -357,7 +360,9 @@ void Menu::alignItemsHorizontallyWithPadding(float padding)
 
     float x = -width / 2.0f;
     
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->setPosition(x + child->getContentSize().width * child->getScaleX() / 2.0f, 0);
         x += child->getContentSize().width * child->getScaleX() + padding;
     }
@@ -393,7 +398,9 @@ void Menu::alignItemsInColumnsWithArray(const ValueVector& rows)
     int columnsOccupied = 0;
     int rowColumns = 0;
 
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         CCASSERT(row < rows.size(), "row should less than rows.size()!");
         
         rowColumns = rows[row].asInt();
@@ -426,7 +433,9 @@ void Menu::alignItemsInColumnsWithArray(const ValueVector& rows)
     float x = 0.0;
     float y = (float)(height / 2);
 
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         if (rowColumns == 0)
         {
             rowColumns = rows[row].asInt();
@@ -488,7 +497,9 @@ void Menu::alignItemsInRowsWithArray(const ValueVector& columns)
     int rowsOccupied = 0;
     int columnRows;
 
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         // check if too many menu items for the amount of rows/columns
         CCASSERT(column < columns.size(), "column should be less than columns.size().");
 
@@ -527,7 +538,9 @@ void Menu::alignItemsInRowsWithArray(const ValueVector& columns)
     float x = (float)(-width / 2);
     float y = 0.0;
 
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         if (columnRows == 0)
         {
             columnRows = columns[column].asInt();
@@ -558,8 +571,9 @@ void Menu::alignItemsInRowsWithArray(const ValueVector& columns)
 MenuItem* Menu::getItemForTouch(Touch *touch, const Camera *camera)
 {
     Vec2 touchLocation = touch->getLocation();
-    for (const auto &item: _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &item=*itr0;
         MenuItem* child = dynamic_cast<MenuItem*>(item);
         if (nullptr == child || false == child->isVisible() || false == child->isEnabled())
         {

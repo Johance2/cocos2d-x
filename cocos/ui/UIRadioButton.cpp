@@ -341,8 +341,9 @@ void RadioButtonGroup::copySpecialProperties(Widget *widget)
         _allowedNoSelection = radioButtonGroup->_allowedNoSelection;
         
         _radioButtons.clear();
-        for(const auto& radioButton : radioButtonGroup->_radioButtons)
+        for(auto itr = radioButtonGroup->_radioButtons.begin(); itr != radioButtonGroup->_radioButtons.end(); ++itr)
         {
+        	auto &radioButton=*itr;
             _radioButtons.pushBack(radioButton);
         }
     }

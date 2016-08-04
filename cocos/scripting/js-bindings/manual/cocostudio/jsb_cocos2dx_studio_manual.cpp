@@ -299,8 +299,9 @@ bool js_cocos2dx_studio_ColliderBody_getCalculatedVertexList(JSContext *cx, uint
         //CCObject* obj;
         int i = 0;
         JS::RootedObject tmp(cx);
-        for(const auto& point : ret)
+        for(auto itr = ret.begin(); itr != ret.end(); ++itr)
         {
+        	auto &point=*itr;
             tmp = JS_NewObject(cx, NULL, JS::NullPtr(), JS::NullPtr());
             if (!tmp) break;
             bool ok = JS_DefineProperty(cx, tmp, "x", point.x, JSPROP_ENUMERATE | JSPROP_PERMANENT) &&
@@ -1088,8 +1089,9 @@ bool js_get_ContourData_vertexList(JSContext *cx, JS::HandleObject obj, JS::Hand
         jsval jsret;
         //CCObject* obj;
         int i = 0;
-        for(const auto& vec2 : ret)
+        for(auto itr = ret.begin(); itr != ret.end(); ++itr)
         {
+        	auto &vec2=*itr;
             JS::RootedValue arrElement(cx);
             arrElement = vector2_to_jsval(cx, vec2);
 
@@ -1159,8 +1161,9 @@ bool js_get_TextureData_contourDataList(JSContext *cx, JS::HandleObject obj, JS:
         jsval jsret;
         //CCObject* obj;
         int i = 0;
-        for(const auto& contourData : ret)
+        for(auto itr = ret.begin(); itr != ret.end(); ++itr)
         {
+        	auto &contourData=*itr;
             JS::RootedValue arrElement(cx);
             JS::RootedObject contourObj(cx, js_get_or_create_jsobject<cocostudio::ContourData>(cx, contourData));
             arrElement = OBJECT_TO_JSVAL(contourObj);

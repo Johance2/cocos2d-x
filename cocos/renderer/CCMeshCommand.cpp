@@ -214,8 +214,9 @@ void MeshCommand::batchDraw()
 {
     if (_material)
     {
-        for(const auto& pass: _material->_currentTechnique->_passes)
+        for(auto itr = _material->_currentTechnique->_passes.begin(); itr != _material->_currentTechnique->_passes.end(); ++itr)
         {
+        	auto &pass=*itr;
             pass->bind(_mv);
 
             glDrawElements(_primitive, (GLsizei)_indexCount, _indexFormat, 0);
@@ -265,8 +266,9 @@ void MeshCommand::execute()
 
     if (_material)
     {
-        for(const auto& pass: _material->_currentTechnique->_passes)
+        for(auto itr = _material->_currentTechnique->_passes.begin(); itr != _material->_currentTechnique->_passes.end(); ++itr)
         {
+        	auto &pass=*itr;
             pass->bind(_mv, true);
 
             glDrawElements(_primitive, (GLsizei)_indexCount, _indexFormat, 0);

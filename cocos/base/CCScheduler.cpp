@@ -811,7 +811,9 @@ std::set<void*> Scheduler::pauseAllTargetsWithMinPriority(int minPriority)
 
 void Scheduler::resumeTargets(const std::set<void*>& targetsToResume)
 {
-    for(const auto &obj : targetsToResume) {
+    for(auto itr0 = targetsToResume.begin(); itr0 != targetsToResume.end(); ++itr0)
+    {
+    	auto &obj=*itr0;
         this->resumeTarget(obj);
     }
 }
@@ -973,7 +975,9 @@ void Scheduler::update(float dt)
         auto temp = _functionsToPerform;
         _functionsToPerform.clear();
         _performMutex.unlock();
-        for( const auto &function : temp ) {
+        for(auto itr = temp.begin(); itr != temp.end(); ++itr)
+        {
+        	auto &function=*itr;
             function();
         }
         

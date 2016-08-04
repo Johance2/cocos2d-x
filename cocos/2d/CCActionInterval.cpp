@@ -2454,8 +2454,9 @@ bool Animate::initWithAnimation(Animation* animation)
 
         auto& frames = animation->getFrames();
 
-        for (auto& frame : frames)
+        for(auto itr = frames.begin(); itr != frames.end(); ++itr)
         {
+        	auto &frame=*itr;
             float value = (accumUnitsOfTime * newUnitOfTimeValue) / singleDuration;
             accumUnitsOfTime += frame->getDelayUnits();
             _splitTimes->push_back(value);

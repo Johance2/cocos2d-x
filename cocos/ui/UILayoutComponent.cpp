@@ -649,8 +649,9 @@ namespace ui {
             page->forceDoLayout();
 
             Vector<Widget*> _widgetVector = page->getItems();
-            for(auto& item : _widgetVector)
+            for(auto itr2 = _widgetVector.begin(); itr2 != _widgetVector.end(); ++itr2)
             {
+            	auto &item=*itr2;
                 ui::Helper::doLayout(item);
             }
         }

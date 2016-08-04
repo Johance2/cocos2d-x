@@ -550,8 +550,9 @@ int LuaEngine::handleTouchesEvent(void* data)
 
     lua_newtable(L);
     int i = 1;
-    for (auto& touch : touchesScriptData->touches)
+    for(auto itr0 = touchesScriptData->touches.begin(); itr0 != touchesScriptData->touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         cocos2d::Vec2 pt = pDirector->convertToGL(touch->getLocationInView());
         lua_pushnumber(L, pt.x);
         lua_rawseti(L, -2, i++);
@@ -703,8 +704,9 @@ int LuaEngine::handleEventTouches(ScriptHandlerMgr::HandlerType type,void* data)
     
     lua_newtable(L);
     int i = 1;
-    for (auto& touch : touchesData->touches)
+    for(auto itr0 = touchesData->touches.begin(); itr0 != touchesData->touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         _stack->pushInt(i);
         _stack->pushObject(touch, "cc.Touch");
         lua_rawset(L, -3);

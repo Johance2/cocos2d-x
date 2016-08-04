@@ -483,7 +483,9 @@ __Array* __Array::createWithContentsOfFileThreadSafe(const std::string& fileName
     
     __Array* ret = __Array::createWithCapacity(static_cast<int>(arr.size()));
 
-    for(const auto &value : arr) {
+    for(auto itr0 = arr.begin(); itr0 != arr.end(); ++itr0)
+    {
+    	auto &value=*itr0;
         ret->addObject(__String::create(value.asString()));
     }
     

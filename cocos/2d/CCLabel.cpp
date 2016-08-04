@@ -400,8 +400,9 @@ Label::Label(TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */,
     _purgeTextureListener = EventListenerCustom::create(FontAtlas::CMD_PURGE_FONTATLAS, [this](EventCustom* event){
         if (_fontAtlas && _currentLabelType == LabelType::TTF && event->getUserData() == _fontAtlas)
         {
-            for (auto&& it : _letters)
+            for(auto itr2 = _letters.begin(); itr2 != _letters.end(); ++itr2)
             {
+            	auto &it=*itr2;
                 it.second->setTexture(nullptr);
             }
             _batchNodes.clear();
@@ -419,8 +420,9 @@ Label::Label(TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */,
         {
             _fontAtlas = nullptr;
             this->setTTFConfig(_fontConfig);
-            for (auto&& it : _letters)
+            for(auto itr2 = _letters.begin(); itr2 != _letters.end(); ++itr2)
             {
+            	auto &it=*itr2;
                 getLetter(it.first);
             }
         }
@@ -892,8 +894,9 @@ bool Label::isHorizontalClamped(float letterPositionX, int lineIndex)
 bool Label::updateQuads()
 {
     bool ret = true;
-    for (auto&& batchNode : _batchNodes)
+    for(auto itr0 = _batchNodes.begin(); itr0 != _batchNodes.end(); ++itr0)
     {
+    	auto &batchNode=*itr0;
         batchNode->getTextureAtlas()->removeAllQuads();
     }
     
@@ -1473,12 +1476,14 @@ void Label::onDrawShadow(GLProgram* glProgram, const Color4F& shadowColor)
         }
 
         glProgram->setUniformsForBuiltins(_shadowTransform);
-        for (auto&& it : _letters)
+        for(auto itr = _letters.begin(); itr != _letters.end(); ++itr)
         {
+        	auto &it=*itr;
             it.second->updateTransform();
         }
-        for (auto&& batchNode : _batchNodes)
+        for(auto itr = _batchNodes.begin(); itr != _batchNodes.end(); ++itr)
         {
+        	auto &batchNode=*itr;
             batchNode->getTextureAtlas()->drawQuads();
         }
     }
@@ -1490,12 +1495,14 @@ void Label::onDrawShadow(GLProgram* glProgram, const Color4F& shadowColor)
         setColor(Color3B(shadowColor));
 
         glProgram->setUniformsForBuiltins(_shadowTransform);
-        for (auto&& it : _letters)
+        for(auto itr = _letters.begin(); itr != _letters.end(); ++itr)
         {
+        	auto &it=*itr;
             it.second->updateTransform();
         }
-        for (auto&& batchNode : _batchNodes)
+        for(auto itr = _batchNodes.begin(); itr != _batchNodes.end(); ++itr)
         {
+        	auto &batchNode=*itr;
             batchNode->getTextureAtlas()->drawQuads();
         }
 
@@ -1519,8 +1526,9 @@ void Label::onDraw(const Mat4& transform, bool transformUpdated)
     }
 
     glprogram->setUniformsForBuiltins(transform);
-    for (auto&& it : _letters)
+    for(auto itr0 = _letters.begin(); itr0 != _letters.end(); ++itr0)
     {
+    	auto &it=*itr0;
         it.second->updateTransform();
     }
 
@@ -1533,8 +1541,9 @@ void Label::onDraw(const Mat4& transform, bool transformUpdated)
                 _textColorF.r, _textColorF.g, _textColorF.b, _textColorF.a);
             glprogram->setUniformLocationWith4f(_uniformEffectColor,
                 _effectColorF.r, _effectColorF.g, _effectColorF.b, _effectColorF.a);
-            for (auto&& batchNode : _batchNodes)
+            for(auto itr2 = _batchNodes.begin(); itr2 != _batchNodes.end(); ++itr2)
             {
+            	auto &batchNode=*itr2;
                 batchNode->getTextureAtlas()->drawQuads();
             }
 
@@ -1554,8 +1563,9 @@ void Label::onDraw(const Mat4& transform, bool transformUpdated)
         }
     }
 
-    for (auto&& batchNode : _batchNodes)
+    for(auto itr0 = _batchNodes.begin(); itr0 != _batchNodes.end(); ++itr0)
     {
+    	auto &batchNode=*itr0;
         batchNode->getTextureAtlas()->drawQuads();
     }
 }
@@ -1584,8 +1594,9 @@ void Label::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
     {
         if (!_shadowEnabled && (_currentLabelType == LabelType::BMFONT || _currentLabelType == LabelType::CHARMAP))
         {
-            for (auto&& it : _letters)
+            for(auto itr2 = _letters.begin(); itr2 != _letters.end(); ++itr2)
             {
+            	auto &it=*itr2;
                 it.second->updateTransform();
             }
             // ETC1 ALPHA supports for BMFONT & CHARMAP
@@ -1908,8 +1919,9 @@ void Label::updateDisplayedColor(const Color3B& parentColor)
         _contentDirty = true;
     }
 
-    for (auto&& it : _letters)
+    for(auto itr0 = _letters.begin(); itr0 != _letters.end(); ++itr0)
     {
+    	auto &it=*itr0;
         it.second->updateDisplayedColor(_displayedColor);;
     }
 }
@@ -1927,8 +1939,9 @@ void Label::updateDisplayedOpacity(GLubyte parentOpacity)
         }
     }
 
-    for (auto&& it : _letters)
+    for(auto itr0 = _letters.begin(); itr0 != _letters.end(); ++itr0)
     {
+    	auto &it=*itr0;
         it.second->updateDisplayedOpacity(_displayedOpacity);;
     }
 }
@@ -1968,8 +1981,9 @@ void Label::updateColor()
 
     cocos2d::TextureAtlas* textureAtlas;
     V3F_C4B_T2F_Quad *quads;
-    for (auto&& batchNode:_batchNodes)
+    for(auto itr0 = _batchNodes.begin(); itr0 != _batchNodes.end(); ++itr0)
     {
+    	auto &batchNode=*itr0;
         textureAtlas = batchNode->getTextureAtlas();
         quads = textureAtlas->getQuads();
         auto count = textureAtlas->getTotalQuads();
@@ -2034,8 +2048,9 @@ void Label::removeAllChildrenWithCleanup(bool cleanup)
 void Label::removeChild(Node* child, bool cleanup /* = true */)
 {
     Node::removeChild(child, cleanup);
-    for (auto&& it : _letters)
+    for(auto itr0 = _letters.begin(); itr0 != _letters.end(); ++itr0)
     {
+    	auto &it=*itr0;
         if (it.second == child)
         {
             _letters.erase(it.first);

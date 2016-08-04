@@ -379,13 +379,13 @@ void Quaternion::slerp(float q1x, float q1y, float q1z, float q1w, float q2x, fl
     alpha *= f1 + f2a;
     beta = f1 + f2b;
 
-    // Apply final coefficients to a and b as usual.
+    // Applycoefficients to a and b as usual.
     float w = alpha * q1w + beta * q2w;
     float x = alpha * q1x + beta * q2x;
     float y = alpha * q1y + beta * q2y;
     float z = alpha * q1z + beta * q2z;
 
-    // This final adjustment to the quaternion's length corrects for
+    // Thisadjustment to the quaternion's length corrects for
     // any small constraint error in the inputs q1 and q2 But as you
     // can see, it comes at the cost of 9 additional multiplication
     // operations. If this error-correcting feature is not required,

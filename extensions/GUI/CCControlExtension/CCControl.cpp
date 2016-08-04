@@ -113,7 +113,9 @@ void Control::sendActionsForControlEvents(EventType controlEvents)
             // Call invocations
             const auto& invocationList = this->dispatchListforControlEvent((Control::EventType)(1<<i));
 
-            for(const auto &invocation : invocationList) {
+            for(auto itr2 = invocationList.begin(); itr2 != invocationList.end(); ++itr2)
+            {
+            	auto &invocation=*itr2;
                 invocation->invoke(this);
             }
 
@@ -200,7 +202,9 @@ void Control::removeTargetWithActionForControlEvent(Ref* target, Handler action,
         std::vector<Invocation*> tobeRemovedInvocations;
         
         //normally we would use a predicate, but this won't work here. Have to do it manually
-        for(const auto &invocation : eventInvocationList) {
+        for(auto itr = eventInvocationList.begin(); itr != eventInvocationList.end(); ++itr)
+        {
+        	auto &invocation=*itr;
             bool shouldBeRemoved=true;
             if (target)
             {
@@ -217,7 +221,9 @@ void Control::removeTargetWithActionForControlEvent(Ref* target, Handler action,
             }
         }
 
-        for(const auto &invocation : tobeRemovedInvocations) {
+        for(auto itr = tobeRemovedInvocations.begin(); itr != tobeRemovedInvocations.end(); ++itr)
+        {
+        	auto &invocation=*itr;
             eventInvocationList.eraseObject(invocation);
         }
     }
@@ -229,7 +235,9 @@ void Control::setOpacityModifyRGB(bool bOpacityModifyRGB)
 {
     _isOpacityModifyRGB=bOpacityModifyRGB;
     
-    for(auto child : _children){
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->setOpacityModifyRGB(bOpacityModifyRGB);
     }
 }

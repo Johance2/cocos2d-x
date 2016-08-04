@@ -531,7 +531,9 @@ PUScriptTokenList::const_iterator PUScriptParser::skipNewlines(PUScriptTokenList
 
 PUConcreteNode::~PUConcreteNode()
 {
-    for (auto iter : children){
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
 }

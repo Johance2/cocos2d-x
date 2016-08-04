@@ -757,8 +757,9 @@ namespace cocos2d { namespace network {
 
         // update processing tasks
         _impl->getProcessTasks(tasks);
-        for (auto& wrapper : tasks)
+        for(auto itr = tasks.begin(); itr != tasks.end(); ++itr)
         {
+        	auto &wrapper=*itr;
             const DownloadTask& task = *wrapper.first;
             DownloadTaskCURL& coTask = *wrapper.second;
 
@@ -784,8 +785,9 @@ namespace cocos2d { namespace network {
             _scheduler->pauseTarget(this);
         }
 
-        for (auto& wrapper : tasks)
+        for(auto itr = tasks.begin(); itr != tasks.end(); ++itr)
         {
+        	auto &wrapper=*itr;
             const DownloadTask& task = *wrapper.first;
             DownloadTaskCURL& coTask = *wrapper.second;
 

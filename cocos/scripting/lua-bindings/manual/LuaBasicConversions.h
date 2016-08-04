@@ -1068,8 +1068,9 @@ void ccvector_to_luaval(lua_State* L,const cocos2d::Vector<T>& inValue)
         return;
 
     int indexTable = 1;
-    for (const auto& obj : inValue)
+    for(auto itr0 = inValue.begin(); itr0 != inValue.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         if (nullptr == obj)
             continue;
 
@@ -1174,7 +1175,7 @@ void ccvaluevector_to_luaval(lua_State* L, const cocos2d::ValueVector& inValue);
 
 /**
  * Get the real typename for the specified typename.
- * Because all override functions wouldn't be bound,so we must use `typeid` to get the real class name.
+ * Because allfunctions wouldn't be bound,so we must use `typeid` to get the real class name.
  *
  * @param ret the pointer points to a type T object.
  * @param type the string pointer points to specified typename.

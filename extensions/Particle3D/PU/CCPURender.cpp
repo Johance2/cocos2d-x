@@ -135,8 +135,9 @@ void PUParticle3DQuadRender::render(Renderer* renderer, const Mat4 &transform, P
         right.normalize();
     }
 
-    for (auto iter : activeParticleList)
+    for(auto itr0 = activeParticleList.begin(); itr0 != activeParticleList.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         auto particle = static_cast<PUParticle3D *>(iter);
         determineUVCoords(particle);
         if (_type == ORIENTED_SELF){
@@ -481,8 +482,9 @@ void PUParticle3DModelRender::render( Renderer* renderer, const Mat4 &transform,
     Quaternion q;
     transform.decompose(nullptr, &q, nullptr);
     unsigned int index = 0;
-    for (auto iter : activeParticleList)
+    for(auto itr0 = activeParticleList.begin(); itr0 != activeParticleList.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         auto particle = static_cast<PUParticle3D *>(iter);
         Mat4::createRotation(q * particle->orientation, &rotMat);
         sclMat.m[0] = particle->width / _spriteSize.x;
@@ -508,7 +510,9 @@ PUParticle3DModelRender::PUParticle3DModelRender()
 
 PUParticle3DModelRender::~PUParticle3DModelRender()
 {
-    for (auto iter : _spriteList){
+    for(auto itr0 = _spriteList.begin(); itr0 != _spriteList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         iter->release();
     }
 }
@@ -527,7 +531,9 @@ PUParticle3DModelRender* PUParticle3DModelRender::clone()
 
 void PUParticle3DModelRender::reset()
 {
-    for (auto iter : _spriteList){
+    for(auto itr0 = _spriteList.begin(); itr0 != _spriteList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         iter->release();
     }
     _spriteList.clear();
@@ -667,8 +673,9 @@ void PUParticle3DBoxRender::render( Renderer* renderer, const Mat4 &transform, P
     unsigned int index = 0;
     Mat4 texRot;
     Vec3 val;
-    for (auto iter : particlePool.getActiveDataList())
+    for(auto itr0 = particlePool.getActiveDataList().begin(); itr0 != particlePool.getActiveDataList().end(); ++itr0)
     {
+    	auto &iter=*itr0;
         auto particle = static_cast<PUParticle3D *>(iter);
         float halfHeight = particle->height * 0.5f;
         float halfWidth = particle->width * 0.5f;
@@ -854,8 +861,9 @@ void PUSphereRender::render( Renderer* renderer, const Mat4 &transform, Particle
     Mat4 sclMat;
     Mat4 texRot;
     Vec3 val;
-    for (auto iter : particlePool.getActiveDataList())
+    for(auto itr0 = particlePool.getActiveDataList().begin(); itr0 != particlePool.getActiveDataList().end(); ++itr0)
     {
+    	auto &iter=*itr0;
         auto particle = static_cast<PUParticle3D *>(iter);
         float radius = particle->width * 0.5f;
         Mat4::createRotation(particle->orientation, &rotMat);

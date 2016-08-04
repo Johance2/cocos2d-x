@@ -1332,8 +1332,9 @@ bool Terrain::Chunk::getInsterctPointWithRay(const Ray& ray, Vec3 &interscetPoin
 
     float minDist = FLT_MAX;
     bool isFind = false;
-    for (auto triangle : _trianglesList)
+    for(auto itr0 = _trianglesList.begin(); itr0 != _trianglesList.end(); ++itr0)
     {
+    	auto &triangle=*itr0;
         Vec3 p;
         if (triangle.getInsterctPoint(ray, p))
         {
@@ -1509,8 +1510,9 @@ Terrain::QuadTree::QuadTree(int x, int y, int w, int h, Terrain * terrain)
         _localAABB = _chunk->_aabb;
         _chunk->_parent = this;
 
-        for (auto & triangle : _chunk->_trianglesList)
+        for(auto itr = _chunk->_trianglesList.begin(); itr != _chunk->_trianglesList.end(); ++itr)
         {
+        	auto &triangle=*itr;
             triangle.transform(_terrain->getNodeToWorldTransform());
         }
     }

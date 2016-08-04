@@ -349,8 +349,9 @@ void PhysicsBody::setRotation(float rotation)
 
 void PhysicsBody::setScale(float scaleX, float scaleY)
 {
-    for (auto shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         _area -= shape->getArea();
         if (!_massSetByUser)
             addMass(-shape->getMass());
@@ -652,8 +653,9 @@ void PhysicsBody::setMoment(float moment)
 
 PhysicsShape* PhysicsBody::getShape(int tag) const
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         if (shape->getTag() == tag)
         {
             return shape;
@@ -665,8 +667,9 @@ PhysicsShape* PhysicsBody::getShape(int tag) const
 
 void PhysicsBody::removeShape(int tag, bool reduceMassAndMoment/* = true*/)
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         if (shape->getTag() == tag)
         {
             removeShape(shape, reduceMassAndMoment);
@@ -703,8 +706,9 @@ void PhysicsBody::removeShape(PhysicsShape* shape, bool reduceMassAndMoment/* = 
 
 void PhysicsBody::removeAllShapes(bool reduceMassAndMoment/* = true*/)
 {
-    for (auto& child : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &child=*itr0;
         PhysicsShape* shape = dynamic_cast<PhysicsShape*>(child);
         
         // deduce the area, mass and moment
@@ -783,8 +787,9 @@ void PhysicsBody::update(float delta)
 
 void PhysicsBody::setCategoryBitmask(int bitmask)
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         shape->setCategoryBitmask(bitmask);
     }
 }
@@ -803,8 +808,9 @@ int PhysicsBody::getCategoryBitmask() const
 
 void PhysicsBody::setContactTestBitmask(int bitmask)
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         shape->setContactTestBitmask(bitmask);
     }
 }
@@ -823,8 +829,9 @@ int PhysicsBody::getContactTestBitmask() const
 
 void PhysicsBody::setCollisionBitmask(int bitmask)
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         shape->setCollisionBitmask(bitmask);
     }
 }
@@ -843,8 +850,9 @@ int PhysicsBody::getCollisionBitmask() const
 
 void PhysicsBody::setGroup(int group)
 {
-    for (auto& shape : _shapes)
+    for(auto itr0 = _shapes.begin(); itr0 != _shapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         shape->setGroup(group);
     }
 }

@@ -97,8 +97,9 @@ bool ArmatureAnimation::init(Armature *armature)
 
 void ArmatureAnimation::pause()
 {
-    for (const auto& tween : _tweenList)
+    for(auto itr0 = _tweenList.begin(); itr0 != _tweenList.end(); ++itr0)
     {
+    	auto &tween=*itr0;
         tween->pause();
     }
     ProcessBase::pause();
@@ -106,8 +107,9 @@ void ArmatureAnimation::pause()
 
 void ArmatureAnimation::resume()
 {
-    for (const auto& tween : _tweenList)
+    for(auto itr0 = _tweenList.begin(); itr0 != _tweenList.end(); ++itr0)
     {
+    	auto &tween=*itr0;
         tween->resume();
     }
     ProcessBase::resume();
@@ -115,8 +117,9 @@ void ArmatureAnimation::resume()
 
 void ArmatureAnimation::stop()
 {
-    for (const auto& tween : _tweenList)
+    for(auto itr0 = _tweenList.begin(); itr0 != _tweenList.end(); ++itr0)
     {
+    	auto &tween=*itr0;
         tween->stop();
     }
     _tweenList.clear();
@@ -146,8 +149,9 @@ void ArmatureAnimation::setSpeedScale(float speedScale)
     _processScale = !_movementData ? _speedScale : _speedScale * _movementData->scale;
 
     const Map<std::string, Bone*>& map = _armature->getBoneDic();
-    for(auto& element : map)
+    for(auto itr0 = map.begin(); itr0 != map.end(); ++itr0)
     {
+    	auto &element=*itr0;
         Bone *bone = element.second;
 
         bone->getTween()->setProcessScale(_processScale);
@@ -222,8 +226,9 @@ void ArmatureAnimation::play(const std::string& animationName, int durationTo,  
     _tweenList.clear();
 
     const Map<std::string, Bone*>& map = _armature->getBoneDic();
-    for(auto& element : map)
+    for(auto itr0 = map.begin(); itr0 != map.end(); ++itr0)
     {
+    	auto &element=*itr0;
         Bone *bone = element.second;
         movementBoneData = static_cast<MovementBoneData *>(_movementData->movBoneDataDic.at(bone->getName()));
 
@@ -294,8 +299,9 @@ void ArmatureAnimation::playWithIndexes(const std::vector<int>& movementIndexes,
 
     std::vector<std::string> &movName = _animationData->movementNames;
 
-    for(auto& index : movementIndexes)
+    for(auto itr0 = movementIndexes.begin(); itr0 != movementIndexes.end(); ++itr0)
     {
+    	auto &index=*itr0;
         std::string name = movName.at(index);
         _movementList.push_back(name);
     }
@@ -322,8 +328,9 @@ void ArmatureAnimation::gotoAndPlay(int frameIndex)
     _currentFrame = _nextFrameIndex * _currentPercent;
 
     
-    for (const auto &tween : _tweenList)
+    for(auto itr0 = _tweenList.begin(); itr0 != _tweenList.end(); ++itr0)
     {
+    	auto &tween=*itr0;
         tween->gotoAndPlay(frameIndex);
     }
 
@@ -347,8 +354,9 @@ void ArmatureAnimation::update(float dt)
 {
     ProcessBase::update(dt);
     
-    for (const auto &tween : _tweenList)
+    for(auto itr0 = _tweenList.begin(); itr0 != _tweenList.end(); ++itr0)
     {
+    	auto &tween=*itr0;
         tween->update(dt);
     }
 

@@ -310,7 +310,7 @@ public:
     virtual void setString(const std::string& text) override;
 
     /** Return the text the Label is currently displaying.*/
-    virtual const std::string& getString() const override {  return _utf8Text; }
+    virtual const std::string& getString() const{  return _utf8Text; }
 
     /**
      * Return the number of lines of text.
@@ -569,10 +569,10 @@ public:
 
     FontAtlas* getFontAtlas() { return _fontAtlas; }
 
-    virtual const BlendFunc& getBlendFunc() const override { return _blendFunc; }
+    virtual const BlendFunc& getBlendFunc() const{ return _blendFunc; }
     virtual void setBlendFunc(const BlendFunc &blendFunc) override;
 
-    virtual bool isOpacityModifyRGB() const override { return _isOpacityModifyRGB; }
+    virtual bool isOpacityModifyRGB() const{ return _isOpacityModifyRGB; }
     virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) override;
     virtual void updateDisplayedColor(const Color3B& parentColor) override;
     virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;

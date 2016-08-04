@@ -165,7 +165,9 @@ void Physics3DWorld::removePhysics3DObject(Physics3DObject* physicsObj)
 
 void Physics3DWorld::removeAllPhysics3DObjects()
 {
-    for (auto it : _objects) {
+    for(auto itr0 = _objects.begin(); itr0 != _objects.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it->getObjType() == Physics3DObject::PhysicsObjType::RIGID_BODY)
         {
             _btPhyiscsWorld->removeRigidBody(static_cast<Physics3DRigidBody*>(it)->getRigidBody());
@@ -209,13 +211,16 @@ void Physics3DWorld::removePhysics3DConstraint(Physics3DConstraint* constraint)
 
 void Physics3DWorld::removeAllPhysics3DConstraints()
 {
-    for(auto it : _objects)
+    for(auto itr0 = _objects.begin(); itr0 != _objects.end(); ++itr0)
     {
+    	auto &it=*itr0;
         auto type = it->getObjType();
         if (type == Physics3DObject::PhysicsObjType::RIGID_BODY)
         {
             auto& constraints = static_cast<Physics3DRigidBody*>(it)->_constraintList;
-            for (auto constraint : constraints) {
+            for(auto itr2 = constraints.begin(); itr2 != constraints.end(); ++itr2)
+            {
+            	auto &constraint=*itr2;
                 _btPhyiscsWorld->removeConstraint(constraint->getbtContraint());
                 constraint->release();
             }
@@ -231,14 +236,16 @@ void Physics3DWorld::stepSimulate(float dt)
     {
         setGhostPairCallback();
         //should sync kinematic node before simulation
-        for (auto it : _physicsComponents)
+        for(auto itr = _physicsComponents.begin(); itr != _physicsComponents.end(); ++itr)
         {
+        	auto &it=*itr;
             it->preSimulate();
         }
         _btPhyiscsWorld->stepSimulation(dt, 3);
         //sync dynamic node after simulation
-        for (auto it : _physicsComponents)
+        for(auto itr = _physicsComponents.begin(); itr != _physicsComponents.end(); ++itr)
         {
+        	auto &it=*itr;
             it->postSimulate();
         }
         if (needCollisionChecking())
@@ -293,8 +300,9 @@ bool Physics3DWorld::sweepShape(Physics3DShape* shape, const cocos2d::Mat4& star
 
 Physics3DObject* Physics3DWorld::getPhysicsObject(const btCollisionObject* btObj)
 {
-    for(auto it : _objects)
+    for(auto itr0 = _objects.begin(); itr0 != _objects.end(); ++itr0)
     {
+    	auto &it=*itr0;
         if (it->getObjType() == Physics3DObject::PhysicsObjType::RIGID_BODY)
         {
             if (static_cast<Physics3DRigidBody*>(it)->getRigidBody() == btObj)
@@ -349,8 +357,9 @@ bool Physics3DWorld::needCollisionChecking()
 {
     if (_collisionCheckingFlag){
         _needCollisionChecking = false;
-        for(auto it : _objects)
+        for(auto itr = _objects.begin(); itr != _objects.end(); ++itr)
         {
+        	auto &it=*itr;
             if (it->getCollisionCallback() != nullptr){
                 _needCollisionChecking = true;
                 break;
@@ -365,8 +374,9 @@ void Physics3DWorld::setGhostPairCallback()
 {
     if (_needGhostPairCallbackChecking){
         bool needCallback = false;
-        for (auto it : _objects)
+        for(auto itr = _objects.begin(); itr != _objects.end(); ++itr)
         {
+        	auto &it=*itr;
             if (it->getObjType() == Physics3DObject::PhysicsObjType::COLLIDER){
                 needCallback = true;
                 break;

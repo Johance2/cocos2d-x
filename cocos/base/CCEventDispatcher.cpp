@@ -269,8 +269,9 @@ void EventDispatcher::visitTarget(Node* node, bool isRootNode)
         std::vector<float> globalZOrders;
         globalZOrders.reserve(_globalZOrderNodeMap.size());
         
-        for (const auto& e : _globalZOrderNodeMap)
+        for(auto itr = _globalZOrderNodeMap.begin(); itr != _globalZOrderNodeMap.end(); ++itr)
         {
+        	auto &e=*itr;
             globalZOrders.push_back(e.first);
         }
         
@@ -278,10 +279,12 @@ void EventDispatcher::visitTarget(Node* node, bool isRootNode)
             return a < b;
         });
         
-        for (const auto& globalZ : globalZOrders)
+        for(auto itr = globalZOrders.begin(); itr != globalZOrders.end(); ++itr)
         {
-            for (const auto& n : _globalZOrderNodeMap[globalZ])
+        	auto &globalZ=*itr;
+            for(auto itr2 = _globalZOrderNodeMap[globalZ].begin(); itr2 != _globalZOrderNodeMap[globalZ].end(); ++itr2)
             {
+            	auto &n=*itr2;
                 _nodePriorityMap[n] = ++_nodePriorityIndex;
             }
         }
@@ -296,14 +299,16 @@ void EventDispatcher::pauseEventListenersForTarget(Node* target, bool recursive/
     if (listenerIter != _nodeListenersMap.end())
     {
         auto listeners = listenerIter->second;
-        for (auto& l : *listeners)
+        for(auto itr = *listeners.begin(); itr != *listeners.end(); ++itr)
         {
+        	auto &l=*itr;
             l->setPaused(true);
         }
     }
 
-    for (auto& listener : _toAddedListeners)
+    for(auto itr0 = _toAddedListeners.begin(); itr0 != _toAddedListeners.end(); ++itr0)
     {
+    	auto &listener=*itr0;
         if (listener->getAssociatedNode() == target)
         {
             listener->setPaused(true);
@@ -313,8 +318,9 @@ void EventDispatcher::pauseEventListenersForTarget(Node* target, bool recursive/
     if (recursive)
     {
         const auto& children = target->getChildren();
-        for (const auto& child : children)
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
         {
+        	auto &child=*itr;
             pauseEventListenersForTarget(child, true);
         }
     }
@@ -326,14 +332,16 @@ void EventDispatcher::resumeEventListenersForTarget(Node* target, bool recursive
     if (listenerIter != _nodeListenersMap.end())
     {
         auto listeners = listenerIter->second;
-        for (auto& l : *listeners)
+        for(auto itr = *listeners.begin(); itr != *listeners.end(); ++itr)
         {
+        	auto &l=*itr;
             l->setPaused(false);
         }
     }
     
-    for (auto& listener : _toAddedListeners)
+    for(auto itr0 = _toAddedListeners.begin(); itr0 != _toAddedListeners.end(); ++itr0)
     {
+    	auto &listener=*itr0;
         if (listener->getAssociatedNode() == target)
         {
             listener->setPaused(false);
@@ -345,8 +353,9 @@ void EventDispatcher::resumeEventListenersForTarget(Node* target, bool recursive
     if (recursive)
     {
         const auto& children = target->getChildren();
-        for (const auto& child : children)
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
         {
+        	auto &child=*itr;
             resumeEventListenersForTarget(child, true);
         }
     }
@@ -364,8 +373,9 @@ void EventDispatcher::removeEventListenersForTarget(Node* target, bool recursive
     {
         auto listeners = listenerIter->second;
         auto listenersCopy = *listeners;
-        for (auto& l : listenersCopy)
+        for(auto itr = listenersCopy.begin(); itr != listenersCopy.end(); ++itr)
         {
+        	auto &l=*itr;
             removeEventListener(l);
         }
     }
@@ -395,8 +405,9 @@ void EventDispatcher::removeEventListenersForTarget(Node* target, bool recursive
     if (recursive)
     {
         const auto& children = target->getChildren();
-        for (const auto& child : children)
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
         {
+        	auto &child=*itr;
             removeEventListenersForTarget(child, true);
         }
     }
@@ -518,8 +529,9 @@ void EventDispatcher::addEventListenerWithSceneGraphPriority(EventListener* list
 void EventDispatcher::debugCheckNodeHasNoEventListenersOnDestruction(Node* node)
 {
     // Check the listeners map
-    for (const auto & keyValuePair : _listenerMap)
+    for(auto itr0 = _listenerMap.begin(); itr0 != _listenerMap.end(); ++itr0)
     {
+    	auto &keyValuePair=*itr0;
         const EventListenerVector * eventListenerVector = keyValuePair.second;
         
         if (eventListenerVector)
@@ -537,8 +549,9 @@ void EventDispatcher::debugCheckNodeHasNoEventListenersOnDestruction(Node* node)
     }
     
     // Check the node listeners map
-    for (const auto & keyValuePair : _nodeListenersMap)
+    for(auto itr0 = _nodeListenersMap.begin(); itr0 != _nodeListenersMap.end(); ++itr0)
     {
+    	auto &keyValuePair=*itr0;
         CCASSERT(keyValuePair.first != node, "Node should have no event listeners registered for it upon destruction!");
         
         if (keyValuePair.second)
@@ -552,8 +565,9 @@ void EventDispatcher::debugCheckNodeHasNoEventListenersOnDestruction(Node* node)
     }
     
     // Check the node priority map
-    for (const auto & keyValuePair : _nodePriorityMap)
+    for(auto itr0 = _nodePriorityMap.begin(); itr0 != _nodePriorityMap.end(); ++itr0)
     {
+    	auto &keyValuePair=*itr0;
         CCASSERT(keyValuePair.first != node,
                  "Node should have no event listeners registered for it upon destruction!");
     }
@@ -769,8 +783,9 @@ void EventDispatcher::dispatchEventToListeners(EventListenerVector* listeners, c
         if (!shouldStopPropagation)
         {
             // priority == 0, scene graph priority
-            for (auto& l : *sceneGraphPriorityListeners)
+            for(auto itr2 = *sceneGraphPriorityListeners.begin(); itr2 != *sceneGraphPriorityListeners.end(); ++itr2)
             {
+            	auto &l=*itr2;
                 if (l->isEnabled() && !l->isPaused() && l->isRegistered() && onEvent(l))
                 {
                     shouldStopPropagation = true;
@@ -835,8 +850,9 @@ void EventDispatcher::dispatchTouchEventToListeners(EventListenerVector* listene
             
             // first, get all enabled, unPaused and registered listeners
             std::vector<EventListener*> sceneListeners;
-            for (auto& l : *sceneGraphPriorityListeners)
+            for(auto itr2 = *sceneGraphPriorityListeners.begin(); itr2 != *sceneGraphPriorityListeners.end(); ++itr2)
             {
+            	auto &l=*itr2;
                 if (l->isEnabled() && !l->isPaused() && l->isRegistered())
                 {
                     sceneListeners.push_back(l);
@@ -856,8 +872,9 @@ void EventDispatcher::dispatchTouchEventToListeners(EventListenerVector* listene
                 
                 Camera::_visitingCamera = camera;
                 auto cameraFlag = (unsigned short)camera->getCameraFlag();
-                for (auto& l : sceneListeners)
+                for(auto itr3 = sceneListeners.begin(); itr3 != sceneListeners.end(); ++itr3)
                 {
+                	auto &l=*itr3;
                     if (nullptr == l->getAssociatedNode() || 0 == (l->getAssociatedNode()->getCameraMask() & cameraFlag))
                     {
                         continue;
@@ -1239,8 +1256,9 @@ void EventDispatcher::updateListeners(Event* event)
     
     if (!_toAddedListeners.empty())
     {
-        for (auto& listener : _toAddedListeners)
+        for(auto itr = _toAddedListeners.begin(); itr != _toAddedListeners.end(); ++itr)
         {
+        	auto &listener=*itr;
             forceAddEventListener(listener);
         }
         _toAddedListeners.clear();
@@ -1256,13 +1274,15 @@ void EventDispatcher::updateDirtyFlagForSceneGraph()
 {
     if (!_dirtyNodes.empty())
     {
-        for (auto& node : _dirtyNodes)
+        for(auto itr = _dirtyNodes.begin(); itr != _dirtyNodes.end(); ++itr)
         {
+        	auto &node=*itr;
             auto iter = _nodeListenersMap.find(node);
             if (iter != _nodeListenersMap.end())
             {
-                for (auto& l : *iter->second)
+                for(auto itr3 = *iter->second.begin(); itr3 != *iter->second.end(); ++itr3)
                 {
+                	auto &l=*itr3;
                     setDirty(l->getListenerID(), DirtyFlag::SCENE_GRAPH_PRIORITY);
                 }
             }
@@ -1331,8 +1351,9 @@ void EventDispatcher::sortEventListenersOfSceneGraphPriority(const EventListener
     
 #if DUMP_LISTENER_ITEM_PRIORITY_INFO
     log("-----------------------------------");
-    for (auto& l : *sceneGraphListeners)
+    for(auto itr0 = *sceneGraphListeners.begin(); itr0 != *sceneGraphListeners.end(); ++itr0)
     {
+    	auto &l=*itr0;
         log("listener priority: node ([%s]%p), priority (%d)", typeid(*l->_node).name(), l->_node, _nodePriorityMap[l->_node]);
     }
 #endif
@@ -1356,8 +1377,9 @@ void EventDispatcher::sortEventListenersOfFixedPriority(const EventListener::Lis
     
     // FIXME: Should use binary search
     int index = 0;
-    for (auto& listener : *fixedListeners)
+    for(auto itr0 = *fixedListeners.begin(); itr0 != *fixedListeners.end(); ++itr0)
     {
+    	auto &listener=*itr0;
         if (listener->getFixedPriority() >= 0)
             break;
         ++index;
@@ -1367,8 +1389,9 @@ void EventDispatcher::sortEventListenersOfFixedPriority(const EventListener::Lis
     
 #if DUMP_LISTENER_ITEM_PRIORITY_INFO
     log("-----------------------------------");
-    for (auto& l : *fixedListeners)
+    for(auto itr0 = *fixedListeners.begin(); itr0 != *fixedListeners.end(); ++itr0)
     {
+    	auto &l=*itr0;
         log("listener priority: node (%p), fixed (%d)", l->_node, l->_fixedPriority);
     }    
 #endif
@@ -1490,8 +1513,9 @@ void EventDispatcher::removeAllEventListeners()
     std::vector<EventListener::ListenerID> types;
     types.reserve(_listenerMap.size());
     
-    for (const auto& e : _listenerMap)
+    for(auto itr0 = _listenerMap.begin(); itr0 != _listenerMap.end(); ++itr0)
     {
+    	auto &e=*itr0;
         if (_internalCustomListenerIDs.find(e.first) != _internalCustomListenerIDs.end())
         {
             cleanMap = false;
@@ -1502,8 +1526,9 @@ void EventDispatcher::removeAllEventListeners()
         }
     }
 
-    for (const auto& type : types)
+    for(auto itr0 = types.begin(); itr0 != types.end(); ++itr0)
     {
+    	auto &type=*itr0;
         removeEventListenersForListenerID(type);
     }
     
@@ -1533,8 +1558,9 @@ void EventDispatcher::setDirtyForNode(Node* node)
 
     // Also set the dirty flag for node's children
     const auto& children = node->getChildren();
-    for (const auto& child : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         setDirtyForNode(child);
     }
 }
@@ -1555,8 +1581,9 @@ void EventDispatcher::setDirty(const EventListener::ListenerID& listenerID, Dirt
 
 void EventDispatcher::cleanToRemovedListeners()
 {
-    for (auto& l : _toRemovedListeners)
+    for(auto itr0 = _toRemovedListeners.begin(); itr0 != _toRemovedListeners.end(); ++itr0)
     {
+    	auto &l=*itr0;
         auto listenersIter = _listenerMap.find(l->getListenerID());
         if (listenersIter == _listenerMap.end())
         {

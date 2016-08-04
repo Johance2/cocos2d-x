@@ -935,8 +935,9 @@ namespace ui {
         
         if (_cascadeColorEnabled)
         {
-            for(const auto &child : _children)
+            for(auto itr2 = _children.begin(); itr2 != _children.end(); ++itr2)
             {
+            	auto &child=*itr2;
                 child->updateDisplayedColor(_displayedColor);
             }
         }
@@ -954,8 +955,9 @@ namespace ui {
 
         if (_cascadeOpacityEnabled)
         {
-            for(auto child : _children)
+            for(auto itr2 = _children.begin(); itr2 != _children.end(); ++itr2)
             {
+            	auto &child=*itr2;
                 child->updateDisplayedOpacity(_displayedOpacity);
             }
         }
@@ -963,8 +965,9 @@ namespace ui {
 
     void Scale9Sprite::disableCascadeColor()
     {
-        for(auto child : _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             child->updateDisplayedColor(Color3B::WHITE);
         }
 
@@ -978,7 +981,9 @@ namespace ui {
     {
         _displayedOpacity = _realOpacity;
 
-        for(auto child : _children){
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+        {
+        	auto &child=*itr;
             child->updateDisplayedOpacity(255);
         }
     }

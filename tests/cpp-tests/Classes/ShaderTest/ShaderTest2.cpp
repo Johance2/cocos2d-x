@@ -89,7 +89,9 @@ public:
         {
             // negative effects: order < 0
             int idx=0;
-            for(auto &effect : _effects) {
+            for(auto itr2 = _effects.begin(); itr2 != _effects.end(); ++itr2)
+            {
+            	auto &effect=*itr2;
 
                 if(std::get<0>(effect) >=0)
                     break;
@@ -122,7 +124,9 @@ protected:
         _effects.reserve(2);
     }
     ~EffectSprite() {
-        for(auto &tuple : _effects) {
+        for(auto itr = _effects.begin(); itr != _effects.end(); ++itr)
+        {
+        	auto &tuple=*itr;
             std::get<1>(tuple)->release();
         }
         CC_SAFE_RELEASE(_defaultEffect);
@@ -559,8 +563,9 @@ bool EffectSpriteLamp::init()
 
 void EffectSpriteLamp::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto s = Director::getInstance()->getWinSize();
         Point loc_winSpace = touch->getLocationInView();
@@ -574,8 +579,9 @@ void EffectSpriteLamp::onTouchesBegan(const std::vector<Touch*>& touches, Event 
 
 void EffectSpriteLamp::onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto s = Director::getInstance()->getWinSize();
         Point loc_winSpace = touch->getLocationInView();
@@ -589,8 +595,9 @@ void EffectSpriteLamp::onTouchesMoved(const std::vector<Touch*>& touches, Event 
 
 void EffectSpriteLamp::onTouchesEnded(const std::vector<Touch*>& touches, Event *unused_event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto s = Director::getInstance()->getWinSize();
         Point loc_winSpace = touch->getLocationInView();

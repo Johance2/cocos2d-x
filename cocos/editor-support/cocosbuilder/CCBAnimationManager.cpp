@@ -258,8 +258,9 @@ Ref* CCBAnimationManager::getObject(Node *pNode, const std::string& propName)
 int CCBAnimationManager::getSequenceId(const char* pSequenceName)
 {
     string seqName(pSequenceName);
-    for (auto& seq : _sequences)
+    for(auto itr0 = _sequences.begin(); itr0 != _sequences.end(); ++itr0)
     {
+    	auto &seq=*itr0;
         if (seqName.compare(seq->getName()) == 0)
         {
             return seq->getSequenceId();
@@ -270,8 +271,9 @@ int CCBAnimationManager::getSequenceId(const char* pSequenceName)
 
 CCBSequence* CCBAnimationManager::getSequence(int nSequenceId)
 {
-    for (auto& seq : _sequences)
+    for(auto itr0 = _sequences.begin(); itr0 != _sequences.end(); ++itr0)
     {
+    	auto &seq=*itr0;
         if (seq->getSequenceId() == nSequenceId)
         {
             return seq;

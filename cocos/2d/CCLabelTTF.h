@@ -127,7 +127,7 @@ public:
     * @warning Changing the string is as expensive as creating a new LabelTTF. To obtain better performance use LabelAtlas
     */
     virtual void setString(const std::string &label) override;
-    virtual const std::string& getString(void) const override ;
+    virtual const std::string& getString(void) const;
     
     TextHAlignment getHorizontalAlignment() const;
     void setHorizontalAlignment(TextHAlignment alignment);

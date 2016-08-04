@@ -121,7 +121,7 @@ public:
     {
         for(auto itr = list.begin(); itr != list.end(); ++itr)
         {
-        	auto element=*itr;
+        	auto &element=*itr;
 			pushBack(element);
         }
     }
@@ -130,7 +130,7 @@ public:
     {
         for(auto itr = list.begin(); itr != list.end(); ++itr)
         {
-        	auto element=*itr;
+        	auto &element=*itr;
 			pushBack(element);
         }
     }
@@ -341,7 +341,7 @@ public:
     {
         for(auto itr = other.begin(); itr != other.end(); ++itr)
         {
-        	auto obj=*itr;
+        	auto &obj=*itr;
             _data.push_back(obj);
             obj->retain();
         }
@@ -508,7 +508,7 @@ protected:
     {
         for(auto itr = _data.begin(); itr != _data.end(); ++itr)
         {
-        	auto obj=*itr;
+        	auto &obj=*itr;
             obj->retain();
         }
     }

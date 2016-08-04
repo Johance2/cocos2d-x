@@ -1061,8 +1061,9 @@ void ScriptingCore::unrootScriptObject(cocos2d::Ref* target)
 void ScriptingCore::releaseAllChildrenRecursive(cocos2d::Node *node)
 {
     const Vector<Node*>& children = node->getChildren();
-    for (auto child : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         releaseScriptObject(node, child);
         releaseAllChildrenRecursive(child);
     }
@@ -1395,8 +1396,9 @@ bool ScriptingCore::handleTouchesEvent(void* nativeObj, cocos2d::EventTouch::Eve
         typeClassTouch = js_get_type_from_native<cocos2d::Touch>(touches[0]);
     typeClassEvent = js_get_type_from_native<cocos2d::EventTouch>((cocos2d::EventTouch*)event);
 
-    for (const auto& touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         JS::RootedValue jsret(_cx, OBJECT_TO_JSVAL(jsb_get_or_create_weak_jsobject(_cx, touch, typeClassTouch, "cocos2d::Touch")));
         if (!JS_SetElement(_cx, jsretArr, count, jsret))
         {
@@ -1414,8 +1416,9 @@ bool ScriptingCore::handleTouchesEvent(void* nativeObj, cocos2d::EventTouch::Eve
         ret = executeFunctionWithOwner(OBJECT_TO_JSVAL(p->obj), funcName.c_str(), 2, dataVal, jsvalRet);
     }
 
-    for (auto& touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         removeJSObject(_cx, touch);
     }
 
@@ -1609,8 +1612,9 @@ int ScriptingCore::executeCustomTouchesEvent(EventTouch::EventCode eventType,
 
     JS::RootedObject jsretArr(_cx, JS_NewArrayObject(this->_cx, 0));
     int count = 0;
-    for (auto& touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         js_type_class_t *typeClass = js_get_type_from_native<cocos2d::Touch>(touch);
 
         jsval jsret = OBJECT_TO_JSVAL(jsb_get_or_create_weak_jsobject(this->_cx, touch, typeClass, "cocos2d::Touch"));
@@ -1624,8 +1628,9 @@ int ScriptingCore::executeCustomTouchesEvent(EventTouch::EventCode eventType,
     jsval jsretArrVal = OBJECT_TO_JSVAL(jsretArr);
     executeFunctionWithOwner(OBJECT_TO_JSVAL(obj), funcName.c_str(), 1, &jsretArrVal);
 
-    for (auto& touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         removeJSObject(this->_cx, touch);
     }
 

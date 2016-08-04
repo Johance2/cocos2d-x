@@ -641,8 +641,9 @@ TMXOrthoObjectsTestNew::TMXOrthoObjectsTestNew()
     
     auto drawNode = DrawNode::create();
     Color4F color(1.0, 1.0, 1.0, 1.0);
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
         
         float x = dict["x"].asFloat();
@@ -692,8 +693,9 @@ TMXIsoObjectsTestNew::TMXIsoObjectsTestNew()
     
     auto drawNode = DrawNode::create();
     Color4F color(1.0, 1.0, 1.0, 1.0);
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
         
         float x = dict["x"].asFloat();
@@ -1094,8 +1096,9 @@ TMXTilePropertyTestNew::TMXTilePropertyTestNew()
     addChild(map ,0 ,kTagTileMap);
 
     for(int i=1;i<=20;i++){
-        for(const auto& value : map->getPropertiesForGID(i).asValueMap())
+        for(auto itr = map->getPropertiesForGID(i).asValueMap().begin(); itr != map->getPropertiesForGID(i).asValueMap().end(); ++itr)
         {
+        	auto &value=*itr;
             log("GID:%i, Properties:%s, %s", i, value.first.c_str(), value.second.asString().c_str());
         }
     }
@@ -1329,8 +1332,9 @@ TMXGIDObjectsTestNew::TMXGIDObjectsTestNew()
     Color4F color(1.0, 1.0, 1.0, 1.0);
     auto group = map->getObjectGroup("Object Layer 1");
     auto objects = group->getObjects();
-    for (auto& obj : objects)
+    for(auto itr0 = objects.begin(); itr0 != objects.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         ValueMap& dict = obj.asValueMap();
         
         float x = dict["x"].asFloat();

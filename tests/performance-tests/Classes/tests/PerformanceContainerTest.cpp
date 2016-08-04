@@ -138,8 +138,9 @@ void PerformanceContainerScene::initWithQuantityOfNodes(unsigned int nNodes)
     CCASSERT(!_testFunctions.empty(), "Should not be empty after generate test functions");
 
     
-    for (const auto& f : _testFunctions)
+    for(auto itr0 = _testFunctions.begin(); itr0 != _testFunctions.end(); ++itr0)
     {
+    	auto &f=*itr0;
         toggleItems.pushBack(MenuItemFont::create(f.name));
     }
     
@@ -526,16 +527,18 @@ void TemplateVectorPerfTest::generateTestFunctions()
             Vector<Node*> nodeVector = createVector();
             
             CC_PROFILER_START(this->profilerName());
-            for (const auto& e : nodeVector)
+            for(auto itr2 = nodeVector.begin(); itr2 != nodeVector.end(); ++itr2)
             {
+            	auto &e=*itr2;
                 e->setTag(111);
             }
             CC_PROFILER_STOP(this->profilerName());
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -725,8 +728,9 @@ void ArrayPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -841,8 +845,9 @@ void TemplateMapStringKeyPerfTest::generateTestFunctions()
             CC_PROFILER_STOP(this->profilerName());
             
             std::string allKeysString;
-            for (const auto& key : keys)
+            for(auto itr2 = keys.begin(); itr2 != keys.end(); ++itr2)
             {
+            	auto &key=*itr2;
                 allKeysString += "_" + key;
             }
         } } ,
@@ -872,8 +877,9 @@ void TemplateMapStringKeyPerfTest::generateTestFunctions()
             CC_PROFILER_STOP(this->profilerName());
             
             std::string allKeysString;
-            for (const auto& key : keys)
+            for(auto itr2 = keys.begin(); itr2 != keys.end(); ++itr2)
             {
+            	auto &key=*itr2;
                 allKeysString += "_" + key;
             }
             
@@ -885,8 +891,9 @@ void TemplateMapStringKeyPerfTest::generateTestFunctions()
             
             CC_PROFILER_START(this->profilerName());
             
-            for (const auto& e : map)
+            for(auto itr2 = map.begin(); itr2 != map.end(); ++itr2)
             {
+            	auto &e=*itr2;
                 e.second->setTag(100);
             }
             
@@ -895,8 +902,9 @@ void TemplateMapStringKeyPerfTest::generateTestFunctions()
         
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -1079,8 +1087,9 @@ void DictionaryStringKeyPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -1182,8 +1191,9 @@ void TemplateMapIntKeyPerfTest::generateTestFunctions()
             CC_PROFILER_STOP(this->profilerName());
             
             int allKeysInt = 0;
-            for (const auto& key : keys)
+            for(auto itr2 = keys.begin(); itr2 != keys.end(); ++itr2)
             {
+            	auto &key=*itr2;
                 allKeysInt += key;
             }
         } } ,
@@ -1213,8 +1223,9 @@ void TemplateMapIntKeyPerfTest::generateTestFunctions()
             CC_PROFILER_STOP(this->profilerName());
             
             int allKeysInt = 0;
-            for (const auto& key : keys)
+            for(auto itr2 = keys.begin(); itr2 != keys.end(); ++itr2)
             {
+            	auto &key=*itr2;
                 allKeysInt += key;
             }
             
@@ -1226,8 +1237,9 @@ void TemplateMapIntKeyPerfTest::generateTestFunctions()
             
             CC_PROFILER_START(this->profilerName());
             
-            for (const auto& e : map)
+            for(auto itr2 = map.begin(); itr2 != map.end(); ++itr2)
             {
+            	auto &e=*itr2;
                 e.second->setTag(100);
             }
             
@@ -1236,8 +1248,9 @@ void TemplateMapIntKeyPerfTest::generateTestFunctions()
         
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -1397,8 +1410,9 @@ void DictionaryIntKeyPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }

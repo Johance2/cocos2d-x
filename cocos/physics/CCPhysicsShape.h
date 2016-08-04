@@ -547,7 +547,7 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getOffset() override { return getCenter(); }
+    virtual Vec2 getOffset(){ return getCenter(); }
     
 protected:
     bool init(const Size& size, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, const Vec2& offset = Vec2::ZERO, float radius = 0.0f);
@@ -671,7 +671,7 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getOffset() override { return getCenter(); }
+    virtual Vec2 getOffset(){ return getCenter(); }
     
 protected:
     bool init(const Size& size, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, float border = 1, const Vec2& offset = Vec2::ZERO);

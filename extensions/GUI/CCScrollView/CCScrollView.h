@@ -122,7 +122,7 @@ public:
     Vec2 getContentOffset();
     /**
      * Sets a new content offset. It ignores max/min offset. It just sets what's given. (just like UIKit's UIScrollView)
-     * You can override the animation duration with this method.
+     * You canthe animation duration with this method.
      *
      * @param offset    The new offset.
      * @param dt        The animation duration.

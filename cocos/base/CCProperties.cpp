@@ -54,8 +54,9 @@ Properties::Properties(const Properties& copy)
 {
     setDirectoryPath(copy._dirPath);
 
-    for (const auto space: copy._namespaces)
+    for(auto itr0 = copy._namespaces.begin(); itr0 != copy._namespaces.end(); ++itr0)
     {
+    	auto &space=*itr0;
         _namespaces.push_back(new (std::nothrow) Properties(*space));
     }
     rewind();
@@ -540,13 +541,14 @@ void Properties::resolveInheritance(const char* id)
                 derived->_properties = parent->_properties;
                 derived->_namespaces = std::vector<Properties*>();
                 std::vector<Properties*>::const_iterator itt;
-                for (const auto space: parent->_namespaces)
+                for(auto itr3 = parent->_namespaces.begin(); itr3 != parent->_namespaces.end(); ++itr3)
                 {
+                	auto &space=*itr3;
                     derived->_namespaces.push_back(new (std::nothrow) Properties(*space));
                 }
                 derived->rewind();
 
-                // Take the original copy of the child and override the data copied from the parent.
+                // Take the original copy of the child andthe data copied from the parent.
                 derived->mergeWith(overrides);
 
                 // Delete the child copy.
@@ -1115,7 +1117,7 @@ void Properties::setDirectoryPath(const std::string& path)
 void calculateNamespacePath(const std::string& urlString, std::string& fileString, std::vector<std::string>& namespacePath)
 {
     // If the url references a specific namespace within the file,
-    // calculate the full namespace path to the final namespace.
+    // calculate the full namespace path to thenamespace.
     size_t loc = urlString.rfind("#");
     if (loc != std::string::npos)
     {

@@ -80,8 +80,9 @@ Timeline* Timeline::clone()
     Timeline* timeline = Timeline::create();
     timeline->_actionTag = _actionTag;
 
-    for (auto frame : _frames)
+    for(auto itr0 = _frames.begin(); itr0 != _frames.end(); ++itr0)
     {
+    	auto &frame=*itr0;
         Frame* newFrame = frame->clone();
         timeline->addFrame(newFrame);
     }
@@ -109,8 +110,9 @@ void Timeline::removeFrame(Frame* frame)
 
 void Timeline::setNode(Node* node)
 {
-    for (auto frame : _frames)
+    for(auto itr0 = _frames.begin(); itr0 != _frames.end(); ++itr0)
     {
+    	auto &frame=*itr0;
         frame->setNode(node);
     }
 }

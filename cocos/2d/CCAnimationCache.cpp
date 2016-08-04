@@ -102,8 +102,9 @@ void AnimationCache::parseVersion1(const ValueMap& animations)
         ssize_t frameNameSize = frameNames.size();
         Vector<AnimationFrame*> frames(frameNameSize);
 
-        for (auto& frameName : frameNames)
+        for(auto itr = frameNames.begin(); itr != frameNames.end(); ++itr)
         {
+        	auto &frameName=*itr;
             SpriteFrame* spriteFrame = frameCache->getSpriteFrameByName(frameName.asString());
 
             if ( ! spriteFrame ) {
@@ -155,8 +156,9 @@ void AnimationCache::parseVersion2(const ValueMap& animations)
         // Array of AnimationFrames
         Vector<AnimationFrame*> array(static_cast<int>(frameArray.size()));
 
-        for (auto& obj : frameArray)
+        for(auto itr = frameArray.begin(); itr != frameArray.end(); ++itr)
         {
+        	auto &obj=*itr;
             ValueMap& entry = obj.asValueMap();
             std::string spriteFrameName = entry["spriteframe"].asString();
             SpriteFrame *spriteFrame = frameCache->getSpriteFrameByName(spriteFrameName);
@@ -201,7 +203,9 @@ void AnimationCache::addAnimationsWithDictionary(const ValueMap& dictionary,cons
         version = properties.at("format").asInt();
         const ValueVector& spritesheets = properties.at("spritesheets").asValueVector();
 
-        for(const auto &value : spritesheets) {
+        for(auto itr = spritesheets.begin(); itr != spritesheets.end(); ++itr)
+        {
+        	auto &value=*itr;
             std::string path = FileUtils::getInstance()->fullPathFromRelativeFile(value.asString(),plist);
             SpriteFrameCache::getInstance()->addSpriteFramesWithFile(path);
         }

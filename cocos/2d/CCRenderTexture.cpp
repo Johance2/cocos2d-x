@@ -449,7 +449,7 @@ void RenderTexture::clearStencil(int stencilValue)
 
 void RenderTexture::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
-    // override visit.
+    //visit.
     // Don't call visit on its children
     if (!_visible)
     {
@@ -752,8 +752,9 @@ void RenderTexture::draw(Renderer *renderer, const Mat4 &transform, uint32_t fla
         //! make sure all children are drawn
         sortAllChildren();
 
-        for(const auto &child: _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             if (child != _sprite)
                 child->visit(renderer, transform, flags);
         }

@@ -255,7 +255,7 @@ public:
     virtual std::string getDescription() const override;
     
     /** When user pressed the button, the button will zoom to a scale.
-     * The final scale of the button  equals (button original scale + _zoomScale)
+     * Thescale of the button  equals (button original scale + _zoomScale)
      * @since v3.3
      */
     void setZoomScale(float scale);

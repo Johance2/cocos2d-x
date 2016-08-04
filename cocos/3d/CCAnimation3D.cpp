@@ -86,7 +86,9 @@ Animation3D::Animation3D()
 
 Animation3D::~Animation3D()
 {
-    for (auto itor : _boneCurves) {
+    for(auto itr0 = _boneCurves.begin(); itr0 != _boneCurves.end(); ++itr0)
+    {
+    	auto &itor=*itr0;
         CC_SAFE_DELETE(itor.second);
     }
 }
@@ -109,8 +111,9 @@ bool Animation3D::init(const Animation3DData &data)
 {
     _duration = data._totalTime;
 
-    for(const auto& iter : data._translationKeys)
+    for(auto itr0 = data._translationKeys.begin(); itr0 != data._translationKeys.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
@@ -121,8 +124,9 @@ bool Animation3D::init(const Animation3DData &data)
         if(iter.second.size() == 0) continue;
         std::vector<float> keys;
         std::vector<float> values;
-        for(const auto& keyIter : iter.second)
+        for(auto itr = iter.second.begin(); itr != iter.second.end(); ++itr)
         {
+        	auto &keyIter=*itr;
             keys.push_back(keyIter._time);
             values.push_back(keyIter._key.x);
             values.push_back(keyIter._key.y);
@@ -133,8 +137,9 @@ bool Animation3D::init(const Animation3DData &data)
         if(curve->translateCurve) curve->translateCurve->retain();
     }
     
-    for(const auto& iter : data._rotationKeys)
+    for(auto itr0 = data._rotationKeys.begin(); itr0 != data._rotationKeys.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
@@ -145,8 +150,9 @@ bool Animation3D::init(const Animation3DData &data)
         if(iter.second.size() == 0) continue;
         std::vector<float> keys;
         std::vector<float> values;
-        for(const auto& keyIter : iter.second)
+        for(auto itr = iter.second.begin(); itr != iter.second.end(); ++itr)
         {
+        	auto &keyIter=*itr;
             keys.push_back(keyIter._time);
             values.push_back(keyIter._key.x);
             values.push_back(keyIter._key.y);
@@ -158,8 +164,9 @@ bool Animation3D::init(const Animation3DData &data)
         if(curve->rotCurve) curve->rotCurve->retain();
     }
     
-    for(const auto& iter : data._scaleKeys)
+    for(auto itr0 = data._scaleKeys.begin(); itr0 != data._scaleKeys.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         Curve* curve = _boneCurves[iter.first];
         if( curve == nullptr)
         {
@@ -170,8 +177,9 @@ bool Animation3D::init(const Animation3DData &data)
         if(iter.second.size() == 0) continue;
         std::vector<float> keys;
         std::vector<float> values;
-        for(const auto& keyIter : iter.second)
+        for(auto itr = iter.second.begin(); itr != iter.second.end(); ++itr)
         {
+        	auto &keyIter=*itr;
             keys.push_back(keyIter._time);
             values.push_back(keyIter._key.x);
             values.push_back(keyIter._key.y);
@@ -221,7 +229,9 @@ void Animation3DCache::addAnimation(const std::string& key, Animation3D* animati
 
 void Animation3DCache::removeAllAnimations()
 {
-    for (auto itor : _animations) {
+    for(auto itr0 = _animations.begin(); itr0 != _animations.end(); ++itr0)
+    {
+    	auto &itor=*itr0;
         CC_SAFE_RELEASE(itor.second);
     }
     _animations.clear();

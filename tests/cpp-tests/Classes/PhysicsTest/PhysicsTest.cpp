@@ -239,8 +239,9 @@ bool PhysicsDemo::onTouchBegan(Touch* touch, Event* event)
     auto arr = _physicsWorld->getShapes(location);
     
     PhysicsBody* body = nullptr;
-    for (auto& obj : arr)
+    for(auto itr0 = arr.begin(); itr0 != arr.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         if ((obj->getBody()->getTag() & DRAG_BODYS_TAG) != 0)
         {
             body = obj->getBody();
@@ -371,8 +372,9 @@ void PhysicsDemoClickAdd::onTouchesEnded(const std::vector<Touch*>& touches, Eve
 {
     //Add a new body/atlas sprite at the touched location
     
-    for( auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         addGrossiniAtPosition( location );
@@ -597,8 +599,9 @@ void PhysicsDemoRayCast::onTouchesEnded(const std::vector<Touch*>& touches, Even
 {
     //Add a new body/atlas sprite at the touched location
     
-    for (auto &touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         float r = CCRANDOM_0_1();
@@ -1017,8 +1020,9 @@ void PhysicsDemoPump::onEnter()
 
 void PhysicsDemoPump::update(float delta)
 {
-    for (const auto& body : _physicsWorld->getAllBodies())
+    for(auto itr0 = _physicsWorld->getAllBodies().begin(); itr0 != _physicsWorld->getAllBodies().end(); ++itr0)
     {
+    	auto &body=*itr0;
         if (body->getTag() == DRAG_BODYS_TAG && body->getPosition().y < 0.0f)
         {
             if (body->getNode()!=nullptr)

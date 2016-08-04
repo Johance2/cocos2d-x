@@ -238,8 +238,9 @@ bool TextureCube::init(const std::string& positive_x, const std::string& negativ
 
     GL::bindTextureN(0, 0, GL_TEXTURE_CUBE_MAP);
 
-    for (auto img: images)
+    for(auto itr0 = images.begin(); itr0 != images.end(); ++itr0)
     {
+    	auto &img=*itr0;
         CC_SAFE_RELEASE(img);
     }
 

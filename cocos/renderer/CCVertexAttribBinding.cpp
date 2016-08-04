@@ -160,8 +160,9 @@ bool VertexAttribBinding::init(MeshIndexData* meshIndexData, GLProgramState* glP
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, meshIndexData->getIndexBuffer()->getVBO());
 
-        for(auto &attribute : _attributes)
+        for(auto itr = _attributes.begin(); itr != _attributes.end(); ++itr)
         {
+        	auto &attribute=*itr;
             attribute.second.apply();
         }
 
@@ -189,8 +190,9 @@ void VertexAttribBinding::bind()
         // Software mode
         GL::enableVertexAttribs(_vertexAttribsFlags);
         // set attributes
-        for(auto &attribute : _attributes)
+        for(auto itr = _attributes.begin(); itr != _attributes.end(); ++itr)
         {
+        	auto &attribute=*itr;
             attribute.second.apply();
         }
         
@@ -226,8 +228,9 @@ void VertexAttribBinding::parseAttributes()
 
     auto glprogram = _glProgramState->getGLProgram();
 
-    for(auto &attrib: glprogram->_vertexAttribs)
+    for(auto itr0 = glprogram->_vertexAttribs.begin(); itr0 != glprogram->_vertexAttribs.end(); ++itr0)
     {
+    	auto &attrib=*itr0;
         VertexAttribValue value(&attrib.second);
         _attributes[attrib.first] = value;
     }

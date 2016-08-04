@@ -72,8 +72,9 @@ Widget* Helper::seekWidgetByName(Widget* root, const std::string& name)
         return root;
     }
     const auto& arrayRootChildren = root->getChildren();
-    for (auto& subWidget : arrayRootChildren)
+    for(auto itr0 = arrayRootChildren.begin(); itr0 != arrayRootChildren.end(); ++itr0)
     {
+    	auto &subWidget=*itr0;
         Widget* child = dynamic_cast<Widget*>(subWidget);
         if (child)
         {
@@ -99,8 +100,9 @@ Widget* Helper::seekActionWidgetByActionTag(Widget* root, int tag)
 		return root;
 	}
     const auto& arrayRootChildren = root->getChildren();
-    for (auto& subWidget : arrayRootChildren)
-	{
+    for(auto itr0 = arrayRootChildren.begin(); itr0 != arrayRootChildren.end(); ++itr0)
+    {
+    	auto &subWidget=*itr0;
 		Widget* child = dynamic_cast<Widget*>(subWidget);
         if (child)
         {
@@ -144,8 +146,9 @@ void Helper::doLayout(cocos2d::Node *rootNode)
         return;
     }
 
-    for(auto& node : rootNode->getChildren())
+    for(auto itr0 = rootNode->getChildren().begin(); itr0 != rootNode->getChildren().end(); ++itr0)
     {
+    	auto &node=*itr0;
         auto com = node->getComponent(__LAYOUT_COMPONENT_NAME);
         Node *parent = node->getParent();
         if (nullptr != com && nullptr != parent) {

@@ -111,7 +111,7 @@ public:
      */
     virtual void render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection = nullptr);
     
-    /** override function */
+    /**function */
     virtual void removeAllChildren() override;
     
 CC_CONSTRUCTOR_ACCESS:

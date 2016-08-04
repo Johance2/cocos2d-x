@@ -121,12 +121,16 @@ NavMesh::~NavMesh()
     CC_SAFE_DELETE(_meshProcess);
     CC_SAFE_DELETE(_geomData);
 
-    for (auto iter : _agentList){
+    for(auto itr0 = _agentList.begin(); itr0 != _agentList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         CC_SAFE_RELEASE(iter);
     }
     _agentList.clear();
 
-    for (auto iter : _obstacleList){
+    for(auto itr0 = _obstacleList.begin(); itr0 != _obstacleList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         CC_SAFE_RELEASE(iter);
     }
     _obstacleList.clear();
@@ -306,8 +310,9 @@ void cocos2d::NavMesh::drawOffMeshConnections()
 void cocos2d::NavMesh::drawObstacles()
 {
     // Draw obstacles
-    for (auto iter : _obstacleList)
+    for(auto itr0 = _obstacleList.begin(); itr0 != _obstacleList.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         if (iter){
             const dtTileCacheObstacle* ob = _tileCache->getObstacleByRef(iter->_obstacleID);
             if (ob->state == DT_OBSTACLE_EMPTY) continue;
@@ -330,8 +335,9 @@ void cocos2d::NavMesh::drawObstacles()
 
 void cocos2d::NavMesh::drawAgents()
 {
-    for (auto iter : _agentList)
+    for(auto itr0 = _agentList.begin(); itr0 != _agentList.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         if (iter){
             auto agent = _crowed->getAgent(iter->_agentID);
             float r = iter->getRadius();
@@ -357,8 +363,9 @@ void cocos2d::NavMesh::drawAgents()
     }
 
     // Velocity stuff.
-    for (auto iter : _agentList)
+    for(auto itr0 = _agentList.begin(); itr0 != _agentList.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         if (iter){
             auto agent = _crowed->getAgent(iter->_agentID);
 
@@ -454,12 +461,16 @@ void NavMesh::debugDraw(Renderer* renderer)
 
 void NavMesh::update(float dt)
 {
-    for (auto iter : _agentList){
+    for(auto itr0 = _agentList.begin(); itr0 != _agentList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter)
             iter->preUpdate(dt);
     }
 
-    for (auto iter : _obstacleList){
+    for(auto itr0 = _obstacleList.begin(); itr0 != _obstacleList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter)
             iter->preUpdate(dt);
     }
@@ -470,12 +481,16 @@ void NavMesh::update(float dt)
     if (_tileCache)
         _tileCache->update(dt, _navMesh);
 
-    for (auto iter : _agentList){
+    for(auto itr0 = _agentList.begin(); itr0 != _agentList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter)
             iter->postUpdate(dt);
     }
 
-    for (auto iter : _obstacleList){
+    for(auto itr0 = _obstacleList.begin(); itr0 != _obstacleList.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter)
             iter->postUpdate(dt);
     }

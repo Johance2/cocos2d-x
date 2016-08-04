@@ -422,7 +422,9 @@ static __Array* visitArray(const ValueVector& array)
     __Array* ret = new (std::nothrow) __Array();
     ret->init();
 
-    for(const auto &value : array) {
+    for(auto itr0 = array.begin(); itr0 != array.end(); ++itr0)
+    {
+    	auto &value=*itr0;
         if (value.getType() == Value::Type::MAP)
         {
             const ValueMap& subDict = value.asValueMap();

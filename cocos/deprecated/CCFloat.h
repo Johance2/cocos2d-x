@@ -53,7 +53,7 @@ public:
         return pRet;
     }
 
-    /* override functions */
+    /*functions */
     virtual void acceptVisitor(DataVisitor &visitor) { visitor.visit(this); }
     
     virtual __Float* clone() const override

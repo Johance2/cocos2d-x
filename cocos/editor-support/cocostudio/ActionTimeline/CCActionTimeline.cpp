@@ -175,17 +175,20 @@ ActionTimeline* ActionTimeline::clone() const
     newAction->setDuration(_duration);
     newAction->setTimeSpeed(_timeSpeed);
 
-    for (auto timelines : _timelineMap)
+    for(auto itr0 = _timelineMap.begin(); itr0 != _timelineMap.end(); ++itr0)
     {
-        for(auto timeline : timelines.second)
-        {      
+    	auto &timelines=*itr0;
+        for(auto itr = timelines.second.begin(); itr != timelines.second.end(); ++itr)
+        {
+        	auto &timeline=*itr;      
             Timeline* newTimeline = timeline->clone();
             newAction->addTimeline(newTimeline);
         }
     }
     
-    for( auto info : _animationInfos)
+    for(auto itr0 = _animationInfos.begin(); itr0 != _animationInfos.end(); ++itr0)
     {
+    	auto &info=*itr0;
         newAction->addAnimationInfo(info.second);
     }
     return newAction;
@@ -237,8 +240,9 @@ void foreachNodeDescendant(Node* parent, tCallBack callback)
     callback(parent);
 
     auto& children = parent->getChildren();
-    for (auto child : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         foreachNodeDescendant(child, callback);
     }
 }
@@ -259,8 +263,9 @@ void ActionTimeline::startWithTarget(Node *target)
             if(_timelineMap.find(actionTag) != _timelineMap.end())
             {
                 auto timelines = this->_timelineMap[actionTag];
-                for (auto timeline : timelines)
+                for(auto itr3 = timelines.begin(); itr3 != timelines.end(); ++itr3)
                 {
+                	auto &timeline=*itr3;
                     timeline->setNode(child);
                 }
             }

@@ -93,14 +93,16 @@ struct NodeData
     {
         id.clear();
         transform.setIdentity();
-        for (auto& it : children)
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
         {
+        	auto &it=*itr;
             delete it;
         }
         children.clear();
         
-        for(auto& modeldata : modelNodeDatas)
+        for(auto itr = modelNodeDatas.begin(); itr != modelNodeDatas.end(); ++itr)
         {
+        	auto &modeldata=*itr;
             delete modeldata;
         }
         modelNodeDatas.clear();
@@ -124,13 +126,15 @@ struct NodeDatas
     
     void resetData()
     {
-        for(auto& it : skeleton)
+        for(auto itr = skeleton.begin(); itr != skeleton.end(); ++itr)
         {
+        	auto &it=*itr;
             delete it;
         }
         skeleton.clear();
-        for(auto& it : nodes)
+        for(auto itr = nodes.begin(); itr != nodes.end(); ++itr)
         {
+        	auto &it=*itr;
             delete it;
         }
         nodes.clear();
@@ -161,8 +165,9 @@ public:
     int getPerVertexSize() const
     {
         int vertexsize = 0;
-        for(const auto& attrib : attribs)
+        for(auto itr = attribs.begin(); itr != attribs.end(); ++itr)
         {
+        	auto &attrib=*itr;
             vertexsize += attrib.attribSizeBytes;
         }
         return vertexsize;
@@ -203,8 +208,9 @@ struct MeshDatas
     
     void resetData()
     {
-        for(auto& it : meshDatas)
+        for(auto itr = meshDatas.begin(); itr != meshDatas.end(); ++itr)
         {
+        	auto &it=*itr;
             delete it;
         }
         meshDatas.clear();
@@ -258,8 +264,9 @@ struct SkinData
     int getSkinBoneNameIndex(const std::string& name)const
     {
         int i = 0;
-        for (const auto& iter : skinBoneNames)
+        for(auto itr = skinBoneNames.begin(); itr != skinBoneNames.end(); ++itr)
         {
+        	auto &iter=*itr;
             if ((iter) == name)
                 return i;
             i++;
@@ -270,14 +277,16 @@ struct SkinData
     int getBoneNameIndex(const std::string& name)const
     {
         int i = 0;
-        for (const auto& iter : skinBoneNames)
+        for(auto itr = skinBoneNames.begin(); itr != skinBoneNames.end(); ++itr)
         {
+        	auto &iter=*itr;
             if ((iter) == name)
                 return i;
             i++;
         }
-        for(const auto& iter : nodeBoneNames)
+        for(auto itr = nodeBoneNames.begin(); itr != nodeBoneNames.end(); ++itr)
         {
+        	auto &iter=*itr;
             if (iter == name)
                 return i;
             i++;
@@ -332,8 +341,9 @@ struct NMaterialData
     std::string id;
     const NTextureData* getTextureData(const NTextureData::Usage& type) const
     {
-        for(const auto& it : textures)
+        for(auto itr = textures.begin(); itr != textures.end(); ++itr)
         {
+        	auto &it=*itr;
             if (it.type == type)
                 return &it;
         }
@@ -353,8 +363,9 @@ struct MaterialDatas
     }
     const NMaterialData* getMaterialData(const std::string& materialid) const
     {
-        for(const auto& it : materials)
+        for(auto itr = materials.begin(); itr != materials.end(); ++itr)
         {
+        	auto &it=*itr;
             if (it.id == materialid)
                 return &it;
         }

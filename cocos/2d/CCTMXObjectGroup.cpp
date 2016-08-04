@@ -46,8 +46,9 @@ ValueMap TMXObjectGroup::getObject(const std::string& objectName) const
 {
     if (!_objects.empty())
     {
-        for (const auto& v : _objects)
+        for(auto itr = _objects.begin(); itr != _objects.end(); ++itr)
         {
+        	auto &v=*itr;
             const ValueMap& dict = v.asValueMap();
             if (dict.find("name") != dict.end())
             {

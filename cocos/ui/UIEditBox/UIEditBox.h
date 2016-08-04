@@ -413,7 +413,7 @@ namespace ui {
          */
         void setReturnType(EditBox::KeyboardReturnType returnType);
             
-        /* override functions */
+        /*functions */
         virtual void setPosition(const Vec2& pos) override;
         virtual void setVisible(bool visible) override;
         virtual void setContentSize(const Size& size) override;

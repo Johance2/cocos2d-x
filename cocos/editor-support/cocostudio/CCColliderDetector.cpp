@@ -202,8 +202,9 @@ void ColliderDetector::addContourData(ContourData *contourData)
 
 void ColliderDetector::addContourDataList(cocos2d::Vector<ContourData*> &contourDataList)
 {
-    for (const auto &contourData : contourDataList)
+    for(auto itr0 = contourDataList.begin(); itr0 != contourDataList.end(); ++itr0)
     {
+    	auto &contourData=*itr0;
         this->addContourData(contourData);
     }
 }
@@ -212,16 +213,18 @@ void ColliderDetector::removeContourData(ContourData *contourData)
 {
     std::vector<ColliderBody*> eraseList;
     
-    for (const auto &body : _colliderBodyList)
+    for(auto itr0 = _colliderBodyList.begin(); itr0 != _colliderBodyList.end(); ++itr0)
     {
+    	auto &body=*itr0;
 		if (body && body->getContourData() == contourData)
 		{
             eraseList.push_back(body);
 		}
     }
     
-    for (const auto &body : eraseList)
+    for(auto itr0 = eraseList.begin(); itr0 != eraseList.end(); ++itr0)
     {
+    	auto &body=*itr0;
         this->_colliderBodyList.eraseObject(body);
     }
 }
@@ -250,8 +253,9 @@ void ColliderDetector::setActive(bool active)
         }
         else
         {
-            for(auto& object : _colliderBodyList)
+            for(auto itr2 = _colliderBodyList.begin(); itr2 != _colliderBodyList.end(); ++itr2)
             {
+            	auto &object=*itr2;
                 ColliderBody *colliderBody = (ColliderBody *)object;
                 b2Fixture *fixture = colliderBody->getB2Fixture();
 
@@ -265,8 +269,9 @@ void ColliderDetector::setActive(bool active)
     {
         if (_active)
         {
-            for(auto& object : _colliderBodyList)
+            for(auto itr2 = _colliderBodyList.begin(); itr2 != _colliderBodyList.end(); ++itr2)
             {
+            	auto &object=*itr2;
                 ColliderBody *colliderBody = (ColliderBody *)object;
                 cpShape *shape = colliderBody->getShape();
                 if(shape->space_private == nullptr)
@@ -277,8 +282,9 @@ void ColliderDetector::setActive(bool active)
         }
         else
         {
-            for(auto& object : _colliderBodyList)
+            for(auto itr2 = _colliderBodyList.begin(); itr2 != _colliderBodyList.end(); ++itr2)
             {
+            	auto &object=*itr2;
                 ColliderBody *colliderBody = (ColliderBody *)object;
                 cpShape *shape = colliderBody->getShape();
                 if (shape->space_private != nullptr)
@@ -307,8 +313,9 @@ void ColliderDetector::setColliderFilter(ColliderFilter *filter)
 {
     *_filter = *filter;
     
-    for(auto& object : _colliderBodyList)
+    for(auto itr0 = _colliderBodyList.begin(); itr0 != _colliderBodyList.end(); ++itr0)
     {
+    	auto &object=*itr0;
         ColliderBody *colliderBody = (ColliderBody *)object;
         colliderBody->setColliderFilter(filter);
 
@@ -341,8 +348,9 @@ void ColliderDetector::updateTransform(Mat4 &t)
         return;
     }
 
-    for(auto& object : _colliderBodyList)
+    for(auto itr0 = _colliderBodyList.begin(); itr0 != _colliderBodyList.end(); ++itr0)
     {
+    	auto &object=*itr0;
         ColliderBody *colliderBody = (ColliderBody *)object;
         ContourData *contourData = colliderBody->getContourData();
 
@@ -415,8 +423,9 @@ void ColliderDetector::setBody(b2Body *pBody)
 {
     _body = pBody;
 
-    for(auto& object : _colliderBodyList)
+    for(auto itr0 = _colliderBodyList.begin(); itr0 != _colliderBodyList.end(); ++itr0)
     {
+    	auto &object=*itr0;
         ColliderBody *colliderBody = (ColliderBody *)object;
 
         ContourData *contourData = colliderBody->getContourData();
@@ -424,8 +433,9 @@ void ColliderDetector::setBody(b2Body *pBody)
         b2Vec2 *b2bv = new (std::nothrow) b2Vec2[contourData->vertexList.size()];
 
         int i = 0;
-        for(auto& v : contourData->vertexList)
+        for(auto itr = contourData->vertexList.begin(); itr != contourData->vertexList.end(); ++itr)
         {
+        	auto &v=*itr;
             b2bv[i].Set(v.x / PT_RATIO, v.y / PT_RATIO);
             i++;
         }
@@ -462,8 +472,9 @@ void ColliderDetector::setBody(cpBody *pBody)
 {
     _body = pBody;
 
-    for(auto& object : _colliderBodyList)
+    for(auto itr0 = _colliderBodyList.begin(); itr0 != _colliderBodyList.end(); ++itr0)
     {
+    	auto &object=*itr0;
         ColliderBody *colliderBody = (ColliderBody *)object;
 
         ContourData *contourData = colliderBody->getContourData();

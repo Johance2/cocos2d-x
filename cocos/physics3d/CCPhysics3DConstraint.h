@@ -103,12 +103,12 @@ public:
     void* getUserData() const { return _userData; }
     
     /**
-     * get override number of solver iterations
+     * getnumber of solver iterations
      */
     int getOverrideNumSolverIterations() const;
     
     /**
-     * override the number of constraint solver iterations used to solve this constraint, -1 will use the default number of iterations, as specified in SolverInfo.m_numIterations
+     *the number of constraint solver iterations used to solve this constraint, -1 will use the default number of iterations, as specified in SolverInfo.m_numIterations
      */
     void setOverrideNumSolverIterations(int overrideNumIterations);
     

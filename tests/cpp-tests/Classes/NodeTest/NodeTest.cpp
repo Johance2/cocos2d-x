@@ -828,8 +828,9 @@ ConvertToNode::ConvertToNode()
 
 void ConvertToNode::onTouchesEnded(const std::vector<Touch*>& touches, Event *event)
 {
-    for( auto& touch : touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
 
         for( int i = 0; i < 3; i++)

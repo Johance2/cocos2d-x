@@ -278,8 +278,9 @@ GLViewImpl::GLViewImpl(bool initglfw)
 {
     _viewName = "cocos2dx";
     g_keyCodeMap.clear();
-    for (auto& item : g_keyCodeStructArray)
+    for(auto itr0 = g_keyCodeStructArray.begin(); itr0 != g_keyCodeStructArray.end(); ++itr0)
     {
+    	auto &item=*itr0;
         g_keyCodeMap[item.glfwKeyCode] = item.keyCode;
     }
 

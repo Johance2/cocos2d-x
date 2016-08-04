@@ -71,8 +71,9 @@ cocos2d::Rect SkeletonNode::getBoundingBox() const
         first = false;
     }
     auto allbones = getAllSubBones();
-    for (const auto& bone : allbones)
+    for(auto itr0 = allbones.begin(); itr0 != allbones.end(); ++itr0)
     {
+    	auto &bone=*itr0;
         cocos2d::Rect r = RectApplyAffineTransform(bone->getVisibleSkinsRect(),
             bone->getNodeToParentAffineTransform(bone->getRootSkeletonNode()));
         if (r.equals(cocos2d::Rect::ZERO))
@@ -109,8 +110,9 @@ SkeletonNode::SkeletonNode()
 
 SkeletonNode::~SkeletonNode()
 {
-    for (auto &bonepair : _subBonesMap)
+    for(auto itr0 = _subBonesMap.begin(); itr0 != _subBonesMap.end(); ++itr0)
     {
+    	auto &bonepair=*itr0;
         setRootSkeleton(bonepair.second, nullptr);
     }
 }
@@ -185,8 +187,9 @@ void SkeletonNode::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4& paren
     }
 
     checkSubBonesDirty();
-    for (const auto& bone : _subOrderedAllBones)
+    for(auto itr0 = _subOrderedAllBones.begin(); itr0 != _subOrderedAllBones.end(); ++itr0)
     {
+    	auto &bone=*itr0;
         visitSkins(renderer, bone);
     }
 
@@ -225,8 +228,9 @@ void SkeletonNode::batchDrawAllSubBones(const cocos2d::Mat4 &transform)
     checkSubBonesDirty();
 
     _batchedVeticesCount = 0;
-    for (const auto& bone : _subOrderedAllBones)
+    for(auto itr0 = _subOrderedAllBones.begin(); itr0 != _subOrderedAllBones.end(); ++itr0)
     {
+    	auto &bone=*itr0;
         batchBoneDrawToSkeleton(bone);
     }
 
@@ -284,8 +288,9 @@ void SkeletonNode::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
 
 void SkeletonNode::changeSkins(const std::map<std::string, std::string>& boneSkinNameMap)
 {
-    for (auto &boneskin : boneSkinNameMap)
+    for(auto itr0 = boneSkinNameMap.begin(); itr0 != boneSkinNameMap.end(); ++itr0)
     {
+    	auto &boneskin=*itr0;
         auto bone = getBoneNode(boneskin.first);
         if (nullptr != bone)
             bone->displaySkin(boneskin.second, true);
@@ -341,8 +346,9 @@ void SkeletonNode::updateOrderedAllbones()
     // update sub bones, get All Visible SubBones
     // get all sub bones as visit with visible
     std::stack<BoneNode*> boneStack;
-    for (const auto& bone : _childBones)
+    for(auto itr0 = _childBones.begin(); itr0 != _childBones.end(); ++itr0)
     {
+    	auto &bone=*itr0;
         if (bone->isVisible())
             boneStack.push(bone);
     }
@@ -353,8 +359,9 @@ void SkeletonNode::updateOrderedAllbones()
         _subOrderedAllBones.pushBack(top);
         boneStack.pop();
         auto topChildren = top->getChildBones();
-        for (const auto& childbone : topChildren)
+        for(auto itr = topChildren.begin(); itr != topChildren.end(); ++itr)
         {
+        	auto &childbone=*itr;
             if (childbone->isVisible())
                 boneStack.push(childbone);
         }

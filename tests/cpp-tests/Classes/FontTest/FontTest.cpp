@@ -36,18 +36,21 @@ static TextVAlignment verticalAlignment[] =
 
 FontTests::FontTests()
 {
-    for (auto& fontFile : fontList)
+    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
     {
+    	auto &fontFile=*itr0;
         addTestCase("FontTests", [&](){vAlignIdx = 0; return FontTest::create(fontFile); });
     }
     
-    for (auto& fontFile : fontList)
+    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
     {
+    	auto &fontFile=*itr0;
         addTestCase("FontTests", [&](){ vAlignIdx = 1;  return FontTest::create(fontFile); });
     }
     
-    for (auto& fontFile : fontList)
+    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
     {
+    	auto &fontFile=*itr0;
         addTestCase("FontTests", [&](){vAlignIdx = 2; return FontTest::create(fontFile); });
     }
 }

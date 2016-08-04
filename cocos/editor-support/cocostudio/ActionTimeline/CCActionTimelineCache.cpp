@@ -508,8 +508,9 @@ ActionTimeline* ActionTimelineCache::createActionWithDataBuffer(const cocos2d::D
         }
     }
 
-    for (const auto& properTimelinePair : properTimelineMap)
+    for(auto itr0 = properTimelineMap.begin(); itr0 != properTimelineMap.end(); ++itr0)
     {
+    	auto &properTimelinePair=*itr0;
         action->addTimeline(properTimelinePair.second);
     }
     return action;
@@ -1002,8 +1003,9 @@ ActionTimeline* ActionTimelineCache::createActionWithFlatBuffersForSimulator(con
         }
     }
 
-    for (const auto& properTimelinePair : properTimelineMap)
+    for(auto itr0 = properTimelineMap.begin(); itr0 != properTimelineMap.end(); ++itr0)
     {
+    	auto &properTimelinePair=*itr0;
         action->addTimeline(properTimelinePair.second);
     }
     fbs->deleteFlatBufferBuilder();

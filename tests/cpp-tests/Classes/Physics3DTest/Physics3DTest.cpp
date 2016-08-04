@@ -701,7 +701,9 @@ bool Physics3DCollisionCallbackDemo::init()
 
         float scale = 2.0f;
         std::vector<Vec3> trianglesList = Bundle3D::getTrianglesList("Sprite3DTest/boss.c3b");
-        for (auto& it : trianglesList) {
+        for(auto itr = trianglesList.begin(); itr != trianglesList.end(); ++itr)
+        {
+        	auto &it=*itr;
             it *= scale;
         }
 

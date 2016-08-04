@@ -97,7 +97,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "A"; }
+    virtual std::string getTestCaseName(){ return "A"; }
 };
 
 class SpritePerformTestB : public SpriteMainScene
@@ -107,7 +107,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-        virtual std::string getTestCaseName() override { return "B"; }
+        virtual std::string getTestCaseName(){ return "B"; }
 };
 
 class SpritePerformTestC : public SpriteMainScene
@@ -117,7 +117,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "C"; }
+    virtual std::string getTestCaseName(){ return "C"; }
 };
 
 class SpritePerformTestD : public SpriteMainScene
@@ -127,7 +127,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "D"; }
+    virtual std::string getTestCaseName(){ return "D"; }
 };
 
 class SpritePerformTestE : public SpriteMainScene
@@ -137,7 +137,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "E"; }
+    virtual std::string getTestCaseName(){ return "E"; }
 };
 
 class SpritePerformTestF : public SpriteMainScene
@@ -147,7 +147,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "F"; }
+    virtual std::string getTestCaseName(){ return "F"; }
 };
 
 class SpritePerformTestG : public SpriteMainScene
@@ -157,7 +157,7 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) override;
     virtual std::string title() const override;
-    virtual std::string getTestCaseName() override { return "G"; }
+    virtual std::string getTestCaseName(){ return "G"; }
 };
 
 #endif

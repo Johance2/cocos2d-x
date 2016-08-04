@@ -61,7 +61,7 @@ public:
         CCLOGINFO("deallocing ~__Integer: %p", this);
     }
 
-    /* override functions */
+    /*functions */
     virtual void acceptVisitor(DataVisitor &visitor) { visitor.visit(this); }
 
     // overrides

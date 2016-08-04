@@ -301,8 +301,9 @@ void SpritePolygonTestSlider::changeEpsilon(cocos2d::Ref *pSender, cocos2d::ui::
     {
         cocos2d::ui::Slider* slider = dynamic_cast<cocos2d::ui::Slider*>(pSender);
         float epsilon = powf(slider->getPercent()/100.0,2)*19.0f + 1.0f;
-        for(auto child : _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             if(child->getName().size())
             {
                 Sprite *sp = (Sprite*)child;

@@ -172,8 +172,9 @@ void TMXLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
     }
     
     int index = 0;
-    for(const auto& iter : _primitives)
+    for(auto itr0 = _primitives.begin(); itr0 != _primitives.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         if(iter.second->getCount() > 0)
         {
             auto& cmd = _renderCommands[index++];
@@ -244,8 +245,9 @@ void TMXLayer::updateTiles(const Rect& culledRect)
     
     _indicesVertexZNumber.clear();
     
-    for(const auto& iter : _indicesVertexZOffsets)
+    for(auto itr0 = _indicesVertexZOffsets.begin(); itr0 != _indicesVertexZOffsets.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         _indicesVertexZNumber[iter.first] = iter.second;
     }
     
@@ -278,8 +280,9 @@ void TMXLayer::updateTiles(const Rect& culledRect)
         } // for x
     } // for y
     
-    for(const auto& iter : _indicesVertexZOffsets)
+    for(auto itr0 = _indicesVertexZOffsets.begin(); itr0 != _indicesVertexZOffsets.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         _indicesVertexZNumber[iter.first] -= iter.second;
         if(_indicesVertexZNumber[iter.first] == 0)
         {
@@ -415,8 +418,9 @@ Mat4 TMXLayer::tileToNodeTransform()
 
 void TMXLayer::updatePrimitives()
 {
-    for(const auto& iter : _indicesVertexZNumber)
+    for(auto itr0 = _indicesVertexZNumber.begin(); itr0 != _indicesVertexZNumber.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         int start = _indicesVertexZOffsets.at(iter.first);
         
         auto primitiveIter= _primitives.find(iter.first);

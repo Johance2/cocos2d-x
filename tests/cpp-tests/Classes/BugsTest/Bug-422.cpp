@@ -50,7 +50,9 @@ void Bug422Layer::reset()
 void Bug422Layer::check(Node* t)
 {
     auto& children = t->getChildren();
-    for(const auto &child : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         log("%p, rc: %d", child, child->getReferenceCount());
         check(child);
     }

@@ -169,7 +169,9 @@ void TMXTiledMap::buildWithMapInfo(TMXMapInfo* mapInfo)
     int idx=0;
 
     auto& layers = mapInfo->getLayers();
-    for(const auto &layerInfo : layers) {
+    for(auto itr0 = layers.begin(); itr0 != layers.end(); ++itr0)
+    {
+    	auto &layerInfo=*itr0;
         if (layerInfo->_visible)
         {
             TMXLayer *child = parseLayer(layerInfo, mapInfo);
@@ -196,8 +198,9 @@ TMXLayer * TMXTiledMap::getLayer(const std::string& layerName) const
 {
     CCASSERT(layerName.size() > 0, "Invalid layer name!");
     
-    for (auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         TMXLayer* layer = dynamic_cast<TMXLayer*>(child);
         if(layer)
         {

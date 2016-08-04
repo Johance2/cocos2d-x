@@ -335,8 +335,9 @@ void ScrollView::updateScrollBar(const Vec2& outOfBoundary)
 Vec2 ScrollView::calculateTouchMoveVelocity() const
 {
     float totalTime = 0;
-    for(auto &timeDelta : _touchMoveTimeDeltas)
+    for(auto itr0 = _touchMoveTimeDeltas.begin(); itr0 != _touchMoveTimeDeltas.end(); ++itr0)
     {
+    	auto &timeDelta=*itr0;
         totalTime += timeDelta;
     }
     if(totalTime == 0 || totalTime >= _touchTotalTimeThreshold)
@@ -345,8 +346,9 @@ Vec2 ScrollView::calculateTouchMoveVelocity() const
     }
     
     Vec2 totalMovement;
-    for(auto &displacement : _touchMoveDisplacements)
+    for(auto itr0 = _touchMoveDisplacements.begin(); itr0 != _touchMoveDisplacements.end(); ++itr0)
     {
+    	auto &displacement=*itr0;
         totalMovement += displacement;
     }
     return totalMovement / totalTime;

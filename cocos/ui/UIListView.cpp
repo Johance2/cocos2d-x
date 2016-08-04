@@ -114,8 +114,9 @@ void ListView::updateInnerContainerSize()
         {
             size_t length = _items.size();
             float totalHeight = (length - 1) * _itemsMargin;
-            for (auto& item : _items)
+            for(auto itr2 = _items.begin(); itr2 != _items.end(); ++itr2)
             {
+            	auto &item=*itr2;
                 totalHeight += item->getContentSize().height;
             }
             float finalWidth = _contentSize.width;
@@ -127,8 +128,9 @@ void ListView::updateInnerContainerSize()
         {
             size_t length = _items.size();
             float totalWidth = (length - 1) * _itemsMargin;
-            for (auto& item : _items)
+            for(auto itr2 = _items.begin(); itr2 != _items.end(); ++itr2)
             {
+            	auto &item=*itr2;
                 totalWidth += item->getContentSize().width;
             }
             float finalWidth = totalWidth;
@@ -836,8 +838,9 @@ Widget* ListView::createCloneInstance()
 void ListView::copyClonedWidgetChildren(Widget* model)
 {
     auto& arrayItems = static_cast<ListView*>(model)->getItems();
-    for (auto& item : arrayItems)
+    for(auto itr0 = arrayItems.begin(); itr0 != arrayItems.end(); ++itr0)
     {
+    	auto &item=*itr0;
         pushBackCustomItem(item->clone());
     }
 }

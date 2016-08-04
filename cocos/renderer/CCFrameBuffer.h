@@ -57,8 +57,8 @@ class CC_DLL RenderTargetBase : public Ref
 public:
     enum Type
     {
-        RenderBuffer,
-        Texture2D,
+        T_RenderBuffer,
+        T_Texture2D,
     };
 protected:
     RenderTargetBase();

@@ -464,7 +464,7 @@ std::string SpriteMainScene::title() const
 
 std::string SpriteMainScene::subtitle() const
 {
-    return ""; // override me
+    return ""; //me
 }
 
 SpriteMainScene::~SpriteMainScene()

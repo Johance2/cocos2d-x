@@ -170,7 +170,7 @@ public:
      *  @js NA
      *  @lua NA
      */
-    inline void setBlendFunc(const cocos2d::BlendFunc &blendFunc) override { _blendFunc = blendFunc; }
+    inline void setBlendFunc(const cocos2d::BlendFunc &blendFunc){ _blendFunc = blendFunc; }
     /**
      *  @js NA
      *  @lua NA

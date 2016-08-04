@@ -101,7 +101,7 @@ class EventListener;
  - visible (default: true)
 
  Limitations:
- - A Node is a "void" object. If you want to draw something on the screen, you should use a Sprite instead. Or subclass Node and override `draw`.
+ - A Node is a "void" object. If you want to draw something on the screen, you should use a Sprite instead. Or subclass Node and`draw`.
 
  */
 
@@ -1106,14 +1106,14 @@ public:
      * Event callback that is invoked every time when Node enters the 'stage'.
      * If the Node enters the 'stage' with a transition, this event is called when the transition starts.
      * During onEnter you can't access a "sister/brother" node.
-     * If you override onEnter, you shall call its parent's one, e.g., Node::onEnter().
+     * If youonEnter, you shall call its parent's one, e.g., Node::onEnter().
      * @lua NA
      */
     virtual void onEnter();
 
     /** Event callback that is invoked when the Node enters in the 'stage'.
      * If the Node enters the 'stage' with a transition, this event is called when the transition finishes.
-     * If you override onEnterTransitionDidFinish, you shall call its parent's one, e.g. Node::onEnterTransitionDidFinish()
+     * If youonEnterTransitionDidFinish, you shall call its parent's one, e.g. Node::onEnterTransitionDidFinish()
      * @lua NA
      */
     virtual void onEnterTransitionDidFinish();
@@ -1122,7 +1122,7 @@ public:
      * Event callback that is invoked every time the Node leaves the 'stage'.
      * If the Node leaves the 'stage' with a transition, this event is called when the transition finishes.
      * During onExit you can't access a sibling node.
-     * If you override onExit, you shall call its parent's one, e.g., Node::onExit().
+     * If youonExit, you shall call its parent's one, e.g., Node::onExit().
      * @lua NA
      */
     virtual void onExit();
@@ -1708,7 +1708,7 @@ public:
     /**
      * Return the node's display opacity.
      * The difference between opacity and displayedOpacity is:
-     * The displayedOpacity is what's the final rendering opacity of node.
+     * The displayedOpacity is what's therendering opacity of node.
      * @return A GLubyte value.
      */
     virtual GLubyte getDisplayedOpacity() const;
@@ -1771,7 +1771,7 @@ public:
      */
     virtual void setOpacityModifyRGB(bool value) {CC_UNUSED_PARAM(value);}
     /**
-     * If node opacity will modify the RGB color value, then you should override this method and return true.
+     * If node opacity will modify the RGB color value, then you shouldthis method and return true.
      * @return A boolean value, true indicates that opacity will modify color; false otherwise.
      */
     virtual bool isOpacityModifyRGB() const { return false; };
@@ -2029,22 +2029,22 @@ class CC_DLL __NodeRGBA : public Node, public __RGBAProtocol
 {
 public:
     // overrides
-    virtual GLubyte getOpacity() const override { return Node::getOpacity(); }
-    virtual GLubyte getDisplayedOpacity() const  override { return Node::getDisplayedOpacity(); }
-    virtual void setOpacity(GLubyte opacity) override { return Node::setOpacity(opacity); }
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity) override { return Node::updateDisplayedOpacity(parentOpacity); }
-    virtual bool isCascadeOpacityEnabled() const  override { return Node::isCascadeOpacityEnabled(); }
-    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled) override { return Node::setCascadeOpacityEnabled(cascadeOpacityEnabled); }
+    virtual GLubyte getOpacity() const{ return Node::getOpacity(); }
+    virtual GLubyte getDisplayedOpacity() const { return Node::getDisplayedOpacity(); }
+    virtual void setOpacity(GLubyte opacity){ return Node::setOpacity(opacity); }
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity){ return Node::updateDisplayedOpacity(parentOpacity); }
+    virtual bool isCascadeOpacityEnabled() const { return Node::isCascadeOpacityEnabled(); }
+    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled){ return Node::setCascadeOpacityEnabled(cascadeOpacityEnabled); }
 
-    virtual const Color3B& getColor(void) const override { return Node::getColor(); }
-    virtual const Color3B& getDisplayedColor() const override { return Node::getDisplayedColor(); }
-    virtual void setColor(const Color3B& color) override { return Node::setColor(color); }
-    virtual void updateDisplayedColor(const Color3B& parentColor) override { return Node::updateDisplayedColor(parentColor); }
-    virtual bool isCascadeColorEnabled() const override { return Node::isCascadeColorEnabled(); }
-    virtual void setCascadeColorEnabled(bool cascadeColorEnabled) override { return Node::setCascadeColorEnabled(cascadeColorEnabled); }
+    virtual const Color3B& getColor(void) const{ return Node::getColor(); }
+    virtual const Color3B& getDisplayedColor() const{ return Node::getDisplayedColor(); }
+    virtual void setColor(const Color3B& color){ return Node::setColor(color); }
+    virtual void updateDisplayedColor(const Color3B& parentColor){ return Node::updateDisplayedColor(parentColor); }
+    virtual bool isCascadeColorEnabled() const{ return Node::isCascadeColorEnabled(); }
+    virtual void setCascadeColorEnabled(bool cascadeColorEnabled){ return Node::setCascadeColorEnabled(cascadeColorEnabled); }
 
-    virtual void setOpacityModifyRGB(bool bValue) override { return Node::setOpacityModifyRGB(bValue); }
-    virtual bool isOpacityModifyRGB() const override { return Node::isOpacityModifyRGB(); }
+    virtual void setOpacityModifyRGB(bool bValue){ return Node::setOpacityModifyRGB(bValue); }
+    virtual bool isOpacityModifyRGB() const{ return Node::isOpacityModifyRGB(); }
 
 CC_CONSTRUCTOR_ACCESS:
     __NodeRGBA();

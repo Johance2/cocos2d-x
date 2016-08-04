@@ -489,8 +489,9 @@ void TMXMapInfo::startElement(void *ctx, const char *name, const char **atts)
         // Parse everything automatically
         const char* keys[] = {"name", "type", "width", "height", "gid", "id"};
         
-        for (const auto& key : keys)
+        for(auto itr = keys.begin(); itr != keys.end(); ++itr)
         {
+        	auto &key=*itr;
             Value value = attributeDict[key];
             dict[key] = value;
         }
@@ -739,7 +740,9 @@ void TMXMapInfo::endElement(void *ctx, const char *name)
             }
 
             uint32_t* bufferPtr = reinterpret_cast<uint32_t*>(buffer);
-            for(auto gidToken : gidTokens) {
+            for(auto itr2 = gidTokens.begin(); itr2 != gidTokens.end(); ++itr2)
+            {
+            	auto &gidToken=*itr2;
                 auto tileGid = (uint32_t)strtol(gidToken.c_str(), nullptr, 10);
                 *bufferPtr = tileGid;
                 bufferPtr++;

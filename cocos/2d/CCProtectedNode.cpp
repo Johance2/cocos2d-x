@@ -85,7 +85,7 @@ void ProtectedNode::addProtectedChild(cocos2d::Node *child, int localZOrder)
 
 /* "add" logic MUST only be on this method
  * If a class want's to extend the 'addChild' behavior it only needs
- * to override this method
+ * tothis method
  */
 void ProtectedNode::addProtectedChild(Node *child, int zOrder, int tag)
 {
@@ -129,8 +129,9 @@ Node* ProtectedNode::getProtectedChildByTag(int tag)
 {
     CCASSERT( tag != Node::INVALID_TAG, "Invalid tag");
     
-    for (auto& child : _protectedChildren)
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
     {
+    	auto &child=*itr0;
         if(child && child->getTag() == tag)
             return child;
     }
@@ -139,7 +140,7 @@ Node* ProtectedNode::getProtectedChildByTag(int tag)
 
 /* "remove" logic MUST only be on this method
  * If a class want's to extend the 'removeChild' behavior it only needs
- * to override this method
+ * tothis method
  */
 void ProtectedNode::removeProtectedChild(cocos2d::Node *child, bool cleanup)
 {
@@ -191,8 +192,9 @@ void ProtectedNode::removeAllProtectedChildren()
 void ProtectedNode::removeAllProtectedChildrenWithCleanup(bool cleanup)
 {
     // not using detachChild improves speed here
-    for (auto& child : _protectedChildren)
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
     {
+    	auto &child=*itr0;
         // IMPORTANT:
         //  -1st do onExit
         //  -2nd cleanup
@@ -403,12 +405,16 @@ void ProtectedNode::updateDisplayedOpacity(GLubyte parentOpacity)
     
     if (_cascadeOpacityEnabled)
     {
-        for(auto child : _children){
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+        {
+        	auto &child=*itr;
             child->updateDisplayedOpacity(_displayedOpacity);
         }
     }
     
-    for(auto child : _protectedChildren){
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedOpacity(_displayedOpacity);
     }
 }
@@ -422,21 +428,29 @@ void ProtectedNode::updateDisplayedColor(const Color3B& parentColor)
     
     if (_cascadeColorEnabled)
     {
-        for(const auto &child : _children){
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+        {
+        	auto &child=*itr;
             child->updateDisplayedColor(_displayedColor);
         }
     }
-    for(const auto &child : _protectedChildren){
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedColor(_displayedColor);
     }
 }
 
 void ProtectedNode::disableCascadeColor()
 {
-    for(auto child : _children){
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedColor(Color3B::WHITE);
     }
-    for(auto child : _protectedChildren){
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedColor(Color3B::WHITE);
     }
 }
@@ -445,11 +459,15 @@ void ProtectedNode::disableCascadeOpacity()
 {
     _displayedOpacity = _realOpacity;
     
-    for(auto child : _children){
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedOpacity(255);
     }
     
-    for(auto child : _protectedChildren){
+    for(auto itr0 = _protectedChildren.begin(); itr0 != _protectedChildren.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         child->updateDisplayedOpacity(255);
     }
 }
@@ -459,8 +477,9 @@ void ProtectedNode::setCameraMask(unsigned short mask, bool applyChildren)
     Node::setCameraMask(mask, applyChildren);
     if (applyChildren)
     {
-        for (auto& iter: _protectedChildren)
+        for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
         {
+        	auto &iter=*itr;
             iter->setCameraMask(mask);
         }
     }

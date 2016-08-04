@@ -588,8 +588,9 @@ void TextureCache::reloadAllTextures()
 
 std::string TextureCache::getTextureFilePath(cocos2d::Texture2D* texture) const
 {
-    for (auto& item : _textures)
+    for(auto itr0 = _textures.begin(); itr0 != _textures.end(); ++itr0)
     {
+    	auto &item=*itr0;
         if (item.second == texture)
         {
             return item.first;

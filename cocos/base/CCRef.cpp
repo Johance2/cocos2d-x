@@ -167,8 +167,9 @@ void Ref::printLeaks()
     {
         log("[memory] WARNING: %d Ref objects still active in memory.\n", (int)__refAllocationList.size());
 
-        for (const auto& ref : __refAllocationList)
+        for(auto itr = __refAllocationList.begin(); itr != __refAllocationList.end(); ++itr)
         {
+        	auto &ref=*itr;
             CC_ASSERT(ref);
             const char* type = typeid(*ref).name();
             log("[memory] LEAK: Ref object '%s' still active with reference count %d.\n", (type ? type : ""), ref->getReferenceCount());

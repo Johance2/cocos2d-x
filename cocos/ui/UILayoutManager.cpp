@@ -47,8 +47,9 @@ void LinearHorizontalLayoutManager::doLayout(LayoutProtocol* layout)
     Size layoutSize = layout->getLayoutContentSize();
     Vector<Node*> container = layout->getLayoutElements();
     float leftBoundary = 0.0f;
-    for (auto& subWidget : container)
+    for(auto itr0 = container.begin(); itr0 != container.end(); ++itr0)
     {
+    	auto &subWidget=*itr0;
         Widget* child = dynamic_cast<Widget*>(subWidget);
         if (child)
         {
@@ -104,8 +105,9 @@ void LinearVerticalLayoutManager::doLayout(LayoutProtocol* layout)
     Vector<Node*> container = layout->getLayoutElements();
     float topBoundary = layoutSize.height;
     
-    for (auto& subWidget : container)
+    for(auto itr0 = container.begin(); itr0 != container.end(); ++itr0)
     {
+    	auto &subWidget=*itr0;
         LayoutParameterProtocol* child = dynamic_cast<LayoutParameterProtocol*>(subWidget);
         if (child)
         {
@@ -163,8 +165,9 @@ Vector<Widget*> RelativeLayoutManager::getAllWidgets(cocos2d::ui::LayoutProtocol
 {
     Vector<Node*> container = layout->getLayoutElements();
     Vector<Widget*> widgetChildren;
-    for (auto& subWidget : container)
+    for(auto itr0 = container.begin(); itr0 != container.end(); ++itr0)
     {
+    	auto &subWidget=*itr0;
         Widget* child = dynamic_cast<Widget*>(subWidget);
         if (child)
         {
@@ -186,8 +189,9 @@ Widget* RelativeLayoutManager::getRelativeWidget(Widget* widget)
     
     if (!relativeName.empty())
     {
-        for (auto& sWidget : _widgetChildren)
+        for(auto itr = _widgetChildren.begin(); itr != _widgetChildren.end(); ++itr)
         {
+        	auto &sWidget=*itr;
             if (sWidget)
             {
                 RelativeLayoutParameter* rlayoutParameter = dynamic_cast<RelativeLayoutParameter*>(sWidget->getLayoutParameter());
@@ -539,8 +543,9 @@ void RelativeLayoutManager::doLayout(LayoutProtocol *layout)
     
     while (_unlayoutChildCount > 0)
     {
-        for (auto& subWidget : _widgetChildren)
+        for(auto itr = _widgetChildren.begin(); itr != _widgetChildren.end(); ++itr)
         {
+        	auto &subWidget=*itr;
             _widget = static_cast<Widget*>(subWidget);
             
             RelativeLayoutParameter* layoutParameter = dynamic_cast<RelativeLayoutParameter*>(_widget->getLayoutParameter());

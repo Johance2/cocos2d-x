@@ -440,12 +440,16 @@ bool GLProgramState::init(GLProgram* glprogram)
     _glprogram = glprogram;
     _glprogram->retain();
 
-    for(auto &attrib : _glprogram->_vertexAttribs) {
+    for(auto itr0 = _glprogram->_vertexAttribs.begin(); itr0 != _glprogram->_vertexAttribs.end(); ++itr0)
+    {
+    	auto &attrib=*itr0;
         VertexAttribValue value(&attrib.second);
         _attributes[attrib.first] = value;
     }
 
-    for(auto &uniform : _glprogram->_userUniforms) {
+    for(auto itr0 = _glprogram->_userUniforms.begin(); itr0 != _glprogram->_userUniforms.end(); ++itr0)
+    {
+    	auto &uniform=*itr0;
         UniformValue value(&uniform.second, _glprogram);
         _uniforms[uniform.second.location] = value;
         _uniformsByName[uniform.first] = uniform.second.location;
@@ -479,14 +483,16 @@ void GLProgramState::updateUniformsAndAttributes()
     CCASSERT(_glprogram, "invalid glprogram");
     if(_uniformAttributeValueDirty)
     {
-        for(auto& uniformLocation : _uniformsByName)
+        for(auto itr = _uniformsByName.begin(); itr != _uniformsByName.end(); ++itr)
         {
+        	auto &uniformLocation=*itr;
             _uniforms[uniformLocation.second]._uniform = _glprogram->getUniform(uniformLocation.first);
         }
         
         _vertexAttribsFlags = 0;
-        for(auto& attributeValue : _attributes)
+        for(auto itr = _attributes.begin(); itr != _attributes.end(); ++itr)
         {
+        	auto &attributeValue=*itr;
             attributeValue.second._vertexAttrib = _glprogram->getVertexAttrib(attributeValue.first);;
             if(attributeValue.second._enabled)
                 _vertexAttribsFlags |= 1 << attributeValue.second._vertexAttrib->index;
@@ -516,8 +522,9 @@ void GLProgramState::applyAttributes(bool applyAttribFlags)
         if (applyAttribFlags)
             GL::enableVertexAttribs(_vertexAttribsFlags);
         // set attributes
-        for(auto &attribute : _attributes)
+        for(auto itr = _attributes.begin(); itr != _attributes.end(); ++itr)
         {
+        	auto &attribute=*itr;
             attribute.second.apply();
         }
     }
@@ -526,7 +533,9 @@ void GLProgramState::applyUniforms()
 {
     // set uniforms
     updateUniformsAndAttributes();
-    for(auto& uniform : _uniforms) {
+    for(auto itr0 = _uniforms.begin(); itr0 != _uniforms.end(); ++itr0)
+    {
+    	auto &uniform=*itr0;
         uniform.second.apply();
     }
 }
@@ -882,8 +891,9 @@ void GLProgramState::applyAutoBinding(const std::string& uniformName, const std:
     // Instead, the GLProgramState should obtain it from its target.
 
     bool resolved = false;
-    for (const auto resolver: _customAutoBindingResolvers)
+    for(auto itr0 = _customAutoBindingResolvers.begin(); itr0 != _customAutoBindingResolvers.end(); ++itr0)
     {
+    	auto &resolver=*itr0;
         resolved = resolver->resolveAutoBinding(this, _nodeBinding, uniformName, autoBinding);
         if (resolved)
             break;

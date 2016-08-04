@@ -138,7 +138,9 @@ Mesh::Mesh()
 }
 Mesh::~Mesh()
 {
-    for (auto &tex : _textures){
+    for(auto itr0 = _textures.begin(); itr0 != _textures.end(); ++itr0)
+    {
+    	auto &tex=*itr0;
         CC_SAFE_RELEASE(tex.second);
     }
     CC_SAFE_RELEASE(_skin);
@@ -296,8 +298,9 @@ void Mesh::setTexture(Texture2D* tex, NTextureData::Usage usage, bool cacheFileN
     if (usage == NTextureData::Usage::Diffuse){
         if (_material) {
             auto technique = _material->_currentTechnique;
-            for(auto& pass: technique->_passes)
+            for(auto itr2 = technique->_passes.begin(); itr2 != technique->_passes.end(); ++itr2)
             {
+            	auto &pass=*itr2;
                 // FIXME: Ideally it should use glProgramState->setUniformTexture()
                 // and set CC_Texture0 that way. But trying to it, will trigger
                 // another bug
@@ -313,8 +316,9 @@ void Mesh::setTexture(Texture2D* tex, NTextureData::Usage usage, bool cacheFileN
     {
         if (_material){
             auto technique = _material->_currentTechnique;
-            for(auto& pass: technique->_passes)
+            for(auto itr2 = technique->_passes.begin(); itr2 != technique->_passes.end(); ++itr2)
             {
+            	auto &pass=*itr2;
                 pass->getGLProgramState()->setUniformTexture(s_uniformSamplerName[(int)usage], tex);
             }
         }
@@ -347,10 +351,12 @@ void Mesh::setMaterial(Material* material)
 
     if (_material)
     {
-        for (auto technique: _material->getTechniques())
+        for(auto itr = _material->getTechniques().begin(); itr != _material->getTechniques().end(); ++itr)
         {
-            for (auto pass: technique->getPasses())
+        	auto &technique=*itr;
+            for(auto itr2 = technique->getPasses().begin(); itr2 != technique->getPasses().end(); ++itr2)
             {
+            	auto &pass=*itr2;
                 auto vertexAttribBinding = VertexAttribBinding::create(_meshIndexData, pass->getGLProgramState());
                 pass->setVertexAttribBinding(vertexAttribBinding);
             }
@@ -408,8 +414,9 @@ void Mesh::draw(Renderer* renderer, float globalZOrder, const Mat4& transform, u
     // 'u_color' and others
     const auto scene = Director::getInstance()->getRunningScene();
     auto technique = _material->_currentTechnique;
-    for(const auto pass : technique->_passes)
+    for(auto itr0 = technique->_passes.begin(); itr0 != technique->_passes.end(); ++itr0)
     {
+    	auto &pass=*itr0;
         auto programState = pass->getGLProgramState();
         programState->setUniformVec4("u_color", color);
 
@@ -478,7 +485,9 @@ void Mesh::calculateAABB()
                 while (root) {
                     auto parent = root->getParentBone();
                     bool parentInSkinBone = false;
-                    for (const auto& bone : _skin->_skinBones) {
+                    for(auto itr4 = _skin->_skinBones.begin(); itr4 != _skin->_skinBones.end(); ++itr4)
+                    {
+                    	auto &bone=*itr4;
                         if (bone == parent)
                         {
                             parentInSkinBone = true;
@@ -539,8 +548,9 @@ void Mesh::setLightUniforms(Pass* pass, Scene* scene, const Vec4& color, unsigne
         GLint enabledPointLightNum = 0;
         GLint enabledSpotLightNum = 0;
         Vec3 ambientColor;
-        for (const auto& light : lights)
+        for(auto itr = lights.begin(); itr != lights.end(); ++itr)
         {
+        	auto &light=*itr;
             bool useLight = light->isEnabled() && ((unsigned int)light->getLightFlag() & lightmask);
             if (useLight)
             {
@@ -637,8 +647,9 @@ void Mesh::setLightUniforms(Pass* pass, Scene* scene, const Vec4& color, unsigne
     {
         Vec3 ambient(0.0f, 0.0f, 0.0f);
         bool hasAmbient = false;
-        for (const auto& light : lights)
+        for(auto itr = lights.begin(); itr != lights.end(); ++itr)
         {
+        	auto &light=*itr;
             if (light->getLightType() == LightType::AMBIENT)
             {
                 bool useLight = light->isEnabled() && ((unsigned int)light->getLightFlag() & lightmask);

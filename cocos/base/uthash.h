@@ -500,7 +500,7 @@ do {                                                                            
             hashv += hashv >> 1;                                                 \
   }                                                                              \
                                                                                  \
-    /* Force "avalanching" of final 127 bits */                                  \
+    /* Force "avalanching" of127 bits */                                  \
     hashv ^= hashv << 3;                                                         \
     hashv += hashv >> 5;                                                         \
     hashv ^= hashv << 4;                                                         \

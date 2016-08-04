@@ -398,8 +398,9 @@ void Camera3DTestDemo::addNewSpriteWithCoords(Vec3 p,std::string fileName,bool p
 }
 void Camera3DTestDemo::onTouchesBegan(const std::vector<Touch*>& touches, cocos2d::Event  *event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto location = touch->getLocation();
     }
@@ -485,8 +486,9 @@ void Camera3DTestDemo::updateState(float elapsedTime)
 }
 void Camera3DTestDemo::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event  *event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto location = touch->getLocationInView();
         if(_camera)
@@ -801,8 +803,9 @@ void CameraCullingDemo::update(float dt)
     Vector<Node*>& children = _layer3D->getChildren();
     Vec3 corners[8];
     
-    for (const auto& iter: children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         const AABB& aabb = static_cast<Sprite3D*>(iter)->getAABB();
         if (_cameraFirst->isVisibleInFrustum(&aabb))
         {

@@ -149,8 +149,9 @@ EffectSprite3D::EffectSprite3D()
 
 EffectSprite3D::~EffectSprite3D()
 {
-    for(auto effect : _effects)
+    for(auto itr0 = _effects.begin(); itr0 != _effects.end(); ++itr0)
     {
+    	auto &effect=*itr0;
         CC_SAFE_RELEASE_NULL(std::get<1>(effect));
     }
     CC_SAFE_RELEASE(_defaultEffect);
@@ -368,8 +369,9 @@ void Effect3DOutline::draw(const Mat4 &transform)
 
 void EffectSprite3D::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags)
 {
-    for(auto &effect : _effects)
+    for(auto itr0 = _effects.begin(); itr0 != _effects.end(); ++itr0)
     {
+    	auto &effect=*itr0;
         if(std::get<0>(effect) >=0)
             break;
         CustomCommand &cc = std::get<2>(effect);
@@ -389,8 +391,9 @@ void EffectSprite3D::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &tran
         renderer->addCommand(&_command);
     }
 
-    for(auto &effect : _effects)
+    for(auto itr0 = _effects.begin(); itr0 != _effects.end(); ++itr0)
     {
+    	auto &effect=*itr0;
         if(std::get<0>(effect) <=0)
             continue;
         CustomCommand &cc = std::get<2>(effect);

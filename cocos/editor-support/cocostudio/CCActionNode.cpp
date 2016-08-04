@@ -68,8 +68,9 @@ ActionNode::~ActionNode()
     
     CC_SAFE_RELEASE(_object);
 
-    for (auto object : _frameArray)
+    for(auto itr0 = _frameArray.begin(); itr0 != _frameArray.end(); ++itr0)
     {
+    	auto &object=*itr0;
         object->clear();
         CC_SAFE_DELETE(object);
     }
@@ -432,8 +433,9 @@ void ActionNode::deleteFrame(ActionFrame* frame)
 
 void ActionNode::clearAllFrame()
 {
-    for(auto array : _frameArray)
+    for(auto itr0 = _frameArray.begin(); itr0 != _frameArray.end(); ++itr0)
     {
+    	auto &array=*itr0;
         array->clear();
     }
 }

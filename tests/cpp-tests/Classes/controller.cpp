@@ -175,8 +175,9 @@ void TestController::traverseTestList(TestList* testList)
 
     auto scheduler = _director->getScheduler();
     int testIndex = 0;
-    for (auto& callback : testList->_testCallbacks)
+    for(auto itr0 = testList->_testCallbacks.begin(); itr0 != testList->_testCallbacks.end(); ++itr0)
     {
+    	auto &callback=*itr0;
         if (_stopAutoTest) break;
         while (_isRunInBackground)
         {
@@ -235,8 +236,9 @@ void TestController::traverseTestSuite(TestSuite* testSuite)
     testSuite->_currTestIndex = -1;
 
     auto logIndentation = _logIndentation;
-    for (auto& callback : testSuite->_testCallbacks)
+    for(auto itr0 = testSuite->_testCallbacks.begin(); itr0 != testSuite->_testCallbacks.end(); ++itr0)
     {
+    	auto &callback=*itr0;
         auto testName = testSuite->_childTestNames[testIndex++];
         
         Scene* testScene = nullptr;
@@ -518,16 +520,18 @@ static void signalHandler(int sig)
 
 static void initCrashCatch()
 {
-    for (auto sig : s_fatal_signals)
+    for(auto itr0 = s_fatal_signals.begin(); itr0 != s_fatal_signals.end(); ++itr0)
     {
+    	auto &sig=*itr0;
         signal(sig, signalHandler);
     }
 }
 
 static void disableCrashCatch()
 {
-    for (auto sig : s_fatal_signals)
+    for(auto itr0 = s_fatal_signals.begin(); itr0 != s_fatal_signals.end(); ++itr0)
     {
+    	auto &sig=*itr0;
         signal(sig, SIG_DFL);
     }
 }

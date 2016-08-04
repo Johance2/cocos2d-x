@@ -7445,8 +7445,9 @@ int lua_cocos2dx_GLView_getAllTouches(lua_State* tolua_S)
             return 1;
 
         int index = 1;
-        for (const auto& obj : ret)
+        for(auto itr = ret.begin(); itr != ret.end(); ++itr)
         {
+        	auto &obj=*itr;
             if (nullptr == obj)
                 continue;
 
@@ -8009,8 +8010,9 @@ static int tolua_cocos2d_utils_findChildren(lua_State* tolua_S)
         std::vector<Node*> children = cocos2d::utils::findChildren(*node, name);
         lua_newtable(tolua_S);
         int index = 1;
-        for (const auto& obj : children)
+        for(auto itr = children.begin(); itr != children.end(); ++itr)
         {
+        	auto &obj=*itr;
             if (nullptr == obj)
                 continue;
 

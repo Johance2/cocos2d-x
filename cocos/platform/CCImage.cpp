@@ -750,11 +750,11 @@ namespace
  * ERROR HANDLING:
  *
  * The JPEG library's standard error handler (jerror.c) is divided into
- * several "methods" which you can override individually.  This lets you
+ * several "methods" which you canindividually.  This lets you
  * adjust the behavior without duplicating a lot of code, which you might
  * have to update with each future release.
  *
- * We override the "error_exit" method so that control is returned to the
+ * Wethe "error_exit" method so that control is returned to the
  * library's caller when a fatal error occurs, rather than calling exit()
  * as the standard error_exit method does.
  *
@@ -918,7 +918,7 @@ bool Image::initWithJpgData(const unsigned char * data, ssize_t dataLen)
     bool ret = false;
     do 
     {
-        /* We set up the normal JPEG error routines, then override error_exit. */
+        /* We set up the normal JPEG error routines, thenerror_exit. */
         cinfo.err = jpeg_std_error(&jerr.pub);
         jerr.pub.error_exit = myErrorExit;
         /* Establish the setjmp return context for MyErrorExit to use. */

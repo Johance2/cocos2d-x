@@ -134,8 +134,9 @@ Node* findChildByNameRecursively(Node* node, const std::string &childName)
         return node;
     
     const Vector<Node*>& children = node->getChildren();
-    for (const auto& child : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         Node* findNode = findChildByNameRecursively(child, childName);
         if (findNode)
             return findNode;
@@ -162,8 +163,9 @@ void Animate3D::startWithTarget(Node *target)
             if (_animation)
             {
                 const std::unordered_map<std::string, Animation3D::Curve*>& boneCurves = _animation->getBoneCurves();
-                for (const auto& iter: boneCurves)
+                for(auto itr3 = boneCurves.begin(); itr3 != boneCurves.end(); ++itr3)
                 {
+                	auto &iter=*itr3;
                     const std::string& boneName = iter.first;
                     auto skin = sprite->getSkeleton();
                     if(skin)
@@ -200,8 +202,9 @@ void Animate3D::startWithTarget(Node *target)
         else
         {
             const std::unordered_map<std::string, Animation3D::Curve*>& boneCurves = _animation->getBoneCurves();
-            for (const auto& iter: boneCurves)
+            for(auto itr2 = boneCurves.begin(); itr2 != boneCurves.end(); ++itr2)
             {
+            	auto &iter=*itr2;
                 const std::string& boneName = iter.first;
                 Node* node = nullptr;
                 if (target->getName() == boneName)
@@ -277,7 +280,7 @@ void Animate3D::stop()
     ActionInterval::stop();
 }
 
-//! called every frame with it's delta time. DON'T override unless you know what you are doing.
+//! called every frame with it's delta time. DON'Tunless you know what you are doing.
 void Animate3D::step(float dt)
 {
     ActionInterval::step(dt);
@@ -343,7 +346,9 @@ void Animate3D::update(float t)
                 t = _start + t * _last;
                 lastTime = _start + lastTime * _last;
                 
-                for (const auto& it : _boneCurves) {
+                for(auto itr3 = _boneCurves.begin(); itr3 != _boneCurves.end(); ++itr3)
+                {
+                	auto &it=*itr3;
                     auto bone = it.first;
                     auto curve = it.second;
                     if (curve->translateCurve)
@@ -364,8 +369,9 @@ void Animate3D::update(float t)
                     bone->setAnimationValue(trans, rot, scale, this, _weight);
                 }
                 
-                for (const auto& it : _nodeCurves)
+                for(auto itr3 = _nodeCurves.begin(); itr3 != _nodeCurves.end(); ++itr3)
                 {
+                	auto &it=*itr3;
                     auto node = it.first;
                     auto curve = it.second;
                     Mat4 transform;
@@ -391,8 +397,9 @@ void Animate3D::update(float t)
                     float prekeyTime = lastTime * getDuration() * _frameRate;
                     float keyTime = t * getDuration() * _frameRate;
                     std::vector<Animate3DDisplayedEventInfo*> eventInfos;
-                    for (auto keyFrame : _keyFrameUserInfos)
+                    for(auto itr4 = _keyFrameUserInfos.begin(); itr4 != _keyFrameUserInfos.end(); ++itr4)
                     {
+                    	auto &keyFrame=*itr4;
                         if ((!_playReverse && keyFrame.first >= prekeyTime && keyFrame.first < keyTime)
                             || (_playReverse && keyFrame.first >= keyTime && keyFrame.first < prekeyTime))
                             {
@@ -408,7 +415,9 @@ void Animate3D::update(float t)
                             }
                     }
                     std::sort(eventInfos.begin(), eventInfos.end(), _playReverse ? cmpEventInfoDes : cmpEventInfoAsc);
-                    for (auto eventInfo : eventInfos) {
+                    for(auto itr4 = eventInfos.begin(); itr4 != eventInfos.end(); ++itr4)
+                    {
+                    	auto &eventInfo=*itr4;
                         Director::getInstance()->getEventDispatcher()->dispatchEvent(_keyFrameEvent[eventInfo->frame]);
                     }
                 }
@@ -503,7 +512,9 @@ Animate3D::~Animate3D()
 {
     removeFromMap();
     
-    for (auto& it : _keyFrameEvent) {
+    for(auto itr0 = _keyFrameEvent.begin(); itr0 != _keyFrameEvent.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         delete it.second;
     }
     _keyFrameEvent.clear();

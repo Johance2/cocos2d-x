@@ -237,8 +237,9 @@ void ChipmunkTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* eve
 {
     //Add a new body/atlas sprite at the touched location
 
-    for( auto &touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
 
         addNewSpriteAtPosition( location );

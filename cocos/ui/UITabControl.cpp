@@ -49,8 +49,9 @@ namespace ui
 
     TabControl::~TabControl()
     {
-        for (auto& item : _tabItems)
+        for(auto itr = _tabItems.begin(); itr != _tabItems.end(); ++itr)
         {
+        	auto &item=*itr;
             if (item)
                 CC_SAFE_DELETE(item);
         }
@@ -177,8 +178,9 @@ namespace ui
             initContainers();
 
             auto anpoint = getHeaderAnchorWithDock();
-            for (auto& item : _tabItems)
+            for(auto itr2 = _tabItems.begin(); itr2 != _tabItems.end(); ++itr2)
             {
+            	auto &item=*itr2;
                 item->header->setAnchorPoint(anpoint);
             }
         }
@@ -279,8 +281,9 @@ namespace ui
             break;
         }
 
-        for (auto& tabItem : _tabItems)
+        for(auto itr = _tabItems.begin(); itr != _tabItems.end(); ++itr)
         {
+        	auto &tabItem=*itr;
             Layout* container = tabItem->container;
             container->setPosition(_containerPosition);
             container->setContentSize(_containerSize);
@@ -440,8 +443,9 @@ namespace ui
             return;
 
         _ignoreHeaderTextureSize = ignore;
-        for (auto& item : _tabItems)
+        for(auto itr = _tabItems.begin(); itr != _tabItems.end(); ++itr)
         {
+        	auto &item=*itr;
             item->header->ignoreContentAdaptWithSize(!ignore);
             if (ignore)
                 item->header->setContentSize(Size(_headerWidth, _headerHeight));

@@ -46,8 +46,9 @@ _ownedIndices()
 
 QuadCommand::~QuadCommand()
 {
-    for (auto& indices : _ownedIndices)
+    for(auto itr0 = _ownedIndices.begin(); itr0 != _ownedIndices.end(); ++itr0)
     {
+    	auto &indices=*itr0;
         CC_SAFE_DELETE_ARRAY(indices);
     }
 }

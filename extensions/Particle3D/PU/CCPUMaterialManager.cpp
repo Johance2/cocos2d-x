@@ -66,7 +66,9 @@ PUMaterialCache::PUMaterialCache()
 
 PUMaterialCache::~PUMaterialCache()
 {
-    for (auto iter : _materialMap){
+    for(auto itr0 = _materialMap.begin(); itr0 != _materialMap.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         iter->release();
     }
     _materialMap.clear();
@@ -80,7 +82,9 @@ PUMaterialCache* PUMaterialCache::Instance()
 
 PUMaterial* PUMaterialCache::getMaterial( const std::string &name )
 {
-    for (auto iter : _materialMap){
+    for(auto itr0 = _materialMap.begin(); itr0 != _materialMap.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter->name == name)
             return iter;
     }
@@ -100,7 +104,9 @@ bool PUMaterialCache::loadMaterials( const std::string &file )
 
 void PUMaterialCache::addMaterial( PUMaterial *material )
 {
-    for (auto iter : _materialMap){
+    for(auto itr0 = _materialMap.begin(); itr0 != _materialMap.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         if (iter->name == material->name){
           CCLOG("warning: Material has existed (FilePath: %s,  MaterialName: %s)", material->fileName.c_str(), material->name.c_str());
         return;

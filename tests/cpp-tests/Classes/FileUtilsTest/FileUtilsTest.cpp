@@ -668,7 +668,9 @@ void TestGetContents::onEnter()
 
 
         std::string files[] = {_generatedFile, "background.wav", "fileLookup.plist"};
-        for (auto& file : files) {
+        for(auto itr = files.begin(); itr != files.end(); ++itr)
+        {
+        	auto &file=*itr;
             std::string sbuf;
 
             auto serr = fs->getContents(file, &sbuf);

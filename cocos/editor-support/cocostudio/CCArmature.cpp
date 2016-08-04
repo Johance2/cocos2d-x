@@ -141,8 +141,9 @@ bool Armature::init(const std::string& name)
 
             _armatureData = armatureData;
 
-            for (auto& element : armatureData->boneDataDic)
+            for(auto itr2 = armatureData->boneDataDic.begin(); itr2 != armatureData->boneDataDic.end(); ++itr2)
             {
+            	auto &element=*itr2;
                 Bone *bone = createBone(element.first);
 
                 //! init bone's  Tween to 1st movement's 1st frame
@@ -376,7 +377,9 @@ void Armature::update(float dt)
 {
     _animation->update(dt);
 
-    for(const auto &bone : _topBoneList) {
+    for(auto itr0 = _topBoneList.begin(); itr0 != _topBoneList.end(); ++itr0)
+    {
+    	auto &bone=*itr0;
         bone->update(dt);
     }
 
@@ -391,8 +394,9 @@ void Armature::draw(cocos2d::Renderer *renderer, const Mat4 &transform, uint32_t
     }
 
 
-    for (auto& object : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         if (Bone *bone = dynamic_cast<Bone *>(object))
         {
             Node *node = bone->getDisplayRenderNode();
@@ -517,8 +521,9 @@ Rect Armature::getBoundingBox() const
 
     Rect boundingBox = Rect(0, 0, 0, 0);
 
-    for (const auto& object : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         if (Bone *bone = dynamic_cast<Bone *>(object))
         {
             Rect r = bone->getDisplayManager()->getBoundingBox();
@@ -571,8 +576,9 @@ void Armature::setParentBone(Bone *parentBone)
 {
     _parentBone = parentBone;
 
-    for (auto& element : _boneDic)
+    for(auto itr0 = _boneDic.begin(); itr0 != _boneDic.end(); ++itr0)
     {
+    	auto &element=*itr0;
         element.second->setArmature(this);
     }
 }
@@ -586,8 +592,9 @@ Bone *Armature::getParentBone() const
 
 void Armature::setColliderFilter(ColliderFilter *filter)
 {
-    for (auto& element : _boneDic)
+    for(auto itr0 = _boneDic.begin(); itr0 != _boneDic.end(); ++itr0)
     {
+    	auto &element=*itr0;
         element.second->setColliderFilter(filter);
     }
 }
@@ -595,8 +602,9 @@ void Armature::setColliderFilter(ColliderFilter *filter)
 
 void Armature::drawContour()
 {
-    for(auto& element : _boneDic)
+    for(auto itr0 = _boneDic.begin(); itr0 != _boneDic.end(); ++itr0)
     {
+    	auto &element=*itr0;
         Bone *bone = element.second;
         ColliderDetector *detector = bone->getColliderDetector();
 
@@ -605,8 +613,9 @@ void Armature::drawContour()
 
         const cocos2d::Vector<ColliderBody*>& bodyList = detector->getColliderBodyList();
 
-        for (auto& object : bodyList)
+        for(auto itr = bodyList.begin(); itr != bodyList.end(); ++itr)
         {
+        	auto &object=*itr;
             ColliderBody *body = static_cast<ColliderBody*>(object);
             const std::vector<Vec2> &vertexList = body->getCalculatedVertexList();
 
@@ -657,14 +666,16 @@ void Armature::setBody(b2Body *body)
     _body = body;
     _body->SetUserData(this);
 
-    for(auto& object : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         if (Bone *bone = dynamic_cast<Bone *>(object))
         {
             auto displayList = bone->getDisplayManager()->getDecorativeDisplayList();
 
-            for(auto displayObject : displayList)
+            for(auto itr2 = displayList.begin(); itr2 != displayList.end(); ++itr2)
             {
+            	auto &displayObject=*itr2;
                 ColliderDetector *detector = static_cast<DecorativeDisplay *>(displayObject)->getColliderDetector();
                 if (detector != nullptr)
                 {
@@ -703,14 +714,16 @@ void Armature::setBody(cpBody *body)
     _body = body;
     _body->data = this;
 
-    for (const auto& object : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         if (Bone *bone = dynamic_cast<Bone *>(object))
         {
             auto displayList = bone->getDisplayManager()->getDecorativeDisplayList();
 
-            for (const auto& displayObject : displayList)
+            for(auto itr2 = displayList.begin(); itr2 != displayList.end(); ++itr2)
             {
+            	auto &displayObject=*itr2;
                 auto detector = displayObject->getColliderDetector();
                 if (detector != nullptr)
                 {

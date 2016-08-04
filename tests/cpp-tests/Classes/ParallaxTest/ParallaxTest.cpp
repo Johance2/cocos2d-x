@@ -205,8 +205,9 @@ void Issue2572::update(float dt)
             case 1:
             case 2:
                 log( "--child count-- %zd", _childList.size());
-                for (const auto& obj : _childList)
+                for(auto itr3 = _childList.begin(); itr3 != _childList.end(); ++itr3)
                 {
+                	auto &obj=*itr3;
                     Sprite* obstacle = dynamic_cast<Sprite*>( obj );
                     log("child position : (%.2f, %.2f)", obstacle->getPositionX(), obstacle->getPositionY());
                 }

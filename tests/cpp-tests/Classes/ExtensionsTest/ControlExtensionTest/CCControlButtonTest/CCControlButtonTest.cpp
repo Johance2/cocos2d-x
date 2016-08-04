@@ -48,8 +48,9 @@ bool ControlButtonTest_HelloVariableSize::init()
         
         int i = 0;
         
-        for (auto& title : vec)
+        for(auto itr = vec.begin(); itr != vec.end(); ++itr)
         {
+        	auto &title=*itr;
             // Creates a button with this string as title
             ControlButton *button = standardButtonWithTitle(title.c_str());
             if (i == 0)

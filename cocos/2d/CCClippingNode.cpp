@@ -48,7 +48,9 @@ static void setProgram(Node *n, GLProgram *p)
     n->setGLProgram(p);
     
     auto& children = n->getChildren();
-    for(const auto &child : children) {
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         setProgram(child, p);
     }
 }

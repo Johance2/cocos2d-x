@@ -1507,7 +1507,9 @@ void MultipleParticleSystems::update(float dt)
 
     unsigned int count = 0; 
     
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         auto item = dynamic_cast<ParticleSystem*>(child);
         if (item != nullptr)
         {
@@ -1555,7 +1557,9 @@ void MultipleParticleSystemsBatched::update(float dt)
     int count = 0;
 
     auto batchNode = getChildByTag(2);
-    for(const auto &child : batchNode->getChildren()) {
+    for(auto itr0 = batchNode->getChildren().begin(); itr0 != batchNode->getChildren().end(); ++itr0)
+    {
+    	auto &child=*itr0;
         auto item = dynamic_cast<ParticleSystem*>(child);
         if (item != nullptr)
         {
@@ -1643,7 +1647,9 @@ void AddAndDeleteParticleSystems::update(float dt)
     int count = 0;
 
     auto batchNode = getChildByTag(2);
-    for(const auto &child : batchNode->getChildren()) {
+    for(auto itr0 = batchNode->getChildren().begin(); itr0 != batchNode->getChildren().end(); ++itr0)
+    {
+    	auto &child=*itr0;
         auto item = dynamic_cast<ParticleSystem*>(child);
         if (item != nullptr)
         {
@@ -1778,7 +1784,9 @@ void ReorderParticleSystems::update(float dt)
     int count = 0;
 
     auto batchNode = getChildByTag(2);
-    for(const auto &child : batchNode->getChildren()) {
+    for(auto itr0 = batchNode->getChildren().begin(); itr0 != batchNode->getChildren().end(); ++itr0)
+    {
+    	auto &child=*itr0;
         auto item = dynamic_cast<ParticleSystem*>(child);
         if (item != nullptr)
         {

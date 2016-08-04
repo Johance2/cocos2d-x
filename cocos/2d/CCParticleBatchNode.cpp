@@ -110,7 +110,7 @@ bool ParticleBatchNode::initWithFile(const std::string& fileImage, int capacity)
 
 // ParticleBatchNode - composition
 
-// override visit.
+//visit.
 // Don't call visit on it's children
 void ParticleBatchNode::visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags)
 {
@@ -143,7 +143,7 @@ void ParticleBatchNode::visit(Renderer *renderer, const Mat4 &parentTransform, u
     }
 }
 
-// override addChild:
+//addChild:
 void ParticleBatchNode::addChild(Node * aChild, int zOrder, int tag)
 {
     CCASSERT( aChild != nullptr, "Argument must be non-nullptr");
@@ -357,7 +357,7 @@ int ParticleBatchNode::searchNewPositionInChildrenForZ(int z)
     return static_cast<int>(count);
 }
 
-// override removeChild:
+//removeChild:
 void  ParticleBatchNode::removeChild(Node* aChild, bool cleanup)
 {
     // explicit nil handling
@@ -464,7 +464,9 @@ void ParticleBatchNode::updateAllAtlasIndexes()
 {
     int index = 0;
     
-    for(const auto &child : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &child=*itr0;
         ParticleSystem* partiSys = static_cast<ParticleSystem*>(child);
         partiSys->setAtlasIndex(index);
         index += partiSys->getTotalParticles();

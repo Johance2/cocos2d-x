@@ -62,8 +62,9 @@ static Map<int, TouchPoint*> s_map;
 
 void MutiTouchTest::onTouchesBegan(const std::vector<Touch*>& touches, Event  *event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto location = touch->getLocation();
         auto touchPoint = TouchPoint::touchPointWithParent(this, location, *s_TouchColors[touch->getID()%5]);
@@ -75,8 +76,9 @@ void MutiTouchTest::onTouchesBegan(const std::vector<Touch*>& touches, Event  *e
 
 void MutiTouchTest::onTouchesMoved(const std::vector<Touch*>& touches, Event  *event)
 {
-    for( auto &item: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto pTP = s_map.at(touch->getID());
         auto location = touch->getLocation();
@@ -92,8 +94,9 @@ void MutiTouchTest::onTouchesMoved(const std::vector<Touch*>& touches, Event  *e
 
 void MutiTouchTest::onTouchesEnded(const std::vector<Touch*>& touches, Event  *event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto pTP = s_map.at(touch->getID());
         removeChild(pTP, true);

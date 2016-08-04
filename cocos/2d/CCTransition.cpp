@@ -1307,7 +1307,7 @@ TransitionCrossFade* TransitionCrossFade::create(float t, Scene* scene)
 
 void TransitionCrossFade::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
-    // override draw since both scenes (textures) are rendered in 1 scene
+    //draw since both scenes (textures) are rendered in 1 scene
 }
 
 void TransitionCrossFade::onEnter()
@@ -1416,7 +1416,7 @@ TransitionTurnOffTiles* TransitionTurnOffTiles::create(float t, Scene* scene)
     return nullptr;
 }
 
-// override addScenes, and change the order
+//addScenes, and change the order
 void TransitionTurnOffTiles::sceneOrder()
 {
     _isInSceneOnTop = false;

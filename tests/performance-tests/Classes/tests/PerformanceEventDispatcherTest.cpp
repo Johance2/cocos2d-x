@@ -134,8 +134,9 @@ void PerformanceEventDispatcherScene::initWithQuantityOfNodes(unsigned int nNode
     CCASSERT(!_testFunctions.empty(), "Should not be empty after generate test functions");
     
     
-    for (const auto& f : _testFunctions)
+    for(auto itr0 = _testFunctions.begin(); itr0 != _testFunctions.end(); ++itr0)
     {
+    	auto &f=*itr0;
         toggleItems.pushBack(MenuItemFont::create(f.name));
     }
 
@@ -247,16 +248,18 @@ void PerformanceEventDispatcherScene::updateStatus()
 void PerformanceEventDispatcherScene::reset()
 {
     // Removes all nodes
-    for (auto& node : _nodes)
+    for(auto itr0 = _nodes.begin(); itr0 != _nodes.end(); ++itr0)
     {
+    	auto &node=*itr0;
         node->removeFromParent();
     }
     
     _nodes.clear();
     
     // Removes all fixed listeners
-    for (auto& listener : _fixedPriorityListeners)
+    for(auto itr0 = _fixedPriorityListeners.begin(); itr0 != _fixedPriorityListeners.end(); ++itr0)
     {
+    	auto &listener=*itr0;
         Director::getInstance()->getEventDispatcher()->removeEventListener(listener);
     }
     
@@ -642,8 +645,9 @@ void TouchEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -721,8 +725,9 @@ void KeyboardEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }
@@ -757,8 +762,9 @@ void CustomEventDispatchingPerfTest::onEnter()
 
 void CustomEventDispatchingPerfTest::onExit()
 {
-    for (auto& l : _customListeners)
+    for(auto itr0 = _customListeners.begin(); itr0 != _customListeners.end(); ++itr0)
     {
+    	auto &l=*itr0;
         _eventDispatcher->removeEventListener(l);
     }
     PerformanceEventDispatcherScene::onExit();
@@ -816,8 +822,9 @@ void CustomEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for (const auto& func : testFunctions)
+    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
     {
+    	auto &func=*itr0;
         _testFunctions.push_back(func);
     }
 }

@@ -233,8 +233,9 @@ TransitionsTests::TransitionsTests()
 {
     int sceneIndex = 0;
 
-    for (auto& test : transitions)
+    for(auto itr0 = transitions.begin(); itr0 != transitions.end(); ++itr0)
     {
+    	auto &test=*itr0;
         addTestCase(test.name, [sceneIndex](){
             auto scene = TransitionsTest::create();
             // fix bug #486, without setDepthTest(false), FlipX,Y will flickers

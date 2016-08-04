@@ -228,7 +228,9 @@ bool Bundle3D::loadObj(MeshDatas& meshdatas, MaterialDatas& materialdatas, NodeD
         auto last = fullPath.rfind("/");
         if (last != -1)
             dir = fullPath.substr(0, last + 1);
-        for (auto& material : materials) {
+        for(auto itr = materials.begin(); itr != materials.end(); ++itr)
+        {
+        	auto &material=*itr;
             NMaterialData materialdata;
             
             NTextureData tex;
@@ -246,7 +248,9 @@ bool Bundle3D::loadObj(MeshDatas& meshdatas, MaterialDatas& materialdatas, NodeD
         
         //convert mesh
         i = 0;
-        for (auto& shape : shapes) {
+        for(auto itr = shapes.begin(); itr != shapes.end(); ++itr)
+        {
+        	auto &shape=*itr;
             auto mesh = shape.mesh;
             MeshData* meshdata = new (std::nothrow) MeshData();
             MeshVertexAttrib attrib;
@@ -310,7 +314,9 @@ bool Bundle3D::loadObj(MeshDatas& meshdatas, MaterialDatas& materialdatas, NodeD
             
             auto node = new (std::nothrow) NodeData();
             node->id = shape.name;
-            for (auto& submesh : subMeshMap) {
+            for(auto itr2 = subMeshMap.begin(); itr2 != subMeshMap.end(); ++itr2)
+            {
+            	auto &submesh=*itr2;
                 meshdata->subMeshIndices.push_back(submesh.second);
                 meshdata->subMeshAABB.push_back(calculateAABB(meshdata->vertex, meshdata->getPerVertexSize(), submesh.second));
                 sprintf(str, "%d", i++);
@@ -488,7 +494,9 @@ bool  Bundle3D::loadMeshDatasBinary(MeshDatas& meshdatas)
 FAILED:
     {
         CC_SAFE_DELETE(meshData);
-        for (auto& meshdata : meshdatas.meshDatas) {
+        for(auto itr = meshdatas.meshDatas.begin(); itr != meshdatas.meshDatas.end(); ++itr)
+        {
+        	auto &meshdata=*itr;
             delete meshdata;
         }
         meshdatas.meshDatas.clear();
@@ -841,12 +849,14 @@ bool Bundle3D::loadNodes(NodeDatas& nodedatas)
             nodeDatas[index]->transform = skinData.nodeBoneOriginMatrices[i];
             index++;
         }
-        for (const auto& it : skinData.boneChild)
+        for(auto itr = skinData.boneChild.begin(); itr != skinData.boneChild.end(); ++itr)
         {
+        	auto &it=*itr;
             const auto& children = it.second;
             auto parent = nodeDatas[it.first];
-            for (const auto& child : children)
+            for(auto itr2 = children.begin(); itr2 != children.end(); ++itr2)
             {
+            	auto &child=*itr2;
                 parent->children.push_back(nodeDatas[child]);
             }
         }
@@ -2177,10 +2187,16 @@ std::vector<Vec3> Bundle3D::getTrianglesList(const std::string& path)
     }
     
     Bundle3D::destroyBundle(bundle);
-    for (auto iter : meshs.meshDatas){
+    for(auto itr0 = meshs.meshDatas.begin(); itr0 != meshs.meshDatas.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         int preVertexSize = iter->getPerVertexSize() / sizeof(float);
-        for (auto indexArray : iter->subMeshIndices){
-            for (auto i : indexArray){
+        for(auto itr = iter->subMeshIndices.begin(); itr != iter->subMeshIndices.end(); ++itr)
+        {
+        	auto &indexArray=*itr;
+            for(auto itr2 = indexArray.begin(); itr2 != indexArray.end(); ++itr2)
+            {
+            	auto &i=*itr2;
                 trianglesList.push_back(Vec3(iter->vertex[i * preVertexSize], iter->vertex[i * preVertexSize + 1], iter->vertex[i * preVertexSize + 2]));
             }
         }
@@ -2209,8 +2225,9 @@ cocos2d::AABB Bundle3D::calculateAABB( const std::vector<float>& vertex, int str
 {
     AABB aabb;
     stride /= 4;
-    for (const auto& it : index)
+    for(auto itr0 = index.begin(); itr0 != index.end(); ++itr0)
     {
+    	auto &it=*itr0;
         Vec3 point(vertex[it * stride], vertex[it * stride + 1], vertex[it * stride + 2]);
         aabb.updateMinMax(&point, 1);
     }

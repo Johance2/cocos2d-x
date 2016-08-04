@@ -170,8 +170,9 @@ namespace cocostudio
             auto& layers = mapInfo->getLayers();
             bool valid = false;
             std::string layerName = "";
-            for (const auto &layerInfo : layers)
+            for(auto itr2 = layers.begin(); itr2 != layers.end(); ++itr2)
             {
+            	auto &layerInfo=*itr2;
                 valid = false;
                 
                 if (layerInfo->_visible)

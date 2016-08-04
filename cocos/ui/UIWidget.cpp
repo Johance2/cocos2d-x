@@ -541,8 +541,9 @@ void Widget::onSizeChanged()
 {
     if (!_usingLayoutComponent)
     {
-        for (auto& child : getChildren())
+        for(auto itr = getChildren().begin(); itr != getChildren().end(); ++itr)
         {
+        	auto &child=*itr;
             Widget* widgetChild = dynamic_cast<Widget*>(child);
             if (widgetChild)
             {
@@ -1187,8 +1188,9 @@ void Widget::copyClonedWidgetChildren(Widget* model)
 {
     auto& modelChildren = model->getChildren();
 
-    for (auto& subWidget : modelChildren)
+    for(auto itr0 = modelChildren.begin(); itr0 != modelChildren.end(); ++itr0)
     {
+    	auto &subWidget=*itr0;
         Widget* child = dynamic_cast<Widget*>(subWidget);
         if (child)
         {

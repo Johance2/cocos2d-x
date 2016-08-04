@@ -886,8 +886,9 @@ void Layout::setLayoutType(Type type)
 {
     _layoutType = type;
    
-    for (auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         Widget* widgetChild = dynamic_cast<Widget*>(child);
         if (widgetChild)
         {
@@ -1029,8 +1030,9 @@ Size Layout::getLayoutAccumulatedSize()const
     const auto& children = this->getChildren();
     Size layoutSize = Size::ZERO;
     int widgetCount =0;
-    for(const auto& widget : children)
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
     {
+    	auto &widget=*itr0;
         Layout *layout = dynamic_cast<Layout*>(widget);
         if (nullptr != layout)
         {

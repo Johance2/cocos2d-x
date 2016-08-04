@@ -102,15 +102,21 @@ const map<std::string,std::string> &PUObjectAbstractNode::getVariables() const
 
 PUObjectAbstractNode::~PUObjectAbstractNode()
 {
-    for (auto iter : children){
+    for(auto itr0 = children.begin(); itr0 != children.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
 
-    for (auto iter : values){
+    for(auto itr0 = values.begin(); itr0 != values.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
 
-    for (auto iter : overrides){
+    for(auto itr0 = overrides.begin(); itr0 != overrides.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
 }
@@ -148,7 +154,9 @@ std::string PUPropertyAbstractNode::getValue() const
 
 PUPropertyAbstractNode::~PUPropertyAbstractNode()
 {
-    for (auto iter : values){
+    for(auto itr0 = values.begin(); itr0 != values.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
         delete iter;
     }
 }
@@ -184,8 +192,12 @@ PUScriptCompiler::PUScriptCompiler():_current(nullptr),_nodes(nullptr), _PUParti
 }
 PUScriptCompiler::~PUScriptCompiler()
 {
-    for (auto iter : _compiledScripts){
-        for (auto miter : iter.second){
+    for(auto itr0 = _compiledScripts.begin(); itr0 != _compiledScripts.end(); ++itr0)
+    {
+    	auto &iter=*itr0;
+        for(auto itr = iter.second.begin(); itr != iter.second.end(); ++itr)
+        {
+        	auto &miter=*itr;
             delete miter;
         }
     }
@@ -236,11 +248,15 @@ const PUAbstractNodeList* PUScriptCompiler::compile(const std::string &file, boo
     parser.parse(creteNodeList, tokenList);
     bool state = compile(creteNodeList, file);
 
-    for (auto iter1 : creteNodeList){
+    for(auto itr0 = creteNodeList.begin(); itr0 != creteNodeList.end(); ++itr0)
+    {
+    	auto &iter1=*itr0;
         delete iter1;
     }
 
-    for (auto iter2 : tokenList){
+    for(auto itr0 = tokenList.begin(); itr0 != tokenList.end(); ++itr0)
+    {
+    	auto &iter2=*itr0;
         delete iter2;
     }
 

@@ -144,8 +144,9 @@ void BatchNode::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 //    CC_NODE_DRAW_SETUP();
 
     bool pushed = false;
-    for(auto object : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &object=*itr0;
         Armature *armature = dynamic_cast<Armature *>(object);
         if (armature)
         {

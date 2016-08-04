@@ -65,8 +65,9 @@ PhysicsShape::PhysicsShape()
 
 PhysicsShape::~PhysicsShape()
 {
-    for (auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         cpShapeFree(shape);
     }
 }
@@ -313,8 +314,9 @@ void PhysicsShape::setBody(PhysicsBody *body)
         _body->removeShape(this);
     }
     
-    for (auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         cpShapeSetBody(shape, body == nullptr ? s_sharedBody : body->_cpBody);
     }
     _body = body;
@@ -805,8 +807,9 @@ Vec2 PhysicsShapeEdgePolygon::getCenter()
     int count = (int)_cpShapes.size();
     cpVect* points = new (std::nothrow) cpVect[count];
     int i = 0;
-    for(auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         points[i++] = cpSegmentShapeGetA(shape);
     }
     
@@ -819,8 +822,9 @@ Vec2 PhysicsShapeEdgePolygon::getCenter()
 void PhysicsShapeEdgePolygon::getPoints(cocos2d::Vec2 *outPoints) const
 {
     int i = 0;
-    for(auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         outPoints[i++] = PhysicsHelper::cpv2point(cpSegmentShapeGetA(shape));
     }
 }
@@ -849,8 +853,9 @@ void PhysicsShapeEdgePolygon::updateScale()
     cpFloat factorX = _newScaleX / _scaleX;
     cpFloat factorY = _newScaleY / _scaleY;
 
-    for (auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         cpVect a = cpSegmentShapeGetA(shape);
         a.x *= factorX;
         a.y *= factorY;
@@ -904,8 +909,9 @@ Vec2 PhysicsShapeEdgeChain::getCenter()
     int count = (int)_cpShapes.size() + 1;
     cpVect* points = new (std::nothrow) cpVect[count];
     int i = 0;
-    for(auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         points[i++] = cpSegmentShapeGetA(shape);
     }
     
@@ -920,8 +926,9 @@ Vec2 PhysicsShapeEdgeChain::getCenter()
 void PhysicsShapeEdgeChain::getPoints(Vec2* outPoints) const
 {
     int i = 0;
-    for(auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         outPoints[i++] = PhysicsHelper::cpv2point(cpSegmentShapeGetA(shape));
     }
     
@@ -938,8 +945,9 @@ void PhysicsShapeEdgeChain::updateScale()
     cpFloat factorX = _newScaleX / _scaleX;
     cpFloat factorY = _newScaleY / _scaleY;
 
-    for (auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         cpVect a = cpSegmentShapeGetA(shape);
         a.x *= factorX;
         a.y *= factorY;
@@ -956,8 +964,9 @@ void PhysicsShape::setGroup(int group)
 {
     if (group < 0)
     {
-        for (auto shape : _cpShapes)
+        for(auto itr = _cpShapes.begin(); itr != _cpShapes.end(); ++itr)
         {
+        	auto &shape=*itr;
             cpShapeSetFilter(shape, cpShapeFilterNew(group, CP_ALL_CATEGORIES, CP_ALL_CATEGORIES));
         }
     }
@@ -967,8 +976,9 @@ void PhysicsShape::setGroup(int group)
 
 bool PhysicsShape::containsPoint(const Vec2& point) const
 {
-    for (auto shape : _cpShapes)
+    for(auto itr0 = _cpShapes.begin(); itr0 != _cpShapes.end(); ++itr0)
     {
+    	auto &shape=*itr0;
         if (cpShapePointQuery(shape, PhysicsHelper::point2cpv(point), nullptr) < 0)
         {
             return true;

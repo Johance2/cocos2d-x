@@ -315,8 +315,9 @@ ValueTypeJudgeInTable* ValueTypeJudgeInTable::create(ValueMap valueMap)
     }
     
     int index = 0;
-    for (auto iter : valueMap)
+    for(auto itr0 = valueMap.begin(); itr0 != valueMap.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         Value::Type type = iter.second.getType();
         if (type == Value::Type::STRING) {
             CCLOG("The type of index %d is string", index);

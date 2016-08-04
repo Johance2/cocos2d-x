@@ -83,8 +83,9 @@ Technique* Technique::clone() const
         technique->_name = _name;
         RenderState::cloneInto(technique);
 
-        for (const auto pass: _passes)
+        for(auto itr = _passes.begin(); itr != _passes.end(); ++itr)
         {
+        	auto &pass=*itr;
             auto p = pass->clone();
             p->_parent = technique;
             technique->_passes.pushBack(p);

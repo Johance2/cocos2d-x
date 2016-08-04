@@ -159,12 +159,12 @@ public:
                                                         const char* fileName)override{return nullptr;}
     
     virtual cocos2d::ui::Widget* widgetFromBinary(CocoLoader* cocoLoader,
-                                                  stExpCocoNode*	pCocoNode) override {return nullptr;}
+                                                  stExpCocoNode*	pCocoNode){return nullptr;}
     
     virtual void setPropsForAllWidgetFromBinary(WidgetReaderProtocol* reader,
                                                 cocos2d::ui::Widget* widget,
                                                 CocoLoader* cocoLoader,
-                                                stExpCocoNode*	pCocoNode) override {}
+                                                stExpCocoNode*	pCocoNode){}
 
     virtual void setPropsForWidgetFromJsonDictionary(cocos2d::ui::Widget* widget,const rapidjson::Value& options);
     

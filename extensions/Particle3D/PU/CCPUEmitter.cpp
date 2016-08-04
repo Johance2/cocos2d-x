@@ -376,7 +376,9 @@ void PUEmitter::prepare()
             PUParticleSystem3D *system = static_cast<PUParticleSystem3D *>(_particleSystem)->getParentParticleSystem();
             if (system){
                 auto children = system->getChildren();
-                for (auto it : children){
+                for(auto itr3 = children.begin(); itr3 != children.end(); ++itr3)
+                {
+                	auto &it=*itr3;
                     if (it->getName() == _emitsName)
                     {
                         static_cast<PUParticleSystem3D *>(it)->setMarkedForEmission(true);

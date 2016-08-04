@@ -98,7 +98,7 @@ public:
      */
     virtual void stop();
 
-    /** Called every frame with it's delta time, dt in seconds. DON'T override unless you know what you are doing. 
+    /** Called every frame with it's delta time, dt in seconds. DON'Tunless you know what you are doing. 
      *
      * @param dt In seconds.
      */

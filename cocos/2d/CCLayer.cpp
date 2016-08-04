@@ -321,7 +321,7 @@ bool Layer::onTouchBegan(Touch *touch, Event *event)
     }
 #endif
     CC_UNUSED_PARAM(event);
-    CCASSERT(false, "Layer#ccTouchBegan override me");
+    CCASSERT(false, "Layer#ccTouchBeganme");
     return true;
 }
 
@@ -530,7 +530,7 @@ bool LayerColor::initWithColor(const Color4B& color)
     return initWithColor(color, s.width, s.height);
 }
 
-/// override contentSize
+///contentSize
 void LayerColor::setContentSize(const Size & size)
 {
     _squareVertices[1].x = size.width;
@@ -825,7 +825,9 @@ LayerMultiplex::LayerMultiplex()
 
 LayerMultiplex::~LayerMultiplex()
 {
-    for(const auto &layer : _layers) {
+    for(auto itr0 = _layers.begin(); itr0 != _layers.end(); ++itr0)
+    {
+    	auto &layer=*itr0;
         layer->cleanup();
     }
 }
@@ -963,8 +965,9 @@ bool LayerMultiplex::initWithArray(const Vector<Layer*>& arrayOfLayers)
         auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
         if (sEngine)
         {
-            for (const auto &layer : arrayOfLayers)
+            for(auto itr2 = arrayOfLayers.begin(); itr2 != arrayOfLayers.end(); ++itr2)
             {
+            	auto &layer=*itr2;
                 if (layer)
                 {
                     sEngine->retainScriptObject(this, layer);

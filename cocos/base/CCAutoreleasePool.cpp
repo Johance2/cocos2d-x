@@ -67,8 +67,9 @@ void AutoreleasePool::clear()
 #endif
     std::vector<Ref*> releasings;
     releasings.swap(_managedObjectArray);
-    for (const auto &obj : releasings)
+    for(auto itr0 = releasings.begin(); itr0 != releasings.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         obj->release();
     }
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
@@ -78,8 +79,9 @@ void AutoreleasePool::clear()
 
 bool AutoreleasePool::contains(Ref* object) const
 {
-    for (const auto& obj : _managedObjectArray)
+    for(auto itr0 = _managedObjectArray.begin(); itr0 != _managedObjectArray.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         if (obj == object)
             return true;
     }
@@ -90,8 +92,9 @@ void AutoreleasePool::dump()
 {
     CCLOG("autorelease pool: %s, number of managed object %d\n", _name.c_str(), static_cast<int>(_managedObjectArray.size()));
     CCLOG("%20s%20s%20s", "Object pointer", "Object id", "reference count");
-    for (const auto &obj : _managedObjectArray)
+    for(auto itr0 = _managedObjectArray.begin(); itr0 != _managedObjectArray.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         CC_UNUSED_PARAM(obj);
         CCLOG("%20p%20u\n", obj, obj->getReferenceCount());
     }
@@ -148,8 +151,9 @@ AutoreleasePool* PoolManager::getCurrentPool() const
 
 bool PoolManager::isObjectInPools(Ref* obj) const
 {
-    for (const auto& pool : _releasePoolStack)
+    for(auto itr0 = _releasePoolStack.begin(); itr0 != _releasePoolStack.end(); ++itr0)
     {
+    	auto &pool=*itr0;
         if (pool->contains(obj))
             return true;
     }

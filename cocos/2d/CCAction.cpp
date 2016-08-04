@@ -76,13 +76,13 @@ bool Action::isDone() const
 void Action::step(float dt)
 {
     CC_UNUSED_PARAM(dt);
-    CCLOG("[Action step]. override me");
+    CCLOG("[Action step].me");
 }
 
 void Action::update(float time)
 {
     CC_UNUSED_PARAM(time);
-    CCLOG("[Action update]. override me");
+    CCLOG("[Action update].me");
 }
 
 //

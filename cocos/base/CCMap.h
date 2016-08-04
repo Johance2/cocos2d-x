@@ -318,7 +318,9 @@ public:
      */
     void erase(const std::vector<K>& keys)
     {
-        for(const auto &key : keys) {
+        for(auto itr = keys.begin(); itr != keys.end(); ++itr)
+        {
+        	auto &key=*itr;
             this->erase(key);
         }
     }

@@ -121,8 +121,9 @@ protected:
                                           AsyncTaskCallBack callback;
                                           {
                                               boost::unique_lock<boost::mutex> lock(this->_queueMutex);
+											  ThreadTasks *pThreadTasks = this;
                                               this->_condition.wait(lock,
-                                                                    [this]{ return this->_stop || !this->_tasks.empty(); });
+                                                                    [pThreadTasks]{ return pThreadTasks->_stop || !pThreadTasks->_tasks.empty(); });
                                               if(this->_stop && this->_tasks.empty())
                                                   return;
                                               task = std::move(this->_tasks.front());

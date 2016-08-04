@@ -190,8 +190,9 @@ void Scene::render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eye
     Camera* defaultCamera = nullptr;
     const auto& transform = getNodeToParentTransform();
 
-    for (const auto& camera : getCameras())
+    for(auto itr0 = getCameras().begin(); itr0 != getCameras().end(); ++itr0)
     {
+    	auto &camera=*itr0;
         if (!camera->isVisible())
             continue;
 

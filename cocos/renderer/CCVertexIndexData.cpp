@@ -106,8 +106,9 @@ VertexData::VertexData()
 
 VertexData::~VertexData()
 {
-    for(auto& element : _vertexStreams)
+    for(auto itr0 = _vertexStreams.begin(); itr0 != _vertexStreams.end(); ++itr0)
     {
+    	auto &element=*itr0;
         element.second._buffer->release();
     }
     _vertexStreams.clear();
@@ -116,16 +117,18 @@ VertexData::~VertexData()
 void VertexData::use()
 {
     uint32_t flags(0);
-    for(auto& element : _vertexStreams)
+    for(auto itr0 = _vertexStreams.begin(); itr0 != _vertexStreams.end(); ++itr0)
     {
+    	auto &element=*itr0;
         flags = flags | (1 << element.second._stream._semantic);
     }
     
     GL::enableVertexAttribs(flags);
 
     int lastVBO = -1;
-    for(auto& element : _vertexStreams)
+    for(auto itr0 = _vertexStreams.begin(); itr0 != _vertexStreams.end(); ++itr0)
     {
+    	auto &element=*itr0;
         //glEnableVertexAttribArray((GLint)element.second._stream._semantic);
         auto vertexStreamAttrib = element.second._stream;
         auto vertexBuffer = element.second._buffer;

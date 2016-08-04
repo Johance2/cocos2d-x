@@ -212,8 +212,9 @@ std::string SocketIOPacket::stringify()const
 
         writer.StartArray();
 
-        for (auto& item : _args)
+        for(auto itr = _args.begin(); itr != _args.end(); ++itr)
         {
+        	auto &item=*itr;
             writer.String(item.c_str());
         }
 
@@ -276,8 +277,9 @@ std::string SocketIOPacketV10x::stringify()const
     writer.StartArray();
     writer.String(_name.c_str());
 
-    for (auto& item : _args)
+    for(auto itr0 = _args.begin(); itr0 != _args.end(); ++itr0)
     {
+    	auto &item=*itr0;
         writer.String(item.c_str());
     }
 

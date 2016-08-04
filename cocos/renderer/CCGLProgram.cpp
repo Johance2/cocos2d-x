@@ -52,8 +52,9 @@ static void replaceDefines(const std::string& compileTimeDefines, std::string& o
 
         std::string currentDefine;
 
-        for (auto itChar: copyDefines)
+        for(auto itr = copyDefines.begin(); itr != copyDefines.end(); ++itr)
         {
+        	auto &itChar=*itr;
             if (itChar == ';')
             {
                 if (!currentDefine.empty())
@@ -222,8 +223,9 @@ GLProgram::~GLProgram()
         GL::deleteProgram(_program);
     }
 
-    for (auto e : _hashForUniforms)
+    for(auto itr0 = _hashForUniforms.begin(); itr0 != _hashForUniforms.end(); ++itr0)
     {
+    	auto &e=*itr0;
         free(e.second.first);
     }
     _hashForUniforms.clear();
@@ -934,8 +936,9 @@ void GLProgram::reset()
     //GL::deleteProgram(_program);
     _program = 0;
 
-    for (auto e: _hashForUniforms)
+    for(auto itr0 = _hashForUniforms.begin(); itr0 != _hashForUniforms.end(); ++itr0)
     {
+    	auto &e=*itr0;
         free(e.second.first);
     }
 

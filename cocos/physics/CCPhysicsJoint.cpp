@@ -85,8 +85,9 @@ bool PhysicsJoint::initJoint()
         ret = createConstraints();
         CC_BREAK_IF(!ret);
 
-        for (auto subjoint : _cpConstraints)
+        for(auto itr = _cpConstraints.begin(); itr != _cpConstraints.end(); ++itr)
         {
+        	auto &subjoint=*itr;
             cpConstraintSetMaxForce(subjoint, _maxForce);
             cpConstraintSetErrorBias(subjoint, cpfpow(1.0f - 0.15f, 60.0f));
             cpSpaceAddConstraint(_world->_cpSpace, subjoint);
@@ -137,8 +138,9 @@ void PhysicsJoint::removeFormWorld()
 void PhysicsJoint::setMaxForce(float force)
 {
     _maxForce = force;
-    for (auto joint : _cpConstraints)
+    for(auto itr0 = _cpConstraints.begin(); itr0 != _cpConstraints.end(); ++itr0)
     {
+    	auto &joint=*itr0;
         cpConstraintSetMaxForce(joint, force);
     }
 }

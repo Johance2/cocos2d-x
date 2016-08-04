@@ -849,7 +849,7 @@ CC_CONSTRUCTOR_ACCESS:
 
     /*
      * @brief Sends the touch event to widget's parent, if a widget wants to handle touch event under another widget, 
-     *        it must override this function.
+     *        it mustthis function.
      * @param  event  the touch event type, it could be BEGAN/MOVED/CANCELED/ENDED
      * @param parent
      * @param point

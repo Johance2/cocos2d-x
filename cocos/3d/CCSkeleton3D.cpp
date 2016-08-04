@@ -51,7 +51,9 @@ void Bone3D::resetPose()
 {
     _local =_oriPose;
     
-    for (auto it : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         it->resetPose();
     }
 }
@@ -59,7 +61,9 @@ void Bone3D::resetPose()
 void Bone3D::setWorldMatDirty(bool dirty)
 {
     _worldDirty = dirty;
-    for (auto it : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         it->setWorldMatDirty(dirty);
     }
 }
@@ -68,7 +72,9 @@ void Bone3D::setWorldMatDirty(bool dirty)
 void Bone3D::updateWorldMat()
 {
     getWorldMat();
-    for (auto itor : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &itor=*itr0;
         itor->updateWorldMat();
     }
 }
@@ -93,7 +99,9 @@ const Mat4& Bone3D::getWorldMat()
 
 void Bone3D::setAnimationValue(float* trans, float* rot, float* scale, void* tag, float weight)
 {
-    for (auto& it : _blendStates) {
+    for(auto itr0 = _blendStates.begin(); itr0 != _blendStates.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it.tag == tag)
         {
             if (trans)
@@ -123,7 +131,9 @@ void Bone3D::setAnimationValue(float* trans, float* rot, float* scale, void* tag
 void Bone3D::clearBoneBlendState()
 {
     _blendStates.clear();
-    for (auto it : _children) {
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         it->clearBoneBlendState();
     }
 }
@@ -201,7 +211,9 @@ void Bone3D::updateLocalMat()
         Quaternion quat(Quaternion::ZERO);
         
         float total = 0.f;
-        for (auto it: _blendStates) {
+        for(auto itr = _blendStates.begin(); itr != _blendStates.end(); ++itr)
+        {
+        	auto &it=*itr;
             total += it.weight;
         }
         if (total)
@@ -216,8 +228,9 @@ void Bone3D::updateLocalMat()
             else
             {
                 float invTotal = 1.f / total;
-                for (const auto& it : _blendStates)
+                for(auto itr3 = _blendStates.begin(); itr3 != _blendStates.end(); ++itr3)
                 {
+                	auto &it=*itr3;
                     float weight = (it.weight * invTotal);
                     translate += it.localTranslate * weight;
                     scale.x += it.localScale.x * weight;
@@ -258,7 +271,9 @@ Skeleton3D::~Skeleton3D()
 Skeleton3D* Skeleton3D::create(const std::vector<NodeData*>& skeletondata)
 {
     auto skeleton = new (std::nothrow) Skeleton3D();
-    for (const auto& it : skeletondata) {
+    for(auto itr0 = skeletondata.begin(); itr0 != skeletondata.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         auto bone = skeleton->createBone3D(*it);
         bone->resetPose();
         skeleton->_rootBones.pushBack(bone);
@@ -283,7 +298,9 @@ Bone3D* Skeleton3D::getBoneByIndex(unsigned int index) const
 Bone3D* Skeleton3D::getBoneByName(const std::string& id) const
 {
     //search from bones
-    for (auto it : _bones) {
+    for(auto itr0 = _bones.begin(); itr0 != _bones.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         if (it->getName() == id)
             return it;
     }
@@ -315,7 +332,9 @@ int Skeleton3D::getBoneIndex(Bone3D* bone) const
 //refresh bone world matrix
 void Skeleton3D::updateBoneMatrix()
 {
-    for (const auto& it : _rootBones) {
+    for(auto itr0 = _rootBones.begin(); itr0 != _rootBones.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         it->setWorldMatDirty(true);
         it->updateWorldMat();
     }
@@ -335,7 +354,9 @@ void Skeleton3D::addBone(Bone3D* bone)
 Bone3D* Skeleton3D::createBone3D(const NodeData& nodedata)
 {
     auto bone = Bone3D::create(nodedata.id);
-    for (const auto& it : nodedata.children) {
+    for(auto itr0 = nodedata.children.begin(); itr0 != nodedata.children.end(); ++itr0)
+    {
+    	auto &it=*itr0;
         auto child = createBone3D(*it);
         bone->addChildBone(child);
         child->_parent = bone;

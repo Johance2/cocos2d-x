@@ -117,7 +117,9 @@ void PageViewIndicator::rearrange()
     float totalSizeValue = sizeValue * numberOfItems + _spaceBetweenIndexNodes * (numberOfItems - 1);
 
     float posValue = -(totalSizeValue / 2) + (sizeValue / 2);
-    for(auto indexNode : _indexNodes) {
+    for(auto itr0 = _indexNodes.begin(); itr0 != _indexNodes.end(); ++itr0)
+    {
+    	auto &indexNode=*itr0;
         Vec2 position;
         if(horizontal)
         {
@@ -147,7 +149,9 @@ void PageViewIndicator::setIndexNodesColor(const Color3B& indexNodesColor)
 {
     _indexNodesColor = indexNodesColor;
     
-    for(auto indexNode : _indexNodes) {
+    for(auto itr0 = _indexNodes.begin(); itr0 != _indexNodes.end(); ++itr0)
+    {
+    	auto &indexNode=*itr0;
         indexNode->setColor(indexNodesColor);
     }
 }
@@ -161,7 +165,9 @@ void PageViewIndicator::setIndexNodesScale(float indexNodesScale)
     _indexNodesScale = indexNodesScale;
     
     _currentIndexNode->setScale(indexNodesScale);
-    for(auto indexNode : _indexNodes) {
+    for(auto itr0 = _indexNodes.begin(); itr0 != _indexNodes.end(); ++itr0)
+    {
+    	auto &indexNode=*itr0;
         indexNode->setScale(_indexNodesScale);
     }
     
@@ -178,13 +184,17 @@ void PageViewIndicator::setIndexNodesTexture(const std::string& texName, Widget:
     {
         case Widget::TextureResType::LOCAL:
             _currentIndexNode->setTexture(texName);
-            for(auto indexNode : _indexNodes) {
+            for(auto itr2 = _indexNodes.begin(); itr2 != _indexNodes.end(); ++itr2)
+            {
+            	auto &indexNode=*itr2;
                 indexNode->setTexture(texName);
             }
             break;
         case Widget::TextureResType::PLIST:
             _currentIndexNode->setSpriteFrame(texName);
-            for(auto indexNode : _indexNodes) {
+            for(auto itr2 = _indexNodes.begin(); itr2 != _indexNodes.end(); ++itr2)
+            {
+            	auto &indexNode=*itr2;
                 indexNode->setSpriteFrame(texName);
             }
             break;
@@ -237,8 +247,9 @@ void PageViewIndicator::decreaseNumberOfPages()
 
 void PageViewIndicator::clear()
 {
-    for(auto indexNode : _indexNodes)
+    for(auto itr0 = _indexNodes.begin(); itr0 != _indexNodes.end(); ++itr0)
     {
+    	auto &indexNode=*itr0;
         removeProtectedChild(indexNode);
     }
     _indexNodes.clear();

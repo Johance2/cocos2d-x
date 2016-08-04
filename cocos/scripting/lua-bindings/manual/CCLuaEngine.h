@@ -77,7 +77,7 @@ public:
      *
      * @return kScriptTypeLua.
      */
-    virtual ccScriptType getScriptType() override {
+    virtual ccScriptType getScriptType(){
         return kScriptTypeLua;
     };
     

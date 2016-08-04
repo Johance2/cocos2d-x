@@ -79,7 +79,7 @@ public:
     void pollEvents() override;
     GLFWwindow* getWindow() const { return _mainWindow; }
 
-    /* override functions */
+    /*functions */
     virtual bool isOpenGLReady() override;
     virtual void end() override;
     virtual void swapBuffers() override;
@@ -102,14 +102,14 @@ public:
     bool isRetinaEnabled() const { return _isRetinaEnabled; };
     
     /** Get retina factor */
-    int getRetinaFactor() const override { return _retinaFactor; }
+    int getRetinaFactor() const{ return _retinaFactor; }
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
     HWND getWin32Window() { return glfwGetWin32Window(_mainWindow); }
 #endif /* (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) */
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-    id getCocoaWindow() override { return glfwGetCocoaWindow(_mainWindow); }
+    id getCocoaWindow(){ return glfwGetCocoaWindow(_mainWindow); }
 #endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 
 protected:

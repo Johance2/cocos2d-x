@@ -682,7 +682,9 @@ void AssetsManagerEx::updateSucceed()
     };
     AsyncTaskPool::getInstance()->enqueue(AsyncTaskPool::TaskType::TASK_OTHER, mainThread, (void*)asyncData, [this, asyncData]() {
         // Decompress all compressed files
-        for (auto& zipFile : asyncData->compressedFiles) {
+        for(auto itr = asyncData->compressedFiles.begin(); itr != asyncData->compressedFiles.end(); ++itr)
+        {
+        	auto &zipFile=*itr;
             if (!decompress(zipFile))
             {
                 asyncData->errorCompressedFile = zipFile;
@@ -986,8 +988,9 @@ void AssetsManagerEx::destroyDownloadedVersion()
 
 void AssetsManagerEx::batchDownload()
 {
-    for(auto iter : _downloadUnits)
+    for(auto itr0 = _downloadUnits.begin(); itr0 != _downloadUnits.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         DownloadUnit& unit = iter.second;
         _downloader->createDownloadFileTask(unit.srcUrl, unit.storagePath, unit.customId);
     }

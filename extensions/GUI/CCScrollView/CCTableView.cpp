@@ -102,7 +102,9 @@ void TableView::reloadData()
 {
     _oldDirection = Direction::NONE;
 
-    for(const auto &cell : _cellsUsed) {
+    for(auto itr0 = _cellsUsed.begin(); itr0 != _cellsUsed.end(); ++itr0)
+    {
+    	auto &cell=*itr0;
         if(_tableViewDelegate != nullptr) {
             _tableViewDelegate->tableCellWillRecycle(this, cell);
         }
@@ -131,8 +133,9 @@ TableViewCell *TableView::cellAtIndex(ssize_t idx)
 {
     if (_indices->find(idx) != _indices->end())
     {
-        for (const auto& cell : _cellsUsed)
+        for(auto itr = _cellsUsed.begin(); itr != _cellsUsed.end(); ++itr)
         {
+        	auto &cell=*itr;
             if (cell->getIdx() == idx)
             {
                 return cell;

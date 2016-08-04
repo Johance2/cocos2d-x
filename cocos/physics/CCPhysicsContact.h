@@ -226,7 +226,7 @@ public:
      */
     std::function<bool(PhysicsContact& contact)> onContactBegin;
     /**
-     * @brief Two shapes are touching during this step. Return false from the callback to make world ignore the collision this step or true to process it normally. Additionally, you may override collision values, restitution, or surface velocity values.
+     * @brief Two shapes are touching during this step. Return false from the callback to make world ignore the collision this step or true to process it normally. Additionally, you maycollision values, restitution, or surface velocity values.
      */
     std::function<bool(PhysicsContact& contact, PhysicsContactPreSolve& solve)> onContactPreSolve;
     /**

@@ -74,7 +74,7 @@ public:
     const char* getFontFamily() const;
 
     virtual FontAtlas* createFontAtlas() override;
-    virtual int getFontMaxHeight() const override { return _lineHeight; }
+    virtual int getFontMaxHeight() const{ return _lineHeight; }
 
     static void releaseFont(const std::string &fontName);
 

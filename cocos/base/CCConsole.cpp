@@ -651,7 +651,9 @@ void Console::loop()
             
             /* data from client */
             std::vector<int> to_remove;
-            for(const auto &fd: _fds) {
+            for(auto itr2 = _fds.begin(); itr2 != _fds.end(); ++itr2)
+            {
+            	auto &fd=*itr2;
                 if(FD_ISSET(fd,&copy_set))
                 {
                     //fix Bug #4302 Test case ConsoleTest--ConsoleUploadFile crashed on Linux
@@ -692,8 +694,12 @@ void Console::loop()
         if( !_DebugStrings.empty() ) {
             if (_DebugStringsMutex.try_lock())
             {
-                for (const auto &str : _DebugStrings) {
-                    for (auto fd : _fds) {
+                for(auto itr3 = _DebugStrings.begin(); itr3 != _DebugStrings.end(); ++itr3)
+                {
+                	auto &str=*itr3;
+                    for(auto itr4 = _fds.begin(); itr4 != _fds.end(); ++itr4)
+                    {
+                    	auto &fd=*itr4;
                         Console::Utility::sendToConsole(fd, str.c_str(), str.length());
                     }
                 }
@@ -704,8 +710,9 @@ void Console::loop()
     }
     
     // clean up: ignore stdin, stdout and stderr
-    for(const auto &fd: _fds )
+    for(auto itr0 = _fds.begin(); itr0 != _fds.end(); ++itr0)
     {
+    	auto &fd=*itr0;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
         closesocket(fd);
 #else
@@ -1447,13 +1454,17 @@ void Console::printFileUtils(int fd)
     
     Console::Utility::mydprintf(fd, "\nSearch Paths:\n");
     auto& list = fu->getSearchPaths();
-    for( const auto &item : list) {
+    for(auto itr0 = list.begin(); itr0 != list.end(); ++itr0)
+    {
+    	auto &item=*itr0;
         Console::Utility::mydprintf(fd, "%s\n", item.c_str());
     }
     
     Console::Utility::mydprintf(fd, "\nResolution Order:\n");
     auto& list1 = fu->getSearchResolutionsOrder();
-    for( const auto &item : list1) {
+    for(auto itr0 = list1.begin(); itr0 != list1.end(); ++itr0)
+    {
+    	auto &item=*itr0;
         Console::Utility::mydprintf(fd, "%s\n", item.c_str());
     }
     
@@ -1462,7 +1473,9 @@ void Console::printFileUtils(int fd)
     
     Console::Utility::mydprintf(fd, "\nFull Path Cache:\n");
     auto& cache = fu->getFullPathCache();
-    for( const auto &item : cache) {
+    for(auto itr0 = cache.begin(); itr0 != cache.end(); ++itr0)
+    {
+    	auto &item=*itr0;
         Console::Utility::mydprintf(fd, "%s -> %s\n", item.first.c_str(), item.second.c_str());
     }
     Console::Utility::sendPrompt(fd);

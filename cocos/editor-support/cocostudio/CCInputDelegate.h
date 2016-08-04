@@ -65,7 +65,7 @@ public:
     virtual cocos2d::Touch::DispatchMode getTouchMode() const;
     virtual void setTouchPriority(int priority);
     virtual int  getTouchPriority() const;
- /** @deprecated Please override onAcceleration */
+ /** @deprecated PleaseonAcceleration */
     /**
      * @js NA
      */

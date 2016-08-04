@@ -100,7 +100,9 @@ public:
 
         if (!_detach)
         {
-            for (auto&& worker : _workers) {
+            for(auto itr2 = _workers.begin(); itr2 != _workers.end(); ++itr2)
+            {
+            	auto &worker=*itr2;
                 worker.join();
             }
         }

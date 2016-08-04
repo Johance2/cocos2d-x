@@ -207,8 +207,9 @@ void Sprite3DBasicTest::addNewSpriteWithCoords(Vec2 p)
 
 void Sprite3DBasicTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         addNewSpriteWithCoords( location );
@@ -502,8 +503,9 @@ void Sprite3DFakeShadowTest::onTouchesMoved(const std::vector<Touch*>& touches, 
 
 void Sprite3DFakeShadowTest::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *event)
 {
-    for ( auto &item: touches )
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &item=*itr0;
         auto touch = item;
         auto location = touch->getLocationInView();
         if(_camera)
@@ -813,8 +815,9 @@ void Sprite3DEffectTest::addNewSpriteWithCoords(Vec2 p)
 
 void Sprite3DEffectTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         addNewSpriteWithCoords( location );
@@ -871,7 +874,9 @@ void AsyncLoadSprite3DTest::menuCallback_asyncLoadSprite(Ref* sender)
     //remove cache data
     Sprite3DCache::getInstance()->removeAllSprite3DData();
     long index = 0;
-    for (const auto& path : _paths) {
+    for(auto itr0 = _paths.begin(); itr0 != _paths.end(); ++itr0)
+    {
+    	auto &path=*itr0;
         Sprite3D::createAsync(path, CC_CALLBACK_2(AsyncLoadSprite3DTest::asyncLoad_Callback, this), (void*)index++);
     }
 }
@@ -974,8 +979,9 @@ void Sprite3DWithSkinTest::switchAnimationQualityCallback(Ref* sender)
     
     _menuItem->setString(getAnimationQualityMessage());
     
-    for (auto iter: _sprits)
+    for(auto itr0 = _sprits.begin(); itr0 != _sprits.end(); ++itr0)
     {
+    	auto &iter=*itr0;
         RepeatForever* repAction = dynamic_cast<RepeatForever*>(iter->getActionByTag(110));
         Animate3D* animate3D = dynamic_cast<Animate3D*>(repAction->getInnerAction());
         animate3D->setQuality((Animate3DQuality)_animateQuality);
@@ -984,8 +990,9 @@ void Sprite3DWithSkinTest::switchAnimationQualityCallback(Ref* sender)
 
 void Sprite3DWithSkinTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         addNewSpriteWithCoords( location );
@@ -1070,8 +1077,9 @@ void Sprite3DWithSkinOutlineTest::addNewSpriteWithCoords(Vec2 p)
 
 void Sprite3DWithSkinOutlineTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         addNewSpriteWithCoords( location );
@@ -1187,8 +1195,9 @@ void Animate3DTest::renewCallBack()
 
 void Animate3DTest::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)
 {
-    for (auto touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();
         
         if (_sprite)
@@ -1446,8 +1455,9 @@ void Sprite3DWithOBBPerformanceTest::addNewOBBWithCoords(Vec2 p)
 
 void Sprite3DWithOBBPerformanceTest::onTouchesBegan(const std::vector<Touch*>& touches, Event* event)
 {
-    for (const auto& touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocationInView();
         auto obbSize = _obb.size();
         if(obbSize)
@@ -1474,8 +1484,9 @@ void Sprite3DWithOBBPerformanceTest::onTouchesEnded(const std::vector<Touch*>& t
 
 void Sprite3DWithOBBPerformanceTest::onTouchesMoved(const std::vector<Touch*>& touches, Event* event)
 {
-    for (const auto& touch: touches)
+    for(auto itr0 = touches.begin(); itr0 != touches.end(); ++itr0)
     {
+    	auto &touch=*itr0;
         auto location = touch->getLocation();       
         auto obbSize = _obb.size();
 

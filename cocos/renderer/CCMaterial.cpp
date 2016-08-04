@@ -435,8 +435,9 @@ Material* Material::clone() const
     {
         RenderState::cloneInto(material);
 
-        for (const auto& technique: _techniques)
+        for(auto itr = _techniques.begin(); itr != _techniques.end(); ++itr)
         {
+        	auto &technique=*itr;
             auto t = technique->clone();
             t->_parent = material;
             material->_techniques.pushBack(t);
@@ -463,7 +464,9 @@ const Vector<Technique*>& Material::getTechniques() const
 
 Technique* Material::getTechniqueByName(const std::string& name)
 {
-    for(const auto& technique : _techniques) {
+    for(auto itr0 = _techniques.begin(); itr0 != _techniques.end(); ++itr0)
+    {
+    	auto &technique=*itr0;
         if (technique->getName().compare(name)==0)
             return technique;
     }

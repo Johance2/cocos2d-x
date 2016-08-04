@@ -162,8 +162,9 @@ Node::~Node()
     // attributes
     CC_SAFE_RELEASE_NULL(_glProgramState);
 
-    for (auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         child->_parent = nullptr;
     }
 
@@ -779,8 +780,9 @@ Node* Node::getChildByTag(int tag) const
 {
     CCASSERT(tag != Node::INVALID_TAG, "Invalid tag");
 
-    for (const auto child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         if(child && child->_tag == tag)
             return child;
     }
@@ -794,8 +796,9 @@ Node* Node::getChildByName(const std::string& name) const
     std::hash<std::string> h;
     size_t hash = h(name);
     
-    for (const auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         // Different strings may have the same hash code, but can use it to compare first for speed
         if(child->_hashOfName == hash && child->_name.compare(name) == 0)
             return child;
@@ -866,8 +869,9 @@ bool Node::doEnumerateRecursive(const Node* node, const std::string &name, std::
     else
     {
         // search its children
-        for (const auto& child : node->getChildren())
+        for(auto itr = node->getChildren().begin(); itr != node->getChildren().end(); ++itr)
         {
+        	auto &child=*itr;
             if (doEnumerateRecursive(child, name, callback))
             {
                 ret = true;
@@ -893,8 +897,9 @@ bool Node::doEnumerate(std::string name, std::function<bool (Node *)> callback) 
     }
     
     bool ret = false;
-    for (const auto& child : getChildren())
+    for(auto itr0 = getChildren().begin(); itr0 != getChildren().end(); ++itr0)
     {
+    	auto &child=*itr0;
         if (std::regex_match(child->_name, std::regex(searchName)))
         {
             if (!needRecursive)
@@ -920,7 +925,7 @@ bool Node::doEnumerate(std::string name, std::function<bool (Node *)> callback) 
 
 /* "add" logic MUST only be on this method
 * If a class want's to extend the 'addChild' behavior it only needs
-* to override this method
+* tothis method
 */
 void Node::addChild(Node *child, int localZOrder, int tag)
 {    
@@ -1005,7 +1010,7 @@ void Node::removeFromParentAndCleanup(bool cleanup)
 
 /* "remove" logic MUST only be on this method
 * If a class want's to extend the 'removeChild' behavior it only needs
-* to override this method
+* tothis method
 */
 void Node::removeChild(Node* child, bool cleanup /* = true */)
 {
@@ -1060,8 +1065,9 @@ void Node::removeAllChildren()
 void Node::removeAllChildrenWithCleanup(bool cleanup)
 {
     // not using detachChild improves speed here
-    for (const auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         // IMPORTANT:
         //  -1st do onExit
         //  -2nd cleanup
@@ -1606,7 +1612,7 @@ void Node::pauseSchedulerAndActions()
     pause();
 }
 
-// override me
+//me
 void Node::update(float fDelta)
 {
 #if CC_ENABLE_SCRIPT_BINDING
@@ -1983,8 +1989,9 @@ void Node::updateDisplayedOpacity(GLubyte parentOpacity)
     
     if (_cascadeOpacityEnabled)
     {
-        for(const auto& child : _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             child->updateDisplayedOpacity(_displayedOpacity);
         }
     }
@@ -2030,8 +2037,9 @@ void Node::disableCascadeOpacity()
 {
     _displayedOpacity = _realOpacity;
     
-    for(const auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         child->updateDisplayedOpacity(255);
     }
 }
@@ -2062,8 +2070,9 @@ void Node::updateDisplayedColor(const Color3B& parentColor)
     
     if (_cascadeColorEnabled)
     {
-        for(const auto &child : _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             child->updateDisplayedColor(_displayedColor);
         }
     }
@@ -2106,8 +2115,9 @@ void Node::updateCascadeColor()
 
 void Node::disableCascadeColor()
 {
-    for(const auto& child : _children)
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
     {
+    	auto &child=*itr0;
         child->updateDisplayedColor(Color3B::WHITE);
     }
 }
@@ -2164,8 +2174,9 @@ void Node::setCameraMask(unsigned short mask, bool applyChildren)
     _cameraMask = mask;
     if (applyChildren)
     {
-        for (const auto& child : _children)
+        for(auto itr = _children.begin(); itr != _children.end(); ++itr)
         {
+        	auto &child=*itr;
             child->setCameraMask(mask, applyChildren);
         }
     }

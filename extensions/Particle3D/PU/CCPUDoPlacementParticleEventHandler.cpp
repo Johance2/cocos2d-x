@@ -78,8 +78,9 @@ void PUDoPlacementParticleEventHandler::handle (PUParticleSystem3D* particleSyst
             PUParticleSystem3D* parentSystem = particleSystem->getParentParticleSystem();
             if (parentSystem){
                 auto children = parentSystem->getChildren();
-                for(auto iter : children)		
+                for(auto itr3 = children.begin(); itr3 != children.end(); ++itr3)
                 {
+                	auto &iter=*itr3;
                     PUParticleSystem3D *child  = dynamic_cast<PUParticleSystem3D *>(iter);
                     if (child){
                         system = child;

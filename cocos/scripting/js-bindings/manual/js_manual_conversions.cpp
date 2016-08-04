@@ -2711,8 +2711,9 @@ jsval ccvaluevector_to_jsval(JSContext* cx, const cocos2d::ValueVector& v)
     JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, 0));
 
     int i = 0;
-    for (const auto& obj : v)
+    for(auto itr0 = v.begin(); itr0 != v.end(); ++itr0)
     {
+    	auto &obj=*itr0;
         JS::RootedValue arrElement(cx);
 
         switch (obj.getType())

@@ -60,10 +60,10 @@ class ResizableBufferAdapter< std::basic_string<CharT, Traits, Allocator> > : pu
     BufferType* _buffer;
 public:
     explicit ResizableBufferAdapter(BufferType* buffer) : _buffer(buffer) {}
-    virtual void resize(size_t size) override {
+    virtual void resize(size_t size){
         _buffer->resize((size + sizeof(CharT) - 1) / sizeof(CharT));
     }
-    virtual void* buffer() const override {
+    virtual void* buffer() const{
         // can not invoke string::front() if it is empty
 
         if (_buffer->empty())
@@ -79,10 +79,10 @@ class ResizableBufferAdapter< std::vector<T, Allocator> > : public ResizableBuff
     BufferType* _buffer;
 public:
     explicit ResizableBufferAdapter(BufferType* buffer) : _buffer(buffer) {}
-    virtual void resize(size_t size) override {
+    virtual void resize(size_t size){
         _buffer->resize((size + sizeof(T) - 1) / sizeof(T));
     }
-    virtual void* buffer() const override {
+    virtual void* buffer() const{
         // can not invoke vector::front() if it is empty
 
         if (_buffer->empty())
@@ -99,7 +99,7 @@ class ResizableBufferAdapter<Data> : public ResizableBuffer {
     BufferType* _buffer;
 public:
     explicit ResizableBufferAdapter(BufferType* buffer) : _buffer(buffer) {}
-    virtual void resize(size_t size) override {
+    virtual void resize(size_t size){
         if (static_cast<size_t>(_buffer->getSize()) < size) {
             auto old = _buffer->getBytes();
             void* buffer = realloc(old, size);
@@ -107,7 +107,7 @@ public:
                 _buffer->fastSet((unsigned char*)buffer, size);
         }
     }
-    virtual void* buffer() const override {
+    virtual void* buffer() const{
         return _buffer->getBytes();
     }
 };
@@ -216,10 +216,10 @@ public:
      *      ResizableBufferAdapter(AlreadyExistsBuffer* buffer)  {
      *          // your code here
      *      }
-     *      virtual void resize(size_t size) override  {
+     *      virtual void resize(size_t size) {
      *          // your code here
      *      }
-     *      virtual void* buffer() const override {
+     *      virtual void* buffer() const{
      *          // your code here
      *      }
      *  };
@@ -237,12 +237,7 @@ public:
      *      - Status::TooLarge when there file to be read is too large (> 2^32-1), the buffer will not changed.
      *      - Status::ObtainSizeFailed when failed to obtain the file size, the buffer will not changed.
      */
-    template <
-        typename T,
-        typename Enable = typename std::enable_if<
-            std::is_base_of< ResizableBuffer, ResizableBufferAdapter<T> >::value
-        >::type
-    >
+    template <typename T>
     Status getContents(const std::string& filename, T* buffer) {
         ResizableBufferAdapter<T> buf(buffer);
         return getContents(filename, &buf);
@@ -645,7 +640,7 @@ protected:
 
     /**
      *  Gets the new filename from the filename lookup dictionary.
-     *  It is possible to have a override names.
+     *  It is possible to have anames.
      *  @param filename The original filename.
      *  @return The new filename after searching in the filename lookup dictionary.
      *          If the original filename wasn't in the dictionary, it will return the original filename.
@@ -679,7 +674,7 @@ protected:
     /**
      *  Gets full path for the directory and the filename.
      *
-     *  @note Only iOS and Mac need to override this method since they are using
+     *  @note Only iOS and Mac need tothis method since they are using
      *        `[[NSBundle mainBundle] pathForResource: ofType: inDirectory:]` to make a full path.
      *        Other platforms will use the default implementation of this method.
      *  @param directory The directory contains the file we are looking for.

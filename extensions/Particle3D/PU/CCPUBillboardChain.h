@@ -102,14 +102,14 @@ public:
     virtual size_t getNumberOfChains(void) const { return _chainCount; }
 
     /** Sets whether texture coordinate information should be included in the
-        final buffers generated.
+       buffers generated.
     @note You must use either texture coordinates or vertex colour since the
         vertices have no normals and without one of these there is no source of
         colour for the vertices.
     */
     virtual void setUseTextureCoords(bool use);
     /** Gets whether texture coordinate information should be included in the
-        final buffers generated.
+       buffers generated.
     */
     virtual bool getUseTextureCoords(void) const { return _useTexCoords; }
 
@@ -145,14 +145,14 @@ public:
     virtual const float* getOtherTextureCoordRange(void) const { return _otherTexCoordRange; }
 
     /** Sets whether vertex colour information should be included in the
-        final buffers generated.
+       buffers generated.
     @note You must use either texture coordinates or vertex colour since the
         vertices have no normals and without one of these there is no source of
         colour for the vertices.
     */
     virtual void setUseVertexColours(bool use);
     /** Gets whether vertex colour information should be included in the
-        final buffers generated.
+       buffers generated.
     */
     virtual bool getUseVertexColours(void) const { return _useVertexColour; }
 

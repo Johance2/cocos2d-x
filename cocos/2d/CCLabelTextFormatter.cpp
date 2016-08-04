@@ -41,14 +41,16 @@ void Label::computeAlignmentOffset()
         _linesOffsetX.assign(_numberOfLines, 0);
         break;
     case cocos2d::TextHAlignment::TH_CENTER:
-        for (auto lineWidth : _linesWidth)
+        for(auto itr = _linesWidth.begin(); itr != _linesWidth.end(); ++itr)
         {
+        	auto &lineWidth=*itr;
             _linesOffsetX.push_back((_contentSize.width - lineWidth) / 2.f);
         }
         break;
     case cocos2d::TextHAlignment::TH_RIGHT:
-        for (auto lineWidth : _linesWidth)
+        for(auto itr = _linesWidth.begin(); itr != _linesWidth.end(); ++itr)
         {
+        	auto &lineWidth=*itr;
             _linesOffsetX.push_back(_contentSize.width - lineWidth);
         }
         break;
