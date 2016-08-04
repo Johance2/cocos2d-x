@@ -34,9 +34,9 @@
 class ControlScene : public TestCase
 {
 public:
-    virtual bool init() override;
+    virtual bool init();
 
-    virtual std::string title() const override { return getTestCaseName(); }
+    virtual std::string title() const { return getTestCaseName(); }
 };
 
 #endif /* __CCCONTROLSCENE_H__ */

@@ -39,9 +39,9 @@ public:
     virtual ~Particle3DTestDemo(void);
     
     // overrides
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual void update(float delta) override;
+    virtual bool init();
+    virtual std::string title() const;
+    virtual void update(float delta);
     
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -62,9 +62,9 @@ public:
     Particle3DAdvancedLodSystemDemo(){};
     virtual ~Particle3DAdvancedLodSystemDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DBlackHoleDemo : public Particle3DTestDemo
@@ -75,9 +75,9 @@ public:
     Particle3DBlackHoleDemo(){};
     virtual ~Particle3DBlackHoleDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DHypnoDemo : public Particle3DTestDemo
@@ -88,9 +88,9 @@ public:
     Particle3DHypnoDemo(){};
     virtual ~Particle3DHypnoDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DTimeShiftDemo : public Particle3DTestDemo
@@ -101,9 +101,9 @@ public:
     Particle3DTimeShiftDemo(){};
     virtual ~Particle3DTimeShiftDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 
@@ -115,9 +115,9 @@ public:
     Particle3DUVAnimDemo(){};
     virtual ~Particle3DUVAnimDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DFirePlaceDemo : public Particle3DTestDemo
@@ -128,9 +128,9 @@ public:
     Particle3DFirePlaceDemo(){};
     virtual ~Particle3DFirePlaceDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DLineStreakDemo : public Particle3DTestDemo
@@ -141,9 +141,9 @@ public:
     Particle3DLineStreakDemo(){};
     virtual ~Particle3DLineStreakDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DElectricBeamSystemDemo : public Particle3DTestDemo
@@ -154,9 +154,9 @@ public:
     Particle3DElectricBeamSystemDemo(){};
     virtual ~Particle3DElectricBeamSystemDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DFlareShieldDemo : public Particle3DTestDemo
@@ -167,9 +167,9 @@ public:
     Particle3DFlareShieldDemo(){};
     virtual ~Particle3DFlareShieldDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DLightningBoltDemo : public Particle3DTestDemo
@@ -180,9 +180,9 @@ public:
     Particle3DLightningBoltDemo(){};
     virtual ~Particle3DLightningBoltDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DExplosionSystemDemo : public Particle3DTestDemo
@@ -193,9 +193,9 @@ public:
     Particle3DExplosionSystemDemo(){};
     virtual ~Particle3DExplosionSystemDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DCanOfWormsDemo : public Particle3DTestDemo
@@ -206,9 +206,9 @@ public:
     Particle3DCanOfWormsDemo(){};
     virtual ~Particle3DCanOfWormsDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DRibbonTrailDemo : public Particle3DTestDemo
@@ -219,9 +219,9 @@ public:
     Particle3DRibbonTrailDemo(){};
     virtual ~Particle3DRibbonTrailDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DWeaponTrailDemo : public Particle3DTestDemo
@@ -232,9 +232,9 @@ public:
     Particle3DWeaponTrailDemo(){};
     virtual ~Particle3DWeaponTrailDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Particle3DWithSprite3DDemo : public Particle3DTestDemo
@@ -245,9 +245,9 @@ public:
     Particle3DWithSprite3DDemo(){};
     virtual ~Particle3DWithSprite3DDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif

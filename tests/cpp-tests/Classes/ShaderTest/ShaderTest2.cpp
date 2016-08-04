@@ -78,7 +78,7 @@ public:
         std::sort(std::begin(_effects), std::end(_effects), tuple_sort);
     }
 
-    void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override
+    void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
     {
 #if CC_USE_CULLING
         // Don't do calculate the culling if the transform was not updated
@@ -184,7 +184,7 @@ class EffectBlur : public Effect
 {
 public:
     CREATE_FUNC(EffectBlur);
-    virtual void setTarget(EffectSprite *sprite) override;
+    virtual void setTarget(EffectSprite *sprite);
     void setBlurRadius(float radius);
     void setBlurSampleNum(float num);
 
@@ -264,7 +264,7 @@ protected:
         return true;
     }
 
-    virtual void setTarget(EffectSprite* sprite) override
+    virtual void setTarget(EffectSprite* sprite)
     {
         auto s = sprite->getTexture()->getContentSizeInPixels();
         getGLProgramState()->setUniformVec2("resolution", Vec2(s.width, s.height));
@@ -283,7 +283,7 @@ protected:
         return true;
     }
 
-    virtual void setTarget(EffectSprite* sprite) override
+    virtual void setTarget(EffectSprite* sprite)
     {
         auto s = sprite->getTexture()->getContentSizeInPixels();
         getGLProgramState()->setUniformVec2("resolution", Vec2(s.width, s.height));
@@ -328,7 +328,7 @@ protected:
         return true;
     }
 
-    virtual void setTarget(EffectSprite* sprite) override
+    virtual void setTarget(EffectSprite* sprite)
     {
         auto s = sprite->getTexture()->getContentSizeInPixels();
         getGLProgramState()->setUniformVec2("resolution", Vec2(s.width, s.height));
@@ -347,7 +347,7 @@ protected:
         return true;
     }
 
-    virtual void setTarget(EffectSprite* sprite) override
+    virtual void setTarget(EffectSprite* sprite)
     {
         auto s = sprite->getTexture()->getContentSizeInPixels();
         getGLProgramState()->setUniformVec2("resolution", Vec2(s.width, s.height));
@@ -366,7 +366,7 @@ protected:
         return true;
     }
 
-    virtual void setTarget(EffectSprite* sprite) override
+    virtual void setTarget(EffectSprite* sprite)
     {
         auto s = sprite->getTexture()->getContentSizeInPixels();
         getGLProgramState()->setUniformVec2("textureResolution", Vec2(s.width, s.height));
@@ -400,7 +400,7 @@ public:
 protected:
     bool init();
     bool initNormalMap(const std::string&normalMapFileName);
-    virtual void setTarget(EffectSprite* sprite) override;
+    virtual void setTarget(EffectSprite* sprite);
     EffectSprite* _sprite;
     Vec3 _lightPos;
     Color4F _lightColor;

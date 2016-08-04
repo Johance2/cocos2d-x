@@ -37,7 +37,7 @@ public:
     UIButtonTest();
     ~UIButtonTest();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
     void printWidgetResources(cocos2d::Ref* sender);
@@ -54,7 +54,7 @@ public:
     UIButtonTest_Scale9();
     ~UIButtonTest_Scale9();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -69,7 +69,7 @@ public:
     UIButtonTest_Scale9_State_Change();
     ~UIButtonTest_Scale9_State_Change();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -84,7 +84,7 @@ public:
     UIButtonTest_PressedAction();
     ~UIButtonTest_PressedAction();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -99,7 +99,7 @@ public:
     UIButtonTest_Title();
     ~UIButtonTest_Title();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -114,7 +114,7 @@ public:
     UIButtonTestRemoveSelf();
     ~UIButtonTestRemoveSelf();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -129,7 +129,7 @@ public:
     UIButtonTestSwitchScale9();
     ~UIButtonTestSwitchScale9();
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 protected:
@@ -144,7 +144,7 @@ public:
     UIButtonTestZoomScale();
     ~UIButtonTestZoomScale();
 
-    virtual bool init() override;
+    virtual bool init();
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
 
 protected:
@@ -159,7 +159,7 @@ public:
     UIButtonTextOnly();
     ~UIButtonTextOnly();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -173,7 +173,7 @@ public:
     UIButtonIgnoreContentSizeTest();
     ~UIButtonIgnoreContentSizeTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -187,7 +187,7 @@ public:
     UIButtonTitleEffectTest();
     ~UIButtonTitleEffectTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -201,7 +201,7 @@ public:
     UIButtonFlipTest();
     ~UIButtonFlipTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -215,7 +215,7 @@ public:
     UIButtonNormalDefaultTest();
     ~UIButtonNormalDefaultTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -229,7 +229,7 @@ public:
     UIButtonDisableDefaultTest();
     ~UIButtonDisableDefaultTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -243,7 +243,7 @@ public:
     UIButtonCloneTest();
     ~UIButtonCloneTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -256,7 +256,7 @@ public:
     
     Issue12249();
     
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     cocos2d::ui::Text* _displayValueLabel;

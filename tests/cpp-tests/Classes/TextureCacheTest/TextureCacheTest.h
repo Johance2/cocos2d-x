@@ -17,7 +17,7 @@ public:
     void addSprite();
     void loadingCallBack(cocos2d::Texture2D *texture);
 
-    virtual float getDuration() const override { return 3.5f; }
+    virtual float getDuration() const { return 3.5f; }
 private:
     cocos2d::Label *_labelLoading;
     cocos2d::Label *_labelPercent;

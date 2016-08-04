@@ -181,7 +181,7 @@ void DataReaderHelper::loadData()
             }
             else
             {
-				std::unique_lock<boost::mutex> lk(_sleepMutex);
+				boost::unique_lock<boost::mutex> lk(_sleepMutex);
 				_sleepCondition.wait(lk);
                 continue;
             }

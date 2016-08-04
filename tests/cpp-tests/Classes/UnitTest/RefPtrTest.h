@@ -9,9 +9,9 @@ public:
     
     CREATE_FUNC(RefPtrTest);
     
-    virtual void onEnter() override;
+    virtual void onEnter();
     
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 };
 
 #endif /* __REF_PTR_TEST_H__ */

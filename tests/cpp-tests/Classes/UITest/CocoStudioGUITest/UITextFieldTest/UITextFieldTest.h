@@ -36,7 +36,7 @@ public:
 
     UITextFieldTest();
     ~UITextFieldTest();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:
@@ -51,7 +51,7 @@ public:
 
     UITextFieldTest_MaxLength();
     ~UITextFieldTest_MaxLength();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:
@@ -66,7 +66,7 @@ public:
 
     UITextFieldTest_Password();
     ~UITextFieldTest_Password();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:
@@ -81,7 +81,7 @@ public:
 
     UITextFieldTest_LineWrap();
     ~UITextFieldTest_LineWrap();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:
@@ -96,7 +96,7 @@ public:
 
     UITextFieldTest_TrueTypeFont();
     ~UITextFieldTest_TrueTypeFont();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:
@@ -111,7 +111,7 @@ public:
 
     UITextFieldTest_PlaceHolderColor();
     ~UITextFieldTest_PlaceHolderColor();
-    virtual bool init() override;
+    virtual bool init();
     void textFieldEvent(cocos2d::Ref* sender, cocos2d::ui::TextField::EventType type);
     
 protected:

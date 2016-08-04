@@ -10,15 +10,15 @@ class Bug14327Layer : public BugsTestBase, public cocos2d::ui::EditBoxDelegate
 public:
     CREATE_FUNC(Bug14327Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 
-    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox) override;
-    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox) override;
-    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text) override;
-    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox) override;
+    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text);
+    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox);
 
 protected:
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 
 private:
     time_t _removeTime;

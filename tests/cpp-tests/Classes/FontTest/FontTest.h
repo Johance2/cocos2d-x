@@ -28,7 +28,7 @@ public:
 
     void showFont(const std::string& fontFile);
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 #endif // _FONT_TEST_H_

@@ -14,8 +14,8 @@ public:
     SceneTestLayer1();
     ~SceneTestLayer1();
 
-    virtual void onEnter() override;
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onEnter();
+    virtual void onEnterTransitionDidFinish();
 
     void testDealloc(float dt);
     void onPushScene(cocos2d::Ref* sender);
@@ -44,7 +44,7 @@ public:
 
     SceneTestLayer3();
 
-    virtual bool init() override;
+    virtual bool init();
     virtual void testDealloc(float dt);
     void item0Clicked(cocos2d::Ref* sender);
     void item1Clicked(cocos2d::Ref* sender);

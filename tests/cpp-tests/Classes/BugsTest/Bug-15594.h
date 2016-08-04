@@ -9,7 +9,7 @@ class Bug15594Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug15594Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif /* defined(__cocos2d_tests__Bug_15594__) */

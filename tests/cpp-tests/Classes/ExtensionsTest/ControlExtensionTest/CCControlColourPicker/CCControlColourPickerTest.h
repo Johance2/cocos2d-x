@@ -6,7 +6,7 @@ class ControlColourPickerTest : public ControlScene
 public:
     ControlColourPickerTest();
     virtual ~ControlColourPickerTest();
-    virtual bool init() override;
+    virtual bool init();
     /** Callback for the change value. */
     void colourValueChanged(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
 

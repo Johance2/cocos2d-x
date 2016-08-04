@@ -120,7 +120,7 @@ protected:
                                           std::function<void()> task;
                                           AsyncTaskCallBack callback;
                                           {
-                                              std::unique_lock<boost::mutex> lock(this->_queueMutex);
+                                              boost::unique_lock<boost::mutex> lock(this->_queueMutex);
                                               this->_condition.wait(lock,
                                                                     [this]{ return this->_stop || !this->_tasks.empty(); });
                                               if(this->_stop && this->_tasks.empty())
@@ -140,7 +140,7 @@ protected:
         ~ThreadTasks()
         {
             {
-                std::unique_lock<boost::mutex> lock(_queueMutex);
+                boost::unique_lock<boost::mutex> lock(_queueMutex);
                 _stop = true;
                 
                 while(_tasks.size())
@@ -153,7 +153,7 @@ protected:
         }
         void clear()
         {
-            std::unique_lock<boost::mutex> lock(_queueMutex);
+            boost::unique_lock<boost::mutex> lock(_queueMutex);
             while(_tasks.size())
                 _tasks.pop();
             while (_taskCallBacks.size())
@@ -165,7 +165,7 @@ protected:
             auto task = f;//std::bind(std::forward<F>(f), std::forward<Args>(args)...);
             
             {
-                std::unique_lock<boost::mutex> lock(_queueMutex);
+                boost::unique_lock<boost::mutex> lock(_queueMutex);
                 
                 // don't allow enqueueing after stopping the pool
                 if(_stop)

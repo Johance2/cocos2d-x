@@ -16,7 +16,7 @@ class Bug15776Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug15776Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 

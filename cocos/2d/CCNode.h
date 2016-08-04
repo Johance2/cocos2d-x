@@ -1157,7 +1157,7 @@ public:
      * @param flags Renderer flag.
      */
     virtual void draw(Renderer *renderer, const Mat4& transform, uint32_t flags);
-    virtual void draw() final;
+    virtual void draw();
 
     /**
      * Visits this node's children and draw them recursively.
@@ -1167,7 +1167,7 @@ public:
      * @param parentFlags Renderer flag.
      */
     virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags);
-    virtual void visit() final;
+    virtual void visit();
 
 
     /** Returns the Scene that contains the Node.

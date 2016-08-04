@@ -10,7 +10,7 @@ class MutiTouchTest : public TestCase
 public:
     CREATE_FUNC(MutiTouchTest);
 
-    virtual bool init() override;
+    virtual bool init();
 
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);

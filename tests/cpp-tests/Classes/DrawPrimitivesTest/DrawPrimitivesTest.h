@@ -11,7 +11,7 @@ DEFINE_TEST_SUITE(DrawPrimitivesTests);
 class DrawPrimitivesBaseTest : public TestCase
 {
 public:
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class DrawPrimitivesTest : public DrawPrimitivesBaseTest
@@ -20,9 +20,9 @@ public:
     CREATE_FUNC(DrawPrimitivesTest);
     DrawPrimitivesTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 
 protected:
     void onDraw(const cocos2d::Mat4& transform, uint32_t flags);
@@ -36,8 +36,8 @@ public:
 
     DrawNodeTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class PrimitivesCommandTest : public DrawPrimitivesBaseTest
@@ -48,9 +48,9 @@ public:
     PrimitivesCommandTest();
     virtual ~PrimitivesCommandTest();
 
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     cocos2d::Texture2D* _texture;
@@ -67,8 +67,8 @@ public:
 
     Issue11942Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 };
 

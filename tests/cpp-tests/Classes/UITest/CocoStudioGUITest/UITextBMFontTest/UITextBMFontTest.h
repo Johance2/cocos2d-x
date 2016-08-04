@@ -34,7 +34,7 @@ class UITextBMFontTest : public UIScene
 public:
     CREATE_FUNC(UITextBMFontTest)
 
-    virtual bool init() override;
+    virtual bool init();
     void printWidgetResources(cocos2d::Ref* sender);
 protected:
     cocos2d::ui::TextBMFont* _textBMFont;

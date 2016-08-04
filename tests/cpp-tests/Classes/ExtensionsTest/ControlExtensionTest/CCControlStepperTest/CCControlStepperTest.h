@@ -34,7 +34,7 @@ public:
     CREATE_FUNC(ControlStepperTest);
     ControlStepperTest();
     virtual ~ControlStepperTest();
-    virtual bool init() override;
+    virtual bool init();
     /** Creates and returns a new ControlStepper. */
     cocos2d::extension::ControlStepper* makeControlStepper();
 

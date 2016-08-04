@@ -134,7 +134,7 @@ void SocketIOTest::echotest(SIOClient *client, const std::string& data) {
 
 }
 
-// onMessage is no longer a required override from the delegate class
+// onMessage is no longer a required from the delegate class
 // 'message' events and handlers are now registered in the same way that other events are
 void SocketIOTest::message(network::SIOClient* client, const std::string& data)
 {

@@ -13,8 +13,8 @@ DEFINE_TEST_SUITE(NewRendererTests);
 class MultiSceneTest : public TestCase
 {
 public:
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
 
@@ -25,8 +25,8 @@ class NewSpriteTest : public MultiSceneTest
 public:
     CREATE_FUNC(NewSpriteTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void createSpriteTest();
     void createNewSpriteTest();
@@ -42,8 +42,8 @@ class GroupCommandTest : public MultiSceneTest
 public:
     CREATE_FUNC(GroupCommandTest);
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     GroupCommandTest();
@@ -55,8 +55,8 @@ class NewClippingNodeTest : public MultiSceneTest
 public:
 
     CREATE_FUNC(NewClippingNodeTest);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -75,8 +75,8 @@ class NewDrawNodeTest : public MultiSceneTest
 public:
 
     CREATE_FUNC(NewDrawNodeTest)
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     NewDrawNodeTest();
@@ -88,8 +88,8 @@ class NewCullingTest : public MultiSceneTest
 public:
     
     CREATE_FUNC(NewCullingTest)
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     NewCullingTest();
@@ -103,8 +103,8 @@ class VBOFullTest : public MultiSceneTest
 {
 public:
     CREATE_FUNC(VBOFullTest);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     VBOFullTest();
@@ -116,8 +116,8 @@ class CaptureScreenTest : public MultiSceneTest
     static const int childTag = 119;
 public:
     CREATE_FUNC(CaptureScreenTest);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     CaptureScreenTest();
@@ -134,8 +134,8 @@ class CaptureNodeTest : public MultiSceneTest
     static const int childTag = 120;
 public:
     CREATE_FUNC(CaptureNodeTest);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     CaptureNodeTest();
@@ -150,8 +150,8 @@ class BugAutoCulling : public MultiSceneTest
 {
 public:
     CREATE_FUNC(BugAutoCulling);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 protected:
     BugAutoCulling();
 };
@@ -160,8 +160,8 @@ class RendererBatchQuadTri : public MultiSceneTest
 {
 public:
     CREATE_FUNC(RendererBatchQuadTri);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 protected:
     RendererBatchQuadTri();
 };

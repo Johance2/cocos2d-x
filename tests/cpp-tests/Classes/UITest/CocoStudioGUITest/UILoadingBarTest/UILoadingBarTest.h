@@ -36,7 +36,7 @@ public:
 
     UILoadingBarTest_Left();
     ~UILoadingBarTest_Left();
-    virtual bool init() override;
+    virtual bool init();
     void update(float delta)override;
     void printWidgetResources(cocos2d::Ref* sender);
     
@@ -52,7 +52,7 @@ public:
 
     UILoadingBarTest_Right();
     ~UILoadingBarTest_Right();
-    virtual bool init() override;
+    virtual bool init();
     void update(float delta)override;
     
 protected:
@@ -66,7 +66,7 @@ public:
 
     UILoadingBarTest_Left_Scale9();
     ~UILoadingBarTest_Left_Scale9();
-    virtual bool init() override;
+    virtual bool init();
     void update(float delta)override;
     
 protected:
@@ -80,7 +80,7 @@ public:
 
     UILoadingBarTest_Right_Scale9();
     ~UILoadingBarTest_Right_Scale9();
-    virtual bool init() override;
+    virtual bool init();
     void update(float delta)override;
     
 protected:
@@ -94,7 +94,7 @@ public:
 
     UILoadingBarTest_Scale9_State_Change();
     ~UILoadingBarTest_Scale9_State_Change();
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     int _count;
@@ -107,8 +107,8 @@ public:
 
     UILoadingBarReloadTexture();
     ~UILoadingBarReloadTexture();
-    void update(float dt) override;
-    virtual bool init() override;
+    void update(float dt);
+    virtual bool init();
     
 protected:
     int _count;
@@ -122,7 +122,7 @@ public:
     
     UILoadingBarIssue12249();
     ~UILoadingBarIssue12249();
-    virtual bool init() override;
+    virtual bool init();
     void update(float delta)override;
     
 protected:
@@ -136,7 +136,7 @@ public:
 
     UILoadingBarTest_Direction();
     ~UILoadingBarTest_Direction();
-    virtual bool init() override;
+    virtual bool init();
 protected:
     int _count;
     cocos2d::ui::LoadingBar* _loadingBar;

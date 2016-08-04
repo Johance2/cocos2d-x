@@ -971,7 +971,7 @@ public:
         sprite->setGLProgramState(shaderState);
         return sprite;
     }
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags);
     void onDraw(const Mat4 &transform, uint32_t flags);
 
 protected:

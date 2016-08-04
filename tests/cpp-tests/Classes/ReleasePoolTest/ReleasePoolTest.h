@@ -12,7 +12,7 @@ class ReleasePoolTest : public TestCase
 public:
     CREATE_FUNC(ReleasePoolTest);
 
-    virtual bool init() override;
+    virtual bool init();
 private:
     
 };

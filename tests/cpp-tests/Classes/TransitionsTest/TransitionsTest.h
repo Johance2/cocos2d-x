@@ -47,10 +47,10 @@ public:
 
     void step(float dt);
 
-    virtual void onEnter() override;
-    virtual void onEnterTransitionDidFinish() override;
-    virtual void onExitTransitionDidStart() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onEnterTransitionDidFinish();
+    virtual void onExitTransitionDidStart();
+    virtual void onExit();
 };
 
 class TestLayer2 : public cocos2d::Layer
@@ -63,10 +63,10 @@ public:
 
     void step(float dt);
 
-    virtual void onEnter() override;
-    virtual void onEnterTransitionDidFinish() override;
-    virtual void onExitTransitionDidStart() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onEnterTransitionDidFinish();
+    virtual void onExitTransitionDidStart();
+    virtual void onExit();
 };
 
 #endif

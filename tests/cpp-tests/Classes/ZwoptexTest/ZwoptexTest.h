@@ -17,12 +17,12 @@ public:
 
     virtual ~ZwoptexGenericTest();
 
-    virtual void onEnter() override;
+    virtual void onEnter();
     void flipSprites(float dt);
     void startIn05Secs(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     cocos2d::Sprite*  sprite1;

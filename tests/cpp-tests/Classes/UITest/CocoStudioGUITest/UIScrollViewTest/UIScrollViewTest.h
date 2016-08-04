@@ -36,7 +36,7 @@ public:
 
     UIScrollViewTest_Vertical();
     ~UIScrollViewTest_Vertical();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -50,7 +50,7 @@ public:
 
     UIScrollViewTest_Horizontal();
     ~UIScrollViewTest_Horizontal();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -64,7 +64,7 @@ public:
 
     UIScrollViewTest_Both();
     ~UIScrollViewTest_Both();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -78,7 +78,7 @@ public:
 
     UIScrollViewTest_ScrollToPercentBothDirection();
     ~UIScrollViewTest_ScrollToPercentBothDirection();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -92,7 +92,7 @@ public:
 
     UIScrollViewTest_ScrollToPercentBothDirection_Bounce();
     ~UIScrollViewTest_ScrollToPercentBothDirection_Bounce();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -106,7 +106,7 @@ public:
 
     UIScrollViewNestTest();
     ~UIScrollViewNestTest();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -120,7 +120,7 @@ public:
 
     UIScrollViewRotated();
     ~UIScrollViewRotated();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     
@@ -134,7 +134,7 @@ public:
 
     UIScrollViewDisableTest();
     ~UIScrollViewDisableTest();
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
 
@@ -148,7 +148,7 @@ public:
 
     UIScrollViewInnerSize();
     ~UIScrollViewInnerSize();
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
 

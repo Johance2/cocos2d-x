@@ -12,7 +12,7 @@ public:
     IntervalTest();
     virtual ~IntervalTest();
 
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 
     //CREATE_NODE(IntervalLayer);
 

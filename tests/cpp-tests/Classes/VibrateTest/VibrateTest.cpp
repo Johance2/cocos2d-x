@@ -193,7 +193,7 @@ namespace {
             }
         }
         
-        virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override{
+        virtual bool onTouchBegan(Touch *touch, Event *unusedEvent){
             auto ret = Slider::onTouchBegan(touch, unusedEvent);
             if(ret && _callback){
                 _touchEvent = TouchEvent::DOWN;
@@ -208,7 +208,7 @@ namespace {
             return ret;
         }
         
-        virtual void onTouchMoved(Touch *touch, Event *unusedEvent) override{
+        virtual void onTouchMoved(Touch *touch, Event *unusedEvent){
             _touchEvent = TouchEvent::MOVE;
             Slider::onTouchMoved(touch, unusedEvent);
             Vec2 nsp = convertToNodeSpace(_touchMovePosition);
@@ -222,7 +222,7 @@ namespace {
             }
         }
         
-        virtual void onTouchEnded(Touch *touch, Event *unusedEvent) override{
+        virtual void onTouchEnded(Touch *touch, Event *unusedEvent){
             _touchEvent = TouchEvent::UP;
             Slider::onTouchEnded(touch, unusedEvent);
             Vec2 nsp = convertToNodeSpace(_touchEndPosition);
@@ -236,7 +236,7 @@ namespace {
             }
         }
         
-        virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) override{
+        virtual void onTouchCancelled(Touch *touch, Event *unusedEvent){
             _touchEvent = TouchEvent::CANCEL;
             Slider::onTouchCancelled(touch, unusedEvent);
             

@@ -16,8 +16,8 @@ public:
     ActionManagerTest();
     ~ActionManagerTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class CrashTest : public ActionManagerTest
@@ -25,8 +25,8 @@ class CrashTest : public ActionManagerTest
 public:
     CREATE_FUNC(CrashTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void removeThis();
 };
 
@@ -35,8 +35,8 @@ class LogicTest : public ActionManagerTest
 public:
     CREATE_FUNC(LogicTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void bugMe(Node* node);
 };
 
@@ -45,8 +45,8 @@ class PauseTest : public ActionManagerTest
 public:
     CREATE_FUNC(PauseTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void unpause(float dt);
 };
 
@@ -55,8 +55,8 @@ class StopActionTest : public ActionManagerTest
 public:
     CREATE_FUNC(StopActionTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void stopAction();
 };
 
@@ -65,8 +65,8 @@ class StopAllActionsTest : public ActionManagerTest
 public:
     CREATE_FUNC(StopAllActionsTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void stopAction(float time);
 };
 
@@ -75,8 +75,8 @@ class ResumeTest : public ActionManagerTest
 public:
     CREATE_FUNC(ResumeTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void resumeGrossini(float time);
 };
 
@@ -85,8 +85,8 @@ class StopActionsByFlagsTest : public ActionManagerTest
 public:
     CREATE_FUNC(StopActionsByFlagsTest);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
     void stopAction(float time);
 protected:
     const unsigned int kMoveFlag = 0x01;
@@ -100,8 +100,8 @@ class Issue14050Test : public ActionManagerTest
 public:
     CREATE_FUNC(Issue14050Test);
 
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string subtitle() const;
+    virtual void onEnter();
 protected:
 };
 

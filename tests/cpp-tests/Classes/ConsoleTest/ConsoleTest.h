@@ -35,7 +35,7 @@ public:
     BaseTestConsole();
     ~BaseTestConsole();
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 
@@ -44,9 +44,9 @@ class ConsoleCustomCommand : public BaseTestConsole
 public:
     CREATE_FUNC(ConsoleCustomCommand);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     ConsoleCustomCommand();
@@ -63,9 +63,9 @@ class ConsoleUploadFile : public BaseTestConsole
 public:
     CREATE_FUNC(ConsoleUploadFile);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     ConsoleUploadFile();

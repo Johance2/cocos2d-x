@@ -170,7 +170,7 @@ protected:
     }
     
 public:
-    void onEnter() override
+    void onEnter()
     {
         Sprite::onEnter();
         
@@ -212,7 +212,7 @@ public:
         _listener = listener;
     }
     
-    void onExit() override
+    void onExit()
     {
         _eventDispatcher->removeEventListener(_listener);
         
@@ -1238,7 +1238,7 @@ protected:
     
 public:
     
-    void onEnter() override
+    void onEnter()
     {
         Sprite::onEnter();
         
@@ -1259,7 +1259,7 @@ public:
         _eventDispatcher->addEventListenerWithSceneGraphPriority(_eventListener, this);
     }
     
-    void onExit() override
+    void onExit()
     {
         _eventDispatcher->removeEventListenersForTarget(this);
         _eventListener = nullptr;

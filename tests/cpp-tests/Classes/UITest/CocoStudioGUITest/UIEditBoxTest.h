@@ -34,7 +34,7 @@ class UIEditBoxTest : public UIScene, public cocos2d::ui::EditBoxDelegate
 public:
     CREATE_FUNC(UIEditBoxTest);
 
-    virtual bool init() override;
+    virtual bool init();
     
     virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox)override;
     virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox)override;
@@ -55,7 +55,7 @@ class UIEditBoxTestToggleVisibility : public UIScene, public cocos2d::ui::EditBo
 public:
     CREATE_FUNC(UIEditBoxTestToggleVisibility);
     
-    virtual bool init() override;
+    virtual bool init();
     
     virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox)override;
     virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox)override;

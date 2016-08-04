@@ -31,7 +31,7 @@ DEFINE_TEST_SUITE(MaterialSystemTest);
 class MaterialSystemBaseTest : public TestCase
 {
 public:
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class Material_Sprite3DTest : public MaterialSystemBaseTest
@@ -39,8 +39,8 @@ class Material_Sprite3DTest : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_Sprite3DTest);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class Material_MultipleSprite3D : public MaterialSystemBaseTest
@@ -48,8 +48,8 @@ class Material_MultipleSprite3D : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_MultipleSprite3D);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class Material_2DEffects : public MaterialSystemBaseTest
@@ -57,8 +57,8 @@ class Material_2DEffects : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_2DEffects);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class EffectAutoBindingResolver;
@@ -70,8 +70,8 @@ public:
     Material_AutoBindings();
     virtual ~Material_AutoBindings();
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
 private:
     EffectAutoBindingResolver *_resolver;
@@ -82,8 +82,8 @@ class Material_setTechnique : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_setTechnique);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
 private:
     void changeMaterial(float dt);
@@ -97,8 +97,8 @@ class Material_clone : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_clone);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class Material_parsePerformance : public MaterialSystemBaseTest
@@ -106,8 +106,8 @@ class Material_parsePerformance : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_parsePerformance);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
     void parsingTesting(unsigned int count);
 protected:
     unsigned int _maxParsingCoumt;
@@ -118,10 +118,10 @@ class Material_invalidate : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_invalidate);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags);
 
     cocos2d::CustomCommand _customCommand;
 };
@@ -131,10 +131,10 @@ class Material_renderState : public MaterialSystemBaseTest
 public:
     CREATE_FUNC(Material_renderState);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags);
 
     cocos2d::RenderState::StateBlock _stateBlock;
     cocos2d::CustomCommand _customCommand;

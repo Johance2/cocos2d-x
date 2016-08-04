@@ -36,7 +36,7 @@ public:
 
     UIPageViewTest();
     ~UIPageViewTest();
-    virtual bool init() override;
+    virtual bool init();
 
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
 
@@ -52,7 +52,7 @@ public:
 
     UIPageViewButtonTest();
     ~UIPageViewButtonTest();
-    virtual bool init() override;
+    virtual bool init();
     
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
     void onButtonClicked(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
@@ -68,7 +68,7 @@ public:
 
     UIPageViewTouchPropagationTest();
     ~UIPageViewTouchPropagationTest();
-    virtual bool init() override;
+    virtual bool init();
     
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
     void onButtonClicked(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
@@ -85,7 +85,7 @@ public:
 
     UIPageViewDynamicAddAndRemoveTest();
     ~UIPageViewDynamicAddAndRemoveTest();
-    virtual bool init() override;
+    virtual bool init();
     
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
     void onButtonClicked(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
@@ -102,7 +102,7 @@ public:
 
     UIPageViewJumpToPageTest();
     ~UIPageViewJumpToPageTest();
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
 
@@ -116,7 +116,7 @@ public:
     
     UIPageViewVerticalTest();
     ~UIPageViewVerticalTest();
-    virtual bool init() override;
+    virtual bool init();
     
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
     
@@ -132,7 +132,7 @@ public:
     
     UIPageViewDisableTouchTest();
     ~UIPageViewDisableTouchTest();
-    virtual bool init() override;
+    virtual bool init();
         
 protected:
     
@@ -146,7 +146,7 @@ public:
 
     UIPageViewChildSizeTest();
     ~UIPageViewChildSizeTest();
-    virtual bool init() override;
+    virtual bool init();
 
     void pageViewEvent(cocos2d::Ref* sender, cocos2d::ui::PageView::EventType type);
 
@@ -162,7 +162,7 @@ public:
     
     UIPageViewIndicatorTest();
     ~UIPageViewIndicatorTest();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     

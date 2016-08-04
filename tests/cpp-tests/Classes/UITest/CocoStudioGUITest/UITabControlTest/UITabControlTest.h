@@ -38,7 +38,7 @@ public:
     UITabControlTest();
     ~UITabControlTest();
 
-    bool init() override;
+    bool init();
 
 };
 

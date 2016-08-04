@@ -34,8 +34,8 @@ class SpriteFrameCachePixelFormatTest : public TestCase
 public:
     CREATE_FUNC(SpriteFrameCachePixelFormatTest);
     
-    virtual std::string title() const override { return "Pixel formats test"; }
-    virtual std::string subtitle() const override { return "It shouldn't crash"; }
+    virtual std::string title() const { return "Pixel formats test"; }
+    virtual std::string subtitle() const { return "It shouldn't crash"; }
     
     SpriteFrameCachePixelFormatTest();
     

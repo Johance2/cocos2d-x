@@ -8,7 +8,7 @@ class Bug458Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug458Layer);
 
-    virtual bool init() override;
+    virtual bool init();
     void selectAnswer(cocos2d::Ref* sender);
 };
 

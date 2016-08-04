@@ -12,8 +12,8 @@ class TextureAtlasEncryptionDemo : public TestCase
 public:
     CREATE_FUNC(TextureAtlasEncryptionDemo);
 
-    virtual std::string title() const override;
-    virtual void onEnter() override;
+    virtual std::string title() const;
+    virtual void onEnter();
 
 protected:
     std::string    _title;

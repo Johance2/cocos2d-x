@@ -37,7 +37,7 @@ public:
     UIWidgetAddNodeTest();
     ~UIWidgetAddNodeTest();
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif /* defined(__TestCpp__UINodeContainerTest__) */

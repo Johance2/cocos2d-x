@@ -96,7 +96,7 @@ public:
 	**/
 	void json(cocos2d::network::SIOClient* client, const std::string& data);
 
-    virtual std::string title() const override{ return "SocketIO Extension Test"; }
+    virtual std::string title() const{ return "SocketIO Extension Test"; }
 
 protected:
 

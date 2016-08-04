@@ -40,7 +40,7 @@ class Physics3DDemoDisabled : public TestCase
 public:
     CREATE_FUNC(Physics3DDemoDisabled);
 
-    virtual void onEnter() override;
+    virtual void onEnter();
 };
 #else
 
@@ -52,10 +52,10 @@ public:
     virtual ~Physics3DTestDemo(void);
     
     // overrides
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void update(float delta) override;
+    virtual bool init();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void update(float delta);
     
     virtual void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     virtual void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -80,9 +80,9 @@ public:
     BasicPhysics3DDemo(){};
     virtual ~BasicPhysics3DDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Physics3DConstraintDemo : public Physics3DTestDemo
@@ -93,13 +93,13 @@ public:
     Physics3DConstraintDemo():_constraint(nullptr), _pickingDistance(0.f){};
     virtual ~Physics3DConstraintDemo(){};
     
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
     
-    virtual bool init() override;
+    virtual bool init();
     
-    virtual void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event) override;
-    virtual void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event) override;
-    virtual void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event) override;
+    virtual void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+    virtual void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+    virtual void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     
 protected:
     cocos2d::Physics3DConstraint*     _constraint; //for picking
@@ -114,9 +114,9 @@ public:
     Physics3DKinematicDemo(){};
     virtual ~Physics3DKinematicDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Physics3DCollisionCallbackDemo : public Physics3DTestDemo
@@ -127,9 +127,9 @@ public:
     Physics3DCollisionCallbackDemo(){};
     virtual ~Physics3DCollisionCallbackDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Physics3DTerrainDemo : public Physics3DTestDemo
@@ -140,9 +140,9 @@ public:
     Physics3DTerrainDemo(){};
     virtual ~Physics3DTerrainDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 
 private:
 };
@@ -155,9 +155,9 @@ public:
     Physics3DColliderDemo(){};
     virtual ~Physics3DColliderDemo(){};
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 
-    virtual bool init() override;
+    virtual bool init();
 
 private:
 };

@@ -8,7 +8,7 @@ class BugDrawNodeLayer : public BugsTestBase
 public:
     CREATE_FUNC(BugDrawNodeLayer);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif

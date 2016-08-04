@@ -16,10 +16,10 @@ class TestResolutionDirectories : public FileUtilsDemo
 public:
     CREATE_FUNC(TestResolutionDirectories);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     std::vector<std::string> _defaultSearchPathArray;
     std::vector<std::string> _defaultResolutionsOrderArray;
@@ -30,10 +30,10 @@ class TestSearchPath : public FileUtilsDemo
 public:
     CREATE_FUNC(TestSearchPath);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     std::vector<std::string> _defaultSearchPathArray;
     std::vector<std::string> _defaultResolutionsOrderArray;
@@ -44,9 +44,9 @@ class TestFilenameLookup : public FileUtilsDemo
 public:
     CREATE_FUNC(TestFilenameLookup);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
 };
 
 class TestIsFileExist : public FileUtilsDemo
@@ -54,10 +54,10 @@ class TestIsFileExist : public FileUtilsDemo
 public:
     CREATE_FUNC(TestIsFileExist);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestIsDirectoryExist : public FileUtilsDemo
@@ -65,10 +65,10 @@ class TestIsDirectoryExist : public FileUtilsDemo
 public:
     CREATE_FUNC(TestIsDirectoryExist);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestFileFuncs : public FileUtilsDemo
@@ -76,9 +76,9 @@ class TestFileFuncs : public FileUtilsDemo
 public:
     CREATE_FUNC(TestFileFuncs);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestDirectoryFuncs : public FileUtilsDemo
@@ -86,9 +86,9 @@ class TestDirectoryFuncs : public FileUtilsDemo
 public:
     CREATE_FUNC(TestDirectoryFuncs);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TextWritePlist : public FileUtilsDemo
@@ -96,10 +96,10 @@ class TextWritePlist : public FileUtilsDemo
 public:
     CREATE_FUNC(TextWritePlist);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestWriteString : public FileUtilsDemo
@@ -107,10 +107,10 @@ class TestWriteString : public FileUtilsDemo
 public:
     CREATE_FUNC(TestWriteString);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestGetContents : public FileUtilsDemo
@@ -118,10 +118,10 @@ class TestGetContents : public FileUtilsDemo
 public:
     CREATE_FUNC(TestGetContents);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     std::string _generatedFile;
 };
@@ -131,10 +131,10 @@ class TestWriteData : public FileUtilsDemo
 public:
     CREATE_FUNC(TestWriteData);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestWriteValueMap : public FileUtilsDemo
@@ -142,10 +142,10 @@ class TestWriteValueMap : public FileUtilsDemo
 public:
     CREATE_FUNC(TestWriteValueMap);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestWriteValueVector : public FileUtilsDemo
@@ -153,10 +153,10 @@ class TestWriteValueVector : public FileUtilsDemo
 public:
     CREATE_FUNC(TestWriteValueVector);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TestUnicodePath : public FileUtilsDemo
@@ -164,10 +164,10 @@ class TestUnicodePath : public FileUtilsDemo
 public:
     CREATE_FUNC(TestUnicodePath);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 #endif /* __FILEUTILSTEST_H__ */

@@ -38,10 +38,10 @@ public:
     UIListViewTest_Vertical();
     ~UIListViewTest_Vertical();
 
-    virtual bool init() override;
+    virtual bool init();
     void selectedItemEvent(cocos2d::Ref* sender, cocos2d::ui::ListView::EventType type);
     void selectedItemEventScrollView(cocos2d::Ref* sender, cocos2d::ui::ScrollView::EventType type);
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
 protected:
     float getItemPositionYInView(cocos2d::ui::Widget* item) const;
@@ -72,9 +72,9 @@ public:
     UIListViewTest_Horizontal();
     ~UIListViewTest_Horizontal();
 
-    virtual bool init() override;
+    virtual bool init();
     void selectedItemEvent(cocos2d::Ref* sender, cocos2d::ui::ListView::EventType type);
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 protected:
     float getItemPositionXInView(cocos2d::ui::Widget* item) const;
     void updateItem(int itemID, int templateID);
@@ -101,7 +101,7 @@ class Issue12692 : public UIScene
 public:
     CREATE_FUNC(Issue12692);
     
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Issue8316 : public UIScene
@@ -109,7 +109,7 @@ class Issue8316 : public UIScene
 public:
     CREATE_FUNC(Issue8316);
     
-    virtual bool init() override;
+    virtual bool init();
 };
 
 
@@ -117,7 +117,7 @@ public:
 class UIListViewTest_ScrollToItem : public UIScene
 {
 protected:
-    virtual bool init() override;
+    virtual bool init();
     virtual cocos2d::ui::ScrollView::Direction getListViewDirection() const = 0;
     
     cocos2d::ui::ListView* _listView;
@@ -150,7 +150,7 @@ public:
 class UIListViewTest_Magnetic : public UIScene
 {
 protected:
-    virtual bool init() override;
+    virtual bool init();
     virtual cocos2d::ui::ScrollView::Direction getListViewDirection() const = 0;
     
     cocos2d::ui::ListView* _listView;

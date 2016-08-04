@@ -10,7 +10,7 @@ DEFINE_TEST_SUITE(Shader2Tests);
 class ShaderTestDemo2 : public TestCase
 {
 public:
-    virtual std::string title() const override { return "Effects on Sprites";}
+    virtual std::string title() const { return "Effects on Sprites";}
 };
 
 //

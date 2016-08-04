@@ -16,8 +16,8 @@ public:
     CREATE_FUNC(RenderTextureSave);
     RenderTextureSave();
     ~RenderTextureSave();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     void clearImage(cocos2d::Ref* pSender);
     void saveImage(cocos2d::Ref* pSender);
@@ -32,8 +32,8 @@ class RenderTextureIssue937 : public RenderTextureTest
 public:
     CREATE_FUNC(RenderTextureIssue937);
     RenderTextureIssue937();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class RenderTextureZbuffer : public RenderTextureTest
@@ -45,8 +45,8 @@ public:
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void renderScreenShot();
 
@@ -70,9 +70,9 @@ public:
     CREATE_FUNC(RenderTextureTestDepthStencil);
     RenderTextureTestDepthStencil();
     virtual ~RenderTextureTestDepthStencil();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 private:
     cocos2d::CustomCommand _renderCmds[4];
     void onBeforeClear();
@@ -96,8 +96,8 @@ public:
     RenderTextureTargetNode();
     
     virtual void update(float t)override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void touched(cocos2d::Ref* sender);
 };
@@ -108,8 +108,8 @@ public:
     CREATE_FUNC(RenderTexturePartTest);
     RenderTexturePartTest();
     virtual ~RenderTexturePartTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     cocos2d::RenderTexture* _rend;
@@ -136,8 +136,8 @@ public:
     SpriteRenderTextureBug();
     
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     SimpleSprite* addNewSpriteWithCoords(const cocos2d::Vec2& p);
 };
@@ -147,8 +147,8 @@ class Issue16113Test : public RenderTextureTest
 public:
     CREATE_FUNC(Issue16113Test);
     Issue16113Test();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
     cocos2d::RenderTexture* _rend;

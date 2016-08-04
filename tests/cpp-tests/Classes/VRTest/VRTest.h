@@ -44,8 +44,8 @@ class VRTest1 : public VRTestDemo
 public:
     CREATE_FUNC(VRTest1);
     VRTest1();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 

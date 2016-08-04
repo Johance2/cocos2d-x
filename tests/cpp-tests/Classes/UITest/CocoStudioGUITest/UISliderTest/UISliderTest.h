@@ -36,7 +36,7 @@ public:
 
     UISliderTest();
     ~UISliderTest();
-    virtual bool init() override;
+    virtual bool init();
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
     void printWidgetResources(cocos2d::Ref* sender);
     
@@ -52,7 +52,7 @@ public:
 
     UISliderTest_Scale9();
     ~UISliderTest_Scale9();
-    virtual bool init() override;
+    virtual bool init();
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
     
 protected:
@@ -66,7 +66,7 @@ public:
 
     UISliderTest_Scale9_State_Change();
     ~UISliderTest_Scale9_State_Change();
-    virtual bool init() override;
+    virtual bool init();
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
 
 protected:
@@ -81,7 +81,7 @@ public:
 
     UISliderNormalDefaultTest();
     ~UISliderNormalDefaultTest();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -94,7 +94,7 @@ public:
 
     UISliderDisabledDefaultTest();
     ~UISliderDisabledDefaultTest();
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -107,7 +107,7 @@ public:
 
     UISliderNewEventCallbackTest();
     ~UISliderNewEventCallbackTest();
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -120,7 +120,7 @@ public:
     
     UISliderIssue12249Test();
     ~UISliderIssue12249Test();
-    virtual bool init() override;
+    virtual bool init();
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
     
 protected:

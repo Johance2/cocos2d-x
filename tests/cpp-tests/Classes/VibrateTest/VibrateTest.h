@@ -35,8 +35,8 @@ DEFINE_TEST_SUITE(VibrateTests);
 class VibrateTestDemo : public TestCase
 {
 public:
-    virtual std::string title() const override;
-    virtual void onExit() override;
+    virtual std::string title() const;
+    virtual void onExit();
    
 };
 
@@ -47,7 +47,7 @@ public:
     virtual ~VibrateControlTest();
     
     virtual bool init()override;    
-    virtual std::string title() const override;
+    virtual std::string title() const;
     
 private:
     float _duration;

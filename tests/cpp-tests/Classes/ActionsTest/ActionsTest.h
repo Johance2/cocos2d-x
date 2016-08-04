@@ -37,12 +37,12 @@ protected:
     cocos2d::Sprite*    _tamara;
     cocos2d::Sprite*    _kathia;
 public:
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
 
     void centerSprites(unsigned int numberOfSprites);
     void alignSpritesLeft(unsigned int numberOfSprites);
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class ActionMove : public ActionsDemo
@@ -50,8 +50,8 @@ class ActionMove : public ActionsDemo
 public:
     CREATE_FUNC(ActionMove);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionMove3D : public ActionsDemo
@@ -59,8 +59,8 @@ class ActionMove3D : public ActionsDemo
 public:
     CREATE_FUNC(ActionMove3D);
     
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionScale : public ActionsDemo
@@ -68,8 +68,8 @@ class ActionScale : public ActionsDemo
 public:
     CREATE_FUNC(ActionScale);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionSkew : public ActionsDemo
@@ -77,8 +77,8 @@ class ActionSkew : public ActionsDemo
 public:
     CREATE_FUNC(ActionSkew);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionRotationalSkew : public ActionsDemo
@@ -86,8 +86,8 @@ class ActionRotationalSkew : public ActionsDemo
 public:
     CREATE_FUNC(ActionRotationalSkew);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionRotationalSkewVSStandardSkew : public ActionsDemo
@@ -95,8 +95,8 @@ class ActionRotationalSkewVSStandardSkew : public ActionsDemo
 public:
     CREATE_FUNC(ActionRotationalSkewVSStandardSkew);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionSkewRotateScale : public ActionsDemo
@@ -104,8 +104,8 @@ class ActionSkewRotateScale : public ActionsDemo
 public:
     CREATE_FUNC(ActionSkewRotateScale);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionRotate : public ActionsDemo
@@ -113,8 +113,8 @@ class ActionRotate : public ActionsDemo
 public:
     CREATE_FUNC(ActionRotate);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionRotateBy3D : public ActionsDemo
@@ -122,8 +122,8 @@ class ActionRotateBy3D : public ActionsDemo
 public:
     CREATE_FUNC(ActionRotateBy3D);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionJump : public ActionsDemo
@@ -131,8 +131,8 @@ class ActionJump : public ActionsDemo
 public:
     CREATE_FUNC(ActionJump);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionBezier : public ActionsDemo
@@ -140,8 +140,8 @@ class ActionBezier : public ActionsDemo
 public:
     CREATE_FUNC(ActionBezier);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionBlink : public ActionsDemo
@@ -149,8 +149,8 @@ class ActionBlink : public ActionsDemo
 public:
     CREATE_FUNC(ActionBlink);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionFade : public ActionsDemo
@@ -158,8 +158,8 @@ class ActionFade : public ActionsDemo
 public:
     CREATE_FUNC(ActionFade);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionTint : public ActionsDemo
@@ -167,8 +167,8 @@ class ActionTint : public ActionsDemo
 public:
     CREATE_FUNC(ActionTint);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionAnimate : public ActionsDemo
@@ -176,10 +176,10 @@ class ActionAnimate : public ActionsDemo
 public:
     CREATE_FUNC(ActionAnimate);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     cocos2d::EventListenerCustom* _frameDisplayedListener;
@@ -190,8 +190,8 @@ class ActionSequence : public ActionsDemo
 public:
     CREATE_FUNC(ActionSequence);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionSequence2 : public ActionsDemo
@@ -199,8 +199,8 @@ class ActionSequence2 : public ActionsDemo
 public:
     CREATE_FUNC(ActionSequence2);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
     void callback1();
     void callback2(Node* sender);
@@ -212,8 +212,8 @@ class ActionSequence3 : public ActionsDemo
 public:
     CREATE_FUNC(ActionSequence3);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionSpawn : public ActionsDemo
@@ -221,8 +221,8 @@ class ActionSpawn : public ActionsDemo
 public:
     CREATE_FUNC(ActionSpawn);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionSpawn2 : public ActionsDemo
@@ -230,8 +230,8 @@ class ActionSpawn2 : public ActionsDemo
 public:
     CREATE_FUNC(ActionSpawn2);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionReverse : public ActionsDemo
@@ -239,8 +239,8 @@ class ActionReverse : public ActionsDemo
 public:
     CREATE_FUNC(ActionReverse);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionRepeat : public ActionsDemo
@@ -248,8 +248,8 @@ class ActionRepeat : public ActionsDemo
 public:
     CREATE_FUNC(ActionRepeat);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionDelayTime : public ActionsDemo
@@ -257,8 +257,8 @@ class ActionDelayTime : public ActionsDemo
 public:
     CREATE_FUNC(ActionDelayTime);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionReverseSequence : public ActionsDemo
@@ -266,8 +266,8 @@ class ActionReverseSequence : public ActionsDemo
 public:
     CREATE_FUNC(ActionReverseSequence);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionReverseSequence2 : public ActionsDemo
@@ -275,8 +275,8 @@ class ActionReverseSequence2 : public ActionsDemo
 public:
     CREATE_FUNC(ActionReverseSequence2);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionOrbit : public ActionsDemo
@@ -284,9 +284,9 @@ class ActionOrbit : public ActionsDemo
 public:
     CREATE_FUNC(ActionOrbit);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string subtitle() const;
 };
 
 class ActionRemoveSelf : public ActionsDemo
@@ -294,8 +294,8 @@ class ActionRemoveSelf : public ActionsDemo
 public:
     CREATE_FUNC(ActionRemoveSelf);
 
-	virtual void onEnter() override;
-	virtual std::string subtitle() const override;
+	virtual void onEnter();
+	virtual std::string subtitle() const;
 };
 
 class ActionRepeatForever : public ActionsDemo
@@ -303,8 +303,8 @@ class ActionRepeatForever : public ActionsDemo
 public:
     CREATE_FUNC(ActionRepeatForever);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
     void repeatForever(Node* pTarget);
 };
@@ -314,8 +314,8 @@ class ActionRotateToRepeat : public ActionsDemo
 public:
     CREATE_FUNC(ActionRotateToRepeat);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionCallFuncN : public ActionsDemo
@@ -323,9 +323,9 @@ class ActionCallFuncN : public ActionsDemo
 public:
     CREATE_FUNC(ActionCallFuncN);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void callback(Node* sender);
 };
 
@@ -334,9 +334,9 @@ class ActionCallFuncND : public ActionsDemo
 public:
     CREATE_FUNC(ActionCallFuncND);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void doRemoveFromParentAndCleanup(Node* sender, bool cleanup);
 };
 
@@ -345,8 +345,8 @@ class ActionCallFunction : public ActionsDemo
 public:
     CREATE_FUNC(ActionCallFunction);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 
     void callback1();
     void callback2(Node* pTarget);
@@ -359,8 +359,8 @@ class ActionFollow : public ActionsDemo
 public:
     CREATE_FUNC(ActionFollow);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionFollowWithOffset : public ActionsDemo
@@ -369,8 +369,8 @@ class ActionFollowWithOffset : public ActionsDemo
 public:
     CREATE_FUNC(ActionFollowWithOffset);
     
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class ActionTargeted : public ActionsDemo
@@ -378,9 +378,9 @@ class ActionTargeted : public ActionsDemo
 public:
     CREATE_FUNC(ActionTargeted);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class ActionTargetedReverse : public ActionsDemo
@@ -388,9 +388,9 @@ class ActionTargetedReverse : public ActionsDemo
 public:
     CREATE_FUNC(ActionTargetedReverse);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class ActionStacked : public ActionsDemo
@@ -398,9 +398,9 @@ class ActionStacked : public ActionsDemo
 public:
     CREATE_FUNC(ActionStacked);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     virtual void addNewSpriteWithCoords(cocos2d::Vec2 p);
     virtual void runActionsInSprite(cocos2d::Sprite* sprite);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
@@ -411,8 +411,8 @@ class ActionMoveStacked : public ActionStacked
 public:
     CREATE_FUNC(ActionMoveStacked);
 
-    virtual std::string title() const override;
-    virtual void runActionsInSprite(cocos2d::Sprite* sprite) override;
+    virtual std::string title() const;
+    virtual void runActionsInSprite(cocos2d::Sprite* sprite);
 };
 
 class ActionMoveJumpStacked : public ActionStacked
@@ -420,8 +420,8 @@ class ActionMoveJumpStacked : public ActionStacked
 public:
     CREATE_FUNC(ActionMoveJumpStacked);
 
-    virtual std::string title() const override;
-    virtual void runActionsInSprite(cocos2d::Sprite* sprite) override;
+    virtual std::string title() const;
+    virtual void runActionsInSprite(cocos2d::Sprite* sprite);
 };
 
 class ActionMoveBezierStacked : public ActionStacked
@@ -429,8 +429,8 @@ class ActionMoveBezierStacked : public ActionStacked
 public:
     CREATE_FUNC(ActionMoveBezierStacked);
 
-    virtual std::string title() const override;
-    virtual void runActionsInSprite(cocos2d::Sprite* sprite) override;
+    virtual std::string title() const;
+    virtual void runActionsInSprite(cocos2d::Sprite* sprite);
 };
 
 class ActionCatmullRomStacked : public ActionsDemo
@@ -439,9 +439,9 @@ public:
     CREATE_FUNC(ActionCatmullRomStacked);
 
     virtual ~ActionCatmullRomStacked();
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class ActionCardinalSplineStacked : public ActionsDemo
@@ -450,9 +450,9 @@ public:
     CREATE_FUNC(ActionCardinalSplineStacked);
 
     virtual ~ActionCardinalSplineStacked();
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Issue1305 : public ActionsDemo
@@ -460,11 +460,11 @@ class Issue1305 : public ActionsDemo
 public:
     CREATE_FUNC(Issue1305);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
     void log(Node* sender);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     cocos2d::Sprite* _spriteTmp;
 };
@@ -474,13 +474,13 @@ class Issue1305_2 : public ActionsDemo
 public:
     CREATE_FUNC(Issue1305_2);
 
-    virtual void onEnter() override;
+    virtual void onEnter();
     void printLog1();
     void printLog2();
     void printLog3();
     void printLog4();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Issue1288 : public ActionsDemo
@@ -488,9 +488,9 @@ class Issue1288 : public ActionsDemo
 public:
     CREATE_FUNC(Issue1288);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Issue1288_2 : public ActionsDemo
@@ -498,9 +498,9 @@ class Issue1288_2 : public ActionsDemo
 public:
     CREATE_FUNC(Issue1288_2);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Issue1327 : public ActionsDemo
@@ -508,9 +508,9 @@ class Issue1327 : public ActionsDemo
 public:
     CREATE_FUNC(Issue1327);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;
     void logSprRotation(cocos2d::Sprite* sender);
 };
 
@@ -521,9 +521,9 @@ public:
 
     void incrementInteger();
     void incrementIntegerCallback(void* data);
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;
 private:
     int _testInteger;
 };
@@ -533,9 +533,9 @@ class Issue2599 : public ActionsDemo
 public:
     CREATE_FUNC(Issue2599);
     
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;
 private:
     int _count;
 };
@@ -547,9 +547,9 @@ public:
 
     ~ActionCatmullRom();
     
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;
 };
 
 class ActionCardinalSpline : public ActionsDemo
@@ -559,9 +559,9 @@ public:
 
     ~ActionCardinalSpline();
     
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;
 };
 
 class PauseResumeActions : public ActionsDemo
@@ -571,9 +571,9 @@ public:
 
     PauseResumeActions();
     virtual ~PauseResumeActions();
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
-    virtual std::string title() const override;    
+    virtual void onEnter();
+    virtual std::string subtitle() const;
+    virtual std::string title() const;    
 private:
     cocos2d::Vector<Node*> _pausedTargets;
 };
@@ -583,8 +583,8 @@ class ActionFloatTest : public ActionsDemo
 public:
     CREATE_FUNC(ActionFloatTest);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 #endif

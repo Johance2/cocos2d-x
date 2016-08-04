@@ -12,7 +12,7 @@ class Box2DTest : public TestCase
 public:
     CREATE_FUNC(Box2DTest);
 
-    virtual bool init() override;
+    virtual bool init();
 
 #if CC_ENABLE_BOX2D_INTEGRATION
     Box2DTest();
@@ -20,10 +20,10 @@ public:
 
     void initPhysics();
     void createResetButton();
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 
     void addNewSpriteAtPosition(cocos2d::Vec2 p);
-    void update(float dt) override;
+    void update(float dt);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
 
 private:

@@ -18,61 +18,61 @@ protected:
     cocos2d::Node* _target2;
 
 public:
-    virtual void onEnter() override;
+    virtual void onEnter();
     ~EffectAdvanceBaseTest(void);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Effect1 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Effect1);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
 };
 
 class Effect2 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Effect2);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
 };
 
 class Effect3 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Effect3);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
 };
 
 class Effect4 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Effect4);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
 };
 
 class Effect5 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Effect5);
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
 };
 
 class Issue631 : public EffectAdvanceBaseTest
 {
 public:
     CREATE_FUNC(Issue631);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 #endif

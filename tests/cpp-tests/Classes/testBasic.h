@@ -13,7 +13,7 @@ class TestScene : public cocos2d::Scene
 {
 public: 
     TestScene(bool bPortrait = false, bool physics = false){}
-    virtual void onEnter() override {}
+    virtual void onEnter() {}
 
     virtual void runThisTest() = 0;
 };

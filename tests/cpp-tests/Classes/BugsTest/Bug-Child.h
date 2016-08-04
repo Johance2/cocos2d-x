@@ -16,7 +16,7 @@ class BugChild : public BugsTestBase
 public:
     CREATE_FUNC(BugChild);
 
-    virtual bool init() override;
+    virtual bool init();
     
     void switchChild(cocos2d::Ref* sender);
     
@@ -35,7 +35,7 @@ class BugCameraMask : public BugsTestBase
 public:
     CREATE_FUNC(BugCameraMask);
     
-    virtual bool init() override;
+    virtual bool init();
     
     void switchSpriteFlag(cocos2d::Ref* sender);
     void updateSpriteMaskLabel();

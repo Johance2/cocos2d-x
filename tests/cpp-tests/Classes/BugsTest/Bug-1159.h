@@ -6,8 +6,8 @@
 class Bug1159Layer : public BugsTestBase
 {
 public:
-    virtual bool init() override;
-    virtual void onExit() override;
+    virtual bool init();
+    virtual void onExit();
 
     void callBack(cocos2d::Ref* sender);
 

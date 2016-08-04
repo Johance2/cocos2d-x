@@ -20,9 +20,9 @@ public:
     CREATE_FUNC(ShaderMonjori);
     ShaderMonjori();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderMandelbrot : public ShaderTestDemo
@@ -31,9 +31,9 @@ public:
     CREATE_FUNC(ShaderMandelbrot);
     ShaderMandelbrot();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderJulia : public ShaderTestDemo
@@ -42,9 +42,9 @@ public:
     CREATE_FUNC(ShaderJulia);
     ShaderJulia();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderHeart : public ShaderTestDemo
@@ -53,9 +53,9 @@ public:
     CREATE_FUNC(ShaderHeart);
     ShaderHeart();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderFlower : public ShaderTestDemo
@@ -64,9 +64,9 @@ public:
     CREATE_FUNC(ShaderFlower);
     ShaderFlower();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderPlasma : public ShaderTestDemo
@@ -75,9 +75,9 @@ public:
     CREATE_FUNC(ShaderPlasma);
     ShaderPlasma();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class SpriteBlur;
@@ -86,9 +86,9 @@ class ShaderBlur : public ShaderTestDemo
 public:
     CREATE_FUNC(ShaderBlur);
     ShaderBlur();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
     void createSliderCtls();
     void onRadiusChanged(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
     void onSampleNumChanged(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
@@ -104,10 +104,10 @@ class ShaderRetroEffect : public ShaderTestDemo
 public:
     CREATE_FUNC(ShaderRetroEffect);
     ShaderRetroEffect();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    bool init() override;
-    void update(float dt) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    bool init();
+    void update(float dt);
 protected:
     cocos2d::Label* _label;
     float           _accum;
@@ -119,9 +119,9 @@ public:
     CREATE_FUNC(ShaderNode);
     static ShaderNode* shaderNodeWithVertex(const std::string &vert, const std::string &frag);
 
-    virtual void update(float dt) override;
-    virtual void setPosition(const cocos2d::Vec2 &newPosition) override;
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual void update(float dt);
+    virtual void setPosition(const cocos2d::Vec2 &newPosition);
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 
 protected:
     ShaderNode();
@@ -146,9 +146,9 @@ public:
     CREATE_FUNC(ShaderLensFlare);
     ShaderLensFlare();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderGlow : public ShaderTestDemo
@@ -157,9 +157,9 @@ public:
     CREATE_FUNC(ShaderGlow);
     ShaderGlow();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 class ShaderMultiTexture : public ShaderTestDemo
@@ -173,9 +173,9 @@ public:
     int _changedTextureId;
     cocos2d::Sprite* _sprite;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual bool init() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual bool init();
 };
 
 #endif

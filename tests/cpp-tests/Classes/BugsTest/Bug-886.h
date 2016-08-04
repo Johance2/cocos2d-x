@@ -8,7 +8,7 @@ class Bug886Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug886Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif // __BUG_886_H__

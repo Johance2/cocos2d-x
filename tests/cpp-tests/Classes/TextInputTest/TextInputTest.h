@@ -15,7 +15,7 @@ class KeyboardNotificationLayer : public TestCase, public cocos2d::IMEDelegate
 {
 public:
     KeyboardNotificationLayer();
-    virtual std::string title() const override;
+    virtual std::string title() const;
     virtual void onClickTrackNode(bool bClicked) = 0;
 
     virtual void keyboardWillShow(cocos2d::IMEKeyboardNotificationInfo& info)override;
@@ -37,11 +37,11 @@ class TextFieldTTFDefaultTest : public KeyboardNotificationLayer
 public:
     CREATE_FUNC(TextFieldTTFDefaultTest);
     // KeyboardNotificationLayer
-    virtual std::string subtitle() const override;
-    virtual void onClickTrackNode(bool bClicked) override;
+    virtual std::string subtitle() const;
+    virtual void onClickTrackNode(bool bClicked);
 
     // Layer
-    virtual void onEnter() override;
+    virtual void onEnter();
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -60,18 +60,18 @@ public:
     void callbackRemoveNodeWhenDidAction(Node * node);
 
     // KeyboardNotificationLayer
-    virtual std::string subtitle() const override;
-    virtual void onClickTrackNode(bool bClicked) override;
+    virtual std::string subtitle() const;
+    virtual void onClickTrackNode(bool bClicked);
 
     // Layer
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
 
     // TextFieldDelegate
-    virtual bool onTextFieldAttachWithIME(cocos2d::TextFieldTTF*  sender) override;
-    virtual bool onTextFieldDetachWithIME(cocos2d::TextFieldTTF*  sender) override;
-    virtual bool onTextFieldInsertText(cocos2d::TextFieldTTF*  sender, const char * text, size_t nLen) override;
-    virtual bool onTextFieldDeleteBackward(cocos2d::TextFieldTTF*  sender, const char * delText, size_t nLen) override;
+    virtual bool onTextFieldAttachWithIME(cocos2d::TextFieldTTF*  sender);
+    virtual bool onTextFieldDetachWithIME(cocos2d::TextFieldTTF*  sender);
+    virtual bool onTextFieldInsertText(cocos2d::TextFieldTTF*  sender, const char * text, size_t nLen);
+    virtual bool onTextFieldDeleteBackward(cocos2d::TextFieldTTF*  sender, const char * delText, size_t nLen);
     virtual bool onDraw(cocos2d::TextFieldTTF*  sender);
 };
 
@@ -84,8 +84,8 @@ class TextFieldTTFSecureTextEntryTest : public TextFieldTTFDefaultTest
 public:
     CREATE_FUNC(TextFieldTTFSecureTextEntryTest);
     
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
     // Layer
-    virtual void onEnter() override;
+    virtual void onEnter();
 };
 #endif    // __TEXT_INPUT_TEST_H__

@@ -44,7 +44,7 @@ class Sprite3DTestDemo : public TestCase
 {
 public:
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
     
     virtual ~Sprite3DTestDemo();
 };
@@ -54,8 +54,8 @@ class Sprite3DForceDepthTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DForceDepthTest);
     Sprite3DForceDepthTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Sprite3DEmptyTest : public Sprite3DTestDemo
@@ -63,8 +63,8 @@ class Sprite3DEmptyTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DEmptyTest);
     Sprite3DEmptyTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Sprite3DBasicTest : public Sprite3DTestDemo
@@ -72,8 +72,8 @@ class Sprite3DBasicTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DBasicTest);
     Sprite3DBasicTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
@@ -85,8 +85,8 @@ public:
     CREATE_FUNC(Sprite3DUVAnimationTest);
     Sprite3DUVAnimationTest();
     virtual ~Sprite3DUVAnimationTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     void cylinderUpdate(float dt);
@@ -113,8 +113,8 @@ public:
     CREATE_FUNC(Sprite3DFakeShadowTest);
     Sprite3DFakeShadowTest();
     virtual ~Sprite3DFakeShadowTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void Move(cocos2d::Ref* sender,int value);
     void updateCamera(float fDelta);
     void move3D(float elapsedTime);
@@ -142,8 +142,8 @@ public:
     CREATE_FUNC(Sprite3DLightMapTest);
     Sprite3DLightMapTest();
     virtual ~Sprite3DLightMapTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
 private:
     cocos2d::Camera * _camera;
@@ -155,8 +155,8 @@ public:
     CREATE_FUNC(Sprite3DBasicToonShaderTest);
     Sprite3DBasicToonShaderTest();
     virtual ~Sprite3DBasicToonShaderTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     cocos2d::GLProgramState * _state;
@@ -172,8 +172,8 @@ class Sprite3DHitTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DHitTest);
     Sprite3DHitTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Sprite3DEffectTest : public Sprite3DTestDemo
@@ -182,8 +182,8 @@ public:
     CREATE_FUNC(Sprite3DEffectTest);
     Sprite3DEffectTest();
     virtual ~Sprite3DEffectTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     
@@ -203,8 +203,8 @@ public:
     CREATE_FUNC(AsyncLoadSprite3DTest);
     AsyncLoadSprite3DTest();
     virtual ~AsyncLoadSprite3DTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void menuCallback_asyncLoadSprite(cocos2d::Ref* sender);
     
@@ -219,8 +219,8 @@ class Sprite3DWithSkinTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DWithSkinTest);
     Sprite3DWithSkinTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     
@@ -240,8 +240,8 @@ public:
     CREATE_FUNC(Sprite3DWithSkinOutlineTest);
     Sprite3DWithSkinOutlineTest();
     virtual ~Sprite3DWithSkinOutlineTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     
@@ -261,12 +261,12 @@ public:
     CREATE_FUNC(Animate3DTest);
     Animate3DTest();
     ~Animate3DTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
 protected:
     void addSprite3D();
@@ -300,8 +300,8 @@ class AttachmentTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(AttachmentTest);
     AttachmentTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     
@@ -317,8 +317,8 @@ class Sprite3DReskinTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DReskinTest);
     Sprite3DReskinTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     
@@ -347,9 +347,9 @@ class Sprite3DWithOBBPerformanceTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DWithOBBPerformanceTest);
     Sprite3DWithOBBPerformanceTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void update(float dt) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void update(float dt);
     void addNewOBBWithCoords(cocos2d::Vec2 p);
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
@@ -382,8 +382,8 @@ class Sprite3DMirrorTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DMirrorTest);
     Sprite3DMirrorTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
     
@@ -398,11 +398,11 @@ class QuaternionTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(QuaternionTest);
     QuaternionTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
-    virtual void update(float delta) override;
+    virtual void update(float delta);
     
 protected:
     cocos2d::Sprite3D* _sprite;
@@ -417,10 +417,10 @@ class UseCaseSprite3D : public Sprite3DTestDemo
 public:
     CREATE_FUNC(UseCaseSprite3D);
     UseCaseSprite3D();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
-    virtual void update(float delta) override;
+    virtual void update(float delta);
     
     void menuCallback_Message(cocos2d::Ref* sender);
     
@@ -444,8 +444,8 @@ class NodeAnimationTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(NodeAnimationTest);
     NodeAnimationTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void addNewSpriteWithCoords(cocos2d::Vec2 p);
 protected:
@@ -464,8 +464,8 @@ public:
     CREATE_FUNC(Sprite3DCubeMapTest);
     Sprite3DCubeMapTest();
     ~Sprite3DCubeMapTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void addNewSpriteWithCoords(cocos2d::Vec2);
 
@@ -494,8 +494,8 @@ public:
     CREATE_FUNC(Issue9767);
     Issue9767();
     ~Issue9767();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void menuCallback_SwitchShader(cocos2d::Ref* sender);
     
@@ -511,8 +511,8 @@ public:
     CREATE_FUNC(Sprite3DClippingTest);
     Sprite3DClippingTest();
     ~Sprite3DClippingTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Animate3DCallbackTest : public Sprite3DTestDemo
@@ -521,8 +521,8 @@ public:
     CREATE_FUNC(Animate3DCallbackTest);
     Animate3DCallbackTest();
     ~Animate3DCallbackTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     cocos2d::Sprite3D* _sprite3d;
@@ -533,8 +533,8 @@ class Sprite3DTestMeshLight : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DTestMeshLight);
     Sprite3DTestMeshLight();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     cocos2d::Sprite3D* _sprite;
@@ -545,8 +545,8 @@ class CameraBackgroundClearTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(CameraBackgroundClearTest);
     CameraBackgroundClearTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     void switch_CameraClearMode(cocos2d::Ref* sender);
 protected:
@@ -559,8 +559,8 @@ class Sprite3DVertexColorTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DVertexColorTest);
     Sprite3DVertexColorTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
     virtual ~Sprite3DVertexColorTest();
 protected:
@@ -575,9 +575,9 @@ class MotionStreak3DTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(MotionStreak3DTest);
     MotionStreak3DTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void update(float delta) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void update(float delta);
     
 protected:
     cocos2d::Sprite3D* _sprite;
@@ -589,8 +589,8 @@ class Sprite3DNormalMappingTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DNormalMappingTest);
     Sprite3DNormalMappingTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     virtual ~Sprite3DNormalMappingTest();
 };
@@ -600,9 +600,9 @@ class Sprite3DPropertyTest : public Sprite3DTestDemo
 public:
     CREATE_FUNC(Sprite3DPropertyTest);
     Sprite3DPropertyTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void update(float delta) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void update(float delta);
 
     void printMeshName(cocos2d::Ref* sender);
     void removeUsedTexture(cocos2d::Ref* sender);

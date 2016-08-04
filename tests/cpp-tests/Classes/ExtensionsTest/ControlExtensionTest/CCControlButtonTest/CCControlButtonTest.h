@@ -33,7 +33,7 @@ class ControlButtonTest_HelloVariableSize : public ControlScene
 public:
     CREATE_FUNC(ControlButtonTest_HelloVariableSize);
 
-    virtual bool init() override;
+    virtual bool init();
     /** Creates and return a button with a default background and title color. */
     cocos2d::extension::ControlButton* standardButtonWithTitle(const char * title);
 };
@@ -46,7 +46,7 @@ public:
     ControlButtonTest_Event();
     ~ControlButtonTest_Event();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void touchDownAction(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
     void touchDragInsideAction(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
@@ -66,7 +66,7 @@ protected:
 class ControlButtonTest_Styling : public ControlScene
 {
 public:
-    virtual bool init() override;
+    virtual bool init();
     cocos2d::extension::ControlButton* standardButtonWithTitle(const char *title);
     CREATE_FUNC(ControlButtonTest_Styling);
 };

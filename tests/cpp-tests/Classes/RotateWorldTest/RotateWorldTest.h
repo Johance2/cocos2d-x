@@ -10,20 +10,20 @@ class RotateWorldTest : public TestCase
 public:
     CREATE_FUNC(RotateWorldTest);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class SpriteLayer : public cocos2d::Layer
 {
 public:
-    virtual void onEnter() override;
+    virtual void onEnter();
     CREATE_FUNC(SpriteLayer)
 };
 
 class TestLayer : public cocos2d::Layer
 {
 public:
-    virtual void onEnter() override;
+    virtual void onEnter();
 
     CREATE_FUNC(TestLayer)
 };
@@ -31,7 +31,7 @@ public:
 class RotateWorldMainLayer : public cocos2d::Layer
 {
 public:
-    virtual void onEnter() override;
+    virtual void onEnter();
 
     CREATE_FUNC(RotateWorldMainLayer)
 };

@@ -604,10 +604,10 @@ class ResizableBufferAdapter<AlreadyExistsBuffer> : public ResizableBuffer {
 public:
     explicit ResizableBufferAdapter(AlreadyExistsBuffer* buffer) {
     }
-    virtual void resize(size_t size) override {
+    virtual void resize(size_t size) {
 
     }
-    virtual void* buffer() const override {
+    virtual void* buffer() const {
         return nullptr;
     }
 };

@@ -37,7 +37,7 @@ class NavMeshDisabled : public TestCase
 public:
     CREATE_FUNC(NavMeshDisabled);
 
-    virtual void onEnter() override;
+    virtual void onEnter();
 };
 #else
 
@@ -49,8 +49,8 @@ public:
     virtual ~NavMeshBaseTestDemo(void);
 
     // overrides
-    virtual bool init() override;
-    virtual void update(float delta) override;
+    virtual bool init();
+    virtual void update(float delta);
     virtual void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     virtual void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     virtual void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -80,11 +80,11 @@ public:
     virtual ~NavMeshBasicTestDemo(void);
     
     // overrides
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual bool init();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
-    virtual void onEnter() override;
+    virtual void onEnter();
     
 protected:
 
@@ -104,11 +104,11 @@ public:
     virtual ~NavMeshAdvanceTestDemo(void);
 
     // overrides
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual bool init();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
-    virtual void onEnter() override;
+    virtual void onEnter();
 
 protected:
 

@@ -39,8 +39,8 @@ public:
     CREATE_FUNC(BillBoardRotationTest);
     BillBoardRotationTest();
     virtual ~BillBoardRotationTest(void);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
 };
@@ -51,9 +51,9 @@ public:
     virtual ~BillBoardTest(void);
     CREATE_FUNC(BillBoardTest);
     BillBoardTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void update(float dt) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void update(float dt);
     void addNewBillBoradWithCoords(cocos2d::Vec3 p);
     void addNewAniBillBoradWithCoords(cocos2d::Vec3 p);
     void rotateCameraCallback(cocos2d::Ref* sender,float value);

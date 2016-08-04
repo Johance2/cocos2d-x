@@ -21,7 +21,7 @@ protected:
 public:
     CREATE_FUNC(Parallax1);
     Parallax1();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class Parallax2 : public ParallaxDemo
@@ -37,7 +37,7 @@ public:
     
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class Issue2572 : public ParallaxDemo
@@ -54,14 +54,14 @@ protected:
     float _wholeMoveTime;
     cocos2d::Vec2 _wholeMoveSize;
 
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
 public:
     CREATE_FUNC(Issue2572);
     Issue2572();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 #endif

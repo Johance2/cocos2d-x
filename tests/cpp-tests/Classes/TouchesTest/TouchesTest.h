@@ -11,7 +11,7 @@ class PongScene : public TestCase
 public:
     CREATE_FUNC(PongScene);
     
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class Ball;
@@ -36,8 +36,8 @@ class ForceTouchTest : public TestCase
 public:
     CREATE_FUNC(ForceTouchTest);
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);

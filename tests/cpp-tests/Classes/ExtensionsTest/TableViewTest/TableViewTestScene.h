@@ -12,7 +12,7 @@ class TableViewTest : public TestCase, public cocos2d::extension::TableViewDataS
 public:
     CREATE_FUNC(TableViewTest);
 
-    virtual bool init() override;  
+    virtual bool init();  
     
     virtual void scrollViewDidScroll(cocos2d::extension::ScrollView* view)override {};
     virtual void scrollViewDidZoom(cocos2d::extension::ScrollView* view)override {}

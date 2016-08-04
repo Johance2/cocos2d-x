@@ -17,7 +17,7 @@ DEFINE_TEST_SUITE(EventDispatcherTests);
 class EventDispatcherTestDemo : public TestCase
 {
 public:
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 
@@ -25,37 +25,37 @@ class TouchableSpriteTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(TouchableSpriteTest);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class FixedPriorityTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(FixedPriorityTest);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class RemoveListenerWhenDispatching : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(RemoveListenerWhenDispatching);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class CustomEventTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(CustomEventTest);
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     cocos2d::EventListenerCustom* _listener;
     cocos2d::EventListenerCustom* _listener2;
@@ -65,29 +65,29 @@ class LabelKeyboardEventTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(LabelKeyboardEventTest);
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class SpriteAccelerationEventTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(SpriteAccelerationEventTest);
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class RemoveAndRetainNodeTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(RemoveAndRetainNodeTest);
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     cocos2d::Sprite* _sprite;
     bool _spriteSaved;
@@ -97,10 +97,10 @@ class RemoveListenerAfterAddingTest : public EventDispatcherTestDemo
 {
 public:
     CREATE_FUNC(RemoveListenerAfterAddingTest);
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class DirectorEventTest : public EventDispatcherTestDemo
@@ -108,16 +108,16 @@ class DirectorEventTest : public EventDispatcherTestDemo
 public:
     CREATE_FUNC(DirectorEventTest);
     DirectorEventTest();
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
 
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 
     void onEvent1(cocos2d::EventCustom* event);
     void onEvent2(cocos2d::EventCustom* event);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
     int _count1, _count2, _count3, _count4;
@@ -131,10 +131,10 @@ public:
     CREATE_FUNC(GlobalZTouchTest);
     GlobalZTouchTest();
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     cocos2d::Sprite* _sprite;
@@ -147,8 +147,8 @@ public:
     CREATE_FUNC(StopPropagationTest);
     StopPropagationTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 protected:
     bool isPointInNode(cocos2d::Vec2 pt, cocos2d::Node* node);
@@ -162,8 +162,8 @@ public:
     PauseResumeTargetTest();
     virtual ~PauseResumeTargetTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
 };
@@ -175,8 +175,8 @@ public:
     Issue4129();
     virtual ~Issue4129();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     cocos2d::EventListenerCustom* _customlistener;
@@ -190,8 +190,8 @@ public:
     Issue4160();
     virtual ~Issue4160();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
 };
@@ -203,8 +203,8 @@ public:
     DanglingNodePointersTest();
     virtual ~DanglingNodePointersTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class RegisterAndUnregisterWhileEventHanldingTest : public EventDispatcherTestDemo
@@ -213,8 +213,8 @@ public:
     CREATE_FUNC(RegisterAndUnregisterWhileEventHanldingTest);
     RegisterAndUnregisterWhileEventHanldingTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Issue8194 : public EventDispatcherTestDemo
@@ -224,8 +224,8 @@ public:
     Issue8194();
     virtual ~Issue8194();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     cocos2d::EventListenerCustom* _listener;
@@ -237,8 +237,8 @@ public:
     CREATE_FUNC(Issue9898);
     Issue9898();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
     cocos2d::EventListenerCustom* _listener;

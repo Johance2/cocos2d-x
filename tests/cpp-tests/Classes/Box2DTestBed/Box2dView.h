@@ -38,7 +38,7 @@ public:
 
     bool initWithEntryID(int entryId);
     std::string title() const;
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 
 //    virtual void registerWithTouchDispatcher();
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)override;

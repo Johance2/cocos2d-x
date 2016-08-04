@@ -2019,8 +2019,8 @@ class TextureETC1 : public TextureDemo
 public:
     TextureETC1();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
  */
 

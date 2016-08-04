@@ -78,14 +78,14 @@ public:
     CameraRotationTest(void);
     virtual ~CameraRotationTest(void);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
 
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 
     // overrides
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 protected:
 
@@ -101,10 +101,10 @@ public:
     Camera3DTestDemo(void);
     virtual ~Camera3DTestDemo(void);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
     void addNewSpriteWithCoords(cocos2d::Vec3 p,std::string fileName,bool playAnimation=false,float scale=1.0f,bool bindCamera=false);
 
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -158,13 +158,13 @@ public:
     CameraCullingDemo(void);
     virtual ~CameraCullingDemo(void);
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
     void reachEndCallBack();
     void switchViewCallback(cocos2d::Ref* sender);
     void addSpriteCallback(cocos2d::Ref* sender);
@@ -192,13 +192,13 @@ public:
     CameraArcBallDemo(void);
     virtual ~CameraArcBallDemo(void);
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
     void switchOperateCallback(cocos2d::Ref* sender);
     void switchTargetCallback(cocos2d::Ref* sender);
@@ -229,13 +229,13 @@ public:
     FogTestDemo(void);
     virtual ~FogTestDemo(void);
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter();
+    virtual void onExit();
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 
@@ -262,9 +262,9 @@ public:
     CameraFrameBufferTest(void);
     virtual ~CameraFrameBufferTest(void);
     // overrides
-    virtual std::string title() const override;
+    virtual std::string title() const;
     
-    virtual void onEnter() override;
+    virtual void onEnter();
 };
 
 #endif

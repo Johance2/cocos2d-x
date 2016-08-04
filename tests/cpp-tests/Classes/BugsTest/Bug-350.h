@@ -8,7 +8,7 @@ class Bug350Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug350Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif // __BUG_350_H__

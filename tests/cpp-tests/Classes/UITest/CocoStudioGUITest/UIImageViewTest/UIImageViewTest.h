@@ -34,7 +34,7 @@ class UIImageViewTest : public UIScene
 public:
     CREATE_FUNC(UIImageViewTest);
 
-    virtual bool init() override;
+    virtual bool init();
 
     void printWidgetResources(cocos2d::Ref* sender);
 protected:
@@ -46,7 +46,7 @@ class UIImageViewTest_Scale9 : public UIScene
 public:
     CREATE_FUNC(UIImageViewTest_Scale9);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class UIImageViewTest_Scale9_State_Change : public UIScene
@@ -54,7 +54,7 @@ class UIImageViewTest_Scale9_State_Change : public UIScene
 public:
     CREATE_FUNC(UIImageViewTest_Scale9_State_Change);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class UIImageViewTest_ContentSize : public UIScene
@@ -62,7 +62,7 @@ class UIImageViewTest_ContentSize : public UIScene
 public:
     CREATE_FUNC(UIImageViewTest_ContentSize);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class UIImageViewFlipTest : public UIScene
@@ -70,7 +70,7 @@ class UIImageViewFlipTest : public UIScene
 public:
     CREATE_FUNC(UIImageViewFlipTest);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class UIImageViewIssue12249Test : public UIScene
@@ -78,7 +78,7 @@ class UIImageViewIssue12249Test : public UIScene
 public:
     CREATE_FUNC(UIImageViewIssue12249Test);
     
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif /* defined(__TestCpp__UIImageViewTest__) */

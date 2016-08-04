@@ -23,8 +23,8 @@ public:
 
     virtual void step(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTSpriteActions : public AtlasDemoNew
@@ -36,8 +36,8 @@ public:
     LabelFNTSpriteActions();
     virtual void step(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTPadding : public AtlasDemoNew
@@ -46,8 +46,8 @@ public:
     CREATE_FUNC(LabelFNTPadding);
 
     LabelFNTPadding();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 
@@ -57,8 +57,8 @@ public:
     CREATE_FUNC(LabelFNTOffset);
 
     LabelFNTOffset();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTColor : public AtlasDemoNew
@@ -67,9 +67,9 @@ public:
     CREATE_FUNC(LabelFNTColor);
 
     LabelFNTColor();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTOpacity : public AtlasDemoNew
@@ -78,9 +78,9 @@ public:
     CREATE_FUNC(LabelFNTOpacity);
 
     LabelFNTOpacity();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTHundredLabels : public AtlasDemoNew
@@ -89,8 +89,8 @@ public:
     CREATE_FUNC(LabelFNTHundredLabels);
 
     LabelFNTHundredLabels();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTMultiLine : public AtlasDemoNew
@@ -99,8 +99,8 @@ public:
     CREATE_FUNC(LabelFNTMultiLine);
 
     LabelFNTMultiLine();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTandTTFEmpty : public AtlasDemoNew
@@ -110,8 +110,8 @@ public:
 
     LabelFNTandTTFEmpty();
     void updateStrings(float dt);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
     bool setEmpty;
@@ -123,8 +123,8 @@ public:
     CREATE_FUNC(LabelFNTRetina);
 
     LabelFNTRetina();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTGlyphDesigner : public AtlasDemoNew
@@ -133,8 +133,8 @@ public:
     CREATE_FUNC(LabelFNTGlyphDesigner);
 
     LabelFNTGlyphDesigner();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTMultiLineAlignment : public AtlasDemoNew
@@ -145,8 +145,8 @@ public:
     LabelFNTMultiLineAlignment();
     ~LabelFNTMultiLineAlignment();
     void snapArrowsToEdge();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void stringChanged(cocos2d::Ref* sender);
     void alignmentChanged(cocos2d::Ref* sender);
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
@@ -168,8 +168,8 @@ public:
 
     LabelFNTUNICODELanguages();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFNTBounds : public AtlasDemoNew
@@ -179,8 +179,8 @@ public:
 
     LabelFNTBounds();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFLongLineWrapping : public AtlasDemoNew
@@ -190,8 +190,8 @@ public:
 
     LabelTTFLongLineWrapping();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFColor : public AtlasDemoNew
@@ -201,8 +201,8 @@ public:
 
     LabelTTFColor();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFUnicodeNew : public AtlasDemoNew
@@ -212,8 +212,8 @@ public:
 
     LabelTTFUnicodeNew();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFDynamicAlignment : public AtlasDemoNew
@@ -222,8 +222,8 @@ public:
     CREATE_FUNC(LabelTTFDynamicAlignment);
 
     LabelTTFDynamicAlignment();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     
@@ -244,8 +244,8 @@ public:
     CREATE_FUNC(LabelTTFCJKWrappingTest);
 
     LabelTTFCJKWrappingTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
 };
@@ -257,8 +257,8 @@ public:
 
     LabelTTFFontsTestNew();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFontDefTestNew : public AtlasDemoNew
@@ -268,8 +268,8 @@ public:
 
     LabelFontDefTestNew();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
 };
@@ -281,8 +281,8 @@ public:
 
     LabelTTFDistanceField();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelOutlineAndGlowTest : public AtlasDemoNew
@@ -292,8 +292,8 @@ public:
 
     LabelOutlineAndGlowTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelShadowTest : public AtlasDemoNew
@@ -303,8 +303,8 @@ public:
 
     LabelShadowTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
 private:
@@ -320,8 +320,8 @@ public:
 
     LabelCharMapTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void step(float dt);
 
@@ -336,8 +336,8 @@ public:
 
     LabelCharMapColorTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void step(float dt);
     void actionFinishCallback();
@@ -353,8 +353,8 @@ public:
 
     LabelCrashTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFOldNew : public AtlasDemoNew
@@ -364,8 +364,8 @@ public:
 
     LabelTTFOldNew();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelFontNameTest : public AtlasDemoNew
@@ -375,8 +375,8 @@ public:
 
     LabelFontNameTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelAlignmentTest : public AtlasDemoNew
@@ -385,8 +385,8 @@ public:
     CREATE_FUNC(LabelAlignmentTest);
 
     LabelAlignmentTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     void  setAlignmentLeft(cocos2d::Ref* sender);
     void  setAlignmentCenter(cocos2d::Ref* sender);
@@ -405,8 +405,8 @@ public:
 
     LabelIssue4428Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue4999Test : public AtlasDemoNew
@@ -416,8 +416,8 @@ public:
 
     LabelIssue4999Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelLineHeightTest : public AtlasDemoNew
@@ -427,8 +427,8 @@ public:
 
     LabelLineHeightTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
 private:
@@ -442,8 +442,8 @@ public:
 
     LabelAdditionalKerningTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void sliderEvent(cocos2d::Ref* sender, cocos2d::ui::Slider::EventType type);
 private:
@@ -457,8 +457,8 @@ public:
 
     LabelIssue8492Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelMultilineWithOutline : public AtlasDemoNew
@@ -468,8 +468,8 @@ public:
 
     LabelMultilineWithOutline();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 // we don't support linebreak mode
@@ -481,8 +481,8 @@ public:
 
     LabelIssue9255Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelSmallDimensionsTest : public AtlasDemoNew
@@ -492,8 +492,8 @@ public:
 
     LabelSmallDimensionsTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue10089Test : public AtlasDemoNew
@@ -503,8 +503,8 @@ public:
 
     LabelIssue10089Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelSystemFontColor : public AtlasDemoNew
@@ -514,8 +514,8 @@ public:
 
     LabelSystemFontColor();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue10773Test : public AtlasDemoNew
@@ -525,8 +525,8 @@ public:
 
     LabelIssue10773Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue11576Test : public AtlasDemoNew
@@ -536,8 +536,8 @@ public:
 
     LabelIssue11576Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue11699Test : public AtlasDemoNew
@@ -547,8 +547,8 @@ public:
 
     LabelIssue11699Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue12409Test : public AtlasDemoNew
@@ -558,8 +558,8 @@ public:
 
     LabelIssue12409Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelAddChildTest : public AtlasDemoNew
@@ -569,7 +569,7 @@ public:
 
     LabelAddChildTest();
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class LabelIssue12775Test : public AtlasDemoNew
@@ -579,8 +579,8 @@ public:
 
     LabelIssue12775Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue11585Test : public AtlasDemoNew
@@ -590,8 +590,8 @@ public:
 
     LabelIssue11585Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue10688Test : public AtlasDemoNew
@@ -601,8 +601,8 @@ public:
 
     LabelIssue10688Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue13202Test : public AtlasDemoNew
@@ -612,8 +612,8 @@ public:
 
     LabelIssue13202Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue9500Test : public AtlasDemoNew
@@ -623,8 +623,8 @@ public:
 
     LabelIssue9500Test();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelLayoutBaseTest : public AtlasDemoNew
@@ -662,8 +662,8 @@ public:
 
     LabelWrapByWordTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelWrapByCharTest : public LabelLayoutBaseTest
@@ -673,8 +673,8 @@ public:
 
     LabelWrapByCharTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelShrinkByWordTest : public LabelLayoutBaseTest
@@ -684,8 +684,8 @@ public:
 
     LabelShrinkByWordTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelShrinkByCharTest : public LabelLayoutBaseTest
@@ -695,8 +695,8 @@ public:
 
     LabelShrinkByCharTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelResizeTest : public LabelLayoutBaseTest
@@ -706,8 +706,8 @@ public:
 
     LabelResizeTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelToggleTypeTest : public LabelLayoutBaseTest
@@ -719,8 +719,8 @@ public:
     void initToggleCheckboxes();
     void onChangedRadioButtonSelect(cocos2d::ui::RadioButton* radioButton,cocos2d::ui::RadioButton::EventType type);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelSystemFontTest : public LabelLayoutBaseTest
@@ -732,8 +732,8 @@ public:
     void initToggleCheckboxes();
     void onChangedRadioButtonSelect(cocos2d::ui::RadioButton* radioButton,cocos2d::ui::RadioButton::EventType type);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelCharMapFontTest : public LabelLayoutBaseTest
@@ -743,8 +743,8 @@ public:
 
     LabelCharMapFontTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelIssue13846Test : public AtlasDemoNew
@@ -754,8 +754,8 @@ public:
     
     LabelIssue13846Test();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelRichText : public AtlasDemoNew
@@ -764,8 +764,8 @@ public:
     CREATE_FUNC(LabelRichText);
 
     LabelRichText();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelItalics : public AtlasDemoNew
@@ -774,8 +774,8 @@ public:
     CREATE_FUNC(LabelItalics);
 
     LabelItalics();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1a;
     cocos2d::Label* _label2a;
@@ -787,8 +787,8 @@ public:
     CREATE_FUNC(LabelBold);
 
     LabelBold();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1a;
     cocos2d::Label* _label2a;
@@ -800,8 +800,8 @@ public:
     CREATE_FUNC(LabelUnderline);
 
     LabelUnderline();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1a;
     cocos2d::Label* _label2a;
@@ -813,8 +813,8 @@ public:
     CREATE_FUNC(LabelUnderlineMultiline);
 
     LabelUnderlineMultiline();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1a;
     cocos2d::Label* _label2a;
@@ -826,8 +826,8 @@ public:
     CREATE_FUNC(LabelStrikethrough);
 
     LabelStrikethrough();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1a;
     cocos2d::Label* _label2a;
@@ -841,8 +841,8 @@ public:
     LabelLocalizationTest();
     void onChangedRadioButtonSelect(cocos2d::ui::RadioButton* radioButton, cocos2d::ui::RadioButton::EventType type);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     cocos2d::Label* _label1;
     cocos2d::Label* _label2;
@@ -857,7 +857,7 @@ public:
 
     LabelIssue15214();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 #endif

@@ -1356,8 +1356,8 @@ class RainbowEffect : public ParticleSystemQuad
 {
 public:
     bool init()override;
-    virtual bool initWithTotalParticles(int numberOfParticles) override;
-    virtual void update(float dt) override;
+    virtual bool initWithTotalParticles(int numberOfParticles);
+    virtual void update(float dt);
 };
 
 bool RainbowEffect::init()

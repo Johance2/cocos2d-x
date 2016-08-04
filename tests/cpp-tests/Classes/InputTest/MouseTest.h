@@ -24,8 +24,8 @@ public:
     void onMouseMove(cocos2d::Event* event);
     void onMouseScroll(cocos2d::Event* event);
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
     cocos2d::Label*   _labelAction;
@@ -40,8 +40,8 @@ public:
     HideMouseTest();
     ~HideMouseTest();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     
 private:
     cocos2d::EventListenerMouse* _lis;

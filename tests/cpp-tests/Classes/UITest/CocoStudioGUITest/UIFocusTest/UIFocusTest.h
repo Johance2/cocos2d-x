@@ -19,7 +19,7 @@ public:
     UIFocusTestBase();
     virtual ~UIFocusTestBase();
 
-    virtual bool init() override;
+    virtual bool init();
 
     virtual void onLeftKeyPressed();
     virtual void onRightKeyPressed();
@@ -43,7 +43,7 @@ public:
     UIFocusTestHorizontal();
     virtual ~UIFocusTestHorizontal();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void toggleFocusLoop(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType);
 
@@ -60,7 +60,7 @@ public:
     UIFocusTestVertical();
     virtual ~UIFocusTestVertical();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void toggleFocusLoop(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType);
 protected:
@@ -76,7 +76,7 @@ public:
     UIFocusTestNestedLayout1();
     virtual ~UIFocusTestNestedLayout1();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void toggleFocusLoop(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType);
 protected:
@@ -92,7 +92,7 @@ public:
     UIFocusTestNestedLayout2();
     virtual ~UIFocusTestNestedLayout2();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void toggleFocusLoop(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType);
 protected:
@@ -108,7 +108,7 @@ public:
     UIFocusTestNestedLayout3();
     virtual ~UIFocusTestNestedLayout3();
 
-    virtual bool init() override;
+    virtual bool init();
 
     void toggleFocusLoop(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType);
 protected:

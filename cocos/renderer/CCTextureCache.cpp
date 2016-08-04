@@ -217,7 +217,7 @@ void TextureCache::loadImage()
 {
     AsyncStruct *asyncStruct = nullptr;
     boost::mutex signalMutex;
-    std::unique_lock<boost::mutex> signal(signalMutex);
+    boost::unique_lock<boost::mutex> signal(signalMutex);
     while (!_needQuit)
     {
         // pop an AsyncStruct from request queue

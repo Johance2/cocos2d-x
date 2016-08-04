@@ -43,16 +43,16 @@ private:
 	spine::SkeletonAnimation* skeletonNode;
     
 public:
-    virtual std::string title() const override
+    virtual std::string title() const
     {
         return "Spine Test";
     }
-    virtual std::string subtitle() const override
+    virtual std::string subtitle() const
     {
         return "Normal Spine";
     }
-	virtual bool init () override;
-	virtual void update (float deltaTime) override;
+	virtual bool init ();
+	virtual void update (float deltaTime);
     //    void animationStateEvent (spine::SkeletonAnimation* node, int trackIndex, spEventType type, spEvent* event, int loopCount);
     
 	CREATE_FUNC (SpineTestLayerNormal);
@@ -63,16 +63,16 @@ private:
 	spine::SkeletonAnimation* skeletonNode;
     
 public:
-    virtual std::string title() const override
+    virtual std::string title() const
     {
         return "Spine Test";
     }
-    virtual std::string subtitle() const override
+    virtual std::string subtitle() const
     {
         return "FFD Spine";
     }
-	virtual bool init () override;
-	virtual void update (float deltaTime) override;
+	virtual bool init ();
+	virtual void update (float deltaTime);
     //    void animationStateEvent (spine::SkeletonAnimation* node, int trackIndex, spEventType type, spEvent* event, int loopCount);
     
 	CREATE_FUNC (SpineTestLayerFFD);
@@ -81,15 +81,15 @@ public:
 class SpineTestLayerRapor: public SpineTestLayer
 {
 public:
-    virtual std::string title() const override
+    virtual std::string title() const
     {
         return "Spine Test";
     }
-    virtual std::string subtitle() const override
+    virtual std::string subtitle() const
     {
         return "Raptor Test";
     }
-    virtual bool init () override;
+    virtual bool init ();
     
     CREATE_FUNC (SpineTestLayerRapor);
     
@@ -100,16 +100,16 @@ private:
 class SpineTestPerformanceLayer: public SpineTestLayer
 {
 public:
-    virtual std::string title() const override
+    virtual std::string title() const
     {
         return "Spine Test";
     }
-    virtual std::string subtitle() const override
+    virtual std::string subtitle() const
     {
         return "Performance Test for Spine";
     }
-	virtual bool init () override;
-	virtual void update (float deltaTime) override;
+	virtual bool init ();
+	virtual void update (float deltaTime);
     //    void animationStateEvent (spine::SkeletonAnimation* node, int trackIndex, spEventType type, spEvent* event, int loopCount);
     
 	CREATE_FUNC (SpineTestPerformanceLayer);

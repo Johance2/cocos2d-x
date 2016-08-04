@@ -1432,7 +1432,7 @@ void ActionStacked::addNewSpriteWithCoords(Vec2 p)
 
 void ActionStacked::runActionsInSprite(Sprite *sprite)
 {
-    // override me
+    // me
 }
 
 void ActionStacked::onTouchesEnded(const std::vector<Touch*>& touches, Event* event)

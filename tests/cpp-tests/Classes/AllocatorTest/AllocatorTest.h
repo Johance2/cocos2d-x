@@ -38,5 +38,5 @@ public:
     AllocatorTest();
     virtual ~AllocatorTest();
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };

@@ -13,9 +13,9 @@ public:
     CREATE_FUNC(BaseClippingNodeTest);
 
     ~BaseClippingNodeTest();
-    virtual bool init() override;
+    virtual bool init();
 
-	virtual std::string title() const override;
+	virtual std::string title() const;
     virtual void setup();
 };
 
@@ -24,9 +24,9 @@ class BasicTest : public BaseClippingNodeTest
 public:
     CREATE_FUNC(BasicTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void setup() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void setup();
 
 	virtual cocos2d::Action* actionRotate();
 	virtual cocos2d::Action* actionScale();
@@ -44,11 +44,11 @@ class ShapeTest : public BasicTest
 public:
     CREATE_FUNC(ShapeTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
-    virtual cocos2d::Node* stencil() override;
-    virtual cocos2d::Node* content() override;
+    virtual cocos2d::Node* stencil();
+    virtual cocos2d::Node* content();
 };
 
 class ShapeInvertedTest : public ShapeTest
@@ -56,9 +56,9 @@ class ShapeInvertedTest : public ShapeTest
 public:
     CREATE_FUNC(ShapeInvertedTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual cocos2d::ClippingNode* clipper() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual cocos2d::ClippingNode* clipper();
 };
 
 class SpriteTest : public BasicTest
@@ -66,12 +66,12 @@ class SpriteTest : public BasicTest
 public:
     CREATE_FUNC(SpriteTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
-    virtual cocos2d::Node* stencil() override;
-    virtual cocos2d::ClippingNode* clipper() override;
-    virtual cocos2d::Node* content() override;
+    virtual cocos2d::Node* stencil();
+    virtual cocos2d::ClippingNode* clipper();
+    virtual cocos2d::Node* content();
 };
 
 class SpriteNoAlphaTest : public SpriteTest
@@ -79,9 +79,9 @@ class SpriteNoAlphaTest : public SpriteTest
 public:
     CREATE_FUNC(SpriteNoAlphaTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual cocos2d::ClippingNode* clipper() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual cocos2d::ClippingNode* clipper();
 };
 
 class SpriteInvertedTest : public SpriteTest
@@ -89,9 +89,9 @@ class SpriteInvertedTest : public SpriteTest
 public:
     CREATE_FUNC(SpriteInvertedTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual cocos2d::ClippingNode* clipper() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual cocos2d::ClippingNode* clipper();
 };
 
 class NestedTest : public BaseClippingNodeTest
@@ -99,9 +99,9 @@ class NestedTest : public BaseClippingNodeTest
 public:
     CREATE_FUNC(NestedTest);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void setup() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void setup();
 };
 
 class HoleDemo : public BaseClippingNodeTest
@@ -110,9 +110,9 @@ public:
     CREATE_FUNC(HoleDemo);
 
     ~HoleDemo();
-    virtual void setup() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void setup();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void pokeHoleAtPoint(cocos2d::Vec2 point);
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 private:
@@ -126,9 +126,9 @@ class ScrollViewDemo : public BaseClippingNodeTest
 public:
     CREATE_FUNC(ScrollViewDemo);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void setup() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void setup();
 	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -146,10 +146,10 @@ public:
 
     ~RawStencilBufferTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void setup() override;
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void setup();
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags);
 
 	virtual void setupStencilForClippingOnPlane(GLint plane);
 	virtual void setupStencilForDrawingOnPlane(GLint plane);
@@ -170,9 +170,9 @@ class RawStencilBufferTest2 : public RawStencilBufferTest
 public:
     CREATE_FUNC(RawStencilBufferTest2);
 
-    virtual std::string subtitle() const override;
-    virtual void setupStencilForClippingOnPlane(GLint plane) override;
-    virtual void setupStencilForDrawingOnPlane(GLint plane) override;
+    virtual std::string subtitle() const;
+    virtual void setupStencilForClippingOnPlane(GLint plane);
+    virtual void setupStencilForDrawingOnPlane(GLint plane);
 };
 
 class RawStencilBufferTest3 : public RawStencilBufferTest
@@ -180,15 +180,15 @@ class RawStencilBufferTest3 : public RawStencilBufferTest
 public:
     CREATE_FUNC(RawStencilBufferTest3);
 
-    virtual std::string subtitle() const override;
-    virtual void setupStencilForClippingOnPlane(GLint plane) override;
-    virtual void setupStencilForDrawingOnPlane(GLint plane) override;
+    virtual std::string subtitle() const;
+    virtual void setupStencilForClippingOnPlane(GLint plane);
+    virtual void setupStencilForDrawingOnPlane(GLint plane);
 };
 
 class RawStencilBufferTestAlphaTest : public RawStencilBufferTest
 {
 public:
-    virtual void setup() override;
+    virtual void setup();
 };
 
 class RawStencilBufferTest4 : public RawStencilBufferTestAlphaTest
@@ -196,9 +196,9 @@ class RawStencilBufferTest4 : public RawStencilBufferTestAlphaTest
 public:
     CREATE_FUNC(RawStencilBufferTest4);
 
-    virtual std::string subtitle() const override;
-    virtual void setupStencilForClippingOnPlane(GLint plane) override;
-    virtual void setupStencilForDrawingOnPlane(GLint plane) override;
+    virtual std::string subtitle() const;
+    virtual void setupStencilForClippingOnPlane(GLint plane);
+    virtual void setupStencilForDrawingOnPlane(GLint plane);
 };
 
 class RawStencilBufferTest5 : public RawStencilBufferTestAlphaTest
@@ -206,9 +206,9 @@ class RawStencilBufferTest5 : public RawStencilBufferTestAlphaTest
 public:
     CREATE_FUNC(RawStencilBufferTest5);
 
-    virtual std::string subtitle() const override;
-    virtual void setupStencilForClippingOnPlane(GLint plane) override;
-    virtual void setupStencilForDrawingOnPlane(GLint plane) override;
+    virtual std::string subtitle() const;
+    virtual void setupStencilForClippingOnPlane(GLint plane);
+    virtual void setupStencilForDrawingOnPlane(GLint plane);
 };
 
 class RawStencilBufferTest6 : public RawStencilBufferTestAlphaTest
@@ -216,12 +216,12 @@ class RawStencilBufferTest6 : public RawStencilBufferTestAlphaTest
 public:
     CREATE_FUNC(RawStencilBufferTest6);
 
-    virtual void setupStencilForClippingOnPlane(GLint plane) override;
-    virtual void setupStencilForDrawingOnPlane(GLint plane) override;
+    virtual void setupStencilForClippingOnPlane(GLint plane);
+    virtual void setupStencilForDrawingOnPlane(GLint plane);
 
-    // override
-    virtual void setup() override;
-    virtual std::string subtitle() const override;
+    //
+    virtual void setup();
+    virtual std::string subtitle() const;
 };
 
 //#endif //COCOS2D_DEBUG > 1
@@ -234,10 +234,10 @@ public:
     void expectedBehaviour();
     void reproduceBug();
 
-    // override
-    virtual void setup() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    //
+    virtual void setup();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class ClippingRectangleNodeTest : public BaseClippingNodeTest
@@ -245,9 +245,9 @@ class ClippingRectangleNodeTest : public BaseClippingNodeTest
 public:
     CREATE_FUNC(ClippingRectangleNodeTest);
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void setup() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void setup();
 };
 
 #endif //__CLIPPINGNODETEST_H__

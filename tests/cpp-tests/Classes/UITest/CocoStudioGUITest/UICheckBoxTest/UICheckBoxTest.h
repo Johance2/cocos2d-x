@@ -37,7 +37,7 @@ public:
     UICheckBoxTest();
     ~UICheckBoxTest();
 
-    virtual bool init() override;
+    virtual bool init();
     void selectedEvent(cocos2d::Ref* sender,cocos2d::ui::CheckBox::EventType type);
     
     void printWidgetResources(cocos2d::Ref* sender);
@@ -54,7 +54,7 @@ public:
     UICheckBoxDefaultBehaviorTest();
     ~UICheckBoxDefaultBehaviorTest();
 
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
     cocos2d::ui::Text* _displayValueLabel;
@@ -68,7 +68,7 @@ public:
     UICheckBoxCopyTest();
     ~UICheckBoxCopyTest();
 
-    virtual bool init() override;
+    virtual bool init();
 
 protected:
     cocos2d::ui::Text* _displayValueLabel;

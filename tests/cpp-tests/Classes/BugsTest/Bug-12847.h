@@ -8,12 +8,12 @@ class Bug12847Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug12847Layer);
     
-    virtual bool init() override;
+    virtual bool init();
     
 protected:
-    virtual void update(float dt) override;
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void update(float dt);
+    virtual void onEnter();
+    virtual void onExit();
     
 private:
     

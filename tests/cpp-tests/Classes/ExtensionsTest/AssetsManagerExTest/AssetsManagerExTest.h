@@ -15,10 +15,10 @@ public:
     
     void startDownloadCallback(cocos2d::Ref* sender);
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
-    virtual bool init() override;
-    virtual void onExit() override;
+    virtual bool init();
+    virtual void onExit();
     
 private:
     int _testIndex;

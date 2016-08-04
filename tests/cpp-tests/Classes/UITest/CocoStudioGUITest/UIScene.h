@@ -37,8 +37,8 @@ public:
     UIScene();
     ~UIScene();
 
-    virtual bool init() override;
-    virtual void onEnter() override;
+    virtual bool init();
+    virtual void onEnter();
 protected:
     cocos2d::Layer* _uiLayer;
     cocos2d::ui::Layout* _widget;

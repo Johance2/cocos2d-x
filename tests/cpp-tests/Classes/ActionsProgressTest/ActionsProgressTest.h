@@ -36,8 +36,8 @@ public:
     SpriteDemo(void);
     ~SpriteDemo(void);
 
-    virtual std::string title() const override;
-    virtual void onEnter() override;
+    virtual std::string title() const;
+    virtual void onEnter();
 };
 
 class SpriteProgressToRadial : public SpriteDemo
@@ -45,8 +45,8 @@ class SpriteProgressToRadial : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressToRadial);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressToHorizontal : public SpriteDemo
@@ -54,8 +54,8 @@ class SpriteProgressToHorizontal : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressToHorizontal);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressToVertical : public SpriteDemo
@@ -63,8 +63,8 @@ class SpriteProgressToVertical : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressToVertical);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressToRadialMidpointChanged : public SpriteDemo
@@ -72,8 +72,8 @@ class SpriteProgressToRadialMidpointChanged : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressToRadialMidpointChanged);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressBarVarious : public SpriteDemo
@@ -81,8 +81,8 @@ class SpriteProgressBarVarious : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressBarVarious);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressBarTintAndFade : public SpriteDemo
@@ -90,8 +90,8 @@ class SpriteProgressBarTintAndFade : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressBarTintAndFade);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 class SpriteProgressWithSpriteFrame : public SpriteDemo
@@ -99,8 +99,8 @@ class SpriteProgressWithSpriteFrame : public SpriteDemo
 public:
     CREATE_FUNC(SpriteProgressWithSpriteFrame);
 
-    virtual void onEnter() override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string subtitle() const;
 };
 
 #endif // _ACTIONS__PROGRESS_TEST_H_

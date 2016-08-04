@@ -36,9 +36,9 @@ public:
     LightTest();
     virtual ~LightTest();
 
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
-    virtual void update(float delta) override;
+    virtual void update(float delta);
 
     void SwitchLight(cocos2d::Ref* sender, cocos2d::LightType lightType);
 

@@ -34,7 +34,7 @@ class UILayoutTest : public UIScene
 public:
     UILayoutTest();
     ~UILayoutTest();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest);
 };
@@ -44,7 +44,7 @@ class UILayoutTest_Color : public UIScene
 public:
     UILayoutTest_Color();
     ~UILayoutTest_Color();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Color);
 };
@@ -54,7 +54,7 @@ class UILayoutTest_Gradient : public UIScene
 public:
     UILayoutTest_Gradient();
     ~UILayoutTest_Gradient();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Gradient);
 };
@@ -64,7 +64,7 @@ class UILayoutTest_BackGroundImage : public UIScene
 public:
     UILayoutTest_BackGroundImage();
     ~UILayoutTest_BackGroundImage();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_BackGroundImage);
 
@@ -78,7 +78,7 @@ class UILayoutTest_BackGroundImage_Scale9 : public UIScene
 public:
     UILayoutTest_BackGroundImage_Scale9();
     ~UILayoutTest_BackGroundImage_Scale9();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_BackGroundImage_Scale9);
 };
@@ -88,7 +88,7 @@ class UILayoutTest_Layout_Linear_Vertical : public UIScene
 public:
     UILayoutTest_Layout_Linear_Vertical();
     ~UILayoutTest_Layout_Linear_Vertical();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Layout_Linear_Vertical);
 };
@@ -98,7 +98,7 @@ class UILayoutTest_Layout_Linear_Horizontal : public UIScene
 public:
     UILayoutTest_Layout_Linear_Horizontal();
     ~UILayoutTest_Layout_Linear_Horizontal();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Layout_Linear_Horizontal);
 };
@@ -108,7 +108,7 @@ class UILayoutTest_Layout_Relative_Align_Parent : public UIScene
 public:
     UILayoutTest_Layout_Relative_Align_Parent();
     ~UILayoutTest_Layout_Relative_Align_Parent();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Layout_Relative_Align_Parent);
 };
@@ -118,7 +118,7 @@ class UILayoutTest_Layout_Relative_Location : public UIScene
 public:
     UILayoutTest_Layout_Relative_Location();
     ~UILayoutTest_Layout_Relative_Location();
-    virtual bool init() override;
+    virtual bool init();
     
     CREATE_FUNC(UILayoutTest_Layout_Relative_Location);
 };
@@ -128,7 +128,7 @@ class UILayoutComponentTest : public UIScene
 public:
     CREATE_FUNC(UILayoutComponentTest);
 
-    virtual bool init() override;
+    virtual bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 protected:
     cocos2d::LayerColor* _baseLayer;
@@ -138,7 +138,7 @@ protected:
 class UILayoutComponent_Berth_Test : public UILayoutComponentTest
 {
 public:
-    virtual bool init() override;
+    virtual bool init();
 
     CREATE_FUNC(UILayoutComponent_Berth_Test);
 };
@@ -146,7 +146,7 @@ public:
 class UILayoutComponent_Berth_Stretch_Test : public UILayoutComponentTest
 {
 public:
-    virtual bool init() override;
+    virtual bool init();
 
     CREATE_FUNC(UILayoutComponent_Berth_Stretch_Test);
 };

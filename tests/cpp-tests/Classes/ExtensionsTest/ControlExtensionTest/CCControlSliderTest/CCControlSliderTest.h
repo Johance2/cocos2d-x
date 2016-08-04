@@ -32,7 +32,7 @@ public:
 
     ControlSliderTest();
     virtual ~ControlSliderTest();
-    virtual bool init() override;
+    virtual bool init();
     void valueChanged(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
 protected:
     cocos2d::Label* _displayValueLabel;

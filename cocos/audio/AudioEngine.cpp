@@ -85,7 +85,7 @@ public:
     }
 
     void addTask(const std::function<void()> &task){
-        std::unique_lock<boost::mutex> lk(_queueMutex);
+        boost::unique_lock<boost::mutex> lk(_queueMutex);
         _taskQueue.emplace(task);
         _taskCondition.notify_one();
     }
@@ -93,7 +93,7 @@ public:
     ~AudioEngineThreadPool()
     {
         {
-            std::unique_lock<boost::mutex> lk(_queueMutex);
+            boost::unique_lock<boost::mutex> lk(_queueMutex);
             _stop = true;
             _taskCondition.notify_all();
         }
@@ -112,7 +112,7 @@ private:
         while (true) {
             std::function<void()> task = nullptr;
             {
-                std::unique_lock<boost::mutex> lk(_queueMutex);
+                boost::unique_lock<boost::mutex> lk(_queueMutex);
                 if (_stop)
                 {
                     break;

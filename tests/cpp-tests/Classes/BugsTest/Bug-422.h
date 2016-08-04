@@ -8,7 +8,7 @@ class Bug422Layer : public BugsTestBase
 public:
     CREATE_FUNC(Bug422Layer);
 
-    virtual bool init() override;
+    virtual bool init();
 
     void reset();
     void check(Node* target);

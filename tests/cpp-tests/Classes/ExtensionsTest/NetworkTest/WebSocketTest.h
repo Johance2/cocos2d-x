@@ -35,7 +35,7 @@ public:
     void onMenuSendMultipleTextClicked(cocos2d::Ref *sender);
     void onMenuSendBinaryClicked(cocos2d::Ref *sender);
 
-    virtual std::string title() const override { return "WebSocket Test"; }
+    virtual std::string title() const { return "WebSocket Test"; }
     void startTestCallback(cocos2d::Ref* sender);
 
 private:
@@ -66,8 +66,8 @@ public:
     WebSocketCloseTest();
     virtual ~WebSocketCloseTest();
 
-    virtual std::string title() const override { return "WebSocket close by resetDirector event Test"; }
-    std::string subtitle() const override { return "Click close button, Program should close without crash."; }
+    virtual std::string title() const { return "WebSocket close by resetDirector event Test"; }
+    std::string subtitle() const { return "Click close button, Program should close without crash."; }
 
 private:
     cocos2d::network::WebSocket* _wsiTest;

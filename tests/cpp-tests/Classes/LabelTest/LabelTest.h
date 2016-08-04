@@ -26,9 +26,9 @@ public:
 
     Atlas1();
     ~Atlas1();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags);
 protected:
     void onDraw(const cocos2d::Mat4& transform, uint32_t flags);
 protected:
@@ -45,8 +45,8 @@ public:
 
     virtual void step(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelAtlasColorTest : public AtlasDemo
@@ -57,8 +57,8 @@ public:
 
     LabelAtlasColorTest();
     virtual void step(float dt);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void actionFinishCallback();
 };
 
@@ -68,8 +68,8 @@ public:
     CREATE_FUNC(LabelTTFAlignment);
 
     LabelTTFAlignment();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 
@@ -83,8 +83,8 @@ public:
 
     virtual void step(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Atlas4 : public AtlasDemo
@@ -96,8 +96,8 @@ public:
     Atlas4();
     virtual void step(float dt);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class Atlas5 : public AtlasDemo
@@ -106,8 +106,8 @@ public:
     CREATE_FUNC(Atlas5);
 
     Atlas5();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 
@@ -117,8 +117,8 @@ public:
     CREATE_FUNC(Atlas6);
 
     Atlas6();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class AtlasBitmapColor : public AtlasDemo
@@ -127,9 +127,9 @@ public:
     CREATE_FUNC(AtlasBitmapColor);
 
     AtlasBitmapColor();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 
-    virtual std::string subtitle() const override;
+    virtual std::string subtitle() const;
 };
 
 class AtlasFastBitmap : public AtlasDemo
@@ -138,8 +138,8 @@ public:
     CREATE_FUNC(AtlasFastBitmap);
 
     AtlasFastBitmap();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class BitmapFontMultiLine : public AtlasDemo
@@ -148,8 +148,8 @@ public:
     CREATE_FUNC(BitmapFontMultiLine);
 
     BitmapFontMultiLine();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelsEmpty : public AtlasDemo
@@ -159,8 +159,8 @@ public:
 
     LabelsEmpty();
     void updateStrings(float dt);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
     bool setEmpty;
@@ -172,8 +172,8 @@ public:
     CREATE_FUNC(LabelBMFontHD);
 
     LabelBMFontHD();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelAtlasHD : public AtlasDemo
@@ -182,8 +182,8 @@ public:
     CREATE_FUNC(LabelAtlasHD);
 
     LabelAtlasHD();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelGlyphDesigner : public AtlasDemo
@@ -192,8 +192,8 @@ public:
     CREATE_FUNC(LabelGlyphDesigner);
 
     LabelGlyphDesigner();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFTest : public AtlasDemo
@@ -203,8 +203,8 @@ public:
 
     LabelTTFTest();
     virtual ~LabelTTFTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 private:
     void  setAlignmentLeft(cocos2d::Ref* sender);
     void  setAlignmentCenter(cocos2d::Ref* sender);
@@ -226,8 +226,8 @@ public:
     CREATE_FUNC(LabelTTFMultiline);
 
     LabelTTFMultiline();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelTTFChinese : public AtlasDemo
@@ -236,7 +236,7 @@ public:
     CREATE_FUNC(LabelTTFChinese);
 
     LabelTTFChinese();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class LabelBMFontChinese : public AtlasDemo
@@ -245,7 +245,7 @@ public:
     CREATE_FUNC(LabelBMFontChinese);
 
     LabelBMFontChinese();
-    virtual std::string title() const override;
+    virtual std::string title() const;
 };
 
 class BitmapFontMultiLineAlignment : public AtlasDemo
@@ -256,8 +256,8 @@ public:
     BitmapFontMultiLineAlignment();
     ~BitmapFontMultiLineAlignment();
     void snapArrowsToEdge();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     void stringChanged(cocos2d::Ref* sender);
     void alignmentChanged(cocos2d::Ref* sender);
     void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
@@ -279,8 +279,8 @@ public:
 
     LabelTTFOpacityTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class BMFontOneAtlas : public AtlasDemo
@@ -290,8 +290,8 @@ public:
 
     BMFontOneAtlas();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class BMFontUnicode : public AtlasDemo
@@ -301,8 +301,8 @@ public:
 
     BMFontUnicode();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class BMFontInit : public AtlasDemo
@@ -312,8 +312,8 @@ public:
 
     BMFontInit();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TTFFontInit : public AtlasDemo
@@ -323,8 +323,8 @@ public:
 
     TTFFontInit();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class TTFFontShadowAndStroke : public AtlasDemo
@@ -334,8 +334,8 @@ public:
 
     TTFFontShadowAndStroke();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 
@@ -346,8 +346,8 @@ public:
 
     Issue1343();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelBMFontBounds : public AtlasDemo
@@ -357,8 +357,8 @@ public:
 
     LabelBMFontBounds();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class NewLabelTTFUnicode : public AtlasDemo
@@ -368,8 +368,8 @@ public:
 
     NewLabelTTFUnicode();
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class NewLabelBMFontTest : public AtlasDemo
@@ -379,8 +379,8 @@ public:
 
     NewLabelBMFontTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
 };
@@ -392,8 +392,8 @@ public:
 
     NewLabelFontDefTest();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
 private:
 };
@@ -403,9 +403,9 @@ class LabelBMFontCrashTest : public AtlasDemo
 public:
     CREATE_FUNC(LabelBMFontCrashTest);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 class LabelBMFontBinaryFormat : public AtlasDemo
@@ -415,8 +415,8 @@ public:
 
     LabelBMFontBinaryFormat();
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 };
 
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))

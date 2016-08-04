@@ -26,7 +26,7 @@ public:
     //Http Response Callback
     void onHttpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
-    virtual std::string title() const override { return "Http Request Test"; }
+    virtual std::string title() const { return "Http Request Test"; }
 
 private:
     cocos2d::Label* _labelStatusCode;

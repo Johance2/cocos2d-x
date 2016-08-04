@@ -69,7 +69,7 @@ AudioPlayer::~AudioPlayer()
 void AudioPlayer::notifyExitThread()
 {
     if (_audioCache && _audioCache->_queBufferFrames > 0) {
-        std::unique_lock<boost::mutex> lk(_sleepMutex);
+        boost::unique_lock<boost::mutex> lk(_sleepMutex);
         _exitThread = true;
         _sleepCondition.notify_all();
     }
@@ -267,7 +267,7 @@ void AudioPlayer::rotateBufferThread(int offsetFrame)
             }
         }
 
-        std::unique_lock<boost::mutex> lk(_sleepMutex);
+        boost::unique_lock<boost::mutex> lk(_sleepMutex);
         if (_exitThread)
         {
             break;

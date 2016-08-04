@@ -16,13 +16,13 @@ public:
 
     ChipmunkTest();
     ~ChipmunkTest();
-    void onEnter() override;
+    void onEnter();
     void initPhysics();
     void createResetButton();
     void reset(cocos2d::Ref* sender);
 
     void addNewSpriteAtPosition(cocos2d::Vec2 p);
-    void update(float dt) override;
+    void update(float dt);
     void toggleDebugCallback(cocos2d::Ref* sender);
     void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
     virtual void onAcceleration(cocos2d::Acceleration* acc, cocos2d::Event* event);

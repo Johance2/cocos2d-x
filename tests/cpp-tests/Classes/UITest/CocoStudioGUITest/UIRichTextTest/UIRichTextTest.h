@@ -12,7 +12,7 @@ class UIRichTextTest : public UIScene
 public:
     CREATE_FUNC(UIRichTextTest);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -25,7 +25,7 @@ class UIRichTextXMLBasic : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLBasic);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -38,7 +38,7 @@ class UIRichTextXMLSmallBig : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLSmallBig);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -51,7 +51,7 @@ class UIRichTextXMLColor : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLColor);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -64,7 +64,7 @@ class UIRichTextXMLSUIB : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLSUIB);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -77,7 +77,7 @@ class UIRichTextXMLSUIB2 : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLSUIB2);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -90,7 +90,7 @@ class UIRichTextXMLSUIB3 : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLSUIB3);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -103,7 +103,7 @@ class UIRichTextXMLImg : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLImg);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -116,7 +116,7 @@ class UIRichTextXMLUrl : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLUrl);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -129,7 +129,7 @@ class UIRichTextXMLUrlImg : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLUrlImg);
     
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
@@ -142,7 +142,7 @@ class UIRichTextXMLFace : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLFace);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -155,7 +155,7 @@ class UIRichTextXMLBR : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLBR);
 
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
@@ -168,7 +168,7 @@ class UIRichTextXMLInvalid : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLInvalid);
 
-    bool init() override;
+    bool init();
 
 protected:
     cocos2d::ui::RichText* _richText;
@@ -179,7 +179,7 @@ class UIRichTextXMLOutline : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLOutline);
     
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
@@ -192,7 +192,7 @@ class UIRichTextXMLShadow : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLShadow);
     
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
@@ -205,7 +205,7 @@ class UIRichTextXMLGlow : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLGlow);
     
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
@@ -218,7 +218,7 @@ class UIRichTextXMLExtend : public UIScene
 public:
     CREATE_FUNC(UIRichTextXMLExtend);
     
-    bool init() override;
+    bool init();
     void touchEvent(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     void switchWrapMode(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     

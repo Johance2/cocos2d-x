@@ -52,7 +52,7 @@ struct DownloaderTest : public TestCase
 {
     CREATE_FUNC(DownloaderTest);
     
-    virtual std::string title() const override { return "Downloader Test"; }
+    virtual std::string title() const { return "Downloader Test"; }
     
     std::unique_ptr<network::Downloader> downloader;
     
@@ -118,7 +118,7 @@ struct DownloaderTest : public TestCase
         return bg;
     }
     
-    virtual void onEnter() override
+    virtual void onEnter()
     {
         TestCase::onEnter();
         _restartTestItem->setVisible(true);

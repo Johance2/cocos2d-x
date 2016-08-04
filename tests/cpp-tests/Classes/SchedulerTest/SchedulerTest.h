@@ -18,9 +18,9 @@ class SchedulerAutoremove : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerAutoremove);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void autoremove(float dt);
     void tick(float dt);
@@ -33,9 +33,9 @@ class SchedulerPauseResume : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerPauseResume);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -50,11 +50,11 @@ public:
 
     SchedulerPauseResumeAll();
     virtual ~SchedulerPauseResumeAll();
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual void update(float delta) override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual void update(float delta);
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -73,10 +73,10 @@ public:
 
     SchedulerPauseResumeAllUser();
     virtual ~SchedulerPauseResumeAllUser();
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -93,9 +93,9 @@ class SchedulerUnscheduleAll : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUnscheduleAll);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -109,10 +109,10 @@ class SchedulerUnscheduleAllHard : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUnscheduleAllHard);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -128,9 +128,9 @@ class SchedulerUnscheduleAllUserLevel : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUnscheduleAllUserLevel);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -144,9 +144,9 @@ class SchedulerSchedulesAndRemove : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerSchedulesAndRemove);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void tick1(float dt);
     void tick2(float dt);
@@ -160,9 +160,9 @@ class SchedulerUpdate : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUpdate);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void removeUpdates(float dt);
 };
@@ -172,11 +172,11 @@ class SchedulerUpdateAndCustom : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUpdateAndCustom);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
-    void update(float dt) override;
+    void update(float dt);
     void tick(float dt);
     void stopSelectors(float dt);
 };
@@ -186,11 +186,11 @@ class SchedulerUpdateFromCustom : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerUpdateFromCustom);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
-    void update(float dt) override;
+    void update(float dt);
     void schedUpdate(float dt);
     void stopUpdate(float dt);
 };
@@ -203,7 +203,7 @@ public:
     ~TestNode();
 
     void initWithString(const std::string& str, int priority);
-    virtual void update(float dt) override;
+    virtual void update(float dt);
 private:
     std::string _string;
 };
@@ -213,9 +213,9 @@ class RescheduleSelector : public SchedulerTestLayer
 public:
     CREATE_FUNC(RescheduleSelector);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
     void schedUpdate(float dt);
 private:
@@ -228,10 +228,10 @@ class SchedulerDelayAndRepeat : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerDelayAndRepeat);
 
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    void update(float dt) override;
+    virtual void onEnter();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    void update(float dt);
 };
 
 class SchedulerTimeScale : public SchedulerTestLayer
@@ -239,10 +239,10 @@ class SchedulerTimeScale : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerTimeScale);
 
-    void onEnter() override;
-    void onExit() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    void onEnter();
+    void onExit();
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
     cocos2d::extension::ControlSlider* sliderCtl();
     void sliderAction(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
     cocos2d::extension::ControlSlider* _sliderCtl;
@@ -255,9 +255,9 @@ public:
     CREATE_FUNC(TwoSchedulers);
 
     virtual ~TwoSchedulers();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    void onEnter() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    void onEnter();
     cocos2d::extension::ControlSlider* sliderCtl();
     void sliderAction(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);
     cocos2d::Scheduler* sched1;
@@ -275,10 +275,10 @@ public:
     CREATE_FUNC(SchedulerIssue2268);
 
     ~SchedulerIssue2268();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    void onEnter() override;
-    void update(float dt) override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    void onEnter();
+    void update(float dt);
 
 private:
     cocos2d::Node* testNode;
@@ -290,9 +290,9 @@ public:
     CREATE_FUNC(ScheduleCallbackTest);
     
     ~ScheduleCallbackTest();
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    void onEnter() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    void onEnter();
     
     void callback(float dt);
     
@@ -304,12 +304,12 @@ class ScheduleUpdatePriority : public SchedulerTestLayer
 public:
     CREATE_FUNC(ScheduleUpdatePriority);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    void onEnter() override;
-    void onExit() override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
+    void onEnter();
+    void onExit();
     
-    virtual void update(float dt) override;
+    virtual void update(float dt);
     
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 };
@@ -319,11 +319,11 @@ class SchedulerIssue10232 : public SchedulerTestLayer
 public:
     CREATE_FUNC(SchedulerIssue10232);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const;
+    virtual std::string subtitle() const;
 
-    void onEnter() override;
-    void update(float dt) override;
+    void onEnter();
+    void update(float dt);
 };
 
 #endif

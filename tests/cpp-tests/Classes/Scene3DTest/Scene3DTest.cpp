@@ -17,7 +17,7 @@ public:
     : SkeletonAnimation(skeletonDataFile, atlasFile, scale)
     {}
     
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t transformFlags) override
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t transformFlags)
     {
         glDisable(GL_CULL_FACE);
         SkeletonAnimation::draw(renderer, transform, transformFlags);
@@ -57,7 +57,7 @@ public:
 private:
     Scene3DTestScene();
     virtual ~Scene3DTestScene();
-    bool init() override;
+    bool init();
     
     void createWorld3D();
     void createUI();

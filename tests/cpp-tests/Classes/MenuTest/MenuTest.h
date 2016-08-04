@@ -36,7 +36,7 @@ class MenuTest : public TestCase
 public:
     CREATE_FUNC(MenuTest);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 class MenuLayerMainMenu : public cocos2d::Layer

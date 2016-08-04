@@ -9,7 +9,7 @@ class CocosBuilderTestScene : public TestCase {
 public:
     CREATE_FUNC(CocosBuilderTestScene);
 
-    virtual bool init() override;
+    virtual bool init();
 };
 
 #endif
