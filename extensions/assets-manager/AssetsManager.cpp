@@ -76,7 +76,7 @@ AssetsManager::AssetsManager(const char* packageUrl/* =nullptr */, const char* v
         {
             return;
         }
-        auto err = (DownloadTask::ERROR_FILE_OP_FAILED == errorCode) ? ErrorCode::CREATE_FILE : ErrorCode::NETWORK;
+        auto err = (DownloadTask::ERROR_FILE_OP_FAILED == errorCode) ? AssetsManager::CREATE_FILE : AssetsManager::NETWORK;
         _delegate->onError(err);
     };
     
@@ -114,7 +114,7 @@ AssetsManager::AssetsManager(const char* packageUrl/* =nullptr */, const char* v
         {
             if (_delegate)
             {
-                _delegate->onError(ErrorCode::NO_NEW_VERSION);
+                _delegate->onError(AssetsManager::NO_NEW_VERSION);
             }
             CCLOG("there is not new version");
             // Set resource search path.
@@ -210,38 +210,39 @@ void AssetsManager::downloadAndUncompress()
     {
         do
         {
+			AssetsManager *pAssetsManager = this;
             // Uncompress zip file.
-            if (! uncompress())
+            if (! pAssetsManager->uncompress())
             {
-                Director::getInstance()->getScheduler()->performFunctionInCocosThread([&, this]{
-                    UserDefault::getInstance()->setStringForKey(this->keyOfDownloadedVersion().c_str(),"");
+                Director::getInstance()->getScheduler()->performFunctionInCocosThread([&, pAssetsManager]{
+                    UserDefault::getInstance()->setStringForKey(pAssetsManager->keyOfDownloadedVersion().c_str(),"");
                     UserDefault::getInstance()->flush();
-                    if (this->_delegate)
-                        this->_delegate->onError(ErrorCode::UNCOMPRESS);
+                    if (pAssetsManager->_delegate)
+                        pAssetsManager->_delegate->onError(AssetsManager::UNCOMPRESS);
                 });
                 break;
             }
             
-            Director::getInstance()->getScheduler()->performFunctionInCocosThread([&, this] {
+            Director::getInstance()->getScheduler()->performFunctionInCocosThread([&, pAssetsManager] {
                 
                 // Record new version code.
-                UserDefault::getInstance()->setStringForKey(this->keyOfVersion().c_str(), this->_version.c_str());
+                UserDefault::getInstance()->setStringForKey(pAssetsManager->keyOfVersion().c_str(), pAssetsManager->_version.c_str());
                 
                 // Unrecord downloaded version code.
-                UserDefault::getInstance()->setStringForKey(this->keyOfDownloadedVersion().c_str(), "");
+                UserDefault::getInstance()->setStringForKey(pAssetsManager->keyOfDownloadedVersion().c_str(), "");
                 UserDefault::getInstance()->flush();
                 
                 // Set resource search path.
-                this->setSearchPath();
+                pAssetsManager->setSearchPath();
                 
                 // Delete unloaded zip file.
-                string zipfileName = this->_storagePath + TEMP_PACKAGE_FILE_NAME;
+                string zipfileName = pAssetsManager->_storagePath + TEMP_PACKAGE_FILE_NAME;
                 if (remove(zipfileName.c_str()) != 0)
                 {
                     CCLOG("can not remove downloaded zip file %s", zipfileName.c_str());
                 }
                 
-                if (this->_delegate) this->_delegate->onSuccess();
+                if (pAssetsManager->_delegate) pAssetsManager->_delegate->onSuccess();
             });
             
         } while (0);

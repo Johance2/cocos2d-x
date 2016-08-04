@@ -28,6 +28,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <stdint.h>
 
 #include "platform/CCPlatformMacros.h"
 
@@ -37,7 +38,7 @@ namespace cocos2d { namespace network {
     class IDownloaderImpl;
     class Downloader;
 
-    class CC_DLL DownloadTask final
+    class CC_DLL DownloadTask
     {
     public:
         const static int ERROR_NO_ERROR = 0;
@@ -65,7 +66,7 @@ namespace cocos2d { namespace network {
         std::string tempFileNameSuffix;
     };
 
-    class CC_DLL Downloader final
+    class CC_DLL Downloader
     {
     public:
         Downloader();

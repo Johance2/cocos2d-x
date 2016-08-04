@@ -507,7 +507,7 @@ namespace cocos2d { namespace network {
                     // do wait action
                     if(maxfd == -1)
                     {
-                        this_thread::sleep_for(chrono::milliseconds(timeoutMS));
+                        this_thread::sleep_for(boost::chrono::milliseconds(timeoutMS));
                         rc = 0;
                     }
                     else

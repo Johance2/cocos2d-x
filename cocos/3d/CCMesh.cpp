@@ -363,8 +363,11 @@ void Mesh::setMaterial(Material* material)
         }
     }
     // Was the texture set before teh GLProgramState ? Set it
-    for(auto& tex : _textures)
-        setTexture(tex.second, tex.first);
+    for(auto itr0 = _textures.begin(); itr0 != _textures.end(); ++itr0)
+	{
+    	auto &tex=*itr0;
+		setTexture(tex.second, tex.first);
+	}
         
     
     if (_blendDirty)

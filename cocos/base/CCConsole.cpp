@@ -684,7 +684,9 @@ void Console::loop()
             }
             
             /* remove closed connections */
-            for(int fd: to_remove) {
+            for(auto itr2 = to_remove.begin(); itr2 != to_remove.end(); ++itr2)
+            {
+            	auto &fd=*itr2;
                 FD_CLR(fd, &_read_set);
                 _fds.erase(std::remove(_fds.begin(), _fds.end(), fd), _fds.end());
             }
@@ -898,111 +900,111 @@ void Console::addClient()
 
 void Console::createCommandAllocator()
 {
-    addCommand({"allocator", "Display allocator diagnostics for all allocators. Args: [-h | help | ]",
-        CC_CALLBACK_2(Console::commandAllocator, this)});
+    addCommand(Command("allocator", "Display allocator diagnostics for all allocators. Args: [-h | help | ]",
+        CC_CALLBACK_2(Console::commandAllocator, this)));
 }
 
 void Console::createCommandConfig()
 {
-    addCommand({"config", "Print the Configuration object. Args: [-h | help | ]",
-        CC_CALLBACK_2(Console::commandConfig, this)});
+    addCommand(Command("config", "Print the Configuration object. Args: [-h | help | ]",
+        CC_CALLBACK_2(Console::commandConfig, this)));
 }
 
 void Console::createCommandDebugMsg()
 {
-    addCommand({"debugmsg", "Whether or not to forward the debug messages on the console. Args: [-h | help | on | off | ]",
-        CC_CALLBACK_2(Console::commandDebugMsg, this)});
-    addSubCommand("debugmsg", {"on", "enable debug logging", CC_CALLBACK_2(Console::commandDebugMsgSubCommandOnOff, this)});
-    addSubCommand("debugmsg", {"off", "disable debug logging", CC_CALLBACK_2(Console::commandDebugMsgSubCommandOnOff, this)});
+    addCommand(Command("debugmsg", "Whether or not to forward the debug messages on the console. Args: [-h | help | on | off | ]",
+        CC_CALLBACK_2(Console::commandDebugMsg, this)));
+    addSubCommand("debugmsg", Command("on", "enable debug logging", CC_CALLBACK_2(Console::commandDebugMsgSubCommandOnOff, this)));
+    addSubCommand("debugmsg", Command("off", "disable debug logging", CC_CALLBACK_2(Console::commandDebugMsgSubCommandOnOff, this)));
 }
 
 void Console::createCommandDirector()
 {
-    addCommand({"director", "director commands, type -h or [director help] to list supported directives"});
-    addSubCommand("director", {"pause",  "pause all scheduled timers, the draw rate will be 4 FPS to reduce CPU consumption",
-        CC_CALLBACK_2(Console::commandDirectorSubCommandPause, this)});
-    addSubCommand("director", {"resume", "resume all scheduled timers",
-        CC_CALLBACK_2(Console::commandDirectorSubCommandResume, this)});
-    addSubCommand("director", {"stop",   "Stops the animation. Nothing will be drawn.",
-        CC_CALLBACK_2(Console::commandDirectorSubCommandStop, this)});
-    addSubCommand("director", {"start",  "Restart the animation again, Call this function only if [director stop] was called earlier",
-        CC_CALLBACK_2(Console::commandDirectorSubCommandStart, this)});
-    addSubCommand("director", {"end",    "exit this app.",
-        CC_CALLBACK_2(Console::commandDirectorSubCommandEnd, this)});
+    addCommand(Command("director", "director commands, type -h or [director help] to list supported directives"));
+    addSubCommand("director", Command("pause",  "pause all scheduled timers, the draw rate will be 4 FPS to reduce CPU consumption",
+        CC_CALLBACK_2(Console::commandDirectorSubCommandPause, this)));
+    addSubCommand("director", Command("resume", "resume all scheduled timers",
+        CC_CALLBACK_2(Console::commandDirectorSubCommandResume, this)));
+    addSubCommand("director", Command("stop",   "Stops the animation. Nothing will be drawn.",
+        CC_CALLBACK_2(Console::commandDirectorSubCommandStop, this)));
+    addSubCommand("director", Command("start",  "Restart the animation again, Call this function only if [director stop] was called earlier",
+        CC_CALLBACK_2(Console::commandDirectorSubCommandStart, this)));
+    addSubCommand("director", Command("end",    "exit this app.",
+        CC_CALLBACK_2(Console::commandDirectorSubCommandEnd, this)));
 }
 
 void Console::createCommandExit()
 {
-    addCommand({"exit", "Close connection to the console. Args: [-h | help | ]", CC_CALLBACK_2(Console::commandExit, this)});
+    addCommand(Command("exit", "Close connection to the console. Args: [-h | help | ]", CC_CALLBACK_2(Console::commandExit, this)));
 }
 
 void Console::createCommandFileUtils()
 {
-    addCommand({"fileutils", "Flush or print the FileUtils info. Args: [-h | help | flush | ]",
-        CC_CALLBACK_2(Console::commandFileUtils, this)});
-    addSubCommand("fileutils", {"flush", "Purges the file searching cache.",
-        CC_CALLBACK_2(Console::commandFileUtilsSubCommandFlush, this)});
+    addCommand(Command("fileutils", "Flush or print the FileUtils info. Args: [-h | help | flush | ]",
+        CC_CALLBACK_2(Console::commandFileUtils, this)));
+    addSubCommand("fileutils", Command("flush", "Purges the file searching cache.",
+        CC_CALLBACK_2(Console::commandFileUtilsSubCommandFlush, this)));
 }
 
 void Console::createCommandFps()
 {
-    addCommand({"fps", "Turn on / off the FPS. Args: [-h | help | on | off | ]", CC_CALLBACK_2(Console::commandFps, this)});
-    addSubCommand("fps", {"on", "Display the FPS on the bottom-left corner.", CC_CALLBACK_2(Console::commandFpsSubCommandOnOff, this)});
-    addSubCommand("fps", {"off", "Hide the FPS on the bottom-left corner.", CC_CALLBACK_2(Console::commandFpsSubCommandOnOff, this)});
+    addCommand(Command("fps", "Turn on / off the FPS. Args: [-h | help | on | off | ]", CC_CALLBACK_2(Console::commandFps, this)));
+    addSubCommand("fps", Command("on", "Display the FPS on the bottom-left corner.", CC_CALLBACK_2(Console::commandFpsSubCommandOnOff, this)));
+    addSubCommand("fps", Command("off", "Hide the FPS on the bottom-left corner.", CC_CALLBACK_2(Console::commandFpsSubCommandOnOff, this)));
 }
 
 void Console::createCommandHelp()
 {
-    addCommand({"help", "Print this message. Args: [ ]", CC_CALLBACK_2(Console::commandHelp, this)});
+    addCommand(Command("help", "Print this message. Args: [ ]", CC_CALLBACK_2(Console::commandHelp, this)));
 }
 
 void Console::createCommandProjection()
 {
-    addCommand({"projection", "Change or print the current projection. Args: [-h | help | 2d | 3d | ]",
-        CC_CALLBACK_2(Console::commandProjection, this)});
-    addSubCommand("projection", {"2d", "sets a 2D projection (orthogonal projection).",
-        CC_CALLBACK_2(Console::commandProjectionSubCommand2d, this)});
-    addSubCommand("projection", {"3d", "sets a 3D projection with a fovy=60, znear=0.5f and zfar=1500.",
-        CC_CALLBACK_2(Console::commandProjectionSubCommand3d, this)});
+    addCommand(Command("projection", "Change or print the current projection. Args: [-h | help | 2d | 3d | ]",
+        CC_CALLBACK_2(Console::commandProjection, this)));
+    addSubCommand("projection", Command("2d", "sets a 2D projection (orthogonal projection).",
+        CC_CALLBACK_2(Console::commandProjectionSubCommand2d, this)));
+    addSubCommand("projection", Command("3d", "sets a 3D projection with a fovy=60, znear=0.5f and zfar=1500.",
+        CC_CALLBACK_2(Console::commandProjectionSubCommand3d, this)));
 }
 
 void Console::createCommandResolution()
 {
-    addCommand({"resolution", "Change or print the window resolution. Args: [-h | help | width height resolution_policy | ]",
-        CC_CALLBACK_2(Console::commandResolution, this)});
-    addSubCommand("resolution", {"", "", CC_CALLBACK_2(Console::commandResolutionSubCommandEmpty, this)});
+    addCommand(Command("resolution", "Change or print the window resolution. Args: [-h | help | width height resolution_policy | ]",
+        CC_CALLBACK_2(Console::commandResolution, this)));
+    addSubCommand("resolution", Command("", "", CC_CALLBACK_2(Console::commandResolutionSubCommandEmpty, this)));
 }
 
 void Console::createCommandSceneGraph()
 {
-    addCommand({"scenegraph", "Print the scene graph", CC_CALLBACK_2(Console::commandSceneGraph, this)});
+    addCommand(Command("scenegraph", "Print the scene graph", CC_CALLBACK_2(Console::commandSceneGraph, this)));
 }
 
 void Console::createCommandTexture()
 {
-    addCommand({"texture", "Flush or print the TextureCache info. Args: [-h | help | flush | ] ",
-        CC_CALLBACK_2(Console::commandTextures, this)});
-    addSubCommand("texture", {"flush", "Purges the dictionary of loaded textures.",
-        CC_CALLBACK_2(Console::commandTexturesSubCommandFlush, this)});
+    addCommand(Command("texture", "Flush or print the TextureCache info. Args: [-h | help | flush | ] ",
+        CC_CALLBACK_2(Console::commandTextures, this)));
+    addSubCommand("texture", Command("flush", "Purges the dictionary of loaded textures.",
+        CC_CALLBACK_2(Console::commandTexturesSubCommandFlush, this)));
 }
 
 void Console::createCommandTouch()
 {
-    addCommand({"touch", "simulate touch event via console, type -h or [touch help] to list supported directives"});
-    addSubCommand("touch", {"tap", "touch tap x y: simulate touch tap at (x,y).",
-        CC_CALLBACK_2(Console::commandTouchSubCommandTap, this)});
-    addSubCommand("touch", {"swipe", "touch swipe x1 y1 x2 y2: simulate touch swipe from (x1,y1) to (x2,y2).",
-        CC_CALLBACK_2(Console::commandTouchSubCommandSwipe, this)});
+    addCommand(Command("touch", "simulate touch event via console, type -h or [touch help] to list supported directives"));
+    addSubCommand("touch", Command("tap", "touch tap x y: simulate touch tap at (x,y).",
+        CC_CALLBACK_2(Console::commandTouchSubCommandTap, this)));
+    addSubCommand("touch", Command("swipe", "touch swipe x1 y1 x2 y2: simulate touch swipe from (x1,y1) to (x2,y2).",
+        CC_CALLBACK_2(Console::commandTouchSubCommandSwipe, this)));
 }
 
 void Console::createCommandUpload()
 {
-    addCommand({"upload", "upload file. Args: [filename base64_encoded_data]", CC_CALLBACK_1(Console::commandUpload, this)});
+    addCommand(Command("upload", "upload file. Args: [filename base64_encoded_data]", CC_CALLBACK_1(Console::commandUpload, this)));
 }
 
 void Console::createCommandVersion()
 {
-    addCommand({"version", "print version string ", CC_CALLBACK_2(Console::commandVersion, this)});
+    addCommand(Command("version", "print version string ", CC_CALLBACK_2(Console::commandVersion, this)));
 }
 
 //
@@ -1022,7 +1024,7 @@ void Console::commandAllocator(int fd, const std::string& args)
 void Console::commandConfig(int fd, const std::string& args)
 {
     Scheduler *sched = Director::getInstance()->getScheduler();
-    sched->performFunctionInCocosThread( [=](){
+    sched->performFunctionInCocosThread( [fd](){
         Console::Utility::mydprintf(fd, "%s", Configuration::getInstance()->getInfo().c_str());
         Console::Utility::sendPrompt(fd);
     });
@@ -1204,7 +1206,7 @@ void Console::commandSceneGraph(int fd, const std::string& args)
 void Console::commandTextures(int fd, const std::string& args)
 {
     Scheduler *sched = Director::getInstance()->getScheduler();
-    sched->performFunctionInCocosThread( [=](){
+    sched->performFunctionInCocosThread( [fd](){
         Console::Utility::mydprintf(fd, "%s", Director::getInstance()->getTextureCache()->getCachedTextureInfo().c_str());
         Console::Utility::sendPrompt(fd);
     });
@@ -1352,8 +1354,9 @@ void Console::commandUpload(int fd)
     {
         if( (rc = recv(fd, &c, 1, 0)) ==1 ) 
         {
-            for(char x : invalid_filename_char)
+            for(int nCount = 0; nCount < sizeof(invalid_filename_char); nCount++)
             {
+				auto x = invalid_filename_char[nCount];
                 if(c == x)
                 {
                     const char err[] = "upload: invalid file name!\n";
@@ -1433,8 +1436,11 @@ int Console::printSceneGraph(int fd, Node* node, int level)
     
     Console::Utility::mydprintf(fd, " %s\n", node->getDescription().c_str());
     
-    for(const auto& child: node->getChildren())
+    for(auto itr0 = node->getChildren().begin(); itr0 != node->getChildren().end(); ++itr0)
+    {
+    	auto &child=*itr0;
         total += printSceneGraph(fd, child, level+1);
+	}
     
     return total;
 }

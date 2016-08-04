@@ -389,8 +389,9 @@ void ParticleBatchNode::removeChildAtIndex(int index, bool doCleanup)
 
 void ParticleBatchNode::removeAllChildrenWithCleanup(bool doCleanup)
 {
-    for(const auto &child : _children)
-        static_cast<ParticleSystem*>(child)->setBatchNode(nullptr);
+    for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+    
+    	auto &child=*itr0;static_cast<ParticleSystem*>(child)->setBatchNode(nullptr);
 
     Node::removeAllChildrenWithCleanup(doCleanup);
 

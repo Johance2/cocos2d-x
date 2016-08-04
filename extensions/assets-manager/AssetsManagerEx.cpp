@@ -610,7 +610,7 @@ void AssetsManagerEx::startUpdate()
                     unit.customId = it->first;
                     unit.srcUrl = packageUrl + path;
                     unit.storagePath = _storagePath + path;
-                    _downloadUnits.emplace(unit.customId, unit);
+                    _downloadUnits.emplace(std::make_pair(unit.customId, unit));
                 }
             }
             // Set other assets' downloadState to SUCCESSED
@@ -664,21 +664,22 @@ void AssetsManagerEx::updateSucceed()
     _compressedFiles.clear();
 
     std::function<void(void*)> mainThread = [this](void* param) {
-        auto asyncDataInner = reinterpret_cast<AsyncData*>(param);
-        if (asyncDataInner->errorCompressedFile.empty())
-        {
-            // 5. Set update state
-            _updateState = State::UP_TO_DATE;
-            // 6. Notify finished event
-            dispatchUpdateEvent(EventAssetsManagerEx::EventCode::UPDATE_FINISHED);
-        }
-        else
-        {
-            _updateState = State::FAIL_TO_UPDATE;
-            dispatchUpdateEvent(EventAssetsManagerEx::EventCode::ERROR_DECOMPRESS, "", "Unable to decompress file " + asyncDataInner->errorCompressedFile);
-        }
+		//> ±‡“Î∆˜ª·π“µÙ
+        //auto asyncDataInner = reinterpret_cast<AsyncData*>(param);
+        //if (asyncDataInner->errorCompressedFile.empty())
+        //{
+        //    // 5. Set update state
+        //    _updateState = State::UP_TO_DATE;
+        //    // 6. Notify finished event
+        //    dispatchUpdateEvent(EventAssetsManagerEx::EventCode::UPDATE_FINISHED);
+        //}
+        //else
+        //{
+        //    _updateState = State::FAIL_TO_UPDATE;
+        //    dispatchUpdateEvent(EventAssetsManagerEx::EventCode::ERROR_DECOMPRESS, "", "Unable to decompress file " + asyncDataInner->errorCompressedFile);
+        //}
 
-        delete asyncDataInner;
+        //delete asyncDataInner;
     };
     AsyncTaskPool::getInstance()->enqueue(AsyncTaskPool::TaskType::TASK_OTHER, mainThread, (void*)asyncData, [this, asyncData]() {
         // Decompress all compressed files
@@ -862,7 +863,7 @@ void AssetsManagerEx::onError(const network::DownloadTask& task,
             _totalWaitToDownload--;
             
             DownloadUnit unit = unitIt->second;
-            _failedUnits.emplace(unit.customId, unit);
+            _failedUnits.emplace(std::make_pair(unit.customId, unit));
         }
         dispatchUpdateEvent(EventAssetsManagerEx::EventCode::ERROR_UPDATING, task.identifier, errorStr, errorCode, errorCodeInternal);
 
@@ -902,7 +903,7 @@ void AssetsManagerEx::onProgress(double total, double downloaded, const std::str
             // Set download state to DOWNLOADING, this will run only once in the download process
             _tempManifest->setAssetDownloadState(customId, Manifest::DownloadState::DOWNLOADING);
             // Register the download size information
-            _downloadedSize.emplace(customId, downloaded);
+            _downloadedSize.emplace(std::make_pair(customId, downloaded));
             _totalSize += total;
             _sizeCollected++;
             // All collected, enable total size

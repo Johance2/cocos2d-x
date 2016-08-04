@@ -174,7 +174,7 @@ std::unordered_map<std::string, Manifest::AssetDiff> Manifest::genDiff(const Man
             AssetDiff diff;
             diff.asset = valueA;
             diff.type = DiffType::DELETED;
-            diff_map.emplace(key, diff);
+            diff_map.emplace(std::make_pair(key, diff));
             continue;
         }
         
@@ -184,7 +184,7 @@ std::unordered_map<std::string, Manifest::AssetDiff> Manifest::genDiff(const Man
             AssetDiff diff;
             diff.asset = valueB;
             diff.type = DiffType::MODIFIED;
-            diff_map.emplace(key, diff);
+            diff_map.emplace(std::make_pair(key, diff));
         }
     }
     
@@ -199,7 +199,7 @@ std::unordered_map<std::string, Manifest::AssetDiff> Manifest::genDiff(const Man
             AssetDiff diff;
             diff.asset = valueB;
             diff.type = DiffType::ADDED;
-            diff_map.emplace(key, diff);
+            diff_map.emplace(std::make_pair(key, diff));
         }
     }
     
@@ -218,7 +218,7 @@ void Manifest::genResumeAssetsList(DownloadUnits *units) const
             unit.customId = it->first;
             unit.srcUrl = _packageUrl + asset.path;
             unit.storagePath = _manifestRoot + asset.path;
-            units->emplace(unit.customId, unit);
+            units->emplace(std::make_pair(unit.customId, unit));
         }
     }
 }
@@ -431,7 +431,7 @@ void Manifest::loadVersion(const rapidjson::Document &json)
                     version = itr->value.GetString();
                 }
                 _groups.push_back(group);
-                _groupVer.emplace(group, version);
+                _groupVer.emplace(std::make_pair(group, version));
             }
         }
     }
@@ -470,7 +470,7 @@ void Manifest::loadManifest(const rapidjson::Document &json)
             {
                 std::string key = itr->name.GetString();
                 Asset asset = parseAsset(key, itr->value);
-                _assets.emplace(key, asset);
+                _assets.emplace(std::make_pair(key, asset));
             }
         }
     }

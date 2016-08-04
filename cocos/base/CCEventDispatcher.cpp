@@ -299,7 +299,7 @@ void EventDispatcher::pauseEventListenersForTarget(Node* target, bool recursive/
     if (listenerIter != _nodeListenersMap.end())
     {
         auto listeners = listenerIter->second;
-        for(auto itr = *listeners.begin(); itr != *listeners.end(); ++itr)
+        for(auto itr = (*listeners).begin(); itr != (*listeners).end(); ++itr)
         {
         	auto &l=*itr;
             l->setPaused(true);
@@ -332,7 +332,7 @@ void EventDispatcher::resumeEventListenersForTarget(Node* target, bool recursive
     if (listenerIter != _nodeListenersMap.end())
     {
         auto listeners = listenerIter->second;
-        for(auto itr = *listeners.begin(); itr != *listeners.end(); ++itr)
+        for(auto itr = (*listeners).begin(); itr != (*listeners).end(); ++itr)
         {
         	auto &l=*itr;
             l->setPaused(false);
