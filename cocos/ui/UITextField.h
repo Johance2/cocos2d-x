@@ -250,7 +250,7 @@ public:
     /**
      * TextField event type.
      */
-    enum class EventType
+    enum EventType
     {
         ATTACH_WITH_IME,
         DETACH_WITH_IME,
@@ -685,7 +685,7 @@ protected:
     
     bool _textFieldRendererAdaptDirty;
 private:
-    enum class FontType
+    enum FontType
     {
         SYSTEM,
         TTF

@@ -190,7 +190,7 @@ public:
     inline bool isNull() const { return _type == Type::NONE; }
 
     /** Value type wrapped by Value. */
-    enum class Type
+    enum Type
     {
         /// no value is wrapped, an empty Value
         NONE = 0,

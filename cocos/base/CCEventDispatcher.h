@@ -289,7 +289,7 @@ protected:
     void releaseListener(EventListener* listener);
     
     /// Priority dirty flag
-    enum class DirtyFlag
+    enum DirtyFlag
     {
         NONE = 0,
         FIXED_PRIORITY = 1 << 0,

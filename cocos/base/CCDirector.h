@@ -70,7 +70,7 @@ namespace experimental
 /**
  * @brief Matrix stack type.
  */
-enum class MATRIX_STACK_TYPE
+enum MATRIX_STACK_TYPE
 {
     /// Model view matrix stack
     MATRIX_STACK_MODELVIEW,
@@ -113,7 +113,7 @@ public:
     /**
      * @brief Possible OpenGL projections used by director
      */
-    enum class Projection
+    enum Projection
     {
         /// Sets a 2D projection (orthogonal projection).
         _2D,

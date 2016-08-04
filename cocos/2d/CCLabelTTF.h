@@ -58,9 +58,9 @@ class Label;
  * Custom ttf file can be put in assets/ or external storage that the Application can access.
  * @code
  * LabelTTF *label1 = LabelTTF::create("alignment left", "A Damn Mess", fontSize, blockSize, 
- *                                          TextHAlignment::LEFT, TextVAlignment::CENTER);
+ *                                          TextHAlignment::TH_LEFT, TextVAlignment::TV_CENTER);
  * LabelTTF *label2 = LabelTTF::create("alignment right", "/mnt/sdcard/Scissor Cuts.ttf", fontSize, blockSize,
- *                                          TextHAlignment::LEFT, TextVAlignment::CENTER);
+ *                                          TextHAlignment::TH_LEFT, TextVAlignment::TV_CENTER);
  * @endcode
  *
  */
@@ -81,8 +81,8 @@ public:
      @since v2.0.1
      */
     static LabelTTF * create(const std::string& string, const std::string& fontName, float fontSize,
-                             const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::CENTER,
-                             TextVAlignment vAlignment = TextVAlignment::TOP);
+                             const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_CENTER,
+                             TextVAlignment vAlignment = TextVAlignment::TV_TOP);
     
     
     /** Create a label with string and a font definition*/
@@ -90,8 +90,8 @@ public:
     
     /** initializes the LabelTTF with a font name, alignment, dimension and font size */
     bool initWithString(const std::string& string, const std::string& fontName, float fontSize,
-                        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::LEFT, 
-                        TextVAlignment vAlignment = TextVAlignment::TOP);
+                        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT, 
+                        TextVAlignment vAlignment = TextVAlignment::TV_TOP);
     
     /** initializes the LabelTTF with a font name, alignment, dimension and font size */
     bool initWithStringAndTextDefinition(const std::string& string, FontDefinition &textDefinition);

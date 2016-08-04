@@ -79,7 +79,7 @@ public:
     /**
      * ScrollView scroll direction type.
      */
-    enum class Direction
+    enum Direction
     {
         NONE,
         VERTICAL,
@@ -90,7 +90,7 @@ public:
     /**
      * Scrollview scroll event type.
      */
-    enum class EventType
+    enum EventType
     {
         SCROLL_TO_TOP,
         SCROLL_TO_BOTTOM,
@@ -565,7 +565,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
 
 protected:
-    enum class MoveDirection
+    enum MoveDirection
     {
         TOP,
         BOTTOM,

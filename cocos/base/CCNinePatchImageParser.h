@@ -99,7 +99,7 @@ public:
      */
     Rect parseCapInset()const;
 private:
-    enum class Direction
+    enum Direction
     {
         HORIZONTAL,
         VERTICAL

@@ -241,14 +241,14 @@ class MyXMLVisitor: public tinyxml2::XMLVisitor
 {
 public:
     /** @brief underline or strikethrough */
-    enum class StyleLine {
+    enum StyleLine {
         NONE,
         UNDERLINE,          /*!< underline */
         STRIKETHROUGH       /*!< a typographical presentation of words with a horizontal line through their center */
     };
     
     /** @brief outline, shadow or glow */
-    enum class StyleEffect {
+    enum StyleEffect {
         NONE,
         OUTLINE,            /*!< outline effect enabled */
         SHADOW,             /*!< shadow effect enabled */

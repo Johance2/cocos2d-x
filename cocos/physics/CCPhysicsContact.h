@@ -68,7 +68,7 @@ class CC_DLL PhysicsContact : public EventCustom
 {
 public:
     
-    enum class EventCode
+    enum EventCode
     {
         NONE,
         BEGIN,

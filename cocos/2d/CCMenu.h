@@ -52,7 +52,7 @@ public:
     /**
      * Menu state, it's used internally.
      */
-    enum class State
+    enum State
     {
         WAITING,
         TRACKING_TOUCH,

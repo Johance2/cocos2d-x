@@ -128,7 +128,7 @@ public:
      * - Linear: Elements will  be arranged by margin.
      * - Relative: Elements will be arranged by margin and relative widget name.
      */
-    enum class Type
+    enum Type
     {
         NONE = 0,
         LINEAR,
@@ -232,7 +232,7 @@ public:
     /**
      * Linear gravity.
      */
-    enum class LinearGravity
+    enum LinearGravity
     {
         NONE,
         LEFT,
@@ -303,7 +303,7 @@ public:
     /**
      * Relative Alignment type
      */
-    enum class RelativeAlign
+    enum RelativeAlign
     {
         NONE,
         PARENT_TOP_LEFT,

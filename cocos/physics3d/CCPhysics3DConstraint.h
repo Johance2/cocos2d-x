@@ -48,7 +48,7 @@ class Physics3DRigidBody;
 class CC_DLL Physics3DConstraint : public Ref
 {
 public:
-    enum class ConstraintType
+    enum ConstraintType
     {
         UNKNOWN,
         POINT_TO_POINT,

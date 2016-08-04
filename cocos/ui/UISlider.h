@@ -60,7 +60,7 @@ class CC_GUI_DLL Slider : public Widget
 public:
     /** EventType Slider event type.
      */
-    enum class EventType
+    enum EventType
     {
         ON_PERCENTAGE_CHANGED,
         //@since v3.7

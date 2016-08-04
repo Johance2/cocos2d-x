@@ -49,7 +49,7 @@ public:
     /**
      *@brief Rich element type.
      */
-    enum class Type
+    enum Type
     {
         TEXT,   /*!< RichElementText */
         IMAGE,  /*!< RichElementImage */

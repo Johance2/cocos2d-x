@@ -79,7 +79,7 @@ public:
     /** Returns a reverse iterator pointing to the last element of the Vector. */
     typename std::vector<T>::reverse_iterator rbegin() { return _data.rbegin(); }
     /** Returns a reverse iterator pointing to the last element of the Vector. */
-    typename std::vector<T>::std::vector<T>::const_reverse_iterator rbegin() const { return _data.rbegin(); }
+    typename std::vector<T>::const_reverse_iterator rbegin() const { return _data.rbegin(); }
     
     /** Returns a reverse iterator pointing to the theoretical element preceding the 
      * first element of the vector (which is considered its reverse end).
@@ -88,7 +88,7 @@ public:
     /** Returns a reverse iterator pointing to the theoretical element preceding the
      * first element of the vector (which is considered its reverse end).
      */
-    typename std::vector<T>::std::vector<T>::const_reverse_iterator rend() const { return _data.rend(); }
+    typename std::vector<T>::const_reverse_iterator rend() const { return _data.rend(); }
     
     /** Returns a const_reverse_iterator pointing to the last element in the container (i.e., its reverse beginning). */
     typename std::vector<T>::const_reverse_iterator crbegin() const { return _data.crbegin(); }

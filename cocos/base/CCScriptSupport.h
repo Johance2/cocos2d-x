@@ -772,7 +772,7 @@ public:
     virtual bool isCalledFromScript() { return false; };
     
     /** ConfigType enum. */
-    enum class ConfigType
+    enum ConfigType
     {
         NONE,
         COCOSTUDIO

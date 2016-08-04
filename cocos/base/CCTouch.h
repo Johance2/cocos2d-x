@@ -47,7 +47,7 @@ public:
      * Dispatch mode, how the touches are dispatched.
      * @js NA
      */
-    enum class DispatchMode {
+    enum DispatchMode {
         ALL_AT_ONCE, /** All at once. */
         ONE_BY_ONE,  /** One by one. */
     };

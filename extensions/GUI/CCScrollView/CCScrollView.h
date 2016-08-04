@@ -69,7 +69,7 @@ public:
 class CC_EX_DLL  ScrollView : public Layer, public ActionTweenDelegate
 {
 public:
-    enum class Direction
+    enum Direction
     {
         NONE = -1,
         HORIZONTAL = 0,

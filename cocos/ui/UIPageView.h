@@ -67,7 +67,7 @@ public:
     /**
      * Page turn event type.
      */
-    enum class EventType
+    enum EventType
     {
         TURNING
     };
@@ -75,7 +75,7 @@ public:
     /**
      * Touch direction type.
      */
-    enum class TouchDirection
+    enum TouchDirection
     {
         LEFT,
         RIGHT,

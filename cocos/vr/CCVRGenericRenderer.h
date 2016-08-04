@@ -40,7 +40,7 @@ class VRGenericHeadTracker;
 
 struct CC_DLL VREye
 {
-    enum class EyeType {
+    enum EyeType {
         MONO,
         LEFT,
         RIGHT,

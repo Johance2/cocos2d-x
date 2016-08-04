@@ -41,7 +41,7 @@ enum FrameType
     kKeyframeMax
 };
 
-enum class FrameEaseType
+enum FrameEaseType
 {
     Custom = -1,
 

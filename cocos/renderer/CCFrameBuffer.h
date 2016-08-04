@@ -55,7 +55,7 @@ struct CC_DLL Viewport
 class CC_DLL RenderTargetBase : public Ref
 {
 public:
-    enum class Type
+    enum Type
     {
         RenderBuffer,
         Texture2D,

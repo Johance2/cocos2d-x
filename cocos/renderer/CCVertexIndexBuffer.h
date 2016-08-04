@@ -147,7 +147,7 @@ public:
     /**
     Enum for the type of index, short indices and int indices could be used.
     */
-    enum class IndexType
+    enum IndexType
     {
         /**Short index will be used.*/
         INDEX_TYPE_SHORT_16,

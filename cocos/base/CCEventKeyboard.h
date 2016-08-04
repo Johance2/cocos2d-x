@@ -45,7 +45,7 @@ public:
      * KeyCode The key (code).
      * @js NA
      */
-    enum class KeyCode
+    enum KeyCode
     {
         KEY_NONE,
         KEY_PAUSE,

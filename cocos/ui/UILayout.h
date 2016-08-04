@@ -120,7 +120,7 @@ public:
     /**
      * Layout type, default is ABSOLUTE.
      */
-    enum class Type
+    enum Type
     {
         ABSOLUTE,
         VERTICAL,
@@ -131,7 +131,7 @@ public:
     /**
      * Clipping Type, default is STENCIL.
      */
-    enum class ClippingType
+    enum ClippingType
     {
         STENCIL,
         SCISSOR
@@ -140,7 +140,7 @@ public:
     /**
      * Background color type, default is NONE.
      */
-    enum class BackGroundColorType
+    enum BackGroundColorType
     {
         NONE,
         SOLID,

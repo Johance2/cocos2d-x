@@ -49,7 +49,7 @@ public:
     /**
      * Material type, there are mainly two types of materials. Built in materials and Custom material
      */
-    enum class MaterialType
+    enum MaterialType
     {
         //Built in material
         UNLIT, //unlit material

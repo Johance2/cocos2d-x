@@ -37,16 +37,16 @@ void Label::computeAlignmentOffset()
     _linesOffsetX.clear();
     switch (_hAlignment)
     {
-    case cocos2d::TextHAlignment::LEFT:
+    case cocos2d::TextHAlignment::TH_LEFT:
         _linesOffsetX.assign(_numberOfLines, 0);
         break;
-    case cocos2d::TextHAlignment::CENTER:
+    case cocos2d::TextHAlignment::TH_CENTER:
         for (auto lineWidth : _linesWidth)
         {
             _linesOffsetX.push_back((_contentSize.width - lineWidth) / 2.f);
         }
         break;
-    case cocos2d::TextHAlignment::RIGHT:
+    case cocos2d::TextHAlignment::TH_RIGHT:
         for (auto lineWidth : _linesWidth)
         {
             _linesOffsetX.push_back(_contentSize.width - lineWidth);
@@ -58,13 +58,13 @@ void Label::computeAlignmentOffset()
 
     switch (_vAlignment)
     {
-    case cocos2d::TextVAlignment::TOP:
+    case cocos2d::TextVAlignment::TV_TOP:
         _letterOffsetY = _contentSize.height;
         break;
-    case cocos2d::TextVAlignment::CENTER:
+    case cocos2d::TextVAlignment::TV_CENTER:
         _letterOffsetY = (_contentSize.height + _textDesiredHeight) / 2.f;
         break;
-    case cocos2d::TextVAlignment::BOTTOM:
+    case cocos2d::TextVAlignment::TV_BOTTOM:
         _letterOffsetY = _textDesiredHeight;
         break;
     default:

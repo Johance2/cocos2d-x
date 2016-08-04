@@ -200,7 +200,7 @@ public:
     /** Mode
      * @js cc.ParticleSystem.MODE_GRAVITY;
      */
-    enum class Mode
+    enum Mode
     {
         GRAVITY,
         RADIUS,
@@ -210,7 +210,7 @@ public:
      Possible types of particle positions.
      * @js cc.ParticleSystem.TYPE_FREE
      */
-    enum class PositionType
+    enum PositionType
     {
         FREE, /** Living particles are attached to the world and are unaffected by emitter repositioning. */
         

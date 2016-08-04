@@ -67,7 +67,7 @@ public:
     /**
      * The HttpRequest type enum used in the HttpRequest::setRequestType.
      */
-    enum class Type
+    enum Type
     {
         GET,
         POST,

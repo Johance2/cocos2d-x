@@ -81,7 +81,7 @@ public:
     /**
      * Widget focus direction.
      */
-    enum class FocusDirection
+    enum FocusDirection
     {
         LEFT,
         RIGHT,
@@ -92,7 +92,7 @@ public:
     /**
      * Widget position type for layout.
      */
-    enum class PositionType
+    enum PositionType
     {
         ABSOLUTE,
         PERCENT
@@ -101,7 +101,7 @@ public:
     /**
      * Widget size type for layout.
      */
-    enum class SizeType
+    enum SizeType
     {
         ABSOLUTE,
         PERCENT
@@ -110,7 +110,7 @@ public:
     /**
      * Touch event type.
      */
-    enum class TouchEventType
+    enum TouchEventType
     {
         BEGAN,
         MOVED,
@@ -123,7 +123,7 @@ public:
      * - LOCAL:  It means the texture is loaded from image.
      * - PLIST: It means the texture is loaded from texture atlas.
      */
-    enum class TextureResType
+    enum TextureResType
     {
         LOCAL = 0,
         PLIST = 1
@@ -132,7 +132,7 @@ public:
     /**
      * Widget bright style.
      */
-    enum class BrightStyle
+    enum BrightStyle
     {
         NONE = -1,
         NORMAL,

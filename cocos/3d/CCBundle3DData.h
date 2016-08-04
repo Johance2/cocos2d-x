@@ -307,7 +307,7 @@ struct MaterialData
 */
 struct NTextureData
 {
-    enum class Usage {
+    enum Usage {
         Unknown = 0,
         None = 1,
         Diffuse = 2, 

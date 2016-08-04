@@ -1072,7 +1072,7 @@ Texture2D::PixelFormat Texture2D::convertDataToFormat(const unsigned char* data,
 }
 
 // implementation Texture2D (Text)
-bool Texture2D::initWithString(const char *text, const std::string& fontName, float fontSize, const Size& dimensions/* = Size(0, 0)*/, TextHAlignment hAlignment/* =  TextHAlignment::CENTER */, TextVAlignment vAlignment/* =  TextVAlignment::TOP */, bool enableWrap /* = false */, int overflow /* = 0 */)
+bool Texture2D::initWithString(const char *text, const std::string& fontName, float fontSize, const Size& dimensions/* = Size(0, 0)*/, TextHAlignment hAlignment/* =  TextHAlignment::TH_CENTER */, TextVAlignment vAlignment/* =  TextVAlignment::TV_TOP */, bool enableWrap /* = false */, int overflow /* = 0 */)
 {
     FontDefinition tempDef;
     
@@ -1107,20 +1107,20 @@ bool Texture2D::initWithString(const char *text, const FontDefinition& textDefin
     bool ret = false;
     Device::TextAlign align;
     
-    if (TextVAlignment::TOP == textDefinition._vertAlignment)
+    if (TextVAlignment::TV_TOP == textDefinition._vertAlignment)
     {
-        align = (TextHAlignment::CENTER == textDefinition._alignment) ? Device::TextAlign::TOP
-        : (TextHAlignment::LEFT == textDefinition._alignment) ? Device::TextAlign::TOP_LEFT : Device::TextAlign::TOP_RIGHT;
+        align = (TextHAlignment::TH_CENTER == textDefinition._alignment) ? Device::TextAlign::TOP
+        : (TextHAlignment::TH_LEFT == textDefinition._alignment) ? Device::TextAlign::TOP_LEFT : Device::TextAlign::TOP_RIGHT;
     }
-    else if (TextVAlignment::CENTER == textDefinition._vertAlignment)
+    else if (TextVAlignment::TV_CENTER == textDefinition._vertAlignment)
     {
-        align = (TextHAlignment::CENTER == textDefinition._alignment) ? Device::TextAlign::CENTER
-        : (TextHAlignment::LEFT == textDefinition._alignment) ? Device::TextAlign::LEFT : Device::TextAlign::RIGHT;
+        align = (TextHAlignment::TH_CENTER == textDefinition._alignment) ? Device::TextAlign::CENTER
+        : (TextHAlignment::TH_LEFT == textDefinition._alignment) ? Device::TextAlign::LEFT : Device::TextAlign::RIGHT;
     }
-    else if (TextVAlignment::BOTTOM == textDefinition._vertAlignment)
+    else if (TextVAlignment::TV_BOTTOM == textDefinition._vertAlignment)
     {
-        align = (TextHAlignment::CENTER == textDefinition._alignment) ? Device::TextAlign::BOTTOM
-        : (TextHAlignment::LEFT == textDefinition._alignment) ? Device::TextAlign::BOTTOM_LEFT : Device::TextAlign::BOTTOM_RIGHT;
+        align = (TextHAlignment::TH_CENTER == textDefinition._alignment) ? Device::TextAlign::BOTTOM
+        : (TextHAlignment::TH_LEFT == textDefinition._alignment) ? Device::TextAlign::BOTTOM_LEFT : Device::TextAlign::BOTTOM_RIGHT;
     }
     else
     {

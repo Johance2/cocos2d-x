@@ -50,7 +50,7 @@ class AssetsManagerDelegateProtocol;
 class CC_EX_DLL AssetsManager : public Node
 {
 public:
-    enum class ErrorCode
+    enum ErrorCode
     {
         // Error caused by creating a file to store downloaded data
         CREATE_FILE,

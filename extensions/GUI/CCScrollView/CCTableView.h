@@ -148,7 +148,7 @@ class CC_EX_DLL TableView : public ScrollView, public ScrollViewDelegate
 {
 public:
     
-    enum class VerticalFillOrder
+    enum VerticalFillOrder
     {
         TOP_DOWN,
         BOTTOM_UP

@@ -51,7 +51,7 @@ class CC_DLL EventListener : public Ref
 {
 public:
     /** Type Event type.*/
-    enum class Type
+    enum Type
     {
         UNKNOWN,
         TOUCH_ONE_BY_ONE,

@@ -171,7 +171,7 @@ public:
     virtual Data getDataFromFile(const std::string& filename);
 
 
-    enum class Status
+    enum Status
     {
         OK = 0,
         NotExists = 1, // File not exists

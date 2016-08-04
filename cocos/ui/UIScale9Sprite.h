@@ -74,13 +74,13 @@ namespace ui {
          * Builtin shader state.
          * Currently support Normal and Gray state.
          */
-        enum class State
+        enum State
         {
             NORMAL,
             GRAY
         };
         
-        enum class RenderingType
+        enum RenderingType
         {
             SIMPLE,
             SLICE

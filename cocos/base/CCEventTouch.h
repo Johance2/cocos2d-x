@@ -48,7 +48,7 @@ public:
     static const int MAX_TOUCHES = 15;
     
     /** EventCode Touch event code.*/
-    enum class EventCode
+    enum EventCode
     {
         BEGAN,
         MOVED,

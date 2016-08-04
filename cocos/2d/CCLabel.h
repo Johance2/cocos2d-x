@@ -81,7 +81,7 @@ typedef struct _ttfConfig
     }
 } TTFConfig;
 
-enum class TextFormatter : char
+enum TextFormatter : char
 {
     NewLine = '\n',
     CarriageReturn = '\r',
@@ -112,7 +112,7 @@ class EventListenerCustom;
 class CC_DLL Label : public Node, public LabelProtocol, public BlendProtocol
 {
 public:
-    enum class Overflow
+    enum Overflow
     {
         //In NONE mode, the dimensions is (0,0) and the content size will change dynamically to fit the label.
         NONE,
@@ -154,8 +154,8 @@ public:
      * @return An automatically released Label object.
      */
     static Label* createWithSystemFont(const std::string& text, const std::string& font, float fontSize,
-        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::LEFT,
-        TextVAlignment vAlignment = TextVAlignment::TOP);
+        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
+        TextVAlignment vAlignment = TextVAlignment::TV_TOP);
 
     /**
     * Allocates and initializes a Label, base on FreeType2.
@@ -170,8 +170,8 @@ public:
     * @return An automatically released Label object.
     */
     static Label * createWithTTF(const std::string& text, const std::string& fontFilePath, float fontSize,
-        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::LEFT,
-        TextVAlignment vAlignment = TextVAlignment::TOP);
+        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
+        TextVAlignment vAlignment = TextVAlignment::TV_TOP);
 
     /**
     * Allocates and initializes a Label, base on FreeType2.
@@ -185,7 +185,7 @@ public:
     * @see TTFConfig setTTFConfig setMaxLineWidth
     */
     static Label* createWithTTF(const TTFConfig& ttfConfig, const std::string& text, 
-        TextHAlignment hAlignment = TextHAlignment::LEFT, int maxLineWidth = 0);
+        TextHAlignment hAlignment = TextHAlignment::TH_LEFT, int maxLineWidth = 0);
 
     /**
     * Allocates and initializes a Label, with a bitmap font file.
@@ -200,7 +200,7 @@ public:
     * @see setBMFontFilePath setMaxLineWidth
     */
     static Label* createWithBMFont(const std::string& bmfontPath, const std::string& text,
-        const TextHAlignment& hAlignment = TextHAlignment::LEFT, int maxLineWidth = 0,
+        const TextHAlignment& hAlignment = TextHAlignment::TH_LEFT, int maxLineWidth = 0,
         const Vec2& imageOffset = Vec2::ZERO);
 
     /**
@@ -592,8 +592,8 @@ public:
     virtual void setGlobalZOrder(float globalZOrder) override;
 
     CC_DEPRECATED_ATTRIBUTE static Label* create(const std::string& text, const std::string& font, float fontSize,
-        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::LEFT,
-        TextVAlignment vAlignment = TextVAlignment::TOP);
+        const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
+        TextVAlignment vAlignment = TextVAlignment::TV_TOP);
     CC_DEPRECATED_ATTRIBUTE virtual void setFontDefinition(const FontDefinition& textDefinition);
     CC_DEPRECATED_ATTRIBUTE FontDefinition getFontDefinition() const { return _getFontDefinition(); }
     CC_DEPRECATED_ATTRIBUTE int getCommonLineHeight() const { return (int)getLineHeight();}
@@ -603,8 +603,8 @@ CC_CONSTRUCTOR_ACCESS:
      * Constructor of Label.
      * @js NA
      */
-    Label(TextHAlignment hAlignment = TextHAlignment::LEFT,
-      TextVAlignment vAlignment = TextVAlignment::TOP);
+    Label(TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
+      TextVAlignment vAlignment = TextVAlignment::TV_TOP);
 
     /**
      * Destructor of Label.
@@ -614,11 +614,11 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~Label();
 
     bool initWithTTF(const std::string& text, const std::string& fontFilePath, float fontSize,
-                     const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::LEFT,
-                     TextVAlignment vAlignment = TextVAlignment::TOP);
+                     const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
+                     TextVAlignment vAlignment = TextVAlignment::TV_TOP);
 
     bool initWithTTF(const TTFConfig& ttfConfig, const std::string& text,
-                     TextHAlignment hAlignment = TextHAlignment::LEFT, int maxLineWidth = 0);
+                     TextHAlignment hAlignment = TextHAlignment::TH_LEFT, int maxLineWidth = 0);
 
 protected:
     struct LetterInfo
@@ -631,7 +631,7 @@ protected:
         int lineIndex;
     };
 
-    enum class LabelType {
+    enum LabelType {
         TTF,
         BMFONT,
         CHARMAP,

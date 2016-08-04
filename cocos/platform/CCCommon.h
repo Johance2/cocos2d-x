@@ -49,7 +49,7 @@ void CC_DLL MessageBox(const char * msg, const char * title);
 /**
 @brief Enum the language type supported now
 */
-enum class LanguageType
+enum LanguageType
 {
     ENGLISH = 0,
     CHINESE,

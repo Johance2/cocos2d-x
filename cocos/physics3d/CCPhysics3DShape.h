@@ -47,7 +47,7 @@ NS_CC_BEGIN
 class CC_DLL Physics3DShape : public Ref
 {
 public:
-    enum class ShapeType
+    enum ShapeType
     {
         UNKNOWN = 0,
         BOX,

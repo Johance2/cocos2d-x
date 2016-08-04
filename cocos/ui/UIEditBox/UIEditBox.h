@@ -98,7 +98,7 @@ namespace ui {
         /**
          * The popup keyboard return type.
          */
-        enum class KeyboardReturnType
+        enum KeyboardReturnType
         {
             DEFAULT,
             DONE,
@@ -111,7 +111,7 @@ namespace ui {
          * @brief The EditBox::InputMode defines the type of text that the user is allowed
          * to enter.
          */
-        enum class InputMode
+        enum InputMode
         {
             /**
              * The user is allowed to enter any text, including line breaks.
@@ -153,7 +153,7 @@ namespace ui {
         /**
          * @brief The EditBox::InputFlag defines how the input text is displayed/formatted.
          */
-        enum class InputFlag
+        enum InputFlag
         {
             /**
              * Indicates that the text entered is confidential data that should be

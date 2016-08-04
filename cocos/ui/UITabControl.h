@@ -50,7 +50,7 @@ namespace ui {
         
     public:
 
-        enum class EventType
+        enum EventType
         {
             SELECTED,
             UNSELECTED
@@ -178,7 +178,7 @@ namespace ui {
         typedef std::function<void(int tabindex, TabHeader::EventType)> ccTabCallback;
         ccTabCallback  _tabSelectedEvent;
 
-        enum class FontType
+        enum FontType
         {
             SYSTEM,
             TTF,
@@ -193,7 +193,7 @@ namespace ui {
     class CC_GUI_DLL TabControl : public Widget
     {
     public:
-        enum class Dock
+        enum Dock
         {
             TOP,
             LEFT,
@@ -201,7 +201,7 @@ namespace ui {
             RIGHT
         };
 
-        enum class EventType
+        enum EventType
         {
             SELECT_CHANGED,
         };

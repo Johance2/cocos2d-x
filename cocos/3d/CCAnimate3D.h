@@ -39,7 +39,7 @@ class Bone3D;
 class Sprite3D;
 class EventCustom;
 
-enum class Animate3DQuality
+enum Animate3DQuality
 {
     QUALITY_NONE = 0,          // it'll be ignore the curve-evaluating(the animation looks like stop), just accumulate transition time.
     QUALITY_LOW,               // low animation quality, it'll be more efficient.
@@ -146,7 +146,7 @@ CC_CONSTRUCTOR_ACCESS:
     
 protected:
     
-    enum class Animate3DState
+    enum Animate3DState
     {
         FadeIn,
         FadeOut,

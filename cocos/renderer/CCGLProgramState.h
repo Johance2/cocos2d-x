@@ -109,7 +109,7 @@ public:
 
 protected:
 
-    enum class Type {
+    enum Type {
         VALUE,
         POINTER,
         CALLBACK_FN     // CALLBACK is already defined in windows, can't use it.

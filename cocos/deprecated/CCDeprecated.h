@@ -920,13 +920,13 @@ CC_DEPRECATED_ATTRIBUTE const Director::Projection kCCDirectorProjectionCustom =
 CC_DEPRECATED_ATTRIBUTE const Director::Projection kCCDirectorProjectionDefault = Director::Projection::DEFAULT;
 CC_DEPRECATED_ATTRIBUTE typedef Director::Projection ccDirectorProjection;
 
-CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentTop = TextVAlignment::TOP;
-CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentCenter = TextVAlignment::CENTER;
-CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentBottom = TextVAlignment::BOTTOM;
+CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentTop = TextVAlignment::TV_TOP;
+CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentCenter = TextVAlignment::TV_CENTER;
+CC_DEPRECATED_ATTRIBUTE const TextVAlignment kCCVerticalTextAlignmentBottom = TextVAlignment::TV_BOTTOM;
 
-CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentLeft = TextHAlignment::LEFT;
-CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentCenter = TextHAlignment::CENTER;
-CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentRight = TextHAlignment::RIGHT;
+CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentLeft = TextHAlignment::TH_LEFT;
+CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentCenter = TextHAlignment::TH_CENTER;
+CC_DEPRECATED_ATTRIBUTE const TextHAlignment kCCTextAlignmentRight = TextHAlignment::TH_RIGHT;
 
 CC_DEPRECATED_ATTRIBUTE const Texture2D::PixelFormat kCCTexture2DPixelFormat_RGBA8888 = Texture2D::PixelFormat::RGBA8888;
 CC_DEPRECATED_ATTRIBUTE const Texture2D::PixelFormat kCCTexture2DPixelFormat_RGB888 = Texture2D::PixelFormat::RGB888;

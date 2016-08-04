@@ -49,7 +49,7 @@ class CC_DLL Physics3DComponent : public cocos2d::Component
 {
     friend class Physics3DWorld;
 public:
-    enum class PhysicsSyncFlag
+    enum PhysicsSyncFlag
     {
         NONE = 0,
         NODE_TO_PHYSICS = 1, //align node transform to the physics

@@ -64,7 +64,7 @@ LabelBMFont * LabelBMFont::create()
 }
 
 //LabelBMFont - Creation & Init
-LabelBMFont *LabelBMFont::create(const std::string& str, const std::string& fntFile, float width /* = 0 */, TextHAlignment alignment /* = TextHAlignment::LEFT */,const Vec2& imageOffset /* = Vec2::ZERO */)
+LabelBMFont *LabelBMFont::create(const std::string& str, const std::string& fntFile, float width /* = 0 */, TextHAlignment alignment /* = TextHAlignment::TH_LEFT */,const Vec2& imageOffset /* = Vec2::ZERO */)
 {
     LabelBMFont *ret = new (std::nothrow) LabelBMFont();
     if(ret && ret->initWithString(str, fntFile, width, alignment,imageOffset))
@@ -76,7 +76,7 @@ LabelBMFont *LabelBMFont::create(const std::string& str, const std::string& fntF
     return nullptr;
 }
 
-bool LabelBMFont::initWithString(const std::string& str, const std::string& fntFile, float width /* = 0 */, TextHAlignment alignment /* = TextHAlignment::LEFT */,const Vec2& imageOffset /* = Vec2::ZERO */)
+bool LabelBMFont::initWithString(const std::string& str, const std::string& fntFile, float width /* = 0 */, TextHAlignment alignment /* = TextHAlignment::TH_LEFT */,const Vec2& imageOffset /* = Vec2::ZERO */)
 {
     if (_label->setBMFontFilePath(fntFile,imageOffset))
     {

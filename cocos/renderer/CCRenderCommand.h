@@ -46,7 +46,7 @@ class CC_DLL RenderCommand
 {
 public:
     /**Enum the type of render command. */
-    enum class Type
+    enum Type
     {
         /** Reserved type.*/
         UNKNOWN_COMMAND,

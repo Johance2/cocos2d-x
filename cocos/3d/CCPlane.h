@@ -30,7 +30,7 @@
 
 NS_CC_BEGIN
 
-enum class PointSide
+enum PointSide
 {
     IN_PLANE,
     FRONT_PLANE,

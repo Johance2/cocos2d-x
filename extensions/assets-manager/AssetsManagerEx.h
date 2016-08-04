@@ -51,7 +51,7 @@ class CC_EX_DLL AssetsManagerEx : public Ref
 public:
     
     //! Update states
-    enum class State
+    enum State
     {
         UNCHECKED,
         PREDOWNLOAD_VERSION,

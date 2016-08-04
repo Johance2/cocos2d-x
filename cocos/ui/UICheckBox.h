@@ -67,7 +67,7 @@ public:
     /**
      * CheckBox event type, currently only "selected" and "unselected" event are cared.
      */
-    enum class EventType
+    enum EventType
     {
         SELECTED,
         UNSELECTED

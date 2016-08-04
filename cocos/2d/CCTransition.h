@@ -74,7 +74,7 @@ class CC_DLL TransitionScene : public Scene
 public:
     /** Orientation Type used by some transitions.
      */
-    enum class Orientation
+    enum Orientation
     {
         /// An horizontal orientation where the Left is nearer
         LEFT_OVER = 0,

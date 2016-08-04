@@ -74,7 +74,7 @@ public:
     virtual ~Image();
 
     /** Supported formats for Image */
-    enum class Format
+    enum Format
     {
         //! JPEG
         JPG,

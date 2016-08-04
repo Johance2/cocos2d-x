@@ -29,7 +29,7 @@
 
 NS_CC_BEGIN
 
-enum class LightType
+enum LightType
 {
     DIRECTIONAL = 0,
     POINT = 1,
@@ -37,7 +37,7 @@ enum class LightType
     AMBIENT = 3,
 };
 
-enum class LightFlag
+enum LightFlag
 {
     LIGHT0 = 1,
     LIGHT1 = 1 << 1,

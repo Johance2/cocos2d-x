@@ -149,7 +149,7 @@ class CC_DLL ParticleSystem3D : public Node, public BlendProtocol
 {
 public:
 
-    enum class State
+    enum State
     {
         STOP,
         RUNNING,

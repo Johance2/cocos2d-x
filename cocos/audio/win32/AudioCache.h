@@ -49,7 +49,7 @@ class AudioPlayer;
 
 class CC_DLL AudioCache{
 public:
-    enum class FileFormat
+    enum FileFormat
     {
         UNKNOWN,
         OGG,

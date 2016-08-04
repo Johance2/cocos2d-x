@@ -28,7 +28,7 @@
 
 #include "platform/CCStdC.h"
 
-enum class S3TCDecodeFlag
+enum S3TCDecodeFlag
 {
     DXT1 = 1,
     DXT3 = 3,

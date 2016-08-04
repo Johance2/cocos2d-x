@@ -182,7 +182,7 @@ Label* Label::create()
     return ret;
 }
 
-Label* Label::create(const std::string& text, const std::string& font, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TOP */)
+Label* Label::create(const std::string& text, const std::string& font, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TV_TOP */)
 {
     if (FileUtils::getInstance()->isFileExist(font))
     {
@@ -194,7 +194,7 @@ Label* Label::create(const std::string& text, const std::string& font, float fon
     }
 }
 
-Label* Label::createWithSystemFont(const std::string& text, const std::string& font, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TOP */)
+Label* Label::createWithSystemFont(const std::string& text, const std::string& font, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TV_TOP */)
 {
     auto ret = new (std::nothrow) Label(hAlignment,vAlignment);
 
@@ -213,7 +213,7 @@ Label* Label::createWithSystemFont(const std::string& text, const std::string& f
     return nullptr;
 }
 
-Label* Label::createWithTTF(const std::string& text, const std::string& fontFile, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TOP */)
+Label* Label::createWithTTF(const std::string& text, const std::string& fontFile, float fontSize, const Size& dimensions /* = Size::ZERO */, TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */, TextVAlignment vAlignment /* = TextVAlignment::TV_TOP */)
 {
     auto ret = new (std::nothrow) Label(hAlignment,vAlignment);
 
@@ -227,7 +227,7 @@ Label* Label::createWithTTF(const std::string& text, const std::string& fontFile
     return nullptr;
 }
 
-Label* Label::createWithTTF(const TTFConfig& ttfConfig, const std::string& text, TextHAlignment hAlignment /* = TextHAlignment::CENTER */, int maxLineWidth /* = 0 */)
+Label* Label::createWithTTF(const TTFConfig& ttfConfig, const std::string& text, TextHAlignment hAlignment /* = TextHAlignment::TH_CENTER */, int maxLineWidth /* = 0 */)
 {
     auto ret = new (std::nothrow) Label(hAlignment);
 
@@ -241,7 +241,7 @@ Label* Label::createWithTTF(const TTFConfig& ttfConfig, const std::string& text,
     return nullptr;
 }
 
-Label* Label::createWithBMFont(const std::string& bmfontFilePath, const std::string& text,const TextHAlignment& hAlignment /* = TextHAlignment::LEFT */, int maxLineWidth /* = 0 */, const Vec2& imageOffset /* = Vec2::ZERO */)
+Label* Label::createWithBMFont(const std::string& bmfontFilePath, const std::string& text,const TextHAlignment& hAlignment /* = TextHAlignment::TH_LEFT */, int maxLineWidth /* = 0 */, const Vec2& imageOffset /* = Vec2::ZERO */)
 {
     auto ret = new (std::nothrow) Label(hAlignment);
 
@@ -376,8 +376,8 @@ bool Label::setCharMap(const std::string& charMapFile, int itemWidth, int itemHe
     return true;
 }
 
-Label::Label(TextHAlignment hAlignment /* = TextHAlignment::LEFT */, 
-             TextVAlignment vAlignment /* = TextVAlignment::TOP */)
+Label::Label(TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */, 
+             TextVAlignment vAlignment /* = TextVAlignment::TV_TOP */)
 : _textSprite(nullptr)
 , _shadowNode(nullptr)
 , _fontAtlas(nullptr)
@@ -491,8 +491,8 @@ void Label::reset()
     _labelWidth = 0.f;
     _labelHeight = 0.f;
     _lineBreakWithoutSpaces = false;
-    _hAlignment = TextHAlignment::LEFT;
-    _vAlignment = TextVAlignment::TOP;
+    _hAlignment = TextHAlignment::TH_LEFT;
+    _vAlignment = TextVAlignment::TV_TOP;
 
     _effectColorF = Color4F::BLACK;
     _textColor = Color4B::WHITE;

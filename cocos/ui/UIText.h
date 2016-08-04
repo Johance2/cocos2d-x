@@ -51,7 +51,7 @@ class CC_GUI_DLL Text : public Widget
 public:
     /** Type Text type.
      */
-    enum class Type
+    enum Type
     {
         SYSTEM,
         TTF

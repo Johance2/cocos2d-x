@@ -89,7 +89,7 @@ class CC_DLL Terrain : public Node
 public:
 
     /**the crack fix type. use to fix the gaps between different LOD chunks */
-    enum class CrackFixedType{
+    enum CrackFixedType{
         SKIRT,
         INCREASE_LOWER,
     };

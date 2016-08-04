@@ -76,7 +76,7 @@ class CC_DLL Physics3DObject : public Ref
 public:
     typedef std::function<void(const Physics3DCollisionInfo &ci)> CollisionCallbackFunc;
 
-    enum class PhysicsObjType
+    enum PhysicsObjType
     {
         UNKNOWN = 0,
         RIGID_BODY,

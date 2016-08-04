@@ -45,7 +45,7 @@ NS_CC_BEGIN
 /**
  * Evaluate Type
  */
-enum class EvaluateType
+enum EvaluateType
 {
     INT_LINEAR, 
     INT_NEAR,

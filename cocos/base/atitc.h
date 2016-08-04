@@ -28,7 +28,7 @@
 
 #include "platform/CCStdC.h"
 
-enum class ATITCDecodeFlag
+enum ATITCDecodeFlag
 {
     ATC_RGB = 1,
     ATC_EXPLICIT_ALPHA = 3,

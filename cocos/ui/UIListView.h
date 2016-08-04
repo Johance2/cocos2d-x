@@ -67,7 +67,7 @@ public:
     /**
      * Gravity for docking elements in ListView.
      */
-    enum class Gravity
+    enum Gravity
     {
         LEFT,
         RIGHT,
@@ -80,7 +80,7 @@ public:
     /**
      * ListView element item click event.
      */
-    enum class EventType
+    enum EventType
     {
         ON_SELECTED_ITEM_START,
         ON_SELECTED_ITEM_END
@@ -91,7 +91,7 @@ public:
      * With CENTER type, ListView tries to align its items in center of current view.
      * With BOTH_END type, ListView tries to align its items in left or right end if it is horizontal, top or bottom in vertical. The aligning side (left or right, top or bottom) is determined by user's scroll direction.
      */
-    enum class MagneticType
+    enum MagneticType
     {
         NONE,
         CENTER,

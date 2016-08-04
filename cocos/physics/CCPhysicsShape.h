@@ -72,7 +72,7 @@ const PhysicsMaterial PHYSICSSHAPE_MATERIAL_DEFAULT;
 class CC_DLL PhysicsShape : public Ref
 {
 public:
-    enum class Type
+    enum Type
     {
         UNKNOWN,
         CIRCLE,

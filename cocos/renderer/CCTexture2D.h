@@ -70,7 +70,7 @@ public:
     /** @typedef Texture2D::PixelFormat
      Possible texture pixel formats
      */
-    enum class PixelFormat
+    enum PixelFormat
     {
         //! auto detect the type
         AUTO,
@@ -291,7 +291,7 @@ public:
      @param enableWrap Whether enable text wrap or not.
      @param overflow Whether shrink font size when content larger than the dimensions.
      */
-    bool initWithString(const char *text,  const std::string &fontName, float fontSize, const Size& dimensions = Size(0, 0), TextHAlignment hAlignment = TextHAlignment::CENTER, TextVAlignment vAlignment = TextVAlignment::TOP, bool enableWrap = true, int overflow = 0);
+    bool initWithString(const char *text,  const std::string &fontName, float fontSize, const Size& dimensions = Size(0, 0), TextHAlignment hAlignment = TextHAlignment::TH_CENTER, TextVAlignment vAlignment = TextVAlignment::TV_TOP, bool enableWrap = true, int overflow = 0);
 
     /** Initializes a texture from a string using a text definition.
      

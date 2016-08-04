@@ -35,7 +35,7 @@ class CC_STUDIO_DLL SceneReader
 {
 public:
 
-    enum class AttachComponentType
+    enum AttachComponentType
     {
         ///parent: Empty Node
         ///            ComRender(Sprite, Armature, TMXTiledMap, ParticleSystemQuad, GUIComponent)

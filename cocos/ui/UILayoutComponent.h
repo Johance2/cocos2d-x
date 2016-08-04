@@ -74,7 +74,7 @@ namespace ui {
         /**
          * Horizontal dock position type.
          */
-        enum class HorizontalEdge
+        enum HorizontalEdge
         {
             None,
             Left,
@@ -85,7 +85,7 @@ namespace ui {
         /**
          * Vertical dock position type.
          */
-        enum class VerticalEdge
+        enum VerticalEdge
         {
             None,
             Bottom,

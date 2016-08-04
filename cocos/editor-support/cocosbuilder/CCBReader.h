@@ -75,7 +75,7 @@ class CCBKeyframe;
 class CC_DLL CCBReader : public cocos2d::Ref 
 {
 public:
-    enum class PropertyType {
+    enum PropertyType {
         POSITION = 0,
         SIZE,
         POINT,
@@ -106,7 +106,7 @@ public:
         FLOAT_XY
     };
     
-    enum class FloatType {
+    enum FloatType {
         _0 = 0,
         _1,
         MINUS1,
@@ -115,19 +115,19 @@ public:
         FULL
     };
     
-    enum class PlatformType {
+    enum PlatformType {
         ALL = 0,
         IOS,
         MAC
     };
     
-    enum class TargetType {
+    enum TargetType {
         NONE = 0,
         DOCUMENT_ROOT = 1,
         OWNER = 2,
     };
     
-    enum class PositionType
+    enum PositionType
     {
         RELATIVE_BOTTOM_LEFT,
         RELATIVE_TOP_LEFT,
@@ -137,7 +137,7 @@ public:
         MULTIPLY_RESOLUTION,
     };
    
-    enum class SizeType
+    enum SizeType
     {
         ABSOLUTE,
         PERCENT,
@@ -147,7 +147,7 @@ public:
         MULTIPLY_RESOLUTION,
     };
     
-    enum class ScaleType
+    enum ScaleType
     {
         ABSOLUTE,
         MULTIPLY_RESOLUTION

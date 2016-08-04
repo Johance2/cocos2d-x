@@ -98,7 +98,7 @@ public:
     /**
      * ErrorCode enum used to represent the error in the websocket.
      */
-    enum class ErrorCode
+    enum ErrorCode
     {
         TIME_OUT,           /** &lt; value 0 */
         CONNECTION_FAILURE, /** &lt; value 1 */
@@ -108,7 +108,7 @@ public:
     /**
      *  State enum used to represent the Websocket state.
      */
-    enum class State
+    enum State
     {
         CONNECTING,  /** &lt; value 0 */
         OPEN,        /** &lt; value 1 */

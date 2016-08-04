@@ -53,7 +53,7 @@ public:
     /**
      * Loading bar progress direction.
      */
-    enum class Direction
+    enum Direction
     {
         LEFT,
         RIGHT

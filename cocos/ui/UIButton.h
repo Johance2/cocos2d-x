@@ -375,7 +375,7 @@ protected:
     TextureResType _disabledTexType;
 
 private:
-    enum class FontType
+    enum FontType
     {
         SYSTEM,
         TTF,

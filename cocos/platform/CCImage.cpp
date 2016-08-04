@@ -105,7 +105,7 @@ namespace
     static bool _PVRHaveAlphaPremultiplied = false;
     
     // Values taken from PVRTexture.h from http://www.imgtec.com
-    enum class PVR2TextureFlag
+    enum PVR2TextureFlag
     {
         Mipmap         = (1<<8),        // has mip map levels
         Twiddle        = (1<<9),        // is twiddled
@@ -118,7 +118,7 @@ namespace
         VerticalFlip   = (1<<16),       // v2.1 is the texture vertically flipped
     };
     
-    enum class PVR3TextureFlag
+    enum PVR3TextureFlag
     {
         PremultipliedAlpha  = (1<<1)    // has premultiplied alpha
     };
@@ -126,7 +126,7 @@ namespace
     static const char gPVRTexIdentifier[5] = "PVR!";
     
     // v2
-    enum class PVR2TexturePixelFormat : unsigned char
+    enum PVR2TexturePixelFormat : unsigned char
     {
         RGBA4444 = 0x10,
         RGBA5551,
@@ -143,7 +143,7 @@ namespace
     };
         
     // v3
-    enum class PVR3TexturePixelFormat : uint64_t
+    enum PVR3TexturePixelFormat : uint64_t
     {
         PVRTC2BPP_RGB  = 0ULL,
         PVRTC2BPP_RGBA = 1ULL,

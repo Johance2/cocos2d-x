@@ -47,7 +47,7 @@ class CameraBackgroundBrush;
  * You can change the camera order to get different result when depth test is not enabled.
  * For each camera, transparent 3d sprite is rendered after opaque 3d sprite and other 2d objects.
  */
-enum class CameraFlag
+enum CameraFlag
 {
     DEFAULT = 1,
     USER1 = 1 << 1,
@@ -71,7 +71,7 @@ public:
     /**
     * The type of camera.
     */
-    enum class Type
+    enum Type
     {
         PERSPECTIVE = 1,
         ORTHOGRAPHIC = 2

@@ -66,7 +66,7 @@ class CC_EX_DLL Control : public Layer
 {
 public:
     /** Kinds of possible events for the control objects. */
-    enum class CC_EX_DLL EventType
+    enum CC_EX_DLL EventType
     {
         TOUCH_DOWN           = 1 << 0,    // A touch-down event in the control.
         DRAG_INSIDE          = 1 << 1,    // An event where a finger is dragged inside the bounds of the control.
@@ -82,7 +82,7 @@ public:
     typedef void (Ref::*Handler)(Ref*, EventType);
     
     /** The possible state for a control.  */
-    enum class State
+    enum State
     {
         NORMAL         = 1 << 0, // The normal, or default state of a control that is, enabled but neither selected nor highlighted.
         HIGH_LIGHTED   = 1 << 1, // Highlighted state of a control. A control enters this state when a touch down, drag inside or drag enter is performed. You can retrieve and set this value through the highlighted property.

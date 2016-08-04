@@ -92,7 +92,7 @@ class EXPORT_DLL AudioEngine
 {
 public:
     /** AudioState enum,all possible states of an audio instance.*/
-    enum class AudioState
+    enum AudioState
     {
         ERROR  = -1,
         INITIALZING,

@@ -121,7 +121,7 @@ TextFieldTTF * TextFieldTTF::textFieldWithPlaceHolder(const std::string& placeho
 bool TextFieldTTF::initWithPlaceHolder(const std::string& placeholder, const Size& dimensions, TextHAlignment alignment, const std::string& fontName, float fontSize)
 {
     setDimensions(dimensions.width, dimensions.height);
-    setAlignment(alignment, TextVAlignment::CENTER);
+    setAlignment(alignment, TextVAlignment::TV_CENTER);
 
     return initWithPlaceHolder(placeholder, fontName, fontSize);
 }

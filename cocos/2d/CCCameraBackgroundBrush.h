@@ -51,7 +51,7 @@ public:
     /**
      * Brush types. There are 4 types of brush. See CameraBackgroundDepthBrush, CameraBackgroundColorBrush, CameraBackgroundSkyBoxBrush for more information.
      */
-    enum class BrushType
+    enum BrushType
     {
         NONE, //none brush
         DEPTH, // depth brush. See CameraBackgroundDepthBrush

@@ -47,7 +47,7 @@ class CC_DLL Device
 {
 public:
     /** Defines the alignment of text. */
-    enum class TextAlign
+    enum TextAlign
     {
         CENTER        = 0x33, /** Horizontal center and vertical center. */
         TOP           = 0x13, /** Horizontal center and vertical top. */

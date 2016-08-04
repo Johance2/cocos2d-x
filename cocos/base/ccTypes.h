@@ -416,11 +416,11 @@ struct CC_DLL BlendFunc
  *
  * @note If any of these enums are edited and/or reordered, update Texture2D.m.
  */
-enum class CC_DLL TextVAlignment
+enum TextVAlignment
 {
-    TOP,
-    CENTER,
-    BOTTOM
+    TV_TOP,
+    TV_CENTER,
+    TV_BOTTOM
 };
 
 /** @enum TextHAlignment
@@ -428,11 +428,11 @@ enum class CC_DLL TextVAlignment
  *
  * @note If any of these enums are edited and/or reordered, update Texture2D.m.
  */
-enum class CC_DLL TextHAlignment
+enum TextHAlignment
 {
-    LEFT,
-    CENTER,
-    RIGHT
+    TH_LEFT,
+    TH_CENTER,
+    TH_RIGHT
 };
 
 /**
@@ -441,7 +441,7 @@ enum class CC_DLL TextHAlignment
 * Specify a collections of characters to be load when Label created.
 * Consider using DYNAMIC.
 */
-enum class GlyphCollection {
+enum GlyphCollection {
     DYNAMIC,
     NEHE,
     ASCII,
@@ -541,8 +541,8 @@ public:
      */
     FontDefinition()
         : _fontSize(0)
-        , _alignment(TextHAlignment::CENTER)
-        , _vertAlignment(TextVAlignment::TOP)
+        , _alignment(TextHAlignment::TH_CENTER)
+        , _vertAlignment(TextVAlignment::TV_TOP)
         , _dimensions(Size::ZERO)
         , _fontFillColor(Color3B::WHITE)
         , _fontAlpha(255)
@@ -572,7 +572,7 @@ public:
     bool                  _enableWrap;
     /** There are 4 overflows: none, clamp, shrink and resize_height.
      *  The corresponding integer values are 0, 1, 2, 3 respectively
-     * For more information, please refer to Label::Overflow enum class.
+     * For more information, please refer to Label::Overflow enum.
      */
     int                  _overflow;
 };
@@ -581,7 +581,7 @@ public:
  * @brief Effects used by `Label`
  *
  */
-enum class LabelEffect {
+enum LabelEffect {
     // FIXME: Covert them to bitwise. More than one effect should be supported
     NORMAL,
     OUTLINE,

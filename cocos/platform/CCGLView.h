@@ -40,7 +40,7 @@ typedef void* id;
 #endif /* (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) */
 
 /** There are some Resolution Policy for Adapt to the screen. */
-enum class ResolutionPolicy
+enum ResolutionPolicy
 {
     /** The entire application is visible in the specified area without trying to preserve the original aspect ratio.
      * Distortion can occur, and the application may appear stretched or compressed.

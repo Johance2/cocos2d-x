@@ -52,7 +52,7 @@ class SocketIOPacketV10x;
 class SocketIOPacket
 {
 public:
-    enum class SocketIOVersion
+    enum SocketIOVersion
     {
         V09x,
         V10x

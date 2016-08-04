@@ -54,13 +54,13 @@ public:
     friend class AssetsManagerEx;
     
     //! The type of difference
-    enum class DiffType {
+    enum DiffType {
         ADDED,
         DELETED,
         MODIFIED
     };
     
-    enum class DownloadState {
+    enum DownloadState {
         UNSTARTED,
         DOWNLOADING,
         SUCCESSED

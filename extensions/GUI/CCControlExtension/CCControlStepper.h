@@ -44,7 +44,7 @@ NS_CC_EXT_BEGIN
 class CC_EX_DLL ControlStepper : public Control
 {
 public:
-    enum class Part
+    enum Part
     {
         MINUS,
         PLUS,

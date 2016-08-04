@@ -41,7 +41,7 @@ public:
     friend class AssetsManagerEx;
     
     //! Update events code
-    enum class EventCode
+    enum EventCode
     {
         ERROR_NO_LOCAL_MANIFEST,
         ERROR_DOWNLOAD_MANIFEST,

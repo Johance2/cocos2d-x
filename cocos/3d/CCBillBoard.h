@@ -40,7 +40,7 @@ class CC_DLL BillBoard : public Sprite
 {
 public:
 
-    enum class Mode
+    enum Mode
     {
         VIEW_POINT_ORIENTED, // orient to the camera
         VIEW_PLANE_ORIENTED // orient to the XOY plane of camera

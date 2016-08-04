@@ -45,7 +45,7 @@ class CC_DLL Event : public Ref
 {
 public:
     /** Type Event type.*/
-    enum class Type
+    enum Type
     {
         TOUCH,
         KEYBOARD,

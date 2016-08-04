@@ -44,7 +44,7 @@ public:
     /** Since WINDOWS and ANDROID are defined as macros, we could not just use these keywords in enumeration(Platform).
      *  Therefore, 'OS_' prefix is added to avoid conflicts with the definitions of system macros.
      */
-    enum class Platform
+    enum Platform
     {
         OS_WINDOWS,     /**< Windows */
         OS_LINUX,       /**< Linux */

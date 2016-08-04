@@ -55,7 +55,7 @@ public:
     * MouseEventType Different types of MouseEvent.
     * @js NA
     */
-    enum class MouseEventType
+    enum MouseEventType
     {
         MOUSE_NONE,
         MOUSE_DOWN,

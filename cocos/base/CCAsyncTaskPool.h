@@ -55,7 +55,7 @@ class CC_DLL AsyncTaskPool
 public:
     typedef std::function<void(void*)> TaskCallBack;
     
-    enum class TaskType
+    enum TaskType
     {
         TASK_IO,
         TASK_NETWORK,
