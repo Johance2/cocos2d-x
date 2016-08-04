@@ -29,6 +29,7 @@ THE SOFTWARE.
 #include "base/ccMacros.h"
 #include "base/CCRef.h"
 #include <vector>
+#include <list>
 #include <functional>
 #include <algorithm> // for std::find
 
@@ -52,59 +53,49 @@ public:
     // Iterators
     // ------------------------------------------
     
-    /** Iterator, can be used to loop the Vector. */
-    using iterator = typename std::vector<T>::iterator;
-    /** Const iterator, can be used to loop the Vector. */
-    using const_iterator = typename std::vector<T>::const_iterator;
-
-    /** Reversed iterator, can be used to loop the Vector in reverse sequence. */
-    using reverse_iterator = typename std::vector<T>::reverse_iterator;
-    /** Reversed iterator, can be used to loop the Vector in reverse sequence. */ 
-    using const_reverse_iterator = typename std::vector<T>::const_reverse_iterator;
-    
     /** Returns an iterator pointing the first element of the Vector. */
-    iterator begin() { return _data.begin(); }
+    typename std::vector<T>::iterator begin() { return _data.begin(); }
     /** Returns an iterator pointing the first element of the Vector. */
-    const_iterator begin() const { return _data.begin(); }
+    typename std::vector<T>::const_iterator begin() const { return _data.begin(); }
     
     /** 
      * Returns an iterator referring to the `past-the-end` element in the Vector container.
      * The past-the-end element is the theoretical element that would follow the last element in the Vector.
      * It does not point to any element, and thus shall not be dereferenced.
      */
-    iterator end() { return _data.end(); }
+    typename std::vector<T>::iterator end() { return _data.end(); }
     /**
      * Returns iterator referring to the `past-the-end` element in the Vector container.
      * The past-the-end element is the theoretical element that would follow the last element in the Vector.
      * It does not point to any element, and thus shall not be dereferenced.
      */
-    const_iterator end() const { return _data.end(); }
+    typename std::vector<T>::const_iterator end() const { return _data.end(); }
     
     /** Returns a const_iterator pointing the first element of the Vector. */
-    const_iterator cbegin() const { return _data.cbegin(); }
+    typename std::vector<T>::const_iterator cbegin() const { return _data.cbegin(); }
     /** Returns a const_iterator pointing the `past-the-end` element of the Vector. */
-    const_iterator cend() const { return _data.cend(); }
+    typename std::vector<T>::const_iterator cend() const { return _data.cend(); }
     
     /** Returns a reverse iterator pointing to the last element of the Vector. */
-    reverse_iterator rbegin() { return _data.rbegin(); }
+    typename std::vector<T>::reverse_iterator rbegin() { return _data.rbegin(); }
     /** Returns a reverse iterator pointing to the last element of the Vector. */
-    const_reverse_iterator rbegin() const { return _data.rbegin(); }
+    typename std::vector<T>::std::vector<T>::const_reverse_iterator rbegin() const { return _data.rbegin(); }
     
     /** Returns a reverse iterator pointing to the theoretical element preceding the 
      * first element of the vector (which is considered its reverse end).
      */
-    reverse_iterator rend() { return _data.rend(); }
+    typename std::vector<T>::reverse_iterator rend() { return _data.rend(); }
     /** Returns a reverse iterator pointing to the theoretical element preceding the
      * first element of the vector (which is considered its reverse end).
      */
-    const_reverse_iterator rend() const { return _data.rend(); }
+    typename std::vector<T>::std::vector<T>::const_reverse_iterator rend() const { return _data.rend(); }
     
     /** Returns a const_reverse_iterator pointing to the last element in the container (i.e., its reverse beginning). */
-    const_reverse_iterator crbegin() const { return _data.crbegin(); }
+    typename std::vector<T>::const_reverse_iterator crbegin() const { return _data.crbegin(); }
     /** Returns a const_reverse_iterator pointing to the theoretical element preceding the first element in 
      * the container (which is considered its reverse end). 
      */
-    const_reverse_iterator crend() const { return _data.crend(); }
+    typename std::vector<T>::const_reverse_iterator crend() const { return _data.crend(); }
     
     /** Constructor. */
     Vector<T>()
@@ -126,11 +117,21 @@ public:
     }
 
     /** Constructor with initializer list. */
-    Vector<T>(std::initializer_list<T> list)
+    Vector<T>(std::list<T> list)
     {
-        for (auto& element : list)
+        for(auto itr = list.begin(); itr != list.end(); ++itr)
         {
-	    pushBack(element);
+        	auto element=*itr;
+			pushBack(element);
+        }
+    }
+    /** Constructor with initializer vector. */
+    Vector<T>(std::vector<T> list)
+    {
+        for(auto itr = list.begin(); itr != list.end(); ++itr)
+        {
+        	auto element=*itr;
+			pushBack(element);
         }
     }
 
@@ -249,7 +250,7 @@ public:
      *  @return Returns an iterator which refers to the element that its value is equals to object.
      *          Returns Vector::end() if not found.
      */
-    const_iterator find(T object) const
+    typename std::vector<T>::const_iterator find(T object) const
     {
         return std::find(_data.begin(), _data.end(), object);
     }
@@ -259,7 +260,7 @@ public:
      *  @return Returns an iterator which refers to the element that its value is equals to object.
      *          Returns Vector::end() if not found.
      */
-    iterator find(T object)
+    typename std::vector<T>::iterator find(T object)
     {
         return std::find(_data.begin(), _data.end(), object);
     }
@@ -338,7 +339,9 @@ public:
     /** Push all elements of an existing Vector to the end of current Vector. */
     void pushBack(const Vector<T>& other)
     {
-        for(const auto &obj : other) {
+        for(auto itr = other.begin(); itr != other.end(); ++itr)
+        {
+        	auto obj=*itr;
             _data.push_back(obj);
             obj->retain();
         }
@@ -408,7 +411,7 @@ public:
      *  @return An iterator pointing to the new location of the element that followed the last element erased by the function call.
      *          This is the container end if the operation erased the last element in the sequence.
      */
-    iterator erase(iterator position)
+    typename std::vector<T>::iterator erase(typename std::vector<T>::iterator position)
     {
         CCASSERT(position >= _data.begin() && position < _data.end(), "Invalid position!");
         (*position)->release();
@@ -421,7 +424,7 @@ public:
      *  @return An iterator pointing to the new location of the element that followed the last element erased by the function call.
      *          This is the container end if the operation erased the last element in the sequence.
      */
-    iterator erase(iterator first, iterator last)
+    typename std::vector<T>::iterator erase(typename std::vector<T>::iterator first, typename std::vector<T>::iterator last)
     {
         for (auto iter = first; iter != last; ++iter)
         {
@@ -435,7 +438,7 @@ public:
      *  @param index The index of the element to be removed from the Vector.
      *  @return An iterator pointing to the successor of Vector[index].
      */
-    iterator erase(ssize_t index)
+    typename std::vector<T>::iterator erase(ssize_t index)
     {
         CCASSERT(!_data.empty() && index >=0 && index < size(), "Invalid index!");
         auto it = std::next( begin(), index );
@@ -503,7 +506,9 @@ protected:
     /** Retains all the objects in the vector */
     void addRefForAllObjects()
     {
-        for(const auto &obj : _data) {
+        for(auto itr = _data.begin(); itr != _data.end(); ++itr)
+        {
+        	auto obj=*itr;
             obj->retain();
         }
     }
