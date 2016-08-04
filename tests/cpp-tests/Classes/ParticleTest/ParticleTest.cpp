@@ -1157,12 +1157,12 @@ void ParticleDemo::toggleCallback(Ref* sender)
 {
     if (_emitter != nullptr)
     {
-        if (_emitter->getPositionType() == ParticleSystem::PositionType::GROUPED)
-            _emitter->setPositionType(ParticleSystem::PositionType::FREE);
-        else if (_emitter->getPositionType() == ParticleSystem::PositionType::FREE)
-            _emitter->setPositionType(ParticleSystem::PositionType::RELATIVE);
-        else if (_emitter->getPositionType() == ParticleSystem::PositionType::RELATIVE)
-            _emitter->setPositionType(ParticleSystem::PositionType::GROUPED );
+        if (_emitter->getPositionType() == ParticleSystem::PositionType::PT_GROUPED)
+            _emitter->setPositionType(ParticleSystem::PositionType::PT_FREE);
+        else if (_emitter->getPositionType() == ParticleSystem::PositionType::PT_FREE)
+            _emitter->setPositionType(ParticleSystem::PositionType::PT_RELATIVE);
+        else if (_emitter->getPositionType() == ParticleSystem::PositionType::PT_RELATIVE)
+            _emitter->setPositionType(ParticleSystem::PositionType::PT_GROUPED );
     }
 }
 
@@ -1483,7 +1483,7 @@ void MultipleParticleSystems::onEnter()
 
         particleSystem->setPosition(Vec2(i*50 ,i*50));
 
-        particleSystem->setPositionType(ParticleSystem::PositionType::GROUPED);
+        particleSystem->setPositionType(ParticleSystem::PositionType::PT_GROUPED);
         addChild(particleSystem);
     }
 
@@ -1540,7 +1540,7 @@ void MultipleParticleSystemsBatched::onEnter()
 
         auto particleSystem = ParticleSystemQuad::create("Particles/SpinningPeas.plist");
 
-        particleSystem->setPositionType(ParticleSystem::PositionType::GROUPED);
+        particleSystem->setPositionType(ParticleSystem::PositionType::PT_GROUPED);
         particleSystem->setPosition(Vec2(i*50 ,i*50));
 
         batchNode->setTexture(particleSystem->getTexture());
@@ -1602,7 +1602,7 @@ void AddAndDeleteParticleSystems::onEnter()
         auto particleSystem = ParticleSystemQuad::create("Particles/Spiral.plist");
         _batchNode->setTexture(particleSystem->getTexture());
 
-        particleSystem->setPositionType(ParticleSystem::PositionType::GROUPED);
+        particleSystem->setPositionType(ParticleSystem::PositionType::PT_GROUPED);
         particleSystem->setTotalParticles(200);
 
         particleSystem->setPosition(Vec2(i*15 +100,i*15+100));
@@ -1629,7 +1629,7 @@ void AddAndDeleteParticleSystems::removeSystem(float dt)
         auto particleSystem = ParticleSystemQuad::create("Particles/Spiral.plist");
         //add new
 
-        particleSystem->setPositionType(ParticleSystem::PositionType::GROUPED);
+        particleSystem->setPositionType(ParticleSystem::PositionType::PT_GROUPED);
         particleSystem->setTotalParticles(200);
 
         particleSystem->setPosition(Vec2(rand() % 300 ,rand() % 400));
@@ -1757,7 +1757,7 @@ void ReorderParticleSystems::onEnter()
 
 
         _batchNode->addChild(particleSystem);
-        particleSystem->setPositionType(ParticleSystem::PositionType::FREE);
+        particleSystem->setPositionType(ParticleSystem::PositionType::PT_FREE);
 
         particleSystem->release();
 
@@ -1904,7 +1904,7 @@ void Issue3990::onEnter()
     
     _emitter = ParticleSystemQuad::create("Particles/Spiral.plist");
     
-    _emitter->setPositionType(ParticleSystem::PositionType::GROUPED);
+    _emitter->setPositionType(ParticleSystem::PositionType::PT_GROUPED);
     _emitter->setTotalParticles(1000);
     _emitter->setEmissionRate(_emitter->getTotalParticles() / _emitter->getLife());
     _emitter->setPosition(VisibleRect::center());

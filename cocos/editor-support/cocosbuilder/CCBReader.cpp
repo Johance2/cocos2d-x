@@ -465,15 +465,15 @@ float CCBReader::readFloat()
     
     switch (type)
     {
-        case FloatType::_0:
+        case FloatType::FT__0:
             return 0;    
-        case FloatType::_1:
+        case FloatType::FT__1:
             return 1;
-        case FloatType::MINUS1:
+        case FloatType::FT_MINUS1:
             return -1;
-        case FloatType::_05:
+        case FloatType::FT__05:
             return 0.5f;
-        case FloatType::INTEGER:
+        case FloatType::FT_INTEGER:
             return (float)this->readInt(true);
         default:
             {

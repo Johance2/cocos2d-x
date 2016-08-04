@@ -237,7 +237,7 @@ void CSLoader::purge()
 
 void CSLoader::init()
 {
-    using namespace std::placeholders;
+    using namespace boost::placeholders;
     
     _funcs.insert(Pair(ClassName_Node,      std::bind(&CSLoader::loadSimpleNode, this, _1)));
     _funcs.insert(Pair(ClassName_SubGraph,  std::bind(&CSLoader::loadSubGraph,   this, _1)));
@@ -534,7 +534,7 @@ Node* CSLoader::loadNode(const rapidjson::Value& json)
                             && parent
                             && !dynamic_cast<Layout*>(parent))
                         {
-                            if (widget->getPositionType() == ui::Widget::PositionType::PERCENT)
+                            if (widget->getPositionType() == ui::Widget::PositionType::PT_PERCENT)
                             {
                                 widget->setPositionPercent(Vec2(widget->getPositionPercent().x + parent->getAnchorPoint().x, widget->getPositionPercent().y + parent->getAnchorPoint().y));
                                 widget->setPosition(Vec2(widget->getPositionX() + parent->getAnchorPointInPoints().x, widget->getPositionY() + parent->getAnchorPointInPoints().y));

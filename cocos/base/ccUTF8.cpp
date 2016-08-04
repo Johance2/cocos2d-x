@@ -155,16 +155,16 @@ struct ConvertTrait<char32_t> {
     typedef UTF32 ArgType;
 };
 
-template <typename From, typename To, typename FromTrait = ConvertTrait<From>, typename ToTrait = ConvertTrait<To>>
+template <typename From, typename To>
 bool utfConvert(
     const std::basic_string<From>& from, std::basic_string<To>& to,
-    ConversionResult(*cvtfunc)(const typename FromTrait::ArgType**, const typename FromTrait::ArgType*,
-        typename ToTrait::ArgType**, typename ToTrait::ArgType*,
+    ConversionResult(*cvtfunc)(const typename ConvertTrait<From>::ArgType**, const typename ConvertTrait<From>::ArgType*,
+        typename ConvertTrait<To>::ArgType**, typename ConvertTrait<To>::ArgType*,
         ConversionFlags)
     )
 {
-    static_assert(sizeof(From) == sizeof(typename FromTrait::ArgType), "Error size mismatched");
-    static_assert(sizeof(To) == sizeof(typename ToTrait::ArgType), "Error size mismatched");
+    static_assert(sizeof(From) == sizeof(typename ConvertTrait<From>::ArgType), "Error size mismatched");
+    static_assert(sizeof(To) == sizeof(typename ConvertTrait<To>::ArgType), "Error size mismatched");
 
     if (from.empty())
     {
@@ -180,11 +180,11 @@ bool utfConvert(
 
     std::basic_string<To> working(numberOfOut, 0);
 
-    auto inbeg = reinterpret_cast<const typename FromTrait::ArgType*>(&from[0]);
+    auto inbeg = reinterpret_cast<const typename ConvertTrait<From>::ArgType*>(&from[0]);
     auto inend = inbeg + from.length();
 
 
-    auto outbeg = reinterpret_cast<typename ToTrait::ArgType*>(&working[0]);
+    auto outbeg = reinterpret_cast<typename ConvertTrait<To>::ArgType*>(&working[0]);
     auto outend = outbeg + working.length();
     auto r = cvtfunc(&inbeg, inend, &outbeg, outend, strictConversion);
     if (r != conversionOK)

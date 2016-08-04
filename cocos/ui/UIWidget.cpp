@@ -152,8 +152,8 @@ _affectByClipping(false),
 _ignoreSize(false),
 _propagateTouchEvents(true),
 _brightStyle(BrightStyle::NONE),
-_sizeType(SizeType::ABSOLUTE),
-_positionType(PositionType::ABSOLUTE),
+_sizeType(SizeType::ST_ABSOLUTE),
+_positionType(PositionType::PT_ABSOLUTE),
 _actionTag(0),
 _customSize(Size::ZERO),
 _hitted(false),
@@ -387,7 +387,7 @@ void Widget::updateSizeAndPosition(const cocos2d::Size &parentSize)
 {
     switch (_sizeType)
     {
-        case SizeType::ABSOLUTE:
+        case SizeType::ST_ABSOLUTE:
         {
             if (_ignoreSize)
             {
@@ -410,7 +410,7 @@ void Widget::updateSizeAndPosition(const cocos2d::Size &parentSize)
             _sizePercent.set(spx, spy);
             break;
         }
-        case SizeType::PERCENT:
+        case SizeType::ST_PERCENT:
         {
             Size cSize = Size(parentSize.width * _sizePercent.x , parentSize.height * _sizePercent.y);
             if (_ignoreSize)
@@ -432,7 +432,7 @@ void Widget::updateSizeAndPosition(const cocos2d::Size &parentSize)
     Vec2 absPos = getPosition();
     switch (_positionType)
     {
-        case PositionType::ABSOLUTE:
+        case PositionType::PT_ABSOLUTE:
         {
             if (parentSize.width <= 0.0f || parentSize.height <= 0.0f)
             {
@@ -444,7 +444,7 @@ void Widget::updateSizeAndPosition(const cocos2d::Size &parentSize)
             }
             break;
         }
-        case PositionType::PERCENT:
+        case PositionType::PT_PERCENT:
         {
             absPos.set(parentSize.width * _positionPercent.x, parentSize.height * _positionPercent.y);
             break;
@@ -463,7 +463,7 @@ void Widget::setSizeType(SizeType type)
     {
         auto component = this->getOrCreateLayoutComponent();
 
-        if (_sizeType == Widget::SizeType::PERCENT)
+        if (_sizeType == Widget::SizeType::ST_PERCENT)
         {
             component->setUsingPercentContentSize(true);
         }
@@ -1083,7 +1083,7 @@ void Widget::setPositionType(PositionType type)
     if (_usingLayoutComponent)
     {
         auto component = this->getOrCreateLayoutComponent();
-        if (type == Widget::PositionType::ABSOLUTE)
+        if (type == Widget::PositionType::PT_ABSOLUTE)
         {
             component->setPositionPercentXEnabled(false);
             component->setPositionPercentYEnabled(false);

@@ -1846,8 +1846,8 @@ static bool NS_ProcessNextEvent()
         if (messageCount == 0)
             break;
     }
-//    std::this_thread::yield();
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+//    boost::this_thread::yield();
+    boost::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     return true;
 }

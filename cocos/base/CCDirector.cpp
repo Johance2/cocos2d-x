@@ -1370,7 +1370,7 @@ void DisplayLinkDirector::startAnimation()
 
     _invalid = false;
 
-    _cocos2d_thread_id = std::this_thread::get_id();
+    _cocos2d_thread_id = boost::this_thread::get_id();
 
     Application::getInstance()->setAnimationInterval(_animationInterval);
 

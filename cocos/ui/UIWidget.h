@@ -94,8 +94,8 @@ public:
      */
     enum PositionType
     {
-        ABSOLUTE,
-        PERCENT
+        PT_ABSOLUTE,
+        PT_PERCENT
     };
     
     /**
@@ -103,8 +103,8 @@ public:
      */
     enum SizeType
     {
-        ABSOLUTE,
-        PERCENT
+        ST_ABSOLUTE,
+        ST_PERCENT
     };
     
     /**

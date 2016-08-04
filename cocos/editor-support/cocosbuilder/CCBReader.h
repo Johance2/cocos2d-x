@@ -107,12 +107,12 @@ public:
     };
     
     enum FloatType {
-        _0 = 0,
-        _1,
-        MINUS1,
-        _05,
-        INTEGER,
-        FULL
+        FT__0 = 0,
+        FT__1,
+        FT_MINUS1,
+        FT__05,
+        FT_INTEGER,
+        FT_FULL
     };
     
     enum PlatformType {
@@ -129,22 +129,22 @@ public:
     
     enum PositionType
     {
-        RELATIVE_BOTTOM_LEFT,
-        RELATIVE_TOP_LEFT,
-        RELATIVE_TOP_RIGHT,
-        RELATIVE_BOTTOM_RIGHT,
-        PERCENT,
-        MULTIPLY_RESOLUTION,
+        PT_RELATIVE_BOTTOM_LEFT,
+        PT_RELATIVE_TOP_LEFT,
+        PT_RELATIVE_TOP_RIGHT,
+        PT_RELATIVE_BOTTOM_RIGHT,
+        PT_PERCENT,
+        PT_MULTIPLY_RESOLUTION,
     };
    
     enum SizeType
     {
-        ABSOLUTE,
-        PERCENT,
-        RELATIVE_CONTAINER,
-        HORIZONTAL_PERCENT,
-        VERTICAL_PERCENT,
-        MULTIPLY_RESOLUTION,
+        ST_ABSOLUTE,
+        ST_PERCENT,
+        ST_RELATIVE_CONTAINER,
+        ST_HORIZONTAL_PERCENT,
+        ST_VERTICAL_PERCENT,
+        ST_MULTIPLY_RESOLUTION,
     };
     
     enum ScaleType

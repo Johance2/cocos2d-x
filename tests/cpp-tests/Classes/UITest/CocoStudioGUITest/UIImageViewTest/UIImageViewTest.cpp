@@ -164,8 +164,8 @@ bool UIImageViewTest_ContentSize::init()
         
         ImageView* imageViewChild = ImageView::create("cocosui/buttonHighlighted.png");
         imageViewChild->setScale9Enabled(true);
-        imageViewChild->setSizeType(Widget::SizeType::PERCENT);
-        imageViewChild->setPositionType(Widget::PositionType::PERCENT);
+        imageViewChild->setSizeType(Widget::SizeType::ST_PERCENT);
+        imageViewChild->setPositionType(Widget::PositionType::PT_PERCENT);
         imageViewChild->setSizePercent(Vec2::ANCHOR_MIDDLE);
         imageViewChild->setPositionPercent(Vec2::ANCHOR_MIDDLE);
         imageViewChild->setPosition(Vec2(widgetSize.width / 2.0f,
@@ -173,8 +173,8 @@ bool UIImageViewTest_ContentSize::init()
         
         ImageView* imageViewChild2 = ImageView::create("cocosui/buttonHighlighted.png");
         imageViewChild2->setScale9Enabled(true);
-        imageViewChild2->setSizeType(Widget::SizeType::PERCENT);
-        imageViewChild2->setPositionType(Widget::PositionType::PERCENT);
+        imageViewChild2->setSizeType(Widget::SizeType::ST_PERCENT);
+        imageViewChild2->setPositionType(Widget::PositionType::PT_PERCENT);
         imageViewChild2->setSizePercent(Vec2::ANCHOR_MIDDLE);
         imageViewChild2->setPositionPercent(Vec2::ANCHOR_MIDDLE);
         imageViewChild->addChild(imageViewChild2);

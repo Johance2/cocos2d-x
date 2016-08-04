@@ -218,7 +218,7 @@ ParticleSystem::ParticleSystem()
 , _blendFunc(BlendFunc::ALPHA_PREMULTIPLIED)
 , _opacityModifyRGB(false)
 , _yCoordFlipped(1)
-, _positionType(PositionType::FREE)
+, _positionType(PositionType::PT_FREE)
 , _paused(false)
 {
     modeA.gravity.setZero();
@@ -558,7 +558,7 @@ bool ParticleSystem::initWithTotalParticles(int numberOfParticles)
     _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
 
     // default movement type;
-    _positionType = PositionType::FREE;
+    _positionType = PositionType::PT_FREE;
 
     // by default be in mode A:
     _emitterMode = Mode::GRAVITY;
@@ -679,11 +679,11 @@ dc[i] = (dc[i] - c[i]) / _particleData.timeToLive[i];\
     
     // position
     Vec2 pos;
-    if (_positionType == PositionType::FREE)
+    if (_positionType == PositionType::PT_FREE)
     {
         pos = this->convertToWorldSpace(Vec2::ZERO);
     }
-    else if (_positionType == PositionType::RELATIVE)
+    else if (_positionType == PositionType::PT_RELATIVE)
     {
         pos = _position;
     }

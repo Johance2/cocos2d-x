@@ -38,10 +38,10 @@ NS_CC_BEGIN
 
 namespace ui {
     
-CC_DEPRECATED_ATTRIBUTE const Widget::PositionType POSITION_ABSOLUTE = Widget::PositionType::ABSOLUTE;
-CC_DEPRECATED_ATTRIBUTE const Widget::PositionType POSITION_PERCENT = Widget::PositionType::PERCENT;
-CC_DEPRECATED_ATTRIBUTE const Widget::SizeType SIZE_ABSOLUTE = Widget::SizeType::ABSOLUTE;
-CC_DEPRECATED_ATTRIBUTE const Widget::SizeType SIZE_PERCENT = Widget::SizeType::PERCENT;
+CC_DEPRECATED_ATTRIBUTE const Widget::PositionType POSITION_ABSOLUTE = Widget::PositionType::PT_ABSOLUTE;
+CC_DEPRECATED_ATTRIBUTE const Widget::PositionType POSITION_PERCENT = Widget::PositionType::PT_PERCENT;
+CC_DEPRECATED_ATTRIBUTE const Widget::SizeType SIZE_ABSOLUTE = Widget::SizeType::ST_ABSOLUTE;
+CC_DEPRECATED_ATTRIBUTE const Widget::SizeType SIZE_PERCENT = Widget::SizeType::ST_PERCENT;
 CC_DEPRECATED_ATTRIBUTE const Widget::TextureResType UI_TEX_TYPE_LOCAL = Widget::TextureResType::LOCAL;
 CC_DEPRECATED_ATTRIBUTE const Widget::TextureResType UI_TEX_TYPE_PLIST = Widget::TextureResType::PLIST;
 CC_DEPRECATED_ATTRIBUTE const Widget::BrightStyle BRIGHT_NONE = Widget::BrightStyle::NONE;

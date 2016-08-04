@@ -143,12 +143,12 @@ inline errno_t strcpy_s(char *strDestination, size_t numberOfElements,
 #undef MessageBox
 #endif
 
-// Conflicted with ParticleSystem::PositionType::RELATIVE, so we need to undef it.
+// Conflicted with ParticleSystem::PositionType::PT_RELATIVE, so we need to undef it.
 #ifdef RELATIVE
 #undef RELATIVE
 #endif
 
-// Conflicted with CCBReader::SizeType::RELATIVE and CCBReader::ScaleType::RELATIVE, so we need to undef it.
+// Conflicted with CCBReader::SizeType::ST_RELATIVE and CCBReader::ScaleType::RELATIVE, so we need to undef it.
 #ifdef ABSOLUTE
 #undef ABSOLUTE
 #endif

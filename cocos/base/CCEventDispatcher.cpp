@@ -783,7 +783,7 @@ void EventDispatcher::dispatchEventToListeners(EventListenerVector* listeners, c
         if (!shouldStopPropagation)
         {
             // priority == 0, scene graph priority
-            for(auto itr2 = *sceneGraphPriorityListeners.begin(); itr2 != *sceneGraphPriorityListeners.end(); ++itr2)
+            for(auto itr2 = (*sceneGraphPriorityListeners).begin(); itr2 != (*sceneGraphPriorityListeners).end(); ++itr2)
             {
             	auto &l=*itr2;
                 if (l->isEnabled() && !l->isPaused() && l->isRegistered() && onEvent(l))
@@ -850,7 +850,7 @@ void EventDispatcher::dispatchTouchEventToListeners(EventListenerVector* listene
             
             // first, get all enabled, unPaused and registered listeners
             std::vector<EventListener*> sceneListeners;
-            for(auto itr2 = *sceneGraphPriorityListeners.begin(); itr2 != *sceneGraphPriorityListeners.end(); ++itr2)
+            for(auto itr2 = (*sceneGraphPriorityListeners).begin(); itr2 != (*sceneGraphPriorityListeners).end(); ++itr2)
             {
             	auto &l=*itr2;
                 if (l->isEnabled() && !l->isPaused() && l->isRegistered())

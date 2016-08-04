@@ -422,34 +422,34 @@ Size NodeLoader::parsePropTypeSize(Node * pNode, Node * pParent, CCBReader * ccb
 
     switch (type) 
     {
-        case CCBReader::SizeType::ABSOLUTE:
+        case CCBReader::SizeType::ST_ABSOLUTE:
         {
             /* Nothing. */
             break;
         }
-        case CCBReader::SizeType::RELATIVE_CONTAINER:
+        case CCBReader::SizeType::ST_RELATIVE_CONTAINER:
         {
             width = containerSize.width - width;
             height = containerSize.height - height;
             break;
         }
-        case CCBReader::SizeType::PERCENT:
+        case CCBReader::SizeType::ST_PERCENT:
         {
             width = (int)(containerSize.width * width / 100.0f);
             height = (int)(containerSize.height * height / 100.0f);
             break;
         }
-        case CCBReader::SizeType::HORIZONTAL_PERCENT:
+        case CCBReader::SizeType::ST_HORIZONTAL_PERCENT:
         {
             width = (int)(containerSize.width * width / 100.0f);
             break;
         }
-        case CCBReader::SizeType::VERTICAL_PERCENT:
+        case CCBReader::SizeType::ST_VERTICAL_PERCENT:
         {
             height = (int)(containerSize.height * height / 100.0f);
             break;
         }
-        case CCBReader::SizeType::MULTIPLY_RESOLUTION:
+        case CCBReader::SizeType::ST_MULTIPLY_RESOLUTION:
         {
             float resolutionScale = CCBReader::getResolutionScale();
             

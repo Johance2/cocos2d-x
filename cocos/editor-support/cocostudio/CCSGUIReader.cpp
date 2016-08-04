@@ -1432,7 +1432,7 @@ Widget* WidgetPropertiesReader0300::widgetFromBinary(CocoLoader* cocoLoader,  st
                             {
                                 if (nullptr == dynamic_cast<Layout*>(widget))
                                 {
-                                    if (child->getPositionType() == ui::Widget::PositionType::PERCENT)
+                                    if (child->getPositionType() == ui::Widget::PositionType::PT_PERCENT)
                                     {
                                         child->setPositionPercent(Vec2(child->getPositionPercent().x + widget->getAnchorPoint().x,
                                                                        child->getPositionPercent().y + widget->getAnchorPoint().y));
@@ -1524,7 +1524,7 @@ Widget* WidgetPropertiesReader0300::widgetFromJsonDictionary(const rapidjson::Va
                 {
                     if (nullptr == dynamic_cast<Layout*>(widget))
                     {
-                        if (child->getPositionType() == ui::Widget::PositionType::PERCENT)
+                        if (child->getPositionType() == ui::Widget::PositionType::PT_PERCENT)
                         {
                             child->setPositionPercent(Vec2(child->getPositionPercent().x + widget->getAnchorPoint().x, child->getPositionPercent().y + widget->getAnchorPoint().y));
                         }

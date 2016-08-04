@@ -310,11 +310,11 @@ void ParticleSystemQuad::updateParticleQuads()
     }
  
     Vec2 currentPosition;
-    if (_positionType == PositionType::FREE)
+    if (_positionType == PositionType::PT_FREE)
     {
         currentPosition = this->convertToWorldSpace(Vec2::ZERO);
     }
-    else if (_positionType == PositionType::RELATIVE)
+    else if (_positionType == PositionType::PT_RELATIVE)
     {
         currentPosition = _position;
     }
@@ -332,7 +332,7 @@ void ParticleSystemQuad::updateParticleQuads()
         startQuad = &(_quads[0]);
     }
     
-    if( _positionType == PositionType::FREE )
+    if( _positionType == PositionType::PT_FREE )
     {
         Vec3 p1(currentPosition.x, currentPosition.y, 0);
         Mat4 worldToNodeTM = getWorldToNodeTransform();
@@ -357,7 +357,7 @@ void ParticleSystemQuad::updateParticleQuads()
             updatePosWithParticle(quadStart, newPos, *s, *r);
         }
     }
-    else if( _positionType == PositionType::RELATIVE )
+    else if( _positionType == PositionType::PT_RELATIVE )
     {
         Vec2 newPos;
         float* startX = _particleData.startPosX;

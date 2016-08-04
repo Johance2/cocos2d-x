@@ -6840,7 +6840,7 @@ static int lua_cocos2dx_Console_wait(lua_State* tolua_S)
             return 0;
 
         std::chrono::milliseconds dura( arg0 * 1000 );
-        std::this_thread::sleep_for( dura );
+        boost::this_thread::sleep_for( dura );
         return 0;
     }
     ok  = true;
