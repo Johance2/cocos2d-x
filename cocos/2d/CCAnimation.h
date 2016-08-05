@@ -121,7 +121,7 @@ public:
     }
     
     // Overrides
-    virtual AnimationFrame *clone() const override;
+    virtual AnimationFrame *clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -279,7 +279,7 @@ public:
     void setLoops(unsigned int loops) { _loops = loops; };
     
     // overrides
-    virtual Animation *clone() const override;
+    virtual Animation *clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     Animation();

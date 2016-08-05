@@ -42,9 +42,9 @@ public:
 
     static PURandomiser* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
-    virtual void postUpdateAffector(float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
+    virtual void postUpdateAffector(float deltaTime) ;
     /** 
     */
     float getMaxDeviationX(void) const;
@@ -70,7 +70,7 @@ public:
     bool isRandomDirection(void) const;
     void setRandomDirection(bool randomDirection);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:	
     PURandomiser(void);

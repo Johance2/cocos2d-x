@@ -61,11 +61,11 @@ public:
     virtual ~ControlHuePicker();
     virtual bool initWithTargetAndPos(Node* target, Vec2 pos);
 
-    virtual void setEnabled(bool enabled) override;
+    virtual void setEnabled(bool enabled) ;
 
     // overrides
-    virtual bool onTouchBegan(Touch* touch, Event* pEvent) override;
-    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
+    virtual bool onTouchBegan(Touch* touch, Event* pEvent) ;
+    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) ;
 
 protected:
     void updateSliderPosition(Vec2 location);

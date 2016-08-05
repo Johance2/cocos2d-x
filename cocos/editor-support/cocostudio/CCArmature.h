@@ -103,7 +103,7 @@ public:
     /**
      * Init the empty armature
      */
-    virtual bool init() override;
+    virtual bool init() ;
 
     /**
      * Init an armature with specified name
@@ -149,7 +149,7 @@ public:
     /**
      * This boundingBox will calculate all bones' boundingBox every time
      */
-    virtual cocos2d::Rect getBoundingBox() const override;
+    virtual cocos2d::Rect getBoundingBox() const ;
 
     Bone *getBoneAtPoint(float x, float y) const;
 
@@ -158,14 +158,14 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags) override;
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
-    virtual void update(float dt) override;
+    virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags) ;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) ;
+    virtual void update(float dt) ;
 
-    virtual void onEnter() override;
-    virtual void onExit() override; 
+    virtual void onEnter() ;
+    virtual void onExit() ; 
 
-    virtual const cocos2d::Mat4& getNodeToParentTransform() const override;
+    virtual const cocos2d::Mat4& getNodeToParentTransform() const;
     /**
      *  @js NA
      *  @lua NA
@@ -175,15 +175,15 @@ public:
      *  @js NA
      *  @lua NA
      */
-    inline const cocos2d::BlendFunc &getBlendFunc(void) const override{ return _blendFunc; }
+    inline const cocos2d::BlendFunc &getBlendFunc(void) const { return _blendFunc; }
     
 
     /**
      * Set contentsize and Calculate anchor point.
      */
     virtual void updateOffsetPoint();
-    virtual void setAnchorPoint(const cocos2d::Vec2& point) override;
-    virtual const cocos2d::Vec2& getAnchorPointInPoints() const override;
+    virtual void setAnchorPoint(const cocos2d::Vec2& point);
+    virtual const cocos2d::Vec2& getAnchorPointInPoints() const ;
     virtual const cocos2d::Vec2& getOffsetPoints() const;
 
     virtual void setAnimation(ArmatureAnimation *animation);

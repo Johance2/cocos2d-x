@@ -86,8 +86,8 @@ public:
     
     inline SEL_SCHEDULE getSelector() const { return _selector; };
     
-    virtual void trigger(float dt) override;
-    virtual void cancel() override;
+    virtual void trigger(float dt) ;
+    virtual void cancel() ;
     
 protected:
     Ref* _target;
@@ -106,8 +106,8 @@ public:
     inline const ccSchedulerFunc& getCallback() const { return _callback; };
     inline const std::string& getKey() const { return _key; };
     
-    virtual void trigger(float dt) override;
-    virtual void cancel() override;
+    virtual void trigger(float dt) ;
+    virtual void cancel() ;
     
 protected:
     void* _target;
@@ -123,8 +123,8 @@ public:
     bool initWithScriptHandler(int handler, float seconds);
     inline int getScriptHandler() const { return _scriptHandler; };
     
-    virtual void trigger(float dt) override;
-    virtual void cancel() override;
+    virtual void trigger(float dt) ;
+    virtual void cancel() ;
     
 private:
     int _scriptHandler;

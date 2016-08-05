@@ -48,9 +48,9 @@ public:
     static const float DEFAULT_ADJUSTMENT;
     static const InterParticleCollisionResponse DEFAULT_COLLISION_RESPONSE;
 
-    virtual void prepare() override;
-    virtual void unPrepare() override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void prepare() ;
+    virtual void unPrepare() ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** Todo
     */
@@ -68,7 +68,7 @@ public:
     */
     void setInterParticleCollisionResponse(InterParticleCollisionResponse interParticleCollisionResponse);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUParticle3DInterParticleCollider(void);

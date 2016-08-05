@@ -94,23 +94,27 @@ void ArmatureDataManager::removeArmatureFileInfo(const std::string& configFilePa
 {
     if (RelativeData *data = getRelativeData(configFilePath))
     {
-        for (std::string str : data->armatures)
+        for(auto itr = data->armatures.begin(); itr != data->armatures.end(); ++itr)
         {
+        	auto &str=*itr;
             removeArmatureData(str);
         }
 
-        for (std::string str : data->animations)
+        for(auto itr = data->animations.begin(); itr != data->animations.end(); ++itr)
         {
+        	auto &str=*itr;
             removeAnimationData(str);
         }
 
-        for (std::string str : data->textures)
+        for(auto itr = data->textures.begin(); itr != data->textures.end(); ++itr)
         {
+        	auto &str=*itr;
             removeTextureData(str);
         }
 
-        for (std::string str : data->plistFiles)
+        for(auto itr = data->plistFiles.begin(); itr != data->plistFiles.end(); ++itr)
         {
+        	auto &str=*itr;
             SpriteFrameCacheHelper::getInstance()->removeSpriteFrameFromFile(str);
         }
 

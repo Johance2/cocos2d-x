@@ -803,8 +803,11 @@ void Sprite::sortAllChildren()
 
         if ( _batchNode)
         {
-            for(const auto &child : _children)
+            for(auto itr0 = _children.begin(); itr0 != _children.end(); ++itr0)
+			{
+				auto &child = *itr0;
                 child->sortAllChildren();
+			}
         }
 
         _reorderChildDirty = false;

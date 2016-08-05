@@ -126,67 +126,67 @@ namespace
     static const char gPVRTexIdentifier[5] = "PVR!";
     
     // v2
-    enum PVR2TexturePixelFormat : unsigned char
+    enum PVR2TexturePixelFormat
     {
-        RGBA4444 = 0x10,
-        RGBA5551,
-        RGBA8888,
-        RGB565,
-        RGB555,          // unsupported
-        RGB888,
-        I8,
-        AI88,
-        PVRTC2BPP_RGBA,
-        PVRTC4BPP_RGBA,
-        BGRA8888,
-        A8,
+        PVR2_RGBA4444 = 0x10,
+        PVR2_RGBA5551,
+        PVR2_RGBA8888,
+        PVR2_RGB565,
+        PVR2_RGB555,          // unsupported
+        PVR2_RGB888,
+        PVR2_I8,
+        PVR2_AI88,
+        PVR2_PVRTC2BPP_RGBA,
+        PVR2_PVRTC4BPP_RGBA,
+        PVR2_BGRA8888,
+        PVR2_A8,
     };
         
     // v3
     enum PVR3TexturePixelFormat : uint64_t
     {
-        PVRTC2BPP_RGB  = 0ULL,
-        PVRTC2BPP_RGBA = 1ULL,
-        PVRTC4BPP_RGB  = 2ULL,
-        PVRTC4BPP_RGBA = 3ULL,
-        PVRTC2_2BPP_RGBA = 4ULL,
-        PVRTC2_4BPP_RGBA  = 5ULL,
-        ETC1 = 6ULL,
-        DXT1 = 7ULL,
-        DXT2 = 8ULL,
-        DXT3 = 9ULL,
-        DXT4 = 10ULL,
-        DXT5 = 11ULL,
-        BC1 = 7ULL,
-        BC2 = 9ULL,
-        BC3 = 11ULL,
-        BC4 = 12ULL,
-        BC5 = 13ULL,
-        BC6 = 14ULL,
-        BC7 = 15ULL,
-        UYVY = 16ULL,
-        YUY2 = 17ULL,
-        BW1bpp = 18ULL,
-        R9G9B9E5 = 19ULL,
-        RGBG8888 = 20ULL,
-        GRGB8888 = 21ULL,
-        ETC2_RGB = 22ULL,
-        ETC2_RGBA = 23ULL,
-        ETC2_RGBA1 = 24ULL,
-        EAC_R11_Unsigned = 25ULL,
-        EAC_R11_Signed = 26ULL,
-        EAC_RG11_Unsigned = 27ULL,
-        EAC_RG11_Signed = 28ULL,
-            
-        BGRA8888       = 0x0808080861726762ULL,
-        RGBA8888       = 0x0808080861626772ULL,
-        RGBA4444       = 0x0404040461626772ULL,
-        RGBA5551       = 0x0105050561626772ULL,
-        RGB565         = 0x0005060500626772ULL,
-        RGB888         = 0x0008080800626772ULL,
-        A8             = 0x0000000800000061ULL,
-        L8             = 0x000000080000006cULL,
-        LA88           = 0x000008080000616cULL,
+        PVR3_PVRTC2BPP_RGB  = 0ULL,
+        PVR3_PVRTC2BPP_RGBA = 1ULL,
+        PVR3_PVRTC4BPP_RGB  = 2ULL,
+        PVR3_PVRTC4BPP_RGBA = 3ULL,
+        PVR3_PVRTC2_2BPP_RGBA = 4ULL,
+        PVR3_PVRTC2_4BPP_RGBA  = 5ULL,
+        PVR3_ETC1 = 6ULL,
+        PVR3_DXT1 = 7ULL,
+        PVR3_DXT2 = 8ULL,
+        PVR3_DXT3 = 9ULL,
+        PVR3_DXT4 = 10ULL,
+        PVR3_DXT5 = 11ULL,
+        PVR3_BC1 = 7ULL,
+        PVR3_BC2 = 9ULL,
+        PVR3_BC3 = 11ULL,
+        PVR3_BC4 = 12ULL,
+        PVR3_BC5 = 13ULL,
+        PVR3_BC6 = 14ULL,
+        PVR3_BC7 = 15ULL,
+        PVR3_UYVY = 16ULL,
+        PVR3_YUY2 = 17ULL,
+        PVR3_BW1bpp = 18ULL,
+        PVR3_R9G9B9E5 = 19ULL,
+        PVR3_RGBG8888 = 20ULL,
+        PVR3_GRGB8888 = 21ULL,
+        PVR3_ETC2_RGB = 22ULL,
+        PVR3_ETC2_RGBA = 23ULL,
+        PVR3_ETC2_RGBA1 = 24ULL,
+        PVR3_EAC_R11_Unsigned = 25ULL,
+        PVR3_EAC_R11_Signed = 26ULL,
+        PVR3_EAC_RG11_Unsigned = 27ULL,
+        PVR3_EAC_RG11_Signed = 28ULL,
+
+        PVR3_BGRA8888       = 0x0808080861726762ULL,
+        PVR3_RGBA8888       = 0x0808080861626772ULL,
+        PVR3_RGBA4444       = 0x0404040461626772ULL,
+        PVR3_RGBA5551       = 0x0105050561626772ULL,
+        PVR3_RGB565         = 0x0005060500626772ULL,
+        PVR3_RGB888         = 0x0008080800626772ULL,
+        PVR3_A8             = 0x0000000800000061ULL,
+        PVR3_L8             = 0x000000080000006cULL,
+        PVR3_LA88           = 0x000008080000616cULL,
     };
         
         
@@ -195,18 +195,18 @@ namespace
     
     static const _pixel2_formathash::value_type v2_pixel_formathash_value[] =
     {
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::BGRA8888,        Texture2D::PixelFormat::BGRA8888),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::RGBA8888,        Texture2D::PixelFormat::RGBA8888),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::RGBA4444,        Texture2D::PixelFormat::RGBA4444),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::RGBA5551,        Texture2D::PixelFormat::RGB5A1),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::RGB565,      Texture2D::PixelFormat::RGB565),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::RGB888,      Texture2D::PixelFormat::RGB888),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::A8,          Texture2D::PixelFormat::A8),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::I8,          Texture2D::PixelFormat::I8),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::AI88,            Texture2D::PixelFormat::AI88),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_BGRA8888,        Texture2D::PixelFormat::BGRA8888),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_RGBA8888,        Texture2D::PixelFormat::RGBA8888),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_RGBA4444,        Texture2D::PixelFormat::RGBA4444),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_RGBA5551,        Texture2D::PixelFormat::RGB5A1),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_RGB565,      Texture2D::PixelFormat::RGB565),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_RGB888,      Texture2D::PixelFormat::RGB888),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_A8,          Texture2D::PixelFormat::A8),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_I8,          Texture2D::PixelFormat::I8),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_AI88,            Texture2D::PixelFormat::AI88),
             
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVRTC2BPP_RGBA,      Texture2D::PixelFormat::PVRTC2A),
-        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVRTC4BPP_RGBA,      Texture2D::PixelFormat::PVRTC4A),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_PVRTC2BPP_RGBA,      Texture2D::PixelFormat::PVRTC2A),
+        _pixel2_formathash::value_type(PVR2TexturePixelFormat::PVR2_PVRTC4BPP_RGBA,      Texture2D::PixelFormat::PVRTC4A),
     };
         
     static const int PVR2_MAX_TABLE_ELEMENTS = sizeof(v2_pixel_formathash_value) / sizeof(v2_pixel_formathash_value[0]);
@@ -216,22 +216,22 @@ namespace
     typedef const std::map<PVR3TexturePixelFormat, Texture2D::PixelFormat> _pixel3_formathash;
     static _pixel3_formathash::value_type v3_pixel_formathash_value[] =
     {
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::BGRA8888,    Texture2D::PixelFormat::BGRA8888),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::RGBA8888,    Texture2D::PixelFormat::RGBA8888),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::RGBA4444,    Texture2D::PixelFormat::RGBA4444),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::RGBA5551,    Texture2D::PixelFormat::RGB5A1),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::RGB565,      Texture2D::PixelFormat::RGB565),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::RGB888,      Texture2D::PixelFormat::RGB888),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::A8,          Texture2D::PixelFormat::A8),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::L8,          Texture2D::PixelFormat::I8),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::LA88,        Texture2D::PixelFormat::AI88),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_BGRA8888,    Texture2D::PixelFormat::BGRA8888),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_RGBA8888,    Texture2D::PixelFormat::RGBA8888),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_RGBA4444,    Texture2D::PixelFormat::RGBA4444),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_RGBA5551,    Texture2D::PixelFormat::RGB5A1),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_RGB565,      Texture2D::PixelFormat::RGB565),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_RGB888,      Texture2D::PixelFormat::RGB888),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_A8,          Texture2D::PixelFormat::A8),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_L8,          Texture2D::PixelFormat::I8),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_LA88,        Texture2D::PixelFormat::AI88),
             
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVRTC2BPP_RGB,       Texture2D::PixelFormat::PVRTC2),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVRTC2BPP_RGBA,      Texture2D::PixelFormat::PVRTC2A),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVRTC4BPP_RGB,       Texture2D::PixelFormat::PVRTC4),
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVRTC4BPP_RGBA,      Texture2D::PixelFormat::PVRTC4A),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGB,       Texture2D::PixelFormat::PVRTC2),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGBA,      Texture2D::PixelFormat::PVRTC2A),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGB,       Texture2D::PixelFormat::PVRTC4),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGBA,      Texture2D::PixelFormat::PVRTC4A),
 
-        _pixel3_formathash::value_type(PVR3TexturePixelFormat::ETC1,        Texture2D::PixelFormat::ETC),
+        _pixel3_formathash::value_type(PVR3TexturePixelFormat::PVR3_ETC1,        Texture2D::PixelFormat::ETC),
     };
         
     static const int PVR3_MAX_TABLE_ELEMENTS = sizeof(v3_pixel_formathash_value) / sizeof(v3_pixel_formathash_value[0]);
@@ -463,7 +463,7 @@ Image::Image()
 , _width(0)
 , _height(0)
 , _unpack(false)
-, _fileType(Format::UNKNOWN)
+, _fileType(Format::Format_UNKNOWN)
 , _renderFormat(Texture2D::PixelFormat::NONE)
 , _numberOfMipmaps(0)
 , _hasPremultipliedAlpha(false)
@@ -542,28 +542,28 @@ bool Image::initWithImageData(const unsigned char * data, ssize_t dataLen)
 
         switch (_fileType)
         {
-        case Format::PNG:
+        case Format::Format_PNG:
             ret = initWithPngData(unpackedData, unpackedLen);
             break;
-        case Format::JPG:
+        case Format::Format_JPG:
             ret = initWithJpgData(unpackedData, unpackedLen);
             break;
-        case Format::TIFF:
+        case Format::Format_TIFF:
             ret = initWithTiffData(unpackedData, unpackedLen);
             break;
-        case Format::WEBP:
+        case Format::Format_WEBP:
             ret = initWithWebpData(unpackedData, unpackedLen);
             break;
-        case Format::PVR:
+        case Format::Format_PVR:
             ret = initWithPVRData(unpackedData, unpackedLen);
             break;
-        case Format::ETC:
+        case Format::Format_ETC:
             ret = initWithETCData(unpackedData, unpackedLen);
             break;
-        case Format::S3TC:
+        case Format::Format_S3TC:
             ret = initWithS3TCData(unpackedData, unpackedLen);
             break;
-        case Format::ATITC:
+        case Format::Format_ATITC:
             ret = initWithATITCData(unpackedData, unpackedLen);
             break;
         default:
@@ -693,39 +693,39 @@ Image::Format Image::detectFormat(const unsigned char * data, ssize_t dataLen)
 {
     if (isPng(data, dataLen))
     {
-        return Format::PNG;
+        return Format::Format_PNG;
     }
     else if (isJpg(data, dataLen))
     {
-        return Format::JPG;
+        return Format::Format_JPG;
     }
     else if (isTiff(data, dataLen))
     {
-        return Format::TIFF;
+        return Format::Format_TIFF;
     }
     else if (isWebp(data, dataLen))
     {
-        return Format::WEBP;
+        return Format::Format_WEBP;
     }
     else if (isPvr(data, dataLen))
     {
-        return Format::PVR;
+        return Format::Format_PVR;
     }
     else if (isEtc(data, dataLen))
     {
-        return Format::ETC;
+        return Format::Format_ETC;
     }
     else if (isS3TC(data, dataLen))
     {
-        return Format::S3TC;
+        return Format::Format_S3TC;
     }
     else if (isATITC(data, dataLen))
     {
-        return Format::ATITC;
+        return Format::Format_ATITC;
     }
     else
     {
-        return Format::UNKNOWN;
+        return Format::Format_UNKNOWN;
     }
 }
 
@@ -1336,33 +1336,34 @@ namespace
     
     bool testFormatForPvr3TCSupport(PVR3TexturePixelFormat format)
     {
-        switch (format) {
-            case PVR3TexturePixelFormat::DXT1:
-            case PVR3TexturePixelFormat::DXT3:
-            case PVR3TexturePixelFormat::DXT5:
-                return Configuration::getInstance()->supportsS3TC();
-                
-            case PVR3TexturePixelFormat::BGRA8888:
-                return Configuration::getInstance()->supportsBGRA8888();
-                
-            case PVR3TexturePixelFormat::PVRTC2BPP_RGB:
-            case PVR3TexturePixelFormat::PVRTC2BPP_RGBA:
-            case PVR3TexturePixelFormat::PVRTC4BPP_RGB:
-            case PVR3TexturePixelFormat::PVRTC4BPP_RGBA:
-            case PVR3TexturePixelFormat::ETC1:
-            case PVR3TexturePixelFormat::RGBA8888:
-            case PVR3TexturePixelFormat::RGBA4444:
-            case PVR3TexturePixelFormat::RGBA5551:
-            case PVR3TexturePixelFormat::RGB565:
-            case PVR3TexturePixelFormat::RGB888:
-            case PVR3TexturePixelFormat::A8:
-            case PVR3TexturePixelFormat::L8:
-            case PVR3TexturePixelFormat::LA88:
-                return true;
-                
-            default:
-                return false;
-        }
+		if(format == PVR3TexturePixelFormat::PVR3_DXT1 ||
+			format == PVR3TexturePixelFormat::PVR3_DXT3 ||
+			format == PVR3TexturePixelFormat::PVR3_DXT5)
+		{			
+			return Configuration::getInstance()->supportsS3TC();
+		}
+		if(format == PVR3TexturePixelFormat::PVR3_BGRA8888)
+		{		
+			return Configuration::getInstance()->supportsBGRA8888();
+		}
+             
+		if(format == PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGB ||
+			format == PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGBA ||
+			format == PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGB ||
+			format == PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGBA ||
+			format == PVR3TexturePixelFormat::PVR3_ETC1 ||
+			format == PVR3TexturePixelFormat::PVR3_RGBA8888 ||
+			format == PVR3TexturePixelFormat::PVR3_RGBA4444 ||
+			format == PVR3TexturePixelFormat::PVR3_RGBA5551 ||
+			format == PVR3TexturePixelFormat::PVR3_RGB565 ||
+			format == PVR3TexturePixelFormat::PVR3_RGB888 ||
+			format == PVR3TexturePixelFormat::PVR3_A8 ||
+			format == PVR3TexturePixelFormat::PVR3_L8||
+			format == PVR3TexturePixelFormat::PVR3_LA88)
+		{			
+			return true;
+		}   
+		return false;
     }
 }
 
@@ -1444,7 +1445,7 @@ bool Image::initWithPVRv2Data(const unsigned char * data, ssize_t dataLen)
     while (dataOffset < dataLength)
     {
         switch (formatFlags) {
-            case PVR2TexturePixelFormat::PVRTC2BPP_RGBA:
+            case PVR2TexturePixelFormat::PVR2_PVRTC2BPP_RGBA:
                 if (!Configuration::getInstance()->supportsPVRTC())
                 {
                     CCLOG("cocos2d: Hardware PVR decoder not present. Using software decoder");
@@ -1458,7 +1459,7 @@ bool Image::initWithPVRv2Data(const unsigned char * data, ssize_t dataLen)
                 widthBlocks = width / 8;
                 heightBlocks = height / 4;
                 break;
-            case PVR2TexturePixelFormat::PVRTC4BPP_RGBA:
+            case PVR2TexturePixelFormat::PVR2_PVRTC4BPP_RGBA:
                 if (!Configuration::getInstance()->supportsPVRTC())
                 {
                     CCLOG("cocos2d: Hardware PVR decoder not present. Using software decoder");
@@ -1472,7 +1473,7 @@ bool Image::initWithPVRv2Data(const unsigned char * data, ssize_t dataLen)
                 widthBlocks = width / 4;
                 heightBlocks = height / 4;
                 break;
-            case PVR2TexturePixelFormat::BGRA8888:
+            case PVR2TexturePixelFormat::PVR2_BGRA8888:
                 if (Configuration::getInstance()->supportsBGRA8888() == false)
                 {
                     CCLOG("cocos2d: Image. BGRA8888 not supported on this device");
@@ -1597,8 +1598,8 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
     {
         switch ((PVR3TexturePixelFormat)pixelFormat)
         {
-            case PVR3TexturePixelFormat::PVRTC2BPP_RGB :
-            case PVR3TexturePixelFormat::PVRTC2BPP_RGBA :
+            case PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGB :
+            case PVR3TexturePixelFormat::PVR3_PVRTC2BPP_RGBA :
                 if (!Configuration::getInstance()->supportsPVRTC())
                 {
                     CCLOG("cocos2d: Hardware PVR decoder not present. Using software decoder");
@@ -1612,8 +1613,8 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
                 widthBlocks = width / 8;
                 heightBlocks = height / 4;
                 break;
-            case PVR3TexturePixelFormat::PVRTC4BPP_RGB :
-            case PVR3TexturePixelFormat::PVRTC4BPP_RGBA :
+            case PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGB :
+            case PVR3TexturePixelFormat::PVR3_PVRTC4BPP_RGBA :
                 if (!Configuration::getInstance()->supportsPVRTC())
                 {
                     CCLOG("cocos2d: Hardware PVR decoder not present. Using software decoder");
@@ -1627,7 +1628,7 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
                 widthBlocks = width / 4;
                 heightBlocks = height / 4;
                 break;
-            case PVR3TexturePixelFormat::ETC1:
+            case PVR3TexturePixelFormat::PVR3_ETC1:
                 if (!Configuration::getInstance()->supportsETC())
                 {
                     CCLOG("cocos2d: Hardware ETC1 decoder not present. Using software decoder");
@@ -1644,17 +1645,22 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
                 blockSize = 4 * 4; // Pixel by pixel block size for 4bpp
                 widthBlocks = width / 4;
                 heightBlocks = height / 4;
-                break;
-            case PVR3TexturePixelFormat::BGRA8888:
-                if (! Configuration::getInstance()->supportsBGRA8888())
-                {
-                    CCLOG("cocos2d: Image. BGRA8888 not supported on this device");
-                    return false;
-                }
-            default:
+				break;
+			default:
+				if(pixelFormat  == PVR3TexturePixelFormat::PVR3_BGRA8888)
+				{
+					if (! Configuration::getInstance()->supportsBGRA8888())
+					{
+						CCLOG("cocos2d: Image. BGRA8888 not supported on this device");
+						return false;
+					}
+				}
+				else
+				{
                 blockSize = 1;
                 widthBlocks = width;
                 heightBlocks = height;
+				}
                 break;
         }
         
@@ -1801,7 +1807,7 @@ bool Image::initWithTGAData(tImageTGA* tgaData)
         _height = tgaData->height;
         _data = tgaData->imageData;
         _dataLen = _width * _height * tgaData->pixelDepth / 8;
-        _fileType = Format::TGA;
+        _fileType = Format::Format_TGA;
 
         ret = true;
         

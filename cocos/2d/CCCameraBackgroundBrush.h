@@ -138,7 +138,7 @@ public:
     /**
      * Draw background
      */
-    virtual void drawBackground(Camera* camera) override;
+    virtual void drawBackground(Camera* camera) ;
     
     /**
      * Set depth
@@ -150,7 +150,7 @@ CC_CONSTRUCTOR_ACCESS:
     CameraBackgroundDepthBrush();
     virtual ~CameraBackgroundDepthBrush();
 
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
     float _depth;
@@ -190,7 +190,7 @@ CC_CONSTRUCTOR_ACCESS:
     CameraBackgroundColorBrush();
     virtual ~CameraBackgroundColorBrush();
 
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
     Color4F _color;
@@ -237,12 +237,12 @@ public:
     /**
      * Draw background
      */
-    virtual void drawBackground(Camera* camera) override;
+    virtual void drawBackground(Camera* camera) ;
 
     bool isActived() const;
     void setActived(bool actived);
     virtual void setTextureValid(bool valid);
-    virtual bool isValid()override;
+    virtual bool isValid();
 
 CC_CONSTRUCTOR_ACCESS :
     CameraBackgroundSkyBoxBrush();
@@ -251,7 +251,7 @@ CC_CONSTRUCTOR_ACCESS :
     /**
      * init Skybox.
      */
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
     void initBuffer();

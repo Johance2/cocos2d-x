@@ -41,7 +41,7 @@ public:
 
     static PUScaleVelocityAffector* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** 
     */
@@ -59,7 +59,7 @@ public:
     bool isStopAtFlip(void) const {return _stopAtFlip;};
     void setStopAtFlip(bool stopAtFlip){_stopAtFlip = stopAtFlip;};
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:	
     PUScaleVelocityAffector(void);

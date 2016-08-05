@@ -55,10 +55,10 @@ public:
     //
     // Overrides
     //
-    virtual ProgressTo* clone() const override;
-    virtual ProgressTo* reverse() const override;
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
+    virtual ProgressTo* clone() const ;
+    virtual ProgressTo* reverse() const ;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     ProgressTo() {}
@@ -99,10 +99,10 @@ public:
     //
     // Overrides
     //
-    virtual ProgressFromTo* clone() const override;
-    virtual ProgressFromTo* reverse() const override;
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
+    virtual ProgressFromTo* clone() const ;
+    virtual ProgressFromTo* reverse() const ;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     ProgressFromTo() {}

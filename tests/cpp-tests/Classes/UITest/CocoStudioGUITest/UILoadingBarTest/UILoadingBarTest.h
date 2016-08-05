@@ -37,7 +37,7 @@ public:
     UILoadingBarTest_Left();
     ~UILoadingBarTest_Left();
     virtual bool init();
-    void update(float delta)override;
+    void update(float delta);
     void printWidgetResources(cocos2d::Ref* sender);
     
 protected:
@@ -53,7 +53,7 @@ public:
     UILoadingBarTest_Right();
     ~UILoadingBarTest_Right();
     virtual bool init();
-    void update(float delta)override;
+    void update(float delta);
     
 protected:
     int _count;
@@ -67,7 +67,7 @@ public:
     UILoadingBarTest_Left_Scale9();
     ~UILoadingBarTest_Left_Scale9();
     virtual bool init();
-    void update(float delta)override;
+    void update(float delta);
     
 protected:
     int _count;
@@ -81,7 +81,7 @@ public:
     UILoadingBarTest_Right_Scale9();
     ~UILoadingBarTest_Right_Scale9();
     virtual bool init();
-    void update(float delta)override;
+    void update(float delta);
     
 protected:
     int _count;
@@ -123,7 +123,7 @@ public:
     UILoadingBarIssue12249();
     ~UILoadingBarIssue12249();
     virtual bool init();
-    void update(float delta)override;
+    void update(float delta);
     
 protected:
     int _count;

@@ -8,10 +8,10 @@ DEFINE_TEST_SUITE(PerformceNodeChildrenTests);
 class NodeChildrenMainScene : public TestCase
 {
 public:
-    virtual bool init() override;
+    virtual bool init() ;
     virtual void initWithQuantityOfNodes(unsigned int nNodes);
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
     virtual void updateQuantityOfNodes() = 0;
 
     const char* profilerName();
@@ -24,8 +24,8 @@ public:
 
     void dumpProfilerInfo(float dt);
 
-    virtual void onExitTransitionDidStart() override;
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onExitTransitionDidStart() ;
+    virtual void onEnterTransitionDidFinish() ;
 protected:
     NodeChildrenMainScene();
     static int quantityOfNodes;
@@ -54,11 +54,11 @@ public:
     CREATE_FUNC(IterateSpriteSheetForLoop);
 
     IterateSpriteSheetForLoop() {}
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName() override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName() ;
 };
 
 class IterateSpriteSheetIterator : public IterateSpriteSheet
@@ -67,11 +67,11 @@ public:
     CREATE_FUNC(IterateSpriteSheetIterator);
 
     IterateSpriteSheetIterator() {}
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class IterateSpriteSheetForEach : public IterateSpriteSheet
@@ -79,11 +79,11 @@ class IterateSpriteSheetForEach : public IterateSpriteSheet
 public:
     CREATE_FUNC(IterateSpriteSheetForEach);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 
@@ -91,10 +91,10 @@ class AddRemoveSpriteSheet : public NodeChildrenMainScene
 {
 public:
     virtual ~AddRemoveSpriteSheet();
-    virtual void updateQuantityOfNodes()override;
-    virtual void initWithQuantityOfNodes(unsigned int nNodes)override;
-    virtual void update(float dt)override = 0 ;
-    virtual const char* testName()override;
+    virtual void updateQuantityOfNodes();
+    virtual void initWithQuantityOfNodes(unsigned int nNodes);
+    virtual void update(float dt) = 0 ;
+    virtual const char* testName();
 
 protected:
     cocos2d::SpriteBatchNode    *batchNode;
@@ -111,11 +111,11 @@ class CallFuncsSpriteSheetForEach : public IterateSpriteSheet
 public:
     CREATE_FUNC(CallFuncsSpriteSheetForEach);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 ///
@@ -125,11 +125,11 @@ class AddSprite : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(AddSprite);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class AddSpriteSheet : public AddRemoveSpriteSheet
@@ -137,11 +137,11 @@ class AddSpriteSheet : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(AddSpriteSheet);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class GetSpriteSheet : public AddRemoveSpriteSheet
@@ -149,11 +149,11 @@ class GetSpriteSheet : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(GetSpriteSheet);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class RemoveSprite : public AddRemoveSpriteSheet
@@ -161,11 +161,11 @@ class RemoveSprite : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(RemoveSprite);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class RemoveSpriteSheet : public AddRemoveSpriteSheet
@@ -173,11 +173,11 @@ class RemoveSpriteSheet : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(RemoveSpriteSheet);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class ReorderSpriteSheet : public AddRemoveSpriteSheet
@@ -185,11 +185,11 @@ class ReorderSpriteSheet : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(ReorderSpriteSheet);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class SortAllChildrenSpriteSheet : public AddRemoveSpriteSheet
@@ -197,11 +197,11 @@ class SortAllChildrenSpriteSheet : public AddRemoveSpriteSheet
 public:
     CREATE_FUNC(SortAllChildrenSpriteSheet);
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName()override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName();
 };
 
 class VisitSceneGraph : public NodeChildrenMainScene
@@ -209,13 +209,13 @@ class VisitSceneGraph : public NodeChildrenMainScene
 public:
     CREATE_FUNC(VisitSceneGraph);
 
-    void initWithQuantityOfNodes(unsigned int nodes) override;
+    void initWithQuantityOfNodes(unsigned int nodes) ;
 
-    virtual void update(float dt) override;
-    void updateQuantityOfNodes() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual const char* testName() override;
+    virtual void update(float dt) ;
+    void updateQuantityOfNodes() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual const char* testName() ;
 };
 
 #endif // __PERFORMANCE_NODE_CHILDREN_TEST_H__

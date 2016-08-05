@@ -41,7 +41,7 @@ extern "C" {
 class LuaMinXmlHttpRequest : public cocos2d::Ref
 {
 public:
-    enum class ResponseType
+    enum ResponseType
     {
         STRING,
         ARRAY_BUFFER,

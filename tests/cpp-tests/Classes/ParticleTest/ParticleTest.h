@@ -15,7 +15,7 @@ protected:
 public:
     ~ParticleDemo();
 
-    virtual void onEnter()override;
+    virtual void onEnter();
 
     virtual std::string title() const;
     virtual std::string subtitle() const;

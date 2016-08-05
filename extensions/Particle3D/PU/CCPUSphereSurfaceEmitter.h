@@ -45,14 +45,14 @@ public:
 
     /** 
     */
-    virtual void initParticlePosition(PUParticle3D* particle) override;
+    virtual void initParticlePosition(PUParticle3D* particle) ;
 
     /** 
     */
-    virtual void initParticleDirection(PUParticle3D* particle) override;
+    virtual void initParticleDirection(PUParticle3D* particle) ;
 
-    virtual PUSphereSurfaceEmitter* clone() override;
-    virtual void copyAttributesTo (PUEmitter* emitter) override;
+    virtual PUSphereSurfaceEmitter* clone() ;
+    virtual void copyAttributesTo (PUEmitter* emitter) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUSphereSurfaceEmitter(void);

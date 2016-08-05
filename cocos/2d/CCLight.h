@@ -84,9 +84,9 @@ public:
     void setEnabled(bool enabled) { _enabled = enabled; }
     bool isEnabled() const { return _enabled; }
     
-    //override
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    //
+    virtual void onEnter() ;
+    virtual void onExit() ;
     
 CC_CONSTRUCTOR_ACCESS:
     BaseLight();

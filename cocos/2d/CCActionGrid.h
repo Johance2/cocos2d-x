@@ -55,13 +55,13 @@ public:
     virtual GridBase* getGrid();
 
     // overrides
-    virtual GridAction * clone() const override
+    virtual GridAction * clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
-    virtual GridAction* reverse() const override;
-    virtual void startWithTarget(Node *target) override;
+    virtual GridAction* reverse() const ;
+    virtual void startWithTarget(Node *target) ;
 
 CC_CONSTRUCTOR_ACCESS:
     GridAction() {}
@@ -94,7 +94,7 @@ class CC_DLL Grid3DAction : public GridAction
 public:
 
 
-    virtual GridBase* getGrid() override;
+    virtual GridBase* getGrid() ;
     /**
      * @brief Get the vertex that belongs to certain position in the grid.
      * @param position The position of the grid.
@@ -135,7 +135,7 @@ public:
     void setVertex(const Vec2& position, const Vec3& vertex);
 
     // Overrides
-    virtual Grid3DAction * clone() const override
+    virtual Grid3DAction * clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -202,10 +202,10 @@ public:
     void setTile(const Vec2& position, const Quad3& coords);
 
     /** returns the grid */
-    virtual GridBase* getGrid() override;
+    virtual GridBase* getGrid() ;
 
     // Override
-    virtual TiledGrid3DAction * clone() const override
+    virtual TiledGrid3DAction * clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -239,10 +239,10 @@ public:
     inline void setRate(float rate) { _rate = rate; }
 
     // Overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
-    virtual AccelDeccelAmplitude* clone() const override;
-    virtual AccelDeccelAmplitude* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
+    virtual AccelDeccelAmplitude* clone() const ;
+    virtual AccelDeccelAmplitude* reverse() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     AccelDeccelAmplitude() {}
@@ -291,10 +291,10 @@ public:
     inline void setRate(float rate) { _rate = rate; }
 
     // Overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
-    virtual AccelAmplitude* clone() const override;
-    virtual AccelAmplitude* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
+    virtual AccelAmplitude* clone() const ;
+    virtual AccelAmplitude* reverse() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     AccelAmplitude() {}
@@ -337,10 +337,10 @@ public:
     inline void setRate(float rate) { _rate = rate; }
 
     // overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
-    virtual DeccelAmplitude* clone() const override;
-    virtual DeccelAmplitude* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
+    virtual DeccelAmplitude* clone() const ;
+    virtual DeccelAmplitude* reverse() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     DeccelAmplitude() {}
@@ -380,9 +380,9 @@ public:
     static StopGrid* create();
 
     // Overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual StopGrid* clone() const override;
-    virtual StopGrid* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual StopGrid* clone() const ;
+    virtual StopGrid* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     StopGrid() {}
@@ -411,9 +411,9 @@ public:
     static ReuseGrid* create(int times);
 
     // Override
-    virtual void startWithTarget(Node *target) override;
-    virtual ReuseGrid* clone() const override;
-    virtual ReuseGrid* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual ReuseGrid* clone() const ;
+    virtual ReuseGrid* reverse() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     ReuseGrid() {}

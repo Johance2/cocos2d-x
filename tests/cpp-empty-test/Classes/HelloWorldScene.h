@@ -6,7 +6,7 @@
 class HelloWorld : public cocos2d::Layer
 {
 public:
-    virtual bool init() override;
+    virtual bool init() ;
 
     static cocos2d::Scene* scene();
 

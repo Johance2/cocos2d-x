@@ -149,13 +149,13 @@ namespace cocos2d { namespace network {
 
         void initProc()
         {
-            lock_guard<mutex> lock(_mutex);
+            boost::lock_guard<boost::mutex> lock(_mutex);
             _initInternal();
         }
 
         void setErrorProc(int code, int codeInternal, const char *desc)
         {
-            lock_guard<mutex> lock(_mutex);
+            boost::lock_guard<boost::mutex> lock(_mutex);
             _errCode = code;
             _errCodeInternal = codeInternal;
             _errDescription = desc;
@@ -163,7 +163,7 @@ namespace cocos2d { namespace network {
 
         size_t writeDataProc(unsigned char *buffer, size_t size, size_t count)
         {
-            lock_guard<mutex> lock(_mutex);
+            boost::lock_guard<boost::mutex> lock(_mutex);
             size_t ret = 0;
             if (_fp)
             {
@@ -192,7 +192,7 @@ namespace cocos2d { namespace network {
         friend class DownloaderCURL;
 
         // for lock object instance
-        mutex _mutex;
+        boost::mutex _mutex;
 
         // header info
         bool    _acceptRanges;
@@ -257,29 +257,29 @@ namespace cocos2d { namespace network {
         {
             if (DownloadTask::ERROR_NO_ERROR == coTask->_errCode)
             {
-                lock_guard<mutex> lock(_requestMutex);
+                boost::lock_guard<boost::mutex> lock(_requestMutex);
                 _requestQueue.push_back(make_pair(task, coTask));
             }
             else
             {
-                lock_guard<mutex> lock(_finishedMutex);
+                boost::lock_guard<boost::mutex> lock(_finishedMutex);
                 _finishedQueue.push_back(make_pair(task, coTask));
             }
         }
 
         void run()
         {
-            lock_guard<mutex> lock(_threadMutex);
+            boost::lock_guard<boost::mutex> lock(_threadMutex);
             if (false == _thread.joinable())
             {
-                thread newThread(&DownloaderCURL::Impl::_threadProc, this);
+                boost::thread newThread(&DownloaderCURL::Impl::_threadProc, this);
                 _thread.swap(newThread);
             }
         }
 
         void stop()
         {
-            lock_guard<mutex> lock(_threadMutex);
+            boost::lock_guard<boost::mutex> lock(_threadMutex);
             if (_thread.joinable())
             {
                 _thread.detach();
@@ -288,20 +288,20 @@ namespace cocos2d { namespace network {
 
         bool stoped()
         {
-            lock_guard<mutex> lock(_threadMutex);
+            boost::lock_guard<boost::mutex> lock(_threadMutex);
             return false == _thread.joinable() ? true : false;
         }
 
         void getProcessTasks(vector<TaskWrapper>& outList)
         {
-            lock_guard<mutex> lock(_processMutex);
+            boost::lock_guard<boost::mutex> lock(_processMutex);
             outList.reserve(_processSet.size());
             outList.insert(outList.end(), _processSet.begin(), _processSet.end());
         }
 
         void getFinishedTasks(vector<TaskWrapper>& outList)
         {
-            lock_guard<mutex> lock(_finishedMutex);
+            boost::lock_guard<boost::mutex> lock(_finishedMutex);
             outList.reserve(_finishedQueue.size());
             outList.insert(outList.end(), _finishedQueue.begin(), _finishedQueue.end());
             _finishedQueue.clear();
@@ -434,7 +434,7 @@ namespace cocos2d { namespace network {
                 }
 
                 // set header info to coTask
-                lock_guard<mutex> lock(coTask._mutex);
+                boost::lock_guard<boost::mutex> lock(coTask._mutex);
                 coTask._totalBytesExpected = (int64_t)contentLen;
                 coTask._acceptRanges = acceptRanges;
                 if (acceptRanges && fileSize > 0)
@@ -456,7 +456,7 @@ namespace cocos2d { namespace network {
             DLLOG("++++DownloaderCURL::Impl::_threadProc begin %p", this);
             // the holder prevent DownloaderCURL::Impl class instance be destruct in main thread
             auto holder = this->shared_from_this();
-            auto thisThreadId = this_thread::get_id();
+            auto thisThreadId = boost::this_thread::get_id();
             uint32_t countOfMaxProcessingTasks = this->hints.countOfMaxProcessingTasks;
             // init curl content
             CURLM* curlmHandle = curl_multi_init();
@@ -469,7 +469,7 @@ namespace cocos2d { namespace network {
             {
                 // check the thread should exit or not
                 {
-                    lock_guard<mutex> lock(_threadMutex);
+                    boost::lock_guard<boost::mutex> lock(_threadMutex);
                     // if the Impl stoped, this->_thread.reset will be called, thus _thread.get_id() not equal with thisThreadId
                     if (thisThreadId != this->_thread.get_id())
                     {
@@ -507,7 +507,7 @@ namespace cocos2d { namespace network {
                     // do wait action
                     if(maxfd == -1)
                     {
-                        this_thread::sleep_for(boost::chrono::milliseconds(timeoutMS));
+                        boost::this_thread::sleep_for(boost::chrono::milliseconds(timeoutMS));
                         rc = 0;
                     }
                     else
@@ -608,7 +608,7 @@ namespace cocos2d { namespace network {
 
                             // remove from _processSet
                             {
-                                lock_guard<mutex> lock(_processMutex);
+                                boost::lock_guard<boost::mutex> lock(_processMutex);
                                 if (_processSet.end() != _processSet.find(wrapper)) {
                                     _processSet.erase(wrapper);
                                 }
@@ -616,7 +616,7 @@ namespace cocos2d { namespace network {
 
                             // add to finishedQueue
                             {
-                                lock_guard<mutex> lock(_finishedMutex);
+                                boost::lock_guard<boost::mutex> lock(_finishedMutex);
                                 _finishedQueue.push_back(wrapper);
                             }
                         }
@@ -629,7 +629,7 @@ namespace cocos2d { namespace network {
                     // get task wrapper from request queue
                     TaskWrapper wrapper;
                     {
-                        lock_guard<mutex> lock(_requestMutex);
+                        boost::lock_guard<boost::mutex> lock(_requestMutex);
                         if (_requestQueue.size())
                         {
                             wrapper = _requestQueue.front();
@@ -651,7 +651,7 @@ namespace cocos2d { namespace network {
                     if (nullptr == curlHandle)
                     {
                         wrapper.second->setErrorProc(DownloadTask::ERROR_IMPL_INTERNAL, 0, "Alloc curl handle failed.");
-                        lock_guard<mutex> lock(_finishedMutex);
+                        boost::lock_guard<boost::mutex> lock(_finishedMutex);
                         _finishedQueue.push_back(wrapper);
                         continue;
                     }
@@ -664,14 +664,14 @@ namespace cocos2d { namespace network {
                     if (CURLM_OK != mcode)
                     {
                         wrapper.second->setErrorProc(DownloadTask::ERROR_IMPL_INTERNAL, mcode, curl_multi_strerror(mcode));
-                        lock_guard<mutex> lock(_finishedMutex);
+                        boost::lock_guard<boost::mutex> lock(_finishedMutex);
                         _finishedQueue.push_back(wrapper);
                         continue;
                     }
 
                     DLLOG("    _threadProc task create curl handle:%p", curlHandle);
                     coTaskMap[curlHandle] = wrapper;
-                    lock_guard<mutex> lock(_processMutex);
+                    boost::lock_guard<boost::mutex> lock(_processMutex);
                     _processSet.insert(wrapper);
                 }
             } while (coTaskMap.size());
@@ -681,15 +681,15 @@ namespace cocos2d { namespace network {
             DLLOG("----DownloaderCURL::Impl::_threadProc end");
         }
 
-        thread _thread;
+        boost::thread _thread;
         deque<TaskWrapper>  _requestQueue;
         set<TaskWrapper>    _processSet;
         deque<TaskWrapper>  _finishedQueue;
 
-        mutex _threadMutex;
-        mutex _requestMutex;
-        mutex _processMutex;
-        mutex _finishedMutex;
+        boost::mutex _threadMutex;
+        boost::mutex _requestMutex;
+        boost::mutex _processMutex;
+        boost::mutex _finishedMutex;
     };
 
 
@@ -763,7 +763,7 @@ namespace cocos2d { namespace network {
             const DownloadTask& task = *wrapper.first;
             DownloadTaskCURL& coTask = *wrapper.second;
 
-            lock_guard<mutex> lock(coTask._mutex);
+            boost::lock_guard<boost::mutex> lock(coTask._mutex);
             if (coTask._bytesReceived)
             {
                 _currTask = &coTask;

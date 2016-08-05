@@ -79,14 +79,14 @@ public:
 
     
     // Overrides
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
-    virtual Texture2D* getTexture() const override;
-    virtual void setTexture(Texture2D *texture) override;
-    virtual bool isOpacityModifyRGB() const override;
-    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) override;
-    virtual const Color3B& getColor(void) const override;
-    virtual void setColor(const Color3B& color) override;
-    virtual void setOpacity(GLubyte opacity) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
+    virtual Texture2D* getTexture() const ;
+    virtual void setTexture(Texture2D *texture) ;
+    virtual bool isOpacityModifyRGB() const ;
+    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) ;
+    virtual const Color3B& getColor(void) const ;
+    virtual void setColor(const Color3B& color) ;
+    virtual void setOpacity(GLubyte opacity) ;
     /**
     * @code
     * When this function bound into js or lua,the parameter will be changed
@@ -94,11 +94,11 @@ public:
     * @endcode
     * @lua NA
     */
-    virtual void setBlendFunc(const BlendFunc& blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc& blendFunc) ;
     /**
     * @lua NA
     */
-    virtual const BlendFunc& getBlendFunc() const override;
+    virtual const BlendFunc& getBlendFunc() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     AtlasNode();

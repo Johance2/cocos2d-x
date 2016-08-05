@@ -46,16 +46,16 @@ public:
      */
     Skin();
 
-    virtual bool initWithSpriteFrameName(const std::string& spriteFrameName) override;
-    virtual bool initWithFile(const std::string& filename) override;
+    virtual bool initWithSpriteFrameName(const std::string& spriteFrameName) ;
+    virtual bool initWithFile(const std::string& filename) ;
 
     void updateArmatureTransform();
-    void updateTransform() override;
+    void updateTransform() ;
 
-    cocos2d::Mat4 getNodeToWorldTransform() const override;
+    cocos2d::Mat4 getNodeToWorldTransform() const ;
     cocos2d::Mat4 getNodeToWorldTransformAR() const;
     
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) ;
     
     /**
      *  @js NA

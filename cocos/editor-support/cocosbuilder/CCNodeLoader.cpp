@@ -83,7 +83,7 @@ void NodeLoader::parseProperties(Node * pNode, Node * pParent, CCBReader * ccbRe
             {
                 pNode = ccbNode->getCCBFileNode();
                 
-                // Skip properties that doesn't have a value to override
+                // Skip properties that doesn't have a value to 
                 __Array *extraPropsNames = (__Array*)pNode->getUserObject();
                 Ref* pObj = nullptr;
                 bool bFound = false;

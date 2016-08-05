@@ -56,21 +56,21 @@ public:
     //
     // Overrides
     //
-    virtual ActionEase* clone() const override
+    virtual ActionEase* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
     
-    virtual ActionEase* reverse() const override
+    virtual ActionEase* reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
 
-    virtual void startWithTarget(Node *target) override;
-    virtual void stop() override;
-    virtual void update(float time) override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void stop() ;
+    virtual void update(float time) ;
 
 CC_CONSTRUCTOR_ACCESS:
     ActionEase()
@@ -122,12 +122,12 @@ public:
     //
     // Overrides
     //
-    virtual EaseRateAction* clone() const override
+    virtual EaseRateAction* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
-    virtual EaseRateAction* reverse() const override
+    virtual EaseRateAction* reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -170,9 +170,9 @@ public:
     static EaseIn* create(ActionInterval* action, float rate);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseIn* clone() const override;
-    virtual EaseIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseIn* clone() const ;
+    virtual EaseIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseIn() {}
@@ -201,9 +201,9 @@ public:
     static EaseOut* create(ActionInterval* action, float rate);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseOut* clone() const  override;
-    virtual EaseOut* reverse() const  override;
+    virtual void update(float time) ;
+    virtual EaseOut* clone() const  ;
+    virtual EaseOut* reverse() const  ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseOut() {}
@@ -234,9 +234,9 @@ public:
     static EaseInOut* create(ActionInterval* action, float rate);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseInOut* clone() const  override;
-    virtual EaseInOut* reverse() const  override;
+    virtual void update(float time) ;
+    virtual EaseInOut* clone() const  ;
+    virtual EaseInOut* reverse() const  ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseInOut() {}
@@ -264,9 +264,9 @@ public:
     static EaseExponentialIn* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseExponentialIn* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseExponentialIn* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseExponentialIn() {}
@@ -294,9 +294,9 @@ public:
     static EaseExponentialOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseExponentialOut* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseExponentialOut* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseExponentialOut() {}
@@ -326,9 +326,9 @@ public:
     static EaseExponentialInOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseExponentialInOut* clone() const override;
-    virtual EaseExponentialInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseExponentialInOut* clone() const ;
+    virtual EaseExponentialInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseExponentialInOut() {}
@@ -356,9 +356,9 @@ public:
     static EaseSineIn* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseSineIn* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseSineIn* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseSineIn() {}
@@ -386,9 +386,9 @@ public:
     static EaseSineOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseSineOut* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseSineOut* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseSineOut() {}
@@ -416,9 +416,9 @@ public:
     static EaseSineInOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseSineInOut* clone() const override;
-    virtual EaseSineInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseSineInOut* clone() const ;
+    virtual EaseSineInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseSineInOut() {}
@@ -452,13 +452,13 @@ public:
     //
     // Overrides
     //
-    virtual EaseElastic* clone() const override
+    virtual EaseElastic* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
     
-    virtual EaseElastic* reverse() const override
+    virtual EaseElastic* reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -514,9 +514,9 @@ public:
     static EaseElasticIn* create(ActionInterval *action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseElasticIn* clone() const override;
-    virtual EaseElastic* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseElasticIn* clone() const ;
+    virtual EaseElastic* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseElasticIn() {}
@@ -556,9 +556,9 @@ public:
     static EaseElasticOut* create(ActionInterval *action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseElasticOut* clone() const override;
-    virtual EaseElastic* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseElasticOut* clone() const ;
+    virtual EaseElastic* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseElasticOut() {}
@@ -595,9 +595,9 @@ public:
     static EaseElasticInOut* create(ActionInterval *action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseElasticInOut* clone() const override;
-    virtual EaseElasticInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseElasticInOut* clone() const ;
+    virtual EaseElasticInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseElasticInOut() {}
@@ -618,13 +618,13 @@ class CC_DLL EaseBounce : public ActionEase
 public:
 
     // Overrides
-    virtual EaseBounce* clone() const override
+    virtual EaseBounce* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
 
-    virtual EaseBounce* reverse() const override
+    virtual EaseBounce* reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -657,9 +657,9 @@ public:
     static EaseBounceIn* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBounceIn* clone() const override;
-    virtual EaseBounce* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBounceIn* clone() const ;
+    virtual EaseBounce* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBounceIn() {}
@@ -688,9 +688,9 @@ public:
     static EaseBounceOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBounceOut* clone() const override;
-    virtual EaseBounce* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBounceOut* clone() const ;
+    virtual EaseBounce* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBounceOut() {}
@@ -719,9 +719,9 @@ public:
     static EaseBounceInOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBounceInOut* clone() const override;
-    virtual EaseBounceInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBounceInOut* clone() const ;
+    virtual EaseBounceInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBounceInOut() {}
@@ -750,9 +750,9 @@ public:
     static EaseBackIn* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBackIn* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBackIn* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBackIn() {}
@@ -781,9 +781,9 @@ public:
     static EaseBackOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBackOut* clone() const override;
-    virtual ActionEase* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBackOut* clone() const ;
+    virtual ActionEase* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBackOut() {}
@@ -812,9 +812,9 @@ public:
     static EaseBackInOut* create(ActionInterval* action);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual EaseBackInOut* clone() const override;
-    virtual EaseBackInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBackInOut* clone() const ;
+    virtual EaseBackInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseBackInOut() {}
@@ -840,9 +840,9 @@ public:
     */
     static EaseBezierAction* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseBezierAction* clone() const override;
-    virtual EaseBezierAction* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseBezierAction* clone() const ;
+    virtual EaseBezierAction* reverse() const ;
 
     /**
     @brief Set the bezier parameters.
@@ -878,9 +878,9 @@ public:
     */
     static EaseQuadraticActionIn* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuadraticActionIn* clone() const override;
-    virtual EaseQuadraticActionIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuadraticActionIn* clone() const ;
+    virtual EaseQuadraticActionIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuadraticActionIn() {}
@@ -906,9 +906,9 @@ public:
     */
     static EaseQuadraticActionOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuadraticActionOut* clone() const override;
-    virtual EaseQuadraticActionOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuadraticActionOut* clone() const ;
+    virtual EaseQuadraticActionOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuadraticActionOut() {}
@@ -934,9 +934,9 @@ public:
     */
     static EaseQuadraticActionInOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuadraticActionInOut* clone() const override;
-    virtual EaseQuadraticActionInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuadraticActionInOut* clone() const ;
+    virtual EaseQuadraticActionInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuadraticActionInOut() {}
@@ -961,9 +961,9 @@ public:
     */
     static EaseQuarticActionIn* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuarticActionIn* clone() const override;
-    virtual EaseQuarticActionIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuarticActionIn* clone() const ;
+    virtual EaseQuarticActionIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuarticActionIn() {}
@@ -988,9 +988,9 @@ public:
     */
     static EaseQuarticActionOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuarticActionOut* clone() const override;
-    virtual EaseQuarticActionOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuarticActionOut* clone() const ;
+    virtual EaseQuarticActionOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuarticActionOut() {}
@@ -1015,9 +1015,9 @@ public:
     */
     static EaseQuarticActionInOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuarticActionInOut* clone() const override;
-    virtual EaseQuarticActionInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuarticActionInOut* clone() const ;
+    virtual EaseQuarticActionInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuarticActionInOut() {}
@@ -1043,9 +1043,9 @@ public:
     */
     static EaseQuinticActionIn* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuinticActionIn* clone() const override;
-    virtual EaseQuinticActionIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuinticActionIn* clone() const ;
+    virtual EaseQuinticActionIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuinticActionIn() {}
@@ -1070,9 +1070,9 @@ public:
     */
     static EaseQuinticActionOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuinticActionOut* clone() const override;
-    virtual EaseQuinticActionOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuinticActionOut* clone() const ;
+    virtual EaseQuinticActionOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuinticActionOut() {}
@@ -1097,9 +1097,9 @@ public:
     */
     static EaseQuinticActionInOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseQuinticActionInOut* clone() const override;
-    virtual EaseQuinticActionInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseQuinticActionInOut* clone() const ;
+    virtual EaseQuinticActionInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseQuinticActionInOut() {}
@@ -1124,9 +1124,9 @@ public:
     */
     static EaseCircleActionIn* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCircleActionIn* clone() const override;
-    virtual EaseCircleActionIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCircleActionIn* clone() const ;
+    virtual EaseCircleActionIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCircleActionIn() {}
@@ -1151,9 +1151,9 @@ public:
     */
     static EaseCircleActionOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCircleActionOut* clone() const override;
-    virtual EaseCircleActionOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCircleActionOut* clone() const ;
+    virtual EaseCircleActionOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCircleActionOut() {}
@@ -1178,9 +1178,9 @@ public:
     */
     static EaseCircleActionInOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCircleActionInOut* clone() const override;
-    virtual EaseCircleActionInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCircleActionInOut* clone() const ;
+    virtual EaseCircleActionInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCircleActionInOut() {}
@@ -1205,9 +1205,9 @@ public:
     */
     static EaseCubicActionIn* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCubicActionIn* clone() const override;
-    virtual EaseCubicActionIn* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCubicActionIn* clone() const ;
+    virtual EaseCubicActionIn* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCubicActionIn() {}
@@ -1232,9 +1232,9 @@ public:
     */
     static EaseCubicActionOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCubicActionOut* clone() const override;
-    virtual EaseCubicActionOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCubicActionOut* clone() const ;
+    virtual EaseCubicActionOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCubicActionOut() {}
@@ -1259,9 +1259,9 @@ public:
     */
     static EaseCubicActionInOut* create(ActionInterval* action);
     
-    virtual void update(float time) override;
-    virtual EaseCubicActionInOut* clone() const override;
-    virtual EaseCubicActionInOut* reverse() const override;
+    virtual void update(float time) ;
+    virtual EaseCubicActionInOut* clone() const ;
+    virtual EaseCubicActionInOut* reverse() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     EaseCubicActionInOut() {}

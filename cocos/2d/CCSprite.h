@@ -182,7 +182,7 @@ public:
     /**
      * Updates the quad according the rotation, position, scale values.
      */
-    virtual void updateTransform() override;
+    virtual void updateTransform() ;
 
     /**
      * Returns the batch node object if this sprite is rendered by SpriteBatchNode.
@@ -220,10 +220,10 @@ public:
      *
      *  The Texture's rect is not changed.
      */
-    virtual void setTexture(Texture2D *texture) override;
+    virtual void setTexture(Texture2D *texture) ;
 
     /** Returns the Texture2D object used by the sprite. */
-    virtual Texture2D* getTexture() const override;
+    virtual Texture2D* getTexture() const ;
 
     /**
      * Updates the texture rect of the Sprite in points.
@@ -439,41 +439,41 @@ public:
     /**
      * @js NA
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     /// @{
     /// @name Functions inherited from Node.
-    virtual void setScaleX(float scaleX) override;
-    virtual void setScaleY(float scaleY) override;
-    virtual void setScale(float scaleX, float scaleY) override;
+    virtual void setScaleX(float scaleX) ;
+    virtual void setScaleY(float scaleY) ;
+    virtual void setScale(float scaleX, float scaleY) ;
     /**
     * @js  NA
     * @lua NA
     */
-    virtual void setPosition(const Vec2& pos) override;
-    virtual void setPosition(float x, float y) override;
-    virtual void setRotation(float rotation) override;
-    virtual void setRotationSkewX(float rotationX) override;
-    virtual void setRotationSkewY(float rotationY) override;
-    virtual void setSkewX(float sx) override;
-    virtual void setSkewY(float sy) override;
-    virtual void removeChild(Node* child, bool cleanup) override;
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-    virtual void reorderChild(Node *child, int zOrder) override;
+    virtual void setPosition(const Vec2& pos) ;
+    virtual void setPosition(float x, float y) ;
+    virtual void setRotation(float rotation) ;
+    virtual void setRotationSkewX(float rotationX) ;
+    virtual void setRotationSkewY(float rotationY) ;
+    virtual void setSkewX(float sx) ;
+    virtual void setSkewY(float sy) ;
+    virtual void removeChild(Node* child, bool cleanup) ;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+    virtual void reorderChild(Node *child, int zOrder) ;
     using Node::addChild;
-    virtual void addChild(Node *child, int zOrder, int tag) override;
-    virtual void addChild(Node *child, int zOrder, const std::string &name) override;
-    virtual void sortAllChildren() override;
-    virtual void setScale(float scale) override;
-    virtual void setPositionZ(float positionZ) override;
-    virtual void setAnchorPoint(const Vec2& anchor) override;
+    virtual void addChild(Node *child, int zOrder, int tag) ;
+    virtual void addChild(Node *child, int zOrder, const std::string &name) ;
+    virtual void sortAllChildren() ;
+    virtual void setScale(float scale) ;
+    virtual void setPositionZ(float positionZ) ;
+    virtual void setAnchorPoint(const Vec2& anchor) ;
     
-    virtual void setIgnoreAnchorPointForPosition(bool value) override;
+    virtual void setIgnoreAnchorPointForPosition(bool value) ;
     
-    virtual void setVisible(bool bVisible) override;
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
-    virtual void setOpacityModifyRGB(bool modify) override;
-    virtual bool isOpacityModifyRGB() const override;
+    virtual void setVisible(bool bVisible) ;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
+    virtual void setOpacityModifyRGB(bool modify) ;
+    virtual bool isOpacityModifyRGB() const ;
     /// @}
 
     int getResourceType() const { return _fileType; }
@@ -487,7 +487,7 @@ CC_CONSTRUCTOR_ACCESS :
     virtual ~Sprite();
 
     /* Initializes an empty sprite with no parameters. */
-    virtual bool init() override;
+    virtual bool init() ;
 
     /**
      * Initializes a sprite with a texture.
@@ -584,7 +584,7 @@ CC_CONSTRUCTOR_ACCESS :
     
 protected:
 
-    void updateColor() override;
+    void updateColor() ;
     virtual void setTextureCoords(const Rect& rect);
     virtual void updateBlendFunc();
     virtual void setReorderChildDirtyRecursively();

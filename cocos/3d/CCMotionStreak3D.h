@@ -100,44 +100,44 @@ public:
     }
 
     // Overrides
-    virtual void setPosition(const Vec2& position) override;
-    virtual void setPosition(float x, float y) override;
-    virtual void setPosition3D(const Vec3& position) override;
+    virtual void setPosition(const Vec2& position) ;
+    virtual void setPosition(float x, float y) ;
+    virtual void setPosition3D(const Vec3& position) ;
     virtual void setRotation3D(const Vec3& rotation){}
     virtual void setRotationQuat(const Quaternion& quat){}
     
-    virtual const Vec2& getPosition() const override;
-    virtual void getPosition(float* x, float* y) const override;
-    virtual void setPositionX(float x) override;
-    virtual void setPositionY(float y) override;
-    virtual float getPositionX(void) const override;
-    virtual float getPositionY(void) const override;
-    virtual Vec3 getPosition3D() const override;
+    virtual const Vec2& getPosition() const ;
+    virtual void getPosition(float* x, float* y) const ;
+    virtual void setPositionX(float x) ;
+    virtual void setPositionY(float y) ;
+    virtual float getPositionX(void) const ;
+    virtual float getPositionY(void) const ;
+    virtual Vec3 getPosition3D() const ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
     /**
     * @lua NA
     */
-    virtual void update(float delta) override;
-    virtual Texture2D* getTexture() const override;
-    virtual void setTexture(Texture2D *texture) override;
-    /**
-    * @js NA
-    * @lua NA
-    */
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void update(float delta) ;
+    virtual Texture2D* getTexture() const ;
+    virtual void setTexture(Texture2D *texture) ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual const BlendFunc& getBlendFunc() const override;
-    virtual GLubyte getOpacity() const override;
-    virtual void setOpacity(GLubyte opacity) override;
-    virtual void setOpacityModifyRGB(bool value) override;
-    virtual bool isOpacityModifyRGB() const override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
+    /**
+    * @js NA
+    * @lua NA
+    */
+    virtual const BlendFunc& getBlendFunc() const ;
+    virtual GLubyte getOpacity() const ;
+    virtual void setOpacity(GLubyte opacity) ;
+    virtual void setOpacityModifyRGB(bool value) ;
+    virtual bool isOpacityModifyRGB() const ;
     
     /**
      * Set the direction of sweeping line segment.

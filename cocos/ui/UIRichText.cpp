@@ -250,10 +250,10 @@ public:
     
     /** @brief outline, shadow or glow */
     enum StyleEffect {
-        NONE,
-        OUTLINE,            /*!< outline effect enabled */
-        SHADOW,             /*!< shadow effect enabled */
-        GLOW                /*!< glow effect enabled @discussion Limiting use to only when the Label created with true type font. */
+        SE_NONE,
+        SE_OUTLINE,            /*!< outline effect enabled */
+        SE_SHADOW,             /*!< shadow effect enabled */
+        SE_GLOW                /*!< glow effect enabled @discussion Limiting use to only when the Label created with true type font. */
     };
     
     /** @brief the attributes of text tag */
@@ -286,7 +286,7 @@ public:
         , line(StyleLine::NONE)
         , hasColor(false)
         , fontSize(-1)
-        , effect(StyleEffect::NONE)
+        , effect(StyleEffect::SE_NONE)
         {
         }
     };
@@ -359,7 +359,7 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
 : _richText(richText)
 , _fontElements(20)
 {
-    MyXMLVisitor::setTagDescription("font", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("font", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*>  {
         // supported attributes:
         // size, color, align, face
         ValueMap attrValueMap;
@@ -377,47 +377,47 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("b", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("b", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // no supported attributes
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_TEXT_BOLD] = true;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("i", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("i", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // no supported attributes
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_TEXT_ITALIC] = true;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("del", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("del", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // no supported attributes
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_TEXT_LINE] = RichText::VALUE_TEXT_LINE_DEL;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("u", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("u", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // no supported attributes
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_TEXT_LINE] = RichText::VALUE_TEXT_LINE_UNDER;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("small", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("small", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_FONT_SMALL] = true;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("big", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("big", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         ValueMap attrValueMap;
         attrValueMap[RichText::KEY_FONT_BIG] = true;
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("img", false, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("img", false, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // supported attributes:
         // src, height, width
         std::string src;
@@ -443,7 +443,7 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
         return make_pair(ValueMap(), elementImg);
     });
     
-    MyXMLVisitor::setTagDescription("a", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("a", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // supported attributes:
         ValueMap attrValueMap;
         
@@ -453,12 +453,12 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("br", false, [](const ValueMap& tagAttrValueMap)  {
+    MyXMLVisitor::setTagDescription("br", false, [](const ValueMap& tagAttrValueMap) -> std::pair<ValueMap, RichElement*> {
         RichElementNewLine* richElement = RichElementNewLine::create(0, Color3B::WHITE, 255);
         return make_pair(ValueMap(), richElement);
     });
     
-    MyXMLVisitor::setTagDescription("outline", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("outline", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // supported attributes:
         // color, size
         ValueMap attrValueMap;
@@ -473,7 +473,7 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("shadow", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("shadow", true, [](const ValueMap& tagAttrValueMap) -> std::pair<ValueMap, RichElement*>{
         // supported attributes:
         // color, offsetWidth, offsetHeight, blurRadius
         ValueMap attrValueMap;
@@ -494,7 +494,7 @@ MyXMLVisitor::MyXMLVisitor(RichText* richText)
         return make_pair(attrValueMap, nullptr);
     });
     
-    MyXMLVisitor::setTagDescription("glow", true, [](const ValueMap& tagAttrValueMap) {
+    MyXMLVisitor::setTagDescription("glow", true, [](const ValueMap& tagAttrValueMap)-> std::pair<ValueMap, RichElement*> {
         // supported attributes:
         // color
         ValueMap attrValueMap;
@@ -595,7 +595,7 @@ std::tuple<bool, Color3B, int> MyXMLVisitor::getOutline() const
 {
     for (auto i = _fontElements.rbegin(); i != _fontElements.rend(); ++i)
     {
-        if (i->effect == StyleEffect::OUTLINE)
+        if (i->effect == StyleEffect::SE_OUTLINE)
             return std::make_tuple(true, i->outlineColor, i->outlineSize);
     }
     return std::make_tuple(false, Color3B::WHITE, -1);
@@ -605,7 +605,7 @@ std::tuple<bool, Color3B, cocos2d::Size, int> MyXMLVisitor::getShadow() const
 {
     for (auto i = _fontElements.rbegin(); i != _fontElements.rend(); ++i)
     {
-        if (i->effect == StyleEffect::SHADOW)
+        if (i->effect == StyleEffect::SE_SHADOW)
             return std::make_tuple(true, i->shadowColor, i->shadowOffset, i->shadowBlurRadius);
     }
     return std::make_tuple(false, Color3B::BLACK, Size(2.0, -2.0), 0);
@@ -615,7 +615,7 @@ std::tuple<bool, Color3B> MyXMLVisitor::getGlow() const
 {
     for (auto i = _fontElements.rbegin(); i != _fontElements.rend(); ++i)
     {
-        if (i->effect == StyleEffect::GLOW)
+        if (i->effect == StyleEffect::SE_GLOW)
             return std::make_tuple(true, i->glowColor);
     }
     return std::make_tuple(false, Color3B::WHITE);
@@ -681,25 +681,25 @@ bool MyXMLVisitor::VisitEnter( const tinyxml2::XMLElement& element, const tinyxm
                         attributes.line = StyleLine::STRIKETHROUGH;
                     }
                     if (_richText->isAnchorTextOutlineEnabled()) {
-                        attributes.effect = StyleEffect::OUTLINE;
+                        attributes.effect = StyleEffect::SE_OUTLINE;
                         attributes.outlineColor = _richText->getAnchorTextOutlineColor3B();
                         attributes.outlineSize = _richText->getAnchorTextOutlineSize();
                     }
                     if (_richText->isAnchorTextShadowEnabled()) {
-                        attributes.effect = StyleEffect::SHADOW;
+                        attributes.effect = StyleEffect::SE_SHADOW;
                         attributes.shadowColor = _richText->getAnchorTextShadowColor3B();
                         attributes.shadowOffset = _richText->getAnchorTextShadowOffset();
                         attributes.shadowBlurRadius = _richText->getAnchorTextShadowBlurRadius();
                     }
                     if (_richText->isAnchorTextGlowEnabled()) {
-                        attributes.effect = StyleEffect::GLOW;
+                        attributes.effect = StyleEffect::SE_GLOW;
                         attributes.glowColor = _richText->getAnchorTextGlowColor3B();
                     }
                 }
                 if (attrValueMap.find(RichText::KEY_TEXT_STYLE) != attrValueMap.end()) {
                     auto keyTextStyle = attrValueMap.at(RichText::KEY_TEXT_STYLE).asString();
                     if (keyTextStyle == RichText::VALUE_TEXT_STYLE_OUTLINE) {
-                        attributes.effect = StyleEffect::OUTLINE;
+                        attributes.effect = StyleEffect::SE_OUTLINE;
                         if (attrValueMap.find(RichText::KEY_TEXT_OUTLINE_COLOR) != attrValueMap.end()) {
                             attributes.outlineColor = _richText->color3BWithString(attrValueMap.at(RichText::KEY_TEXT_OUTLINE_COLOR).asString());
                         }
@@ -708,7 +708,7 @@ bool MyXMLVisitor::VisitEnter( const tinyxml2::XMLElement& element, const tinyxm
                         }
                     }
                     else if (keyTextStyle == RichText::VALUE_TEXT_STYLE_SHADOW) {
-                        attributes.effect = StyleEffect::SHADOW;
+                        attributes.effect = StyleEffect::SE_SHADOW;
                         if (attrValueMap.find(RichText::KEY_TEXT_SHADOW_COLOR) != attrValueMap.end()) {
                             attributes.shadowColor = _richText->color3BWithString(attrValueMap.at(RichText::KEY_TEXT_SHADOW_COLOR).asString());
                         }
@@ -722,7 +722,7 @@ bool MyXMLVisitor::VisitEnter( const tinyxml2::XMLElement& element, const tinyxm
                         }
                     }
                     else if (keyTextStyle == RichText::VALUE_TEXT_STYLE_GLOW) {
-                        attributes.effect = StyleEffect::GLOW;
+                        attributes.effect = StyleEffect::SE_GLOW;
                         if (attrValueMap.find(RichText::KEY_TEXT_GLOW_COLOR) != attrValueMap.end()) {
                             attributes.glowColor = _richText->color3BWithString(attrValueMap.at(RichText::KEY_TEXT_GLOW_COLOR).asString());
                         }
@@ -817,7 +817,9 @@ void MyXMLVisitor::pushBackElement(RichElement* element)
 
 void MyXMLVisitor::setTagDescription(const std::string& tag, bool isFontElement, RichText::VisitEnterHandler handleVisitEnter)
 {
-    MyXMLVisitor::_tagTables[tag] = {isFontElement, handleVisitEnter};
+	auto &item =MyXMLVisitor::_tagTables[tag];
+	item.isFontElement = isFontElement;
+	item.handleVisitEnter = handleVisitEnter;
 }
 
 void MyXMLVisitor::removeTagDescription(const std::string& tag)
@@ -931,7 +933,7 @@ bool RichText::init()
 
 bool RichText::initWithXML(const std::string& origxml, const ValueMap& defaults, const OpenUrlHandler& handleOpenUrl)
 {
-    static std::function<std::string(RichText*)> startTagFont = [](RichText* richText) {
+    static std::function<std::string(RichText*)> startTagFont = [](RichText* richText)->std::string {
         std::string fontFace = richText->getFontFace();
         std::stringstream ss;
         ss << richText->getFontSize();

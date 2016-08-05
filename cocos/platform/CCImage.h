@@ -77,27 +77,27 @@ public:
     enum Format
     {
         //! JPEG
-        JPG,
+        Format_JPG,
         //! PNG
-        PNG,
+        Format_PNG,
         //! TIFF
-        TIFF,
+        Format_TIFF,
         //! WebP
-        WEBP,
+        Format_WEBP,
         //! PVR
-        PVR,
+        Format_PVR,
         //! ETC
-        ETC,
+        Format_ETC,
         //! S3TC
-        S3TC,
+        Format_S3TC,
         //! ATITC
-        ATITC,
+        Format_ATITC,
         //! TGA
-        TGA,
+        Format_TGA,
         //! Raw Data
-        RAW_DATA,
+        Format_RAW_DATA,
         //! Unknown format
-        UNKNOWN
+        Format_UNKNOWN
     };
 
     /**

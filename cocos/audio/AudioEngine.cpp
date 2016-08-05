@@ -139,7 +139,7 @@ private:
     std::queue< std::function<void()> > _taskQueue;
 
     boost::mutex _queueMutex;
-    std::condition_variable _taskCondition;
+    boost::condition_variable _taskCondition;
     bool _detach;
     bool _stop;
 };

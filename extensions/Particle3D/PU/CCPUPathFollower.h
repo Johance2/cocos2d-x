@@ -39,7 +39,7 @@ public:
 
     static PUPathFollower* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
     /** 
     */
     void addPoint(const Vec3& point);
@@ -56,7 +56,7 @@ public:
     */
     const Vec3& getPoint(unsigned short index) const {return _spline.getPoint(index);};
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUPathFollower(void);

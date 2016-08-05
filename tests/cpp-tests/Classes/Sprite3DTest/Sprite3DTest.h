@@ -271,7 +271,7 @@ public:
 protected:
     void addSprite3D();
     
-    enum class State
+    enumState
     {
         SWIMMING,
         SWIMMING_TO_HURT,
@@ -326,7 +326,7 @@ public:
 protected:
     void applyCurSkin();
     
-    enum class SkinType
+    enumSkinType
     {
         UPPER_BODY = 0,
         PANTS,
@@ -428,7 +428,7 @@ protected:
     
     void switchCase();
     
-    enum class USECASE{
+    enumUSECASE{
         _3D_WITH_2D,
         _UI_3D_UI,
         MAX_CASE_NUM,
@@ -485,7 +485,7 @@ protected:
 /// issue 9767 setGLProgram
 class Issue9767 : public Sprite3DTestDemo
 {
-    enum class ShaderType
+    enumShaderType
     {
         SHADER_TEX,
         SHADER_COLOR,

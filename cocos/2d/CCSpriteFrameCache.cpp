@@ -68,7 +68,6 @@ void SpriteFrameCache::destroyInstance()
 bool SpriteFrameCache::init()
 {
     _spriteFrames.reserve(20);
-    _spriteFramesAliases.reserve(20);
     _loadedFileNames = new std::set<std::string>();
     return true;
 }
@@ -311,20 +310,22 @@ void SpriteFrameCache::addSpriteFramesWithDictionary(ValueMap& dict, const std::
     }
     
     Texture2D *texture = nullptr;
-    static std::unordered_map<std::string, Texture2D::PixelFormat> pixelFormats = {
-        {"RGBA8888", Texture2D::PixelFormat::RGBA8888},
-        {"RGBA4444", Texture2D::PixelFormat::RGBA4444},
-        {"RGB5A1", Texture2D::PixelFormat::RGB5A1},
-        {"RGBA5551", Texture2D::PixelFormat::RGB5A1},
-        {"RGB565", Texture2D::PixelFormat::RGB565},
-        {"A8", Texture2D::PixelFormat::A8},
-        {"ALPHA", Texture2D::PixelFormat::A8},
-        {"I8", Texture2D::PixelFormat::I8},
-        {"AI88", Texture2D::PixelFormat::AI88},
-        {"ALPHA_INTENSITY", Texture2D::PixelFormat::AI88},
-        //{"BGRA8888", Texture2D::PixelFormat::BGRA8888}, no Image conversion RGBA -> BGRA
-        {"RGB888", Texture2D::PixelFormat::RGB888}
-    };
+	static std::unordered_map<std::string, Texture2D::PixelFormat> pixelFormats;
+	if(pixelFormats.size() == 0)
+	{
+		pixelFormats.insert(std::make_pair("RGBA8888", Texture2D::PixelFormat::RGBA8888));
+		pixelFormats.insert(std::make_pair("RGBA4444", Texture2D::PixelFormat::RGBA4444));
+		pixelFormats.insert(std::make_pair("RGB5A1", Texture2D::PixelFormat::RGB5A1));
+		pixelFormats.insert(std::make_pair("RGBA5551", Texture2D::PixelFormat::RGB5A1));
+		pixelFormats.insert(std::make_pair("RGB565", Texture2D::PixelFormat::RGB565));
+		pixelFormats.insert(std::make_pair("A8", Texture2D::PixelFormat::A8));
+		pixelFormats.insert(std::make_pair("ALPHA", Texture2D::PixelFormat::A8));
+		pixelFormats.insert(std::make_pair("I8", Texture2D::PixelFormat::I8));
+		pixelFormats.insert(std::make_pair("AI88", Texture2D::PixelFormat::AI88));
+		pixelFormats.insert(std::make_pair("ALPHA_INTENSITY", Texture2D::PixelFormat::AI88));
+		//{"BGRA8888", Texture2D::PixelFormat::BGRA8888}, no Image conversion RGBA -> BGRA
+		pixelFormats.insert(std::make_pair("RGB888", Texture2D::PixelFormat::RGB888));
+	};
 
     auto pixelFormatIt = pixelFormats.find(pixelFormatName);
     if (pixelFormatIt != pixelFormats.end())

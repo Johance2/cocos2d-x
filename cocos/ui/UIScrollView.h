@@ -345,25 +345,25 @@ public:
      */
     virtual void addEventListener(const ccScrollViewCallback& callback);
 
-    //override functions
-    virtual void addChild(Node* child)override;
-    virtual void addChild(Node * child, int localZOrder)override;
-    virtual void addChild(Node* child, int localZOrder, int tag) override;
-    virtual void addChild(Node* child, int localZOrder, const std::string &name) override;
-    virtual void removeAllChildren() override;
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-    virtual void removeChild(Node* child, bool cleanup = true) override;
-    virtual Vector<Node*>& getChildren() override;
-    virtual const Vector<Node*>& getChildren() const override;
-    virtual ssize_t getChildrenCount() const override;
-    virtual Node * getChildByTag(int tag) const override;
-    virtual Node* getChildByName(const std::string& name)const override;
+    // functions
+    virtual void addChild(Node* child);
+    virtual void addChild(Node * child, int localZOrder);
+    virtual void addChild(Node* child, int localZOrder, int tag) ;
+    virtual void addChild(Node* child, int localZOrder, const std::string &name) ;
+    virtual void removeAllChildren() ;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+    virtual void removeChild(Node* child, bool cleanup = true) ;
+    virtual Vector<Node*>& getChildren() ;
+    virtual const Vector<Node*>& getChildren() const ;
+    virtual ssize_t getChildrenCount() const ;
+    virtual Node * getChildByTag(int tag) const ;
+    virtual Node* getChildByName(const std::string& name)const ;
     //touch event callback
-    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchMoved(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) override;
-    virtual void update(float dt) override;
+    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchMoved(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) ;
+    virtual void update(float dt) ;
 
     /**
      * @brief Toggle bounce enabled when scroll to the edge.
@@ -532,7 +532,7 @@ public:
      * @see `Layout::Type`
      * @param type  Layout type enum.
      */
-    virtual void setLayoutType(Type type) override;
+    virtual void setLayoutType(Type type) ;
 
     /**
      * Get the layout type for scrollview.
@@ -540,17 +540,17 @@ public:
      * @see `Layout::Type`
      * @return LayoutType
      */
-    virtual Type getLayoutType() const override;
+    virtual Type getLayoutType() const ;
 
     /**
      * Return the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     /**
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
 
     /**
      *  When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.
@@ -559,10 +559,10 @@ public:
      *@param current  the current focused widget
      *@return the next focused widget in a layout
      */
-    virtual Widget* findNextFocusedWidget(FocusDirection direction, Widget* current) override;
+    virtual Widget* findNextFocusedWidget(FocusDirection direction, Widget* current) ;
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
     enum MoveDirection
@@ -573,14 +573,14 @@ protected:
         RIGHT,
     };
     
-    virtual void initRenderer() override;
+    virtual void initRenderer() ;
 
-    virtual void onSizeChanged() override;
-    virtual void doLayout() override;
+    virtual void onSizeChanged() ;
+    virtual void doLayout() ;
 
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void copyClonedWidgetChildren(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void copyClonedWidgetChildren(Widget* model) ;
     
     virtual void initScrollBar();
     virtual void removeScrollBar();
@@ -615,7 +615,7 @@ protected:
     virtual void handleMoveLogic(Touch *touch);
     virtual void handleReleaseLogic(Touch *touch);
 
-    virtual void interceptTouchEvent(Widget::TouchEventType event,Widget* sender,Touch *touch) override;
+    virtual void interceptTouchEvent(Widget::TouchEventType event,Widget* sender,Touch *touch) ;
     
     void processScrollEvent(MoveDirection dir, bool bounce);
     void processScrollingEvent();

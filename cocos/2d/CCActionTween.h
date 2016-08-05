@@ -95,10 +95,10 @@ public:
     static ActionTween* create(float duration, const std::string& key, float from, float to);
 
     // Overrides
-    void startWithTarget(Node *target) override;
-    void update(float dt) override;
-    ActionTween* reverse() const override;
-    ActionTween *clone() const override;
+    void startWithTarget(Node *target) ;
+    void update(float dt) ;
+    ActionTween* reverse() const ;
+    ActionTween *clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /** 

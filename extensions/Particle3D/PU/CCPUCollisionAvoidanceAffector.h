@@ -39,7 +39,7 @@ public:
 
     static PUCollisionAvoidanceAffector* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** Todo
     */
@@ -49,7 +49,7 @@ public:
     */
     void setRadius(float radius);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUCollisionAvoidanceAffector();

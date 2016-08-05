@@ -37,10 +37,10 @@ public:
 
     static PUFlockCenteringAffector* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUFlockCenteringAffector();

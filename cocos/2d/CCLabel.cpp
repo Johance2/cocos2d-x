@@ -73,7 +73,7 @@ public:
     
     CREATE_FUNC(LabelLetter);
 
-    virtual void updateTransform() override
+    virtual void updateTransform() 
     {
         if (isDirty())
         {
@@ -127,7 +127,7 @@ public:
         Node::updateTransform();
     }
 
-    virtual void updateColor() override
+    virtual void updateColor() 
     {
         if (_textureAtlas == nullptr)
         {
@@ -155,14 +155,14 @@ public:
         _textureAtlas->updateQuad(&_quad, _atlasIndex);
     }
 
-    void setVisible(bool visible) override
+    void setVisible(bool visible) 
     {
         _letterVisible = visible;
         updateColor();
     }
     
     //LabelLetter doesn't need to draw directly.
-    void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override
+    void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) 
     {
     }
     
@@ -398,7 +398,7 @@ Label::Label(TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */,
 #endif
 
     _purgeTextureListener = EventListenerCustom::create(FontAtlas::CMD_PURGE_FONTATLAS, [this](EventCustom* event){
-        if (_fontAtlas && _currentLabelType == LabelType::TTF && event->getUserData() == _fontAtlas)
+        if (_fontAtlas && _currentLabelType == Label::LabelType::TTF && event->getUserData() == _fontAtlas)
         {
             for(auto itr2 = _letters.begin(); itr2 != _letters.end(); ++itr2)
             {
@@ -416,7 +416,7 @@ Label::Label(TextHAlignment hAlignment /* = TextHAlignment::TH_LEFT */,
     _eventDispatcher->addEventListenerWithFixedPriority(_purgeTextureListener, 1);
     
     _resetTextureListener = EventListenerCustom::create(FontAtlas::CMD_RESET_FONTATLAS, [this](EventCustom* event){
-        if (_fontAtlas && _currentLabelType == LabelType::TTF && event->getUserData() == _fontAtlas)
+        if (_fontAtlas && _currentLabelType == Label::LabelType::TTF && event->getUserData() == _fontAtlas)
         {
             _fontAtlas = nullptr;
             this->setTTFConfig(_fontConfig);

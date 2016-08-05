@@ -1078,8 +1078,9 @@ float Layout::calculateNearestDistance(Widget* baseWidget)
     
     Vec2 widgetPosition =  this->getWorldCenterPoint(baseWidget);
     
-    for (Node* node : _children)
+    for (auto itr = _children.begin(); itr != _children.end(); ++itr)
     {
+		auto node = *itr;
         Layout *layout = dynamic_cast<Layout*>(node);
         int length;
         if (layout)
@@ -1116,8 +1117,9 @@ float Layout::calculateFarthestDistance(cocos2d::ui::Widget *baseWidget)
     
     Vec2 widgetPosition =  this->getWorldCenterPoint(baseWidget);
     
-    for (Node* node : _children)
+    for (auto itr = _children.begin(); itr != _children.end(); ++itr)
     {
+		auto node = *itr;
         Layout *layout = dynamic_cast<Layout*>(node);
         int length;
         if (layout)
@@ -1279,8 +1281,9 @@ Widget* Layout::findFocusEnabledChildWidgetByIndex(ssize_t index)
 Widget *Layout::findFirstNonLayoutWidget()
 {
     Widget* widget = nullptr;
-    for(Node *node : _children)
+    for (auto itr = _children.begin(); itr != _children.end(); ++itr)
     {
+		auto node = *itr;
         Layout* layout = dynamic_cast<Layout*>(node);
         if (layout)
         {
@@ -1401,8 +1404,9 @@ Widget* Layout::passFocusToChild(FocusDirection dir, cocos2d::ui::Widget *curren
 bool Layout::checkFocusEnabledChild()const
 {
     bool ret = false;
-    for(Node* node : _children)
+    for (auto itr = _children.begin(); itr != _children.end(); ++itr)
     {
+		auto node = *itr;
         Widget* widget = dynamic_cast<Widget*>(node);
         if (widget && widget->isFocusEnabled())
         {

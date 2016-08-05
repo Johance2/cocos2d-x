@@ -45,23 +45,23 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void onExit() override;
+    virtual void onExit() ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onAdd() override;
+    virtual void onAdd() ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onRemove() override;
-    virtual bool serialize(void* r) override;
+    virtual void onRemove() ;
+    virtual bool serialize(void* r) ;
     virtual cocos2d::Node* getNode();
     virtual void setNode(cocos2d::Node *node);
 

@@ -334,8 +334,11 @@ void Menu::alignItemsVerticallyWithPadding(float padding)
 {
     float height = -padding;
 
-    for(const auto &child : _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         height += child->getContentSize().height * child->getScaleY() + padding;
+	}
 
     float y = height / 2.0f;
     
@@ -355,8 +358,11 @@ void Menu::alignItemsHorizontally(void)
 void Menu::alignItemsHorizontallyWithPadding(float padding)
 {
     float width = -padding;
-    for(const auto &child : _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         width += child->getContentSize().width * child->getScaleX() + padding;
+	}
 
     float x = -width / 2.0f;
     

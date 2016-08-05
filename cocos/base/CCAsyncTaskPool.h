@@ -193,7 +193,7 @@ protected:
         
         // synchronization
         boost::mutex _queueMutex;
-        std::condition_variable _condition;
+        boost::condition_variable _condition;
         bool _stop;
     };
     

@@ -78,7 +78,7 @@ public:
     /**
     @brief Get application version
     */
-    virtual std::string getVersion() override;
+    virtual std::string getVersion() ;
 
     /**
      @brief Open url in default browser

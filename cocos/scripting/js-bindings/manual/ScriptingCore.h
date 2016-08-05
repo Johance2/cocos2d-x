@@ -108,38 +108,38 @@ public:
     /**
      * Reflect the retain relationship to script scope
      */
-    virtual void retainScriptObject(cocos2d::Ref* owner, cocos2d::Ref* target) override;
+    virtual void retainScriptObject(cocos2d::Ref* owner, cocos2d::Ref* target) ;
     
     /**
      * Add the script object to root object
      */
-    virtual void rootScriptObject(cocos2d::Ref* target) override;
+    virtual void rootScriptObject(cocos2d::Ref* target) ;
     
     /**
      * Reflect the release relationship to script scope
      */
-    virtual void releaseScriptObject(cocos2d::Ref* owner, cocos2d::Ref* target) override;
+    virtual void releaseScriptObject(cocos2d::Ref* owner, cocos2d::Ref* target) ;
     
     /**
      * Remove the script object from root object
      */
-    virtual void unrootScriptObject(cocos2d::Ref* target) override;
+    virtual void unrootScriptObject(cocos2d::Ref* target) ;
     
     /**
      * Release all children in script scope
      */
-    virtual void releaseAllChildrenRecursive(cocos2d::Node *node) override;
+    virtual void releaseAllChildrenRecursive(cocos2d::Node *node) ;
     
     /**
      * Release all native refs for the given owner in script scope
      */
-    virtual void releaseAllNativeRefs(cocos2d::Ref* owner) override;
+    virtual void releaseAllNativeRefs(cocos2d::Ref* owner) ;
     
     /**
      * @brief @~english Removes the C++ object's linked JavaScript proxy object from JavaScript context
      * @param obj @~english Object to be removed
      */
-    virtual void removeScriptObjectByObject(cocos2d::Ref* obj) override;
+    virtual void removeScriptObjectByObject(cocos2d::Ref* obj) ;
     
     /**
      * @brief @~english Useless in ScriptingCore, please use evalString
@@ -176,9 +176,9 @@ public:
      */
     virtual int executeGlobalFunction(const char* functionName){ return 0; }
 
-    virtual int sendEvent(cocos2d::ScriptEvent* message) override;
+    virtual int sendEvent(cocos2d::ScriptEvent* message) ;
     
-    virtual bool parseConfig(ConfigType type, const std::string& str) override;
+    virtual bool parseConfig(ConfigType type, const std::string& str) ;
     /**
      * @brief @~english Useless in ScriptingCore
      * @return @~english false
@@ -516,19 +516,19 @@ public:
      * The GC won't collected rooted objects. This function is only called
      * when compiled with CC_ENABLE_GC_FOR_NATIVE_OBJECTS=1
      */
-    virtual void rootObject(cocos2d::Ref* ref) override;
+    virtual void rootObject(cocos2d::Ref* ref) ;
     /**
      * Unroots the associated JSObj.
      * The GC will collect this object the next time the GC
      * is called.
      * This function is only called when compiled with CC_ENABLE_GC_FOR_NATIVE_OBJECTS=1
      */
-    virtual void unrootObject(cocos2d::Ref* ref) override;
+    virtual void unrootObject(cocos2d::Ref* ref) ;
 
     /**
      * Calls the Garbage Collector
      */
-    virtual void garbageCollect() override;
+    virtual void garbageCollect() ;
 
 private:
     void string_report(JS::HandleValue val);

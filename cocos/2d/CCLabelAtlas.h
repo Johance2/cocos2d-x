@@ -82,17 +82,17 @@ public:
     /** Initializes the LabelAtlas with a string, a texture, the width and height in points of each element and the starting char of the atlas */
     bool initWithString(const std::string& string, Texture2D* texture, int itemWidth, int itemHeight, int startCharMap);
     
-    virtual void setString(const std::string &label) override;
-    virtual const std::string& getString(void) const override;
+    virtual void setString(const std::string &label) ;
+    virtual const std::string& getString(void) const ;
 
-    virtual void updateAtlasValues() override;
+    virtual void updateAtlasValues() ;
 	/**
      * @js NA
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
 #if CC_LABELATLAS_DEBUG_DRAW
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 #endif
 
 CC_CONSTRUCTOR_ACCESS:
@@ -111,7 +111,7 @@ CC_CONSTRUCTOR_ACCESS:
     }
     
 protected:
-    virtual void updateColor() override;
+    virtual void updateColor() ;
 
 #if CC_LABELATLAS_DEBUG_DRAW
     DrawNode *_debugDrawNode;

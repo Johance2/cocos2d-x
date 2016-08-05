@@ -114,35 +114,35 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void setTexture(Texture2D* texture) override;
+    virtual void setTexture(Texture2D* texture) ;
     /**
      * @js NA
      * @lua NA
      */    
-    virtual void updateParticleQuads() override;
+    virtual void updateParticleQuads() ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void postStep() override;
+    virtual void postStep() ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
     /**
      * @js NA
      * @lua NA
      */
-    virtual void setBatchNode(ParticleBatchNode* batchNode) override;
+    virtual void setBatchNode(ParticleBatchNode* batchNode) ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void setTotalParticles(int tp) override;
+    virtual void setTotalParticles(int tp) ;
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -160,7 +160,7 @@ CC_CONSTRUCTOR_ACCESS:
      * @js NA
      * @lua NA
      */
-    virtual bool initWithTotalParticles(int numberOfParticles) override;
+    virtual bool initWithTotalParticles(int numberOfParticles) ;
     
 
 

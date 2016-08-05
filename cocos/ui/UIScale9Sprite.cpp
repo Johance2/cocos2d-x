@@ -1208,11 +1208,15 @@ namespace ui {
         std::vector<Vec2> uvCoordinates;
         if (_renderingType == RenderingType::SIMPLE)
         {
-            uvCoordinates = {Vec2(u0,v3), Vec2(u3,v0)};
+			uvCoordinates.push_back(Vec2(u0,v3));
+			uvCoordinates.push_back(Vec2(u3,v0));
         }
         else
         {
-            uvCoordinates = {Vec2(u0,v3), Vec2(u1,v2), Vec2(u2,v1), Vec2(u3,v0)};
+			uvCoordinates.push_back(Vec2(u0,v3));
+			uvCoordinates.push_back(Vec2(u1,v2));
+			uvCoordinates.push_back(Vec2(u2,v1));
+			uvCoordinates.push_back(Vec2(u3,v0));
         }
 
         return uvCoordinates;
@@ -1246,8 +1250,8 @@ namespace ui {
             float hScale = _preferredSize.width / (originalSize.width / CC_CONTENT_SCALE_FACTOR());
             float vScale = _preferredSize.height / (originalSize.height / CC_CONTENT_SCALE_FACTOR());
             
-            vertices = {Vec2(offsetLeft * hScale, offsetBottom * vScale),
-                        Vec2(_preferredSize.width - offsetRight * hScale, _preferredSize.height - offsetTop * vScale)};
+			vertices.push_back(Vec2(offsetLeft * hScale, offsetBottom * vScale));
+			vertices.push_back(Vec2(_preferredSize.width - offsetRight * hScale, _preferredSize.height - offsetTop * vScale));
         }
         else
         {
@@ -1335,7 +1339,10 @@ namespace ui {
                 y3 = y2 + topHeight * yScale;
             }
 
-            vertices = {Vec2(x0,y0), Vec2(x1,y1), Vec2(x2,y2), Vec2(x3,y3)};
+			vertices.push_back(Vec2(x0,y0));
+			vertices.push_back(Vec2(x1,y1));
+			vertices.push_back(Vec2(x2,y2));
+			vertices.push_back(Vec2(x3,y3));
         }
         return vertices;
     }

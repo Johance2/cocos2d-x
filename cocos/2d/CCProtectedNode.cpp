@@ -69,8 +69,11 @@ void ProtectedNode::cleanup()
     
     Node::cleanup();
     // timers
-    for( const auto &child: _protectedChildren)
+	for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
+	{
+		auto &child = *itr;
         child->cleanup();
+	}
 }
 
 void ProtectedNode::addProtectedChild(cocos2d::Node *child)
@@ -349,8 +352,11 @@ void ProtectedNode::onEnter()
 #endif
     
     Node::onEnter();
-    for( const auto &child: _protectedChildren)
+	for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onEnter();
+	}
 }
 
 void ProtectedNode::onEnterTransitionDidFinish()
@@ -364,8 +370,11 @@ void ProtectedNode::onEnterTransitionDidFinish()
 #endif
     
     Node::onEnterTransitionDidFinish();
-    for( const auto &child: _protectedChildren)
+	for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onEnterTransitionDidFinish();
+	}
 }
 
 void ProtectedNode::onExitTransitionDidStart()
@@ -379,8 +388,11 @@ void ProtectedNode::onExitTransitionDidStart()
 #endif
     
     Node::onExitTransitionDidStart();
-    for( const auto &child: _protectedChildren)
+	for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onExitTransitionDidStart();
+	}
 }
 
 void ProtectedNode::onExit()
@@ -394,8 +406,11 @@ void ProtectedNode::onExit()
 #endif
     
     Node::onExit();
-    for( const auto &child: _protectedChildren)
+	for(auto itr = _protectedChildren.begin(); itr != _protectedChildren.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onExit();
+	}
 }
 
 void ProtectedNode::updateDisplayedOpacity(GLubyte parentOpacity)

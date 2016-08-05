@@ -175,9 +175,9 @@ public:
     bool initWithSpriteFrame(cocos2d::SpriteFrame *pSpriteFrame);
 
     // Overrides
-    virtual void update(float time) override;
-	virtual CCBSetSpriteFrame* clone() const override;
-	virtual CCBSetSpriteFrame* reverse() const override;
+    virtual void update(float time) ;
+	virtual CCBSetSpriteFrame* clone() const ;
+	virtual CCBSetSpriteFrame* reverse() const ;
 
 private:
     cocos2d::SpriteFrame *_spriteFrame;
@@ -196,9 +196,9 @@ public:
     bool initWithSoundFile(const std::string &file, float pitch, float pan, float gain);
 
     // Overrides
-    virtual void update(float time) override;
-	virtual CCBSoundEffect* clone() const override;
-	virtual CCBSoundEffect* reverse() const override;
+    virtual void update(float time) ;
+	virtual CCBSoundEffect* clone() const ;
+	virtual CCBSoundEffect* reverse() const ;
 
 private:
     std::string _soundFile;
@@ -213,10 +213,10 @@ public:
     bool initWithDuration(float fDuration, float fAngle);
 
     // Override
-    virtual void update(float time) override;
-	virtual CCBRotateTo* clone() const override;
-	virtual CCBRotateTo* reverse() const override;
-    virtual void startWithTarget(cocos2d::Node *pNode) override;
+    virtual void update(float time) ;
+	virtual CCBRotateTo* clone() const ;
+	virtual CCBRotateTo* reverse() const ;
+    virtual void startWithTarget(cocos2d::Node *pNode) ;
 
 private:
     float _startAngle;
@@ -232,10 +232,10 @@ public:
     bool initWithDuration(float fDuration, float fAngle);
 
     // Overrides
-    virtual void startWithTarget(cocos2d::Node *pNode) override;
-	virtual CCBRotateXTo* clone() const override;
-	virtual CCBRotateXTo* reverse() const override;
-    virtual void update(float time) override;
+    virtual void startWithTarget(cocos2d::Node *pNode) ;
+	virtual CCBRotateXTo* clone() const ;
+	virtual CCBRotateXTo* reverse() const ;
+    virtual void update(float time) ;
 
 private:
     float _startAngle;
@@ -251,10 +251,10 @@ public:
     bool initWithDuration(float fDuration, float fAngle);
 
     // Override
-    virtual void startWithTarget(cocos2d::Node *pNode) override;
-	virtual CCBRotateYTo* clone() const override;
-	virtual CCBRotateYTo* reverse() const override;
-    virtual void update(float time) override;
+    virtual void startWithTarget(cocos2d::Node *pNode) ;
+	virtual CCBRotateYTo* clone() const ;
+	virtual CCBRotateYTo* reverse() const ;
+    virtual void update(float time) ;
 
 private:
     float _startAngle;
@@ -268,9 +268,9 @@ class CC_DLL CCBEaseInstant : public cocos2d::ActionEase
 public:
     static CCBEaseInstant* create(cocos2d::ActionInterval *pAction);
 
-	virtual CCBEaseInstant* clone() const override;
-	virtual CCBEaseInstant* reverse() const override;
-    virtual void update(float dt) override;
+	virtual CCBEaseInstant* clone() const ;
+	virtual CCBEaseInstant* reverse() const ;
+    virtual void update(float dt) ;
 };
 
 

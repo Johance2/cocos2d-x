@@ -420,8 +420,11 @@ void ActionTimeline::emitFrameEndCallFuncs(int frameIndex)
     if (clipEndCallsIter != _frameEndCallFuncs.end())
     {
         auto clipEndCalls = (*clipEndCallsIter).second;
-        for (auto call : clipEndCalls)
+		for (auto itr =  clipEndCalls.begin(); itr != clipEndCalls.end(); ++itr)
+		{
+			auto &call = *itr;
             (call).second();
+		}
     }
 }
 

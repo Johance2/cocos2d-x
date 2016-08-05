@@ -239,7 +239,7 @@ private:
 
     struct lws*         _wsInstance;
     struct lws_context* _wsContext;
-    std::shared_ptr<std::atomic<bool>> _isDestroyed;
+    boost::shared_ptr<boost::atomic<bool>> _isDestroyed;
     Delegate* _delegate;
     int _SSLConnection;
     struct lws_protocols* _wsProtocols;

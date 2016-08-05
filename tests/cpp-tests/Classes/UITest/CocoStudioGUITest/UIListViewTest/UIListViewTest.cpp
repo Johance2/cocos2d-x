@@ -797,7 +797,7 @@ bool UIListViewTest_Magnetic::init()
     }
     
     // Initial magnetic type
-    _listView->setMagneticType(ListView::MagneticType::NONE);
+    _listView->setMagneticType(ListView::MagneticType::MT_NONE);
     _titleLabel->setString("MagneticType - NONE");
     
     // Magnetic change button
@@ -810,47 +810,47 @@ bool UIListViewTest_Magnetic::init()
         ListView::MagneticType eCurrentType = _listView->getMagneticType();
         ListView::MagneticType eNextType;
         std::string sString;
-        if(eCurrentType == ListView::MagneticType::NONE)
+        if(eCurrentType == ListView::MagneticType::MT_NONE)
         {
-            eNextType = ListView::MagneticType::CENTER;
+            eNextType = ListView::MagneticType::MT_CENTER;
             sString = "CENTER";
         }
-        else if(eCurrentType == ListView::MagneticType::CENTER)
+        else if(eCurrentType == ListView::MagneticType::MT_CENTER)
         {
-            eNextType = ListView::MagneticType::BOTH_END;
+            eNextType = ListView::MagneticType::MT_BOTH_END;
             sString = "BOTH_END";
         }
-        else if(eCurrentType == ListView::MagneticType::BOTH_END)
+        else if(eCurrentType == ListView::MagneticType::MT_BOTH_END)
         {
             if(getListViewDirection() == ScrollView::Direction::HORIZONTAL)
             {
-                eNextType = ListView::MagneticType::LEFT;
+                eNextType = ListView::MagneticType::MT_LEFT;
                 sString = "LEFT";
             }
             else
             {
-                eNextType = ListView::MagneticType::TOP;
+                eNextType = ListView::MagneticType::MT_TOP;
                 sString = "TOP";
             }
         }
-        else if(eCurrentType == ListView::MagneticType::LEFT)
+        else if(eCurrentType == ListView::MagneticType::MT_LEFT)
         {
-            eNextType = ListView::MagneticType::RIGHT;
+            eNextType = ListView::MagneticType::MT_RIGHT;
             sString = "RIGHT";
         }
-        else if(eCurrentType == ListView::MagneticType::RIGHT)
+        else if(eCurrentType == ListView::MagneticType::MT_RIGHT)
         {
-            eNextType = ListView::MagneticType::NONE;
+            eNextType = ListView::MagneticType::MT_NONE;
             sString = "NONE";
         }
-        else if(eCurrentType == ListView::MagneticType::TOP)
+        else if(eCurrentType == ListView::MagneticType::MT_TOP)
         {
-            eNextType = ListView::MagneticType::BOTTOM;
+            eNextType = ListView::MagneticType::MT_BOTTOM;
             sString = "BOTTOM";
         }
-        else if(eCurrentType == ListView::MagneticType::BOTTOM)
+        else if(eCurrentType == ListView::MagneticType::MT_BOTTOM)
         {
-            eNextType = ListView::MagneticType::NONE;
+            eNextType = ListView::MagneticType::MT_NONE;
             sString = "NONE";
         }
         _listView->setMagneticType(eNextType);

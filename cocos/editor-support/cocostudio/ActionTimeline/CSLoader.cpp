@@ -236,34 +236,32 @@ void CSLoader::purge()
 }
 
 void CSLoader::init()
-{
-    using namespace boost::placeholders;
+{    
+    _funcs.insert(Pair(ClassName_Node,      std::bind(&CSLoader::loadSimpleNode, this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_SubGraph,  std::bind(&CSLoader::loadSubGraph,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Sprite,    std::bind(&CSLoader::loadSprite,     this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Particle,  std::bind(&CSLoader::loadParticle,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_TMXTiledMap,  std::bind(&CSLoader::loadTMXTiledMap,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_LabelAtlas,std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_LabelBMFont,std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Panel,     std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Button,    std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_CheckBox,  std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_ImageView, std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_TextAtlas, std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_TextBMFont,std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Text,      std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_LoadingBar,std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_TextField, std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Slider,    std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Layout,    std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_ScrollView,std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_ListView,  std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_PageView,  std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Widget,    std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
+    _funcs.insert(Pair(ClassName_Label,     std::bind(&CSLoader::loadWidget,   this, std::placeholders::_1)));
     
-    _funcs.insert(Pair(ClassName_Node,      std::bind(&CSLoader::loadSimpleNode, this, _1)));
-    _funcs.insert(Pair(ClassName_SubGraph,  std::bind(&CSLoader::loadSubGraph,   this, _1)));
-    _funcs.insert(Pair(ClassName_Sprite,    std::bind(&CSLoader::loadSprite,     this, _1)));
-    _funcs.insert(Pair(ClassName_Particle,  std::bind(&CSLoader::loadParticle,   this, _1)));
-    _funcs.insert(Pair(ClassName_TMXTiledMap,  std::bind(&CSLoader::loadTMXTiledMap,   this, _1)));
-    _funcs.insert(Pair(ClassName_LabelAtlas,std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_LabelBMFont,std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Panel,     std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Button,    std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_CheckBox,  std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_ImageView, std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_TextAtlas, std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_TextBMFont,std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Text,      std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_LoadingBar,std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_TextField, std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Slider,    std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Layout,    std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_ScrollView,std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_ListView,  std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_PageView,  std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Widget,    std::bind(&CSLoader::loadWidget,   this, _1)));
-    _funcs.insert(Pair(ClassName_Label,     std::bind(&CSLoader::loadWidget,   this, _1)));
-    
-    _componentFuncs.insert(ComponentPair(ClassName_ComAudio, std::bind(&CSLoader::loadComAudio, this, _1)));
+    _componentFuncs.insert(ComponentPair(ClassName_ComAudio, std::bind(&CSLoader::loadComAudio, this, std::placeholders::_1)));
     
 }
 

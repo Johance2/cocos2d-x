@@ -199,11 +199,11 @@ public:
     /**@{
      Implementations for interfaces in base class.
      */
-    virtual void beforeBlit() override;
-    virtual void afterBlit() override;
-    virtual void blit() override;
-    virtual void reuse() override;
-    virtual void calculateVertexPoints() override;
+    virtual void beforeBlit() ;
+    virtual void afterBlit() ;
+    virtual void blit() ;
+    virtual void reuse() ;
+    virtual void calculateVertexPoints() ;
     /**@}*/
     
     /**@{
@@ -277,9 +277,9 @@ public:
     /**@{
      Implementations for interfaces in base class.
      */
-    virtual void blit() override;
-    virtual void reuse() override;
-    virtual void calculateVertexPoints() override;
+    virtual void blit() ;
+    virtual void reuse() ;
+    virtual void calculateVertexPoints() ;
     /**@}*/
 protected:
     GLvoid *_texCoordinates;

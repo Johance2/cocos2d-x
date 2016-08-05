@@ -55,8 +55,8 @@ public:
     static ShakyTiles3D* create(float duration, const Size& gridSize, int range, bool shakeZ);
 
     // Override
-    virtual ShakyTiles3D* clone() const override;
-    virtual void update(float time) override;
+    virtual ShakyTiles3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     ShakyTiles3D() {}
@@ -100,8 +100,8 @@ public:
     static ShatteredTiles3D* create(float duration, const Size& gridSize, int range, bool shatterZ);
 
     // Override
-    virtual ShatteredTiles3D* clone() const override;
-    virtual void update(float time) override;
+    virtual ShatteredTiles3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     ShatteredTiles3D() {}
@@ -150,9 +150,9 @@ public:
     void placeTile(const Vec2& pos, Tile *t);
 
     // Overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
-    virtual ShuffleTiles* clone() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
+    virtual ShuffleTiles* clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     ShuffleTiles() {}
@@ -220,8 +220,8 @@ public:
     virtual void transformTile(const Vec2& pos, float distance);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual FadeOutTRTiles* clone() const override;
+    virtual void update(float time) ;
+    virtual FadeOutTRTiles* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     FadeOutTRTiles() {}
@@ -247,8 +247,8 @@ public:
     static FadeOutBLTiles* create(float duration, const Size& gridSize);
 
     // Overrides
-    virtual float testFunc(const Size& pos, float time) override;
-    virtual FadeOutBLTiles* clone() const override;
+    virtual float testFunc(const Size& pos, float time) ;
+    virtual FadeOutBLTiles* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     FadeOutBLTiles() {}
@@ -273,11 +273,11 @@ public:
     */
     static FadeOutUpTiles* create(float duration, const Size& gridSize);
 
-    virtual void transformTile(const Vec2& pos, float distance) override;
+    virtual void transformTile(const Vec2& pos, float distance) ;
 
     // Overrides
-    virtual FadeOutUpTiles* clone() const override;
-    virtual float testFunc(const Size& pos, float time) override;
+    virtual FadeOutUpTiles* clone() const ;
+    virtual float testFunc(const Size& pos, float time) ;
 
 CC_CONSTRUCTOR_ACCESS:
     FadeOutUpTiles() {}
@@ -303,8 +303,8 @@ public:
     static FadeOutDownTiles* create(float duration, const Size& gridSize);
 
     // Overrides
-    virtual FadeOutDownTiles* clone() const override;
-    virtual float testFunc(const Size& pos, float time) override;
+    virtual FadeOutDownTiles* clone() const ;
+    virtual float testFunc(const Size& pos, float time) ;
 
 CC_CONSTRUCTOR_ACCESS:
     FadeOutDownTiles() {}
@@ -357,9 +357,9 @@ public:
     void turnOffTile(const Vec2& pos);
 
     // Overrides
-	virtual TurnOffTiles* clone() const override;
-    virtual void startWithTarget(Node *target) override;
-    virtual void update(float time) override;
+	virtual TurnOffTiles* clone() const ;
+    virtual void startWithTarget(Node *target) ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     TurnOffTiles() {}
@@ -423,8 +423,8 @@ public:
     inline void setAmplitudeRate(float amplitudeRate) { _amplitudeRate = amplitudeRate; }
 
     // Override
-    virtual WavesTiles3D* clone() const override;
-    virtual void update(float time) override;
+    virtual WavesTiles3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     WavesTiles3D() {}
@@ -489,8 +489,8 @@ public:
     inline void setAmplitudeRate(float amplitudeRate) { _amplitudeRate = amplitudeRate; }
 
     // Override
-    virtual JumpTiles3D* clone() const override;
-    virtual void update(float time) override;
+    virtual JumpTiles3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     JumpTiles3D() {}
@@ -532,9 +532,9 @@ public :
     static SplitRows* create(float duration, unsigned int rows);
 
     // Overrides
-    virtual SplitRows* clone() const override;
-    virtual void update(float time) override;
-    virtual void startWithTarget(Node *target) override;
+    virtual SplitRows* clone() const ;
+    virtual void update(float time) ;
+    virtual void startWithTarget(Node *target) ;
     
 CC_CONSTRUCTOR_ACCESS:
     SplitRows() {}
@@ -574,12 +574,12 @@ public:
     static SplitCols* create(float duration, unsigned int cols);
 
     // Overrides
-    virtual SplitCols* clone() const override;
+    virtual SplitCols* clone() const ;
     /**
      * @param time in seconds
      */
-    virtual void update(float time) override;
-    virtual void startWithTarget(Node *target) override;
+    virtual void update(float time) ;
+    virtual void startWithTarget(Node *target) ;
     
 CC_CONSTRUCTOR_ACCESS:
     SplitCols() {}

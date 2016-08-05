@@ -60,11 +60,11 @@ public:
     static ControlButton* create(const std::string& title, const std::string& fontName, float fontSize);
     static ControlButton* create(Node* label, cocos2d::ui::Scale9Sprite* backgroundSprite, bool adjustBackGroundSize);
 
-    virtual void needsLayout(void) override;
+    virtual void needsLayout(void) ;
 
-    virtual void setEnabled(bool enabled) override;
-    virtual void setSelected(bool enabled) override;
-    virtual void setHighlighted(bool enabled) override;
+    virtual void setEnabled(bool enabled) ;
+    virtual void setSelected(bool enabled) ;
+    virtual void setHighlighted(bool enabled) ;
 
     bool isPushed() const { return _isPushed; }
 
@@ -178,15 +178,15 @@ public:
     void setAdjustBackgroundImage(bool adjustBackgroundImage);
 
     // Overrides
-    virtual bool onTouchBegan(Touch *touch, Event *event) override;
-    virtual void onTouchMoved(Touch *touch, Event *event) override;
-    virtual void onTouchEnded(Touch *touch, Event *event) override;
-    virtual void onTouchCancelled(Touch *touch, Event *event) override;
+    virtual bool onTouchBegan(Touch *touch, Event *event) ;
+    virtual void onTouchMoved(Touch *touch, Event *event) ;
+    virtual void onTouchEnded(Touch *touch, Event *event) ;
+    virtual void onTouchCancelled(Touch *touch, Event *event) ;
 
-    virtual void setOpacity(GLubyte var) override;
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;
-	virtual void setColor(const Color3B&) override;
-    virtual void updateDisplayedColor(const Color3B& parentColor) override;
+    virtual void setOpacity(GLubyte var) ;
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity) ;
+	virtual void setColor(const Color3B&) ;
+    virtual void updateDisplayedColor(const Color3B& parentColor) ;
 
     const std::string& getCurrentTitle() const { return _currentTitle; };
     std::string getCurrentTitle() { return _currentTitle; };
@@ -202,7 +202,7 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~ControlButton();
     
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool initWithLabelAndBackgroundSprite(Node* label, cocos2d::ui::Scale9Sprite* backgroundSprite, bool adjustBackGroundSize);
     virtual bool initWithBackgroundSprite(cocos2d::ui::Scale9Sprite* sprite);
     virtual bool initWithTitleAndFontNameAndFontSize(const std::string& title, const std::string& fontName, float fontSize);

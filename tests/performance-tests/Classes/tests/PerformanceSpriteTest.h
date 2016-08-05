@@ -52,9 +52,9 @@ class SpriteMainScene : public TestCase
 {
 public:
     virtual ~SpriteMainScene();
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual bool init() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 
     void initWithSubTest(int nSubTest, int nNodes);
     void updateNodes();
@@ -66,9 +66,9 @@ public:
 
     virtual void doTest(cocos2d::Sprite* sprite) = 0;
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual void update(float dt) override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
+    virtual void update(float dt) ;
     virtual std::string getTestCaseName() = 0;
     
     void beginStat(float dt);
@@ -95,8 +95,8 @@ class SpritePerformTestA : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestA);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "A"; }
 };
 
@@ -105,8 +105,8 @@ class SpritePerformTestB : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestB);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
         virtual std::string getTestCaseName(){ return "B"; }
 };
 
@@ -115,8 +115,8 @@ class SpritePerformTestC : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestC);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "C"; }
 };
 
@@ -125,8 +125,8 @@ class SpritePerformTestD : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestD);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "D"; }
 };
 
@@ -135,8 +135,8 @@ class SpritePerformTestE : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestE);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "E"; }
 };
 
@@ -145,8 +145,8 @@ class SpritePerformTestF : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestF);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "F"; }
 };
 
@@ -155,8 +155,8 @@ class SpritePerformTestG : public SpriteMainScene
 public:
     CREATE_FUNC(SpritePerformTestG);
 
-    virtual void doTest(cocos2d::Sprite* sprite) override;
-    virtual std::string title() const override;
+    virtual void doTest(cocos2d::Sprite* sprite) ;
+    virtual std::string title() const ;
     virtual std::string getTestCaseName(){ return "G"; }
 };
 

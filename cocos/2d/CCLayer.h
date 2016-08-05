@@ -245,13 +245,13 @@ public:
     CC_DEPRECATED_ATTRIBUTE virtual void keyMenuClicked() {};
 
     // Overrides
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     Layer();
     virtual ~Layer();
 
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
     //add the api for avoid use deprecated api
@@ -374,14 +374,14 @@ public:
     //
     // Overrides
     //
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
-    virtual void setContentSize(const Size & var) override;
+    virtual void setContentSize(const Size & var) ;
     /** BlendFunction. Conforms to BlendProtocol protocol */
     /**
     * @lua NA
     */
-    virtual const BlendFunc& getBlendFunc() const override;
+    virtual const BlendFunc& getBlendFunc() const ;
     /**
     *@code
     *When this function bound into js or lua,the parameter will be changed
@@ -389,22 +389,22 @@ public:
     *In lua: local setBlendFunc(local src, local dst)
     *@endcode
     */
-    virtual void setBlendFunc(const BlendFunc& blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc& blendFunc) ;
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     LayerColor();
     virtual ~LayerColor();
     
-    bool init() override;
+    bool init() ;
     bool initWithColor(const Color4B& color, GLfloat width, GLfloat height);
     bool initWithColor(const Color4B& color);
 
 protected:
     void onDraw(const Mat4& transform, uint32_t flags);
 
-    virtual void updateColor() override;
+    virtual void updateColor() ;
 
     BlendFunc _blendFunc;
     Vec2 _squareVertices[4];
@@ -533,13 +533,13 @@ public:
      */
     const Vec2& getVector() const;
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     LayerGradient();
     virtual ~LayerGradient();
     
-    virtual bool init() override;
+    virtual bool init() ;
     /** Initializes the Layer with a gradient between start and end.
      * @js init
      * @lua init
@@ -553,7 +553,7 @@ CC_CONSTRUCTOR_ACCESS:
     bool initWithColor(const Color4B& start, const Color4B& end, const Vec2& v);
 
 protected:
-    virtual void updateColor() override;
+    virtual void updateColor() ;
 
     Color3B _startColor;
     Color3B _endColor;
@@ -647,7 +647,7 @@ public:
      */
     void switchToAndReleaseMe(int n);
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -660,7 +660,7 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~LayerMultiplex();
     
-    virtual bool init() override;
+    virtual bool init() ;
     /** initializes a MultiplexLayer with one or more layers using a variable argument list.
      * @js NA
      * @lua NA

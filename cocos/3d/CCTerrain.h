@@ -364,7 +364,7 @@ public:
     void setDetailMap(unsigned int index, DetailMap detailMap);
 
     // Overrides, internal use only
-    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer* renderer, const cocos2d::Mat4 &transform, uint32_t flags) ;
     /**
      * Ray-Terrain intersection.
      * @return the intersection point
@@ -454,8 +454,8 @@ protected:
      **/
     void calculateNormal();
 
-    //override
-    virtual void onEnter() override;
+    //
+    virtual void onEnter() ;
 
     /**
      * cache all uniform locations in GLSL.

@@ -278,9 +278,10 @@ GLViewImpl::GLViewImpl(bool initglfw)
 {
     _viewName = "cocos2dx";
     g_keyCodeMap.clear();
-    for(auto itr0 = g_keyCodeStructArray.begin(); itr0 != g_keyCodeStructArray.end(); ++itr0)
+	int nCount = sizeof(g_keyCodeStructArray) / sizeof(keyCodeItem);
+    for(int i = 0; i < nCount; i++)
     {
-    	auto &item=*itr0;
+    	auto &item=g_keyCodeStructArray[i];
         g_keyCodeMap[item.glfwKeyCode] = item.keyCode;
     }
 
@@ -774,17 +775,19 @@ void GLViewImpl::onGLFWCharCallback(GLFWwindow *window, unsigned int character)
     std::string utf8String;
 
     StringUtils::UTF16ToUTF8( wcharString, utf8String );
-    static std::set<std::string> controlUnicode = {
-        "\xEF\x9C\x80", // up
-        "\xEF\x9C\x81", // down
-        "\xEF\x9C\x82", // left
-        "\xEF\x9C\x83", // right
-        "\xEF\x9C\xA8", // delete
-        "\xEF\x9C\xA9", // home
-        "\xEF\x9C\xAB", // end
-        "\xEF\x9C\xAC", // pageup
-        "\xEF\x9C\xAD", // pagedown
-        "\xEF\x9C\xB9"  // clear
+    static std::set<std::string> controlUnicode;
+	if(controlUnicode.size() == 0)
+	{	
+        controlUnicode.insert("\xEF\x9C\x80"); // up
+        controlUnicode.insert("\xEF\x9C\x81"); // down
+        controlUnicode.insert("\xEF\x9C\x82"); // left
+        controlUnicode.insert("\xEF\x9C\x83"); // right
+        controlUnicode.insert("\xEF\x9C\xA8"); // delete
+        controlUnicode.insert("\xEF\x9C\xA9"); // home
+        controlUnicode.insert("\xEF\x9C\xAB"); // end
+        controlUnicode.insert("\xEF\x9C\xAC"); // pageup
+        controlUnicode.insert("\xEF\x9C\xAD"); // pagedown
+        controlUnicode.insert("\xEF\x9C\xB9"); // clear
     };
     // Check for send control key
     if (controlUnicode.find(utf8String) == controlUnicode.end())

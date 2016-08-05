@@ -57,8 +57,12 @@ Physics3DWorld::~Physics3DWorld()
     CC_SAFE_DELETE(_solver);
     CC_SAFE_DELETE(_btPhyiscsWorld);
     CC_SAFE_DELETE(_debugDrawer);
-    for (auto it : _physicsComponents)
+	
+    for (auto itr = _physicsComponents.begin(); itr != _physicsComponents.end(); ++itr)
+    {
+		auto it = *itr;
         it->setPhysics3DObject(nullptr);
+	}
     _physicsComponents.clear();
 }
 

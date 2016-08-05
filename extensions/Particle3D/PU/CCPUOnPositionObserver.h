@@ -46,7 +46,7 @@ public:
 
     /** 
     */
-    virtual bool observe (PUParticle3D* particle, float timeElapsed) override;
+    virtual bool observe (PUParticle3D* particle, float timeElapsed) ;
 
     /** 
         */
@@ -84,7 +84,7 @@ public:
     PUComparisionOperator getComparePositionY() const {return _comparePositionY;};
     PUComparisionOperator getComparePositionZ() const {return _comparePositionZ;};
 
-    virtual void copyAttributesTo (PUObserver* observer) override;
+    virtual void copyAttributesTo (PUObserver* observer) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUOnPositionObserver(void);

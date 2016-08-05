@@ -157,15 +157,15 @@ public:
     /**
      * Pause the Process
      */
-    virtual void pause() override;
+    virtual void pause() ;
     /**
      * Resume the Process
      */
-    virtual void resume() override;
+    virtual void resume() ;
     /**
      * Stop the Process
      */
-    virtual void stop() override;
+    virtual void stop() ;
 
 
     /**
@@ -173,7 +173,7 @@ public:
      */
     ssize_t getMovementCount() const;
 
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
 
     /**
      * Get current movementID
@@ -242,7 +242,7 @@ protected:
      * @js NA
      * @lua NA
      */
-    void updateHandler() override;
+    void updateHandler() ;
 
     /**
      * Update current key frame, and process auto stop, pause

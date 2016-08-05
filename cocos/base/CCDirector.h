@@ -648,10 +648,10 @@ public:
     //
     // Overrides
     //
-    virtual void mainLoop() override;
-    virtual void setAnimationInterval(float value) override;
-    virtual void startAnimation() override;
-    virtual void stopAnimation() override;
+    virtual void mainLoop() ;
+    virtual void setAnimationInterval(float value) ;
+    virtual void startAnimation() ;
+    virtual void stopAnimation() ;
 
 protected:
     bool _invalid;

@@ -36,7 +36,7 @@ IMPLEMENT_CLASS_GUI_INFO(ListView)
 ListView::ListView():
 _model(nullptr),
 _gravity(Gravity::CENTER_VERTICAL),
-_magneticType(MagneticType::NONE),
+_magneticType(MagneticType::MT_NONE),
 _magneticAllowedOutOfBoundary(true),
 _itemsMargin(0.0f),
 _scrollTime(DEFAULT_TIME_IN_SEC_FOR_SCROLL_TO_ITEM),
@@ -866,7 +866,7 @@ Vec2 ListView::getHowMuchOutOfBoundary(const Vec2& addition)
     {
         return ScrollView::getHowMuchOutOfBoundary(addition);
     }
-    else if(_magneticType == MagneticType::NONE || _magneticType == MagneticType::BOTH_END)
+    else if(_magneticType == MagneticType::MT_NONE || _magneticType == MagneticType::MT_BOTH_END)
     {
         return ScrollView::getHowMuchOutOfBoundary(addition);
     }
@@ -884,24 +884,24 @@ Vec2 ListView::getHowMuchOutOfBoundary(const Vec2& addition)
         ssize_t lastItemIndex = _items.size() - 1;
         Size contentSize = getContentSize();
         Vec2 firstItemAdjustment, lastItemAdjustment;
-        if(_magneticType == MagneticType::CENTER)
+        if(_magneticType == MagneticType::MT_CENTER)
         {
             firstItemAdjustment = (contentSize - _items.at(0)->getContentSize()) / 2;
             lastItemAdjustment = (contentSize - _items.at(lastItemIndex)->getContentSize()) / 2;
         }
-        else if(_magneticType == MagneticType::LEFT)
+        else if(_magneticType == MagneticType::MT_LEFT)
         {
             lastItemAdjustment = contentSize - _items.at(lastItemIndex)->getContentSize();
         }
-        else if(_magneticType == MagneticType::RIGHT)
+        else if(_magneticType == MagneticType::MT_RIGHT)
         {
             firstItemAdjustment = contentSize - _items.at(0)->getContentSize();
         }
-        else if(_magneticType == MagneticType::TOP)
+        else if(_magneticType == MagneticType::MT_TOP)
         {
             lastItemAdjustment = contentSize - _items.at(lastItemIndex)->getContentSize();
         }
-        else if(_magneticType == MagneticType::BOTTOM)
+        else if(_magneticType == MagneticType::MT_BOTTOM)
         {
             firstItemAdjustment = contentSize - _items.at(0)->getContentSize();
         }
@@ -943,13 +943,13 @@ static Vec2 getAnchorPointByMagneticType(ListView::MagneticType magneticType)
 {
     switch(magneticType)
     {
-        case ListView::MagneticType::NONE: return Vec2::ZERO;
-        case ListView::MagneticType::BOTH_END: return Vec2::ANCHOR_TOP_LEFT;
-        case ListView::MagneticType::CENTER: return Vec2::ANCHOR_MIDDLE;
-        case ListView::MagneticType::LEFT: return Vec2::ANCHOR_MIDDLE_LEFT;
-        case ListView::MagneticType::RIGHT: return Vec2::ANCHOR_MIDDLE_RIGHT;
-        case ListView::MagneticType::TOP: return Vec2::ANCHOR_MIDDLE_TOP;
-        case ListView::MagneticType::BOTTOM: return Vec2::ANCHOR_MIDDLE_BOTTOM;
+        case ListView::MagneticType::MT_NONE: return Vec2::ZERO;
+        case ListView::MagneticType::MT_BOTH_END: return Vec2::ANCHOR_TOP_LEFT;
+        case ListView::MagneticType::MT_CENTER: return Vec2::ANCHOR_MIDDLE;
+        case ListView::MagneticType::MT_LEFT: return Vec2::ANCHOR_MIDDLE_LEFT;
+        case ListView::MagneticType::MT_RIGHT: return Vec2::ANCHOR_MIDDLE_RIGHT;
+        case ListView::MagneticType::MT_TOP: return Vec2::ANCHOR_MIDDLE_TOP;
+        case ListView::MagneticType::MT_BOTTOM: return Vec2::ANCHOR_MIDDLE_BOTTOM;
     }
     return Vec2::ZERO;
 }
@@ -958,7 +958,7 @@ void ListView::startAttenuatingAutoScroll(const Vec2& deltaMove, const Vec2& ini
 {
     Vec2 adjustedDeltaMove = deltaMove;
     
-    if(!_items.empty() && _magneticType != MagneticType::NONE)
+    if(!_items.empty() && _magneticType != MagneticType::MT_NONE)
     {
         adjustedDeltaMove = flattenVectorByDirection(adjustedDeltaMove);
 
@@ -966,15 +966,15 @@ void ListView::startAttenuatingAutoScroll(const Vec2& deltaMove, const Vec2& ini
         if(getHowMuchOutOfBoundary(adjustedDeltaMove) == Vec2::ZERO)
         {
             MagneticType magType = _magneticType;
-            if(magType == MagneticType::BOTH_END)
+            if(magType == MagneticType::MT_BOTH_END)
             {
                 if(_direction == Direction::HORIZONTAL)
                 {
-                    magType = (adjustedDeltaMove.x > 0 ? MagneticType::LEFT : MagneticType::RIGHT);
+                    magType = (adjustedDeltaMove.x > 0 ? MagneticType::MT_LEFT : MagneticType::MT_RIGHT);
                 }
                 else if(_direction == Direction::VERTICAL)
                 {
-                    magType = (adjustedDeltaMove.y > 0 ? MagneticType::BOTTOM : MagneticType::TOP);
+                    magType = (adjustedDeltaMove.y > 0 ? MagneticType::MT_BOTTOM : MagneticType::MT_TOP);
                 }
             }
             
@@ -994,7 +994,7 @@ void ListView::startAttenuatingAutoScroll(const Vec2& deltaMove, const Vec2& ini
 
 void ListView::startMagneticScroll()
 {
-    if(_items.empty() || _magneticType == MagneticType::NONE)
+    if(_items.empty() || _magneticType == MagneticType::MT_NONE)
     {
         return;
     }

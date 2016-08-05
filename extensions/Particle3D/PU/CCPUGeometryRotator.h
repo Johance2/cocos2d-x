@@ -42,9 +42,9 @@ public:
 
     static PUGeometryRotator* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
     /** @copydoc ParticleAffector::_initParticleForEmission */
-    virtual void initParticleForEmission(PUParticle3D* particle) override;
+    virtual void initParticleForEmission(PUParticle3D* particle) ;
 
     /** Returns the rotation speed. This is the speed controlled by the affector. Besides
         the default rotation speed, it is also possible to use the particles own rotation speed.
@@ -76,7 +76,7 @@ public:
     */
     void resetRotationAxis(void);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUGeometryRotator();

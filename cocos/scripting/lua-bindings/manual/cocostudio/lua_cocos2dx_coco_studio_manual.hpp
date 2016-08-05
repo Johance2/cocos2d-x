@@ -56,7 +56,7 @@ TOLUA_API int  register_cocostudio_module(lua_State* L);
 
 struct LuaArmatureWrapperEventData
 {
-    enum class LuaArmatureWrapperEventType
+    enum LuaArmatureWrapperEventType
     {
         MOVEMENT_EVENT,
         FRAME_EVENT,

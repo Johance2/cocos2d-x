@@ -100,7 +100,7 @@ struct MeshProcess : public dtTileCacheMeshProcess
     //}
 
     virtual void process(struct dtNavMeshCreateParams* params,
-        unsigned char* polyAreas, unsigned short* polyFlags) override;
+        unsigned char* polyAreas, unsigned short* polyFlags) ;
 };
 
 bool inRange(const float* v1, const float* v2, const float r, const float h);

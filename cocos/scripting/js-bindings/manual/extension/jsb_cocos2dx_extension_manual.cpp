@@ -48,7 +48,7 @@ public:
         _JSDelegate = nullptr;
     }
 
-    virtual void scrollViewDidScroll(ScrollView* view) override
+    virtual void scrollViewDidScroll(ScrollView* view) 
     {
         js_proxy_t * p = jsb_get_native_proxy(view);
         if (!p) return;
@@ -57,7 +57,7 @@ public:
         ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(_JSDelegate), "scrollViewDidScroll", 1, &arg);
     }
 
-    virtual void scrollViewDidZoom(ScrollView* view) override
+    virtual void scrollViewDidZoom(ScrollView* view) 
     {
         js_proxy_t * p = jsb_get_native_proxy(view);
         if (!p) return;
@@ -117,32 +117,32 @@ public:
         _JSDelegate = nullptr;
     }
 
-    virtual void scrollViewDidScroll(ScrollView* view) override
+    virtual void scrollViewDidScroll(ScrollView* view) 
     {
         callJSDelegate(view, "scrollViewDidScroll");
     }
 
-    virtual void scrollViewDidZoom(ScrollView* view) override
+    virtual void scrollViewDidZoom(ScrollView* view) 
     {
         callJSDelegate(view, "scrollViewDidZoom");
     }
 
-    virtual void tableCellTouched(TableView* table, TableViewCell* cell) override
+    virtual void tableCellTouched(TableView* table, TableViewCell* cell) 
     {
         callJSDelegate(table, cell, "tableCellTouched");
     }
 
-    virtual void tableCellHighlight(TableView* table, TableViewCell* cell) override
+    virtual void tableCellHighlight(TableView* table, TableViewCell* cell) 
     {
         callJSDelegate(table, cell, "tableCellHighlight");
     }
 
-    virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell) override
+    virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell) 
     {
         callJSDelegate(table, cell, "tableCellUnhighlight");
     }
 
-    virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell) override
+    virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell) 
     {
         callJSDelegate(table, cell, "tableCellWillRecycle");
     }
@@ -228,7 +228,7 @@ public:
         _JSTableViewDataSource = nullptr;
     }
 
-    virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) override
+    virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) 
     {
         JSContext* cx = ScriptingCore::getInstance()->getGlobalContext();
         JS::RootedValue ret(cx);
@@ -249,7 +249,7 @@ public:
 
     }
 
-    virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) override
+    virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) 
     {
         JSContext* cx = ScriptingCore::getInstance()->getGlobalContext();
         JS::RootedValue ret(cx);
@@ -269,7 +269,7 @@ public:
         return NULL;
     }
 
-    virtual ssize_t numberOfCellsInTableView(TableView *table) override
+    virtual ssize_t numberOfCellsInTableView(TableView *table) 
     {
         JSContext* cx = ScriptingCore::getInstance()->getGlobalContext();
         JS::RootedValue ret(cx);

@@ -213,8 +213,11 @@ void Node::cleanup()
     // timers
     this->unscheduleAllCallbacks();
     
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->cleanup();
+	}
 }
 
 std::string Node::getDescription() const
@@ -1300,8 +1303,11 @@ void Node::onEnter()
     
     _isTransitionFinished = false;
     
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onEnter();
+	}
     
     this->resume();
     
@@ -1329,8 +1335,11 @@ void Node::onEnterTransitionDidFinish()
         _onEnterTransitionDidFinishCallback();
 
     _isTransitionFinished = true;
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onEnterTransitionDidFinish();
+	}
     
 #if CC_ENABLE_SCRIPT_BINDING
     if (_scriptType == kScriptTypeLua)
@@ -1353,8 +1362,11 @@ void Node::onExitTransitionDidStart()
     if (_onExitTransitionDidStartCallback)
         _onExitTransitionDidStartCallback();
     
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onExitTransitionDidStart();
+	}
     
 #if CC_ENABLE_SCRIPT_BINDING
     if (_scriptType == kScriptTypeLua)
@@ -1386,8 +1398,11 @@ void Node::onExit()
     
     _running = false;
     
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->onExit();
+	}
     
 #if CC_ENABLE_SCRIPT_BINDING
     if (_scriptType == kScriptTypeLua)
@@ -1913,8 +1928,11 @@ Vec2 Node::convertTouchToNodeSpaceAR(Touch *touch) const
 void Node::updateTransform()
 {
     // Recursively iterate over children
-    for( const auto &child: _children)
+	for(auto itr = _children.begin(); itr != _children.end(); ++itr)
+	{
+		auto &child = *itr;
         child->updateTransform();
+	}
 }
 
 // MARK: components

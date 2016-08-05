@@ -39,7 +39,7 @@
 class MinXmlHttpRequest : public cocos2d::Ref
 {
 public:
-    enum class ResponseType
+    enum ResponseType
     {
         STRING,
         ARRAY_BUFFER,

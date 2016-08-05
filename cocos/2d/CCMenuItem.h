@@ -95,7 +95,7 @@ public:
     /**
      * @js NA
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -171,10 +171,10 @@ public:
     void setLabel(Node* node);
     
     // Overrides
-    virtual void activate() override;
-    virtual void selected() override;
-    virtual void unselected() override;
-    virtual void setEnabled(bool enabled) override;
+    virtual void activate() ;
+    virtual void selected() ;
+    virtual void unselected() ;
+    virtual void setEnabled(bool enabled) ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -548,11 +548,11 @@ public:
     }
     
     // Overrides
-    virtual void activate() override;
-    virtual void selected() override;
-    virtual void unselected() override;
-    virtual void setEnabled(bool var) override;
-    virtual void cleanup() override;
+    virtual void activate() ;
+    virtual void selected() ;
+    virtual void unselected() ;
+    virtual void setEnabled(bool var) ;
+    virtual void cleanup() ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**

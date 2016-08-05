@@ -41,10 +41,10 @@ class LuaWebSocket: public cocos2d::network::WebSocket,public cocos2d::network::
 {
 public:
     virtual ~LuaWebSocket();
-    virtual void onOpen(WebSocket* ws) override;
-    virtual void onMessage(WebSocket* ws, const WebSocket::Data& data) override;
-    virtual void onClose(WebSocket* ws) override;
-    virtual void onError(WebSocket* ws, const WebSocket::ErrorCode& error) override;
+    virtual void onOpen(WebSocket* ws) ;
+    virtual void onMessage(WebSocket* ws, const WebSocket::Data& data) ;
+    virtual void onClose(WebSocket* ws) ;
+    virtual void onError(WebSocket* ws, const WebSocket::ErrorCode& error) ;
     
     enum WebSocketScriptHandlerType
     {

@@ -11,9 +11,9 @@ DEFINE_TEST_SUITE(PerformceCallbackTests);
 class PerformanceCallbackScene : public TestCase
 {
 public:
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual void onEnter() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
     virtual void onUpdate(float dt) {};
     
     void dumpProfilerInfo(float dt);
@@ -30,10 +30,10 @@ public:
     CREATE_FUNC(SimulateNewSchedulerCallbackPerfTest);
     
     // overrides
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void onUpdate(float dt) override;
+    virtual void onEnter() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual void onUpdate(float dt) ;
     
     virtual void update(float dt){ _placeHolder = 100; };
     
@@ -61,10 +61,10 @@ class InvokeMemberFunctionPerfTest : public PerformanceCallbackScene
 public:
     CREATE_FUNC(InvokeMemberFunctionPerfTest);
     
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void onUpdate(float dt) override;
+    virtual void onEnter() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual void onUpdate(float dt) ;
     
     virtual void update(float dt){ _placeHolder = 200; };
     
@@ -80,10 +80,10 @@ public:
     CREATE_FUNC(InvokeStdFunctionPerfTest);
     
     // overrides
-    virtual void onEnter() override;
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void onUpdate(float dt) override;
+    virtual void onEnter() ;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual void onUpdate(float dt) ;
     
     virtual void update(float dt){ _placeHolder = 100; };
 private:

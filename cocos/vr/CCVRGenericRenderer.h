@@ -56,10 +56,10 @@ public:
     VRGenericRenderer();
     virtual ~VRGenericRenderer();
 
-    virtual void setup(GLView* glview) override;
-    virtual void cleanup() override;
-    virtual void render(Scene* scene, Renderer* renderer) override;
-    virtual VRIHeadTracker* getHeadTracker() override;
+    virtual void setup(GLView* glview) ;
+    virtual void cleanup() ;
+    virtual void render(Scene* scene, Renderer* renderer) ;
+    virtual VRIHeadTracker* getHeadTracker() ;
 
 protected:
     void setupGLProgram();

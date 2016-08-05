@@ -10,17 +10,17 @@ class ScenarioTest : public TestCase
 public:
     CREATE_FUNC(ScenarioTest);
 
-    virtual bool init() override;
-    virtual std::string title() const override;
+    virtual bool init() ;
+    virtual std::string title() const ;
     virtual void performTests();
 
     void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event) ;
 
     static cocos2d::Scene* scene();
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual void update(float dt) override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
+    virtual void update(float dt) ;
     void beginStat(float dt);
     void endStat(float dt);
     void doAutoTest();

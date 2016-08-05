@@ -306,8 +306,9 @@ bool PhysicsWorld::collisionBeginCallback(PhysicsContact& contact)
     std::vector<PhysicsJoint*> jointsA = bodyA->getJoints();
     
     // check the joint is collision enable or not
-    for (PhysicsJoint* joint : jointsA)
+    for(auto itr = jointsA.begin(); itr != jointsA.end(); ++itr)
     {
+    	auto joint=*itr;
         if (std::find(_joints.begin(), _joints.end(), joint) == _joints.end())
         {
             continue;
@@ -943,8 +944,9 @@ void PhysicsWorld::update(float delta, bool userCall/* = false*/)
 #else
 					cpHastySpaceStep(_cpSpace, dt);
 #endif 
-					for (auto& body : _bodies)
-                    {
+					for(auto itr = _bodies.begin(); itr != _bodies.end(); ++itr)
+					{
+						auto body=*itr;
                         body->update(dt);
                     }
                 }
@@ -1026,8 +1028,11 @@ void PhysicsWorld::beforeSimulation(Node *node, const Mat4& parentToWorldTransfo
         physicsBody->beforeSimulation(parentToWorldTransform, nodeToWorldTransform, scaleX, scaleY, rotation);
     }
 
-    for (auto child : node->getChildren())
+    for(auto itr = node->getChildren().begin(); itr != node->getChildren().end(); ++itr)
+    {
+    	auto child=*itr;
         beforeSimulation(child, nodeToWorldTransform, scaleX, scaleY, rotation);
+	}
 }
 
 void PhysicsWorld::afterSimulation(Node *node, const Mat4& parentToWorldTransform, float parentRotation)
@@ -1041,8 +1046,11 @@ void PhysicsWorld::afterSimulation(Node *node, const Mat4& parentToWorldTransfor
         physicsBody->afterSimulation(parentToWorldTransform, parentRotation);
     }
 
-    for (auto child : node->getChildren())
+    for(auto itr = node->getChildren().begin(); itr != node->getChildren().end(); ++itr)
+    {
+    	auto child=*itr;
         afterSimulation(child, nodeToWorldTransform, nodeRotation);
+	}
 }
 
 NS_CC_END

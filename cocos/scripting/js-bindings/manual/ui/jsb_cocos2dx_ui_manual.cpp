@@ -119,7 +119,7 @@ public:
         _JSDelegate = JS::NullValue();
     }
     
-    virtual void editBoxEditingDidBegin(EditBox* editBox) override
+    virtual void editBoxEditingDidBegin(EditBox* editBox) 
     {
         js_proxy_t * p = jsb_get_native_proxy(editBox);
         if (!p) return;
@@ -129,7 +129,7 @@ public:
         ScriptingCore::getInstance()->executeFunctionWithOwner(delegateVal, "editBoxEditingDidBegin", 1, &arg);
     }
     
-    virtual void editBoxEditingDidEnd(EditBox* editBox) override
+    virtual void editBoxEditingDidEnd(EditBox* editBox) 
     {
         js_proxy_t * p = jsb_get_native_proxy(editBox);
         if (!p) return;
@@ -139,7 +139,7 @@ public:
         ScriptingCore::getInstance()->executeFunctionWithOwner(delegateVal, "editBoxEditingDidEnd", 1, &arg);
     }
     
-    virtual void editBoxTextChanged(EditBox* editBox, const std::string& text) override
+    virtual void editBoxTextChanged(EditBox* editBox, const std::string& text) 
     {
         js_proxy_t * p = jsb_get_native_proxy(editBox);
         if (!p) return;
@@ -155,7 +155,7 @@ public:
         ScriptingCore::getInstance()->executeFunctionWithOwner(delegateVal, "editBoxTextChanged", 2, dataVal);
     }
     
-    virtual void editBoxReturn(EditBox* editBox) override
+    virtual void editBoxReturn(EditBox* editBox) 
     {
         js_proxy_t * p = jsb_get_native_proxy(editBox);
         if (!p) return;

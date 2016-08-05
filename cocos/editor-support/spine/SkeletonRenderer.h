@@ -47,12 +47,12 @@ public:
 	static SkeletonRenderer* createWithFile (const std::string& skeletonDataFile, spAtlas* atlas, float scale = 1);
 	static SkeletonRenderer* createWithFile (const std::string& skeletonDataFile, const std::string& atlasFile, float scale = 1);
 
-	virtual void update (float deltaTime) override;
-	virtual void draw (cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t transformFlags) override;
+	virtual void update (float deltaTime) ;
+	virtual void draw (cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t transformFlags) ;
     virtual void drawDebug (cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t transformFlags);
-	virtual cocos2d::Rect getBoundingBox () const override;
-	virtual void onEnter () override;
-	virtual void onExit () override;
+	virtual cocos2d::Rect getBoundingBox () const ;
+	virtual void onEnter () ;
+	virtual void onExit () ;
 
 	spSkeleton* getSkeleton();
 
@@ -94,10 +94,10 @@ public:
 	bool setAttachment (const std::string& slotName, const char* attachmentName);
 
     // --- BlendProtocol
-    virtual void setBlendFunc (const cocos2d::BlendFunc& blendFunc)override;
-    virtual const cocos2d::BlendFunc& getBlendFunc () const override;
-    virtual void setOpacityModifyRGB (bool value) override;
-    virtual bool isOpacityModifyRGB () const override;
+    virtual void setBlendFunc (const cocos2d::BlendFunc& blendFunc);
+    virtual const cocos2d::BlendFunc& getBlendFunc () const ;
+    virtual void setOpacityModifyRGB (bool value) ;
+    virtual bool isOpacityModifyRGB () const ;
 
 CC_CONSTRUCTOR_ACCESS:
 	SkeletonRenderer ();

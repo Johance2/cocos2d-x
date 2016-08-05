@@ -68,9 +68,9 @@ public:
         DoAffectorEventHandler is defined, or if the Affector is not found, other 
         ParticleTechniques are searched.
     */
-    virtual void handle (PUParticleSystem3D* particleSystem, PUParticle3D* particle, float timeElapsed) override;
+    virtual void handle (PUParticleSystem3D* particleSystem, PUParticle3D* particle, float timeElapsed) ;
 
-    virtual void copyAttributesTo (PUEventHandler* eventHandler) override;
+    virtual void copyAttributesTo (PUEventHandler* eventHandler) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUDoAffectorEventHandler(void);

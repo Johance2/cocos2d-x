@@ -199,7 +199,7 @@ protected:
 
 
 
-    std::condition_variable        _sleepCondition;
+    boost::condition_variable        _sleepCondition;
 
     boost::thread     *_loadingThread;
 

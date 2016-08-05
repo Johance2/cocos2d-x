@@ -55,7 +55,7 @@ namespace ui {
          */
         ~LayoutComponent();
 
-        virtual bool init()override;
+        virtual bool init();
 
         /**
          * Create a LayoutComponent instance with default settings.
@@ -76,10 +76,10 @@ namespace ui {
          */
         enum HorizontalEdge
         {
-            None,
-            Left,
-            Right,
-            Center
+            HE_None,
+            HE_Left,
+            HE_Right,
+            HE_Center
         };
 
         /**
@@ -87,10 +87,10 @@ namespace ui {
          */
         enum VerticalEdge
         {
-            None,
-            Bottom,
-            Top,
-            Center
+            VE_None,
+            VE_Bottom,
+            VE_Top,
+            VE_Center
         };
 
         /**

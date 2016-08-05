@@ -52,32 +52,32 @@ public:
      */
     virtual ~ComController();
 
-    virtual bool init() override;
+    virtual bool init() ;
 
     /**
      * @js NA
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
 
     /**
      * @js NA
      * @lua NA
      */
-    virtual void onExit() override;
+    virtual void onExit() ;
 
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onAdd() override;
+    virtual void onAdd() ;
 
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onRemove() override;
-    virtual void update(float delta) override;
+    virtual void onRemove() ;
+    virtual void update(float delta) ;
 };
 
 }

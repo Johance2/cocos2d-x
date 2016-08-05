@@ -64,8 +64,8 @@ public:
 
     void setOutlineWidth(float width);
 
-    virtual void draw(const Mat4 &transform) override;
-    virtual void setTarget(EffectSprite3D *sprite) override;
+    virtual void draw(const Mat4 &transform) ;
+    virtual void setTarget(EffectSprite3D *sprite) ;
 
 
     Effect3DOutline();
@@ -101,7 +101,7 @@ public:
 
     void setEffect3D(Effect3D* effect);
     void addEffect(Effect3DOutline* effect, ssize_t order);
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
     EffectSprite3D();
     virtual ~EffectSprite3D();

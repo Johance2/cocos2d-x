@@ -36,10 +36,10 @@ public:
 
     virtual bool init();
     
-    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox)override;
-    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox)override;
-    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text)override;
-    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox)override;
+    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text);
+    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox);
 
     
 protected:
@@ -57,10 +57,10 @@ public:
     
     virtual bool init();
     
-    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox)override;
-    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox)override;
-    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text)override;
-    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox)override;
+    virtual void editBoxEditingDidBegin(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxEditingDidEnd(cocos2d::ui::EditBox* editBox);
+    virtual void editBoxTextChanged(cocos2d::ui::EditBox* editBox, const std::string& text);
+    virtual void editBoxReturn(cocos2d::ui::EditBox* editBox);
     
     
 protected:

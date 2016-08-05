@@ -77,11 +77,11 @@ public:
     float getMaximumValue();
 
     // Overrides
-    virtual bool isTouchInside(Touch * touch) override;
-    void setEnabled(bool enabled) override;
-    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) override;
+    virtual bool isTouchInside(Touch * touch) ;
+    void setEnabled(bool enabled) ;
+    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) ;
 
     /** Factorize the event dispatch into these methods. */
     void potentiometerBegan(Vec2 location);

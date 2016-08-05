@@ -56,15 +56,15 @@ public:
     //
     // Overrides
     //
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
 
 CC_CONSTRUCTOR_ACCESS:
     TransitionProgress();
     virtual ~TransitionProgress(){}
 
 protected:
-    virtual void sceneOrder() override;
+    virtual void sceneOrder() ;
 
 protected:
     virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture);
@@ -103,7 +103,7 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
   
 };
 
@@ -134,7 +134,7 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
 
 };
 
@@ -164,7 +164,7 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
 };
 
 /** @class TransitionProgressVertical
@@ -192,7 +192,7 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
 };
 
 /** @class TransitionProgressInOut
@@ -220,9 +220,9 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
-    virtual void sceneOrder() override;
-    virtual void setupTransition() override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
+    virtual void sceneOrder() ;
+    virtual void setupTransition() ;
 };
 
 /** @class TransitionProgressOutIn
@@ -250,7 +250,7 @@ protected:
     //
     // Overrides
     //
-    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) override;
+    virtual ProgressTimer* progressTimerNodeWithRenderTexture(RenderTexture* texture) ;
 
 };
 

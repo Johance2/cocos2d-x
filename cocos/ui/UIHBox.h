@@ -72,7 +72,7 @@ public:
     
 CC_CONSTRUCTOR_ACCESS:
     //initializes state of widget.
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool initWithSize(const Size& size);
 };
     

@@ -124,31 +124,31 @@ public:
      */
     ssize_t getStringLength()const;
     
-    //override "getVirtualRendererSize" method of widget.
-    virtual Size getVirtualRendererSize() const override;
+    // "getVirtualRendererSize" method of widget.
+    virtual Size getVirtualRendererSize() const ;
     
-    //override "getVirtualRenderer" method of widget.
-    virtual Node* getVirtualRenderer() override;
+    // "getVirtualRenderer" method of widget.
+    virtual Node* getVirtualRenderer() ;
     
     /**
      * Returns the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
     /**
      * @js NA
      */
-    virtual void adaptRenderers() override;
+    virtual void adaptRenderers() ;
 
     ResourceData getRenderFile();
 
 protected:
-    virtual void initRenderer() override;
-    virtual void onSizeChanged() override;
+    virtual void initRenderer() ;
+    virtual void onSizeChanged() ;
   
     void labelAtlasScaleChangedWithSize();
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
 protected:
     Label* _labelAtlasRenderer;
     std::string _stringValue;

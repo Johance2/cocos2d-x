@@ -203,18 +203,18 @@ public:
      */
     void setBounces(bool bounce);
 
-    virtual void draw(cocos2d::Renderer *renderer, cocos2d::Mat4 const &transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer *renderer, cocos2d::Mat4 const &transform, uint32_t flags) ;
 
     /**
      * Toggle visibility of WebView.
      */
-    virtual void setVisible(bool visible) override;
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void setVisible(bool visible) ;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     
 protected:
-    virtual cocos2d::ui::Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual cocos2d::ui::Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
     
     std::function<bool(WebView *sender, const std::string &url)> _onShouldStartLoading;
     

@@ -40,7 +40,7 @@ public:
 
     static PUVelocityMatchingAffector* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
     /** Todo
     */
     float getRadius(void) const;
@@ -49,7 +49,7 @@ public:
     */
     void setRadius(float radius);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
     /** @copydoc ParticleAffector::_prepare */
     //virtual void _prepare(ParticleTechnique* particleTechnique);

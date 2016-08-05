@@ -80,7 +80,7 @@ private:
 
     std::thread _autoTestThread;
 
-    std::condition_variable _sleepCondition;
+    boost::condition_variable _sleepCondition;
     std::unique_lock<std::mutex>* _sleepUniqueLock;
 
     cocos2d::Director* _director;

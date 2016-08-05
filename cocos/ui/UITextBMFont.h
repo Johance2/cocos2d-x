@@ -89,12 +89,12 @@ public:
      */
     ssize_t getStringLength()const;
 
-    virtual Size getVirtualRendererSize() const override;
-    virtual Node* getVirtualRenderer() override;
+    virtual Size getVirtualRendererSize() const ;
+    virtual Node* getVirtualRenderer() ;
     /**
      * Returns the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     ResourceData getRenderFile();
 
@@ -103,13 +103,13 @@ public:
     */
     void resetRender();
 protected:
-    virtual void initRenderer() override;
-    virtual void onSizeChanged() override;
+    virtual void initRenderer() ;
+    virtual void onSizeChanged() ;
    
     void labelBMFontScaleChangedWithSize();
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void adaptRenderers() override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void adaptRenderers() ;
 protected:
     Label* _labelBMFontRenderer;
     std::string _fntFileName;

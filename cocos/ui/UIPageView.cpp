@@ -66,7 +66,7 @@ bool PageView::init()
     if (ListView::init())
     {
         setDirection(Direction::HORIZONTAL);
-        setMagneticType(MagneticType::CENTER);
+        setMagneticType(MagneticType::MT_CENTER);
         setScrollBarEnabled(false);
         return true;
     }
@@ -299,7 +299,7 @@ void PageView::addEventListenerPageView(Ref *target, SEL_PageViewEvent selector)
 void PageView::addEventListener(const ccPageViewCallback& callback)
 {
     _eventCallback = callback;
-    ccScrollViewCallback scrollViewCallback = [=](Ref* ref, ScrollView::EventType type) -> void{
+    ccScrollViewCallback scrollViewCallback = [callback](Ref* ref, ScrollView::EventType type) -> void{
         if (type == ScrollView::EventType::AUTOSCROLL_ENDED) {
             callback(ref, PageView::EventType::TURNING);
         }
@@ -320,8 +320,9 @@ Vector<Layout*>& PageView::getPages()
     // Temporary code to keep backward compatibility.
     static Vector<Layout*> pages;
     pages.clear();
-    for(Widget* widget : getItems())
+    for (auto itr = getItems().begin(); itr != getItems().end(); ++itr)
     {
+		auto widget = *itr;
         pages.pushBack(dynamic_cast<Layout*>(widget));
     }
     return pages;
@@ -337,8 +338,9 @@ Layout* PageView::getPage(ssize_t index)
     // Temporary code to keep backward compatibility.
     static Vector<Layout*> pages;
     pages.clear();
-    for(Widget* widget : getItems())
+    for (auto itr = getItems().begin(); itr != getItems().end(); ++itr)
     {
+		auto widget = *itr;
         pages.pushBack(dynamic_cast<Layout*>(widget));
     }
     return pages.at(index);

@@ -65,7 +65,7 @@ public:
     virtual void acceptVisitor(DataVisitor &visitor) { visitor.visit(this); }
 
     // overrides
-    virtual __Integer* clone() const override
+    virtual __Integer* clone() const 
     {
         return __Integer::create(_value);
     }

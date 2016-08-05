@@ -159,16 +159,16 @@ public:
     void addEventListener(const ccCheckBoxCallback& callback);
 
 
-    //override functions
-    virtual std::string getDescription() const override;
+    // functions
+    virtual std::string getDescription() const ;
     
-    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) override;
+    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) ;
 protected:
     
-    virtual void dispatchSelectChangedEvent(bool selected) override;
+    virtual void dispatchSelectChangedEvent(bool selected) ;
     
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
     
 protected:
     //if you use the old event callback, it will retain the _checkBoxEventListener

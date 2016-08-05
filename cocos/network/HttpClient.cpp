@@ -87,7 +87,7 @@ void HttpClient::networkThread()
 
         // step 1: send http request if the requestQueue isn't empty
         {
-            std::lock_guard<boost::mutex> lock(_requestQueueMutex);
+            boost::lock_guard<boost::mutex> lock(_requestQueueMutex);
             while (_requestQueue.empty())
 			{
                 _sleepCondition.wait(_requestQueueMutex);
@@ -378,7 +378,7 @@ void HttpClient::destroyInstance()
 
 void HttpClient::enableCookies(const char* cookieFile)
 {
-    std::lock_guard<boost::mutex> lock(_cookieFileMutex);
+    boost::lock_guard<boost::mutex> lock(_cookieFileMutex);
     if (cookieFile)
     {
         _cookieFilename = std::string(cookieFile);
@@ -391,7 +391,7 @@ void HttpClient::enableCookies(const char* cookieFile)
     
 void HttpClient::setSSLVerification(const std::string& caFile)
 {
-    std::lock_guard<boost::mutex> lock(_sslCaFileMutex);
+    boost::lock_guard<boost::mutex> lock(_sslCaFileMutex);
     _sslCaFilename = caFile;
 }
 
@@ -601,37 +601,37 @@ void HttpClient::decreaseThreadCountAndMayDeleteThis()
 
 void HttpClient::setTimeoutForConnect(int value)
 {
-    std::lock_guard<boost::mutex> lock(_timeoutForConnectMutex);
+    boost::lock_guard<boost::mutex> lock(_timeoutForConnectMutex);
     _timeoutForConnect = value;
 }
     
 int HttpClient::getTimeoutForConnect()
 {
-    std::lock_guard<boost::mutex> lock(_timeoutForConnectMutex);
+    boost::lock_guard<boost::mutex> lock(_timeoutForConnectMutex);
     return _timeoutForConnect;
 }
     
 void HttpClient::setTimeoutForRead(int value)
 {
-    std::lock_guard<boost::mutex> lock(_timeoutForReadMutex);
+    boost::lock_guard<boost::mutex> lock(_timeoutForReadMutex);
     _timeoutForRead = value;
 }
     
 int HttpClient::getTimeoutForRead()
 {
-    std::lock_guard<boost::mutex> lock(_timeoutForReadMutex);
+    boost::lock_guard<boost::mutex> lock(_timeoutForReadMutex);
     return _timeoutForRead;
 }
     
 const std::string& HttpClient::getCookieFilename()
 {
-    std::lock_guard<boost::mutex> lock(_cookieFileMutex);
+    boost::lock_guard<boost::mutex> lock(_cookieFileMutex);
     return _cookieFilename;
 }
     
 const std::string& HttpClient::getSSLVerification()
 {
-    std::lock_guard<boost::mutex> lock(_sslCaFileMutex);
+    boost::lock_guard<boost::mutex> lock(_sslCaFileMutex);
     return _sslCaFilename;
 }
 

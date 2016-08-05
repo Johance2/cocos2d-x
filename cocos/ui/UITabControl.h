@@ -160,15 +160,15 @@ namespace ui {
         TabHeader();
         ~TabHeader();
         
-        virtual void initRenderer() override;
-        virtual void onSizeChanged() override;
+        virtual void initRenderer() ;
+        virtual void onSizeChanged() ;
         
         void updateContentSize();
         
-        virtual void releaseUpEvent() override;
-        void dispatchSelectChangedEvent(bool select) override;
+        virtual void releaseUpEvent() ;
+        void dispatchSelectChangedEvent(bool select) ;
         
-        virtual void copySpecialProperties(Widget* model) override;
+        virtual void copySpecialProperties(Widget* model) ;
         
     private:
         Label*       _tabLabelRender;
@@ -340,10 +340,10 @@ namespace ui {
         TabControl();
         ~TabControl();
 
-        void onSizeChanged() override;
+        void onSizeChanged() ;
         void initTabHeadersPos(int startIndex);
         void initContainers();
-        virtual void copySpecialProperties(Widget* model) override;
+        virtual void copySpecialProperties(Widget* model) ;
 
         ccTabControlCallback _tabChangedCallback;
         // dispatch selected changed

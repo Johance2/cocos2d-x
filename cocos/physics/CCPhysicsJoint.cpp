@@ -52,8 +52,9 @@ PhysicsJoint::~PhysicsJoint()
     // reset the shapes collision group
     setCollisionEnable(true);
 
-    for (cpConstraint* joint : _cpConstraints)
+    for(auto itr = _cpConstraints.begin(); itr != _cpConstraints.end(); ++itr)
     {
+    	auto &joint=*itr;
         cpConstraintFree(joint);
     }
     _cpConstraints.clear();

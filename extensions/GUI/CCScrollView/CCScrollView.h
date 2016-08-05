@@ -102,7 +102,7 @@ public:
      */
     virtual ~ScrollView();
 
-    bool init() override;
+    bool init() ;
     /**
      * Returns a scroll view object
      *
@@ -239,31 +239,31 @@ public:
     bool isClippingToBounds() { return _clippingToBounds; }
     void setClippingToBounds(bool bClippingToBounds) { _clippingToBounds = bClippingToBounds; }
 
-    virtual bool onTouchBegan(Touch *touch, Event *event) override;
-    virtual void onTouchMoved(Touch *touch, Event *event) override;
-    virtual void onTouchEnded(Touch *touch, Event *event) override;
-    virtual void onTouchCancelled(Touch *touch, Event *event) override;
+    virtual bool onTouchBegan(Touch *touch, Event *event) ;
+    virtual void onTouchMoved(Touch *touch, Event *event) ;
+    virtual void onTouchEnded(Touch *touch, Event *event) ;
+    virtual void onTouchCancelled(Touch *touch, Event *event) ;
     
     // Overrides
-    virtual void setContentSize(const Size & size) override;
-    virtual const Size& getContentSize() const override;
+    virtual void setContentSize(const Size & size) ;
+    virtual const Size& getContentSize() const ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
     
     using Node::addChild;
-    virtual void addChild(Node * child, int zOrder, int tag) override;
-    virtual void addChild(Node * child, int zOrder, const std::string &name) override;
+    virtual void addChild(Node * child, int zOrder, int tag) ;
+    virtual void addChild(Node * child, int zOrder, const std::string &name) ;
 
-    virtual void removeAllChildren() override;
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-    virtual void removeChild(Node* child, bool cleanup = true) override;
+    virtual void removeAllChildren() ;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+    virtual void removeChild(Node* child, bool cleanup = true) ;
     /**
      * CCActionTweenDelegate
      */
-    void updateTweenAction(float value, const std::string& key) override;
+    void updateTweenAction(float value, const std::string& key) ;
 
     bool hasVisibleParents() const;
 protected:

@@ -68,7 +68,7 @@ public:
     static const IntersectionType DEFAULT_INTERSECTION_TYPE;
     static const CollisionType DEFAULT_COLLISION_TYPE;
 
-    virtual void preUpdateAffector(float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
 
         /** Returns the type of intersection.
     */
@@ -116,7 +116,7 @@ public:
     */
     void calculateRotationSpeedAfterCollision(PUParticle3D* particle);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUBaseCollider();

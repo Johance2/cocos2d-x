@@ -415,7 +415,7 @@ public:
      *
      * @return A float number.
      */
-    virtual float calculateDefaultMoment() override;
+    virtual float calculateDefaultMoment() ;
     
     /**
      * Get the circle's radius.
@@ -429,12 +429,12 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getOffset() override;
+    virtual Vec2 getOffset() ;
     
 protected:
     bool init(float radius, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, const Vec2& offset = Vec2::ZERO);
-    virtual float calculateArea() override;
-    virtual void updateScale() override;
+    virtual float calculateArea() ;
+    virtual void updateScale() ;
     
 protected:
     PhysicsShapeCircle();
@@ -481,7 +481,7 @@ public:
      *
      * @return A float number.
      */
-    float calculateDefaultMoment() override;
+    float calculateDefaultMoment() ;
     
     /**
      * Get a point of this polygon's points array.
@@ -510,11 +510,11 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getCenter() override;
+    virtual Vec2 getCenter() ;
 protected:
     bool init(const Vec2* points, int count, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, const Vec2& offset = Vec2::ZERO, float radius = 0.0f);
-    float calculateArea() override;
-    virtual void updateScale() override;
+    float calculateArea() ;
+    virtual void updateScale() ;
     
 protected:
     PhysicsShapePolygon();
@@ -591,11 +591,11 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getCenter() override;
+    virtual Vec2 getCenter() ;
     
 protected:
     bool init(const Vec2& a, const Vec2& b, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, float border = 1);
-    virtual void updateScale() override;
+    virtual void updateScale() ;
     
 protected:
     PhysicsShapeEdgeSegment();
@@ -624,7 +624,7 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getCenter() override;
+    virtual Vec2 getCenter() ;
     
     /**
      * Get this polygon's points array.
@@ -642,7 +642,7 @@ public:
     
 protected:
     bool init(const Vec2* points, int count, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, float border = 1);
-    virtual void updateScale() override;
+    virtual void updateScale() ;
     
 protected:
     PhysicsShapeEdgePolygon();
@@ -703,7 +703,7 @@ public:
      *
      * @return A Vec2 object.
      */
-    virtual Vec2 getCenter() override;
+    virtual Vec2 getCenter() ;
     
     /**
      * Get this chain's points array.
@@ -721,7 +721,7 @@ public:
     
 protected:
     bool init(const Vec2* points, int count, const PhysicsMaterial& material = PHYSICSSHAPE_MATERIAL_DEFAULT, float border = 1);
-    virtual void updateScale() override;
+    virtual void updateScale() ;
     
 protected:
     PhysicsShapeEdgeChain();

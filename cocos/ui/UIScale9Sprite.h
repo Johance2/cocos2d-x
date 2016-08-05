@@ -293,8 +293,8 @@ namespace ui {
          */
         virtual bool initWithSpriteFrameName(const std::string& spriteFrameName);
         
-        //override function
-        virtual bool init() override;
+        // function
+        virtual bool init() ;
 
         /**
          * @brief Initializes a 9-slice sprite with an sprite instance.
@@ -382,7 +382,7 @@ namespace ui {
          * @js NA
          * @lua NA
          */
-        virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+        virtual void setBlendFunc(const BlendFunc &blendFunc) ;
         
         /**
          * Returns the blending function that is currently being used.
@@ -391,7 +391,7 @@ namespace ui {
          * @js NA
          * @lua NA
          */
-        virtual const BlendFunc &getBlendFunc() const override;
+        virtual const BlendFunc &getBlendFunc() const ;
 
         /**
          * Creates and returns a new sprite object with the specified cap insets.
@@ -464,8 +464,8 @@ namespace ui {
         virtual void setSpriteFrame(SpriteFrame * spriteFrame, const Rect& capInsets = Rect::ZERO);
         
         // overrides
-        virtual void setContentSize(const Size & size) override;
-        virtual void setAnchorPoint(const Vec2& anchorPoint) override;
+        virtual void setContentSize(const Size & size) ;
+        virtual void setAnchorPoint(const Vec2& anchorPoint) ;
 
         /**
          * Change the state of 9-slice sprite.
@@ -594,15 +594,15 @@ namespace ui {
         
         /// @} end of Children and Parent
         
-        virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
-        virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+        virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
+        virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
         
-        virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;
-        virtual void updateDisplayedColor(const Color3B& parentColor) override;
-        virtual void disableCascadeColor() override;
-        virtual void disableCascadeOpacity() override;
-        virtual void setGLProgram(GLProgram *glprogram) override;
-        virtual void setGLProgramState(GLProgramState *glProgramState) override;
+        virtual void updateDisplayedOpacity(GLubyte parentOpacity) ;
+        virtual void updateDisplayedColor(const Color3B& parentColor) ;
+        virtual void disableCascadeColor() ;
+        virtual void disableCascadeOpacity() ;
+        virtual void setGLProgram(GLProgram *glprogram) ;
+        virtual void setGLProgramState(GLProgramState *glProgramState) ;
         
         /**
          * @brief Get the original no 9-sliced sprite
@@ -649,18 +649,18 @@ namespace ui {
          */
         virtual bool isFlippedY()const;
         
-        //override the setScale function of Node
-        virtual void setScaleX(float scaleX) override;
-        virtual void setScaleY(float scaleY) override;
-        virtual void setScale(float scale) override;
-        virtual void setScale(float scaleX, float scaleY) override;
+        // the setScale function of Node
+        virtual void setScaleX(float scaleX) ;
+        virtual void setScaleY(float scaleY) ;
+        virtual void setScale(float scale) ;
+        virtual void setScale(float scaleX, float scaleY) ;
         using Node::setScaleZ;
-        virtual float getScaleX() const override;
-        virtual float getScaleY() const override;
-        virtual float getScale() const override;
+        virtual float getScaleX() const ;
+        virtual float getScaleY() const ;
+        virtual float getScale() const ;
         using Node::getScaleZ;
-        virtual void setCameraMask(unsigned short mask, bool applyChildren = true) override;
-        virtual void setGlobalZOrder(float globalZOrder) override;
+        virtual void setCameraMask(unsigned short mask, bool applyChildren = true) ;
+        virtual void setGlobalZOrder(float globalZOrder) ;
 
         /**
          * Set the slice sprite rendering type.

@@ -974,8 +974,8 @@ CC_DEPRECATED_ATTRIBUTE const Touch::DispatchMode kCCTouchesAllAtOnce = Touch::D
 
 CC_DEPRECATED_ATTRIBUTE typedef Touch::DispatchMode ccTouchesMode;
 
-CC_DEPRECATED_ATTRIBUTE const Image::Format kCCImageFormatPNG = Image::Format::PNG;
-CC_DEPRECATED_ATTRIBUTE const Image::Format kCCImageFormatJPEG = Image::Format::JPG;
+CC_DEPRECATED_ATTRIBUTE const Image::Format kCCImageFormatPNG = Image::Format::Format_PNG;
+CC_DEPRECATED_ATTRIBUTE const Image::Format kCCImageFormatJPEG = Image::Format::Format_JPG;
 
 CC_DEPRECATED_ATTRIBUTE typedef Image::Format tImageFormat;
 

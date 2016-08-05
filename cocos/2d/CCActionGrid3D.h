@@ -77,8 +77,8 @@ public:
     inline void setAmplitudeRate(float amplitudeRate) { _amplitudeRate = amplitudeRate; }
 
     // Overrides
-    virtual Waves3D* clone() const override;
-    virtual void update(float time) override;
+    virtual Waves3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Waves3D() {}
@@ -118,8 +118,8 @@ public:
     static FlipX3D* create(float duration);
 
     // Override
-    virtual FlipX3D* clone() const override;
-    virtual void update(float time) override;
+    virtual FlipX3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     FlipX3D() {}
@@ -159,8 +159,8 @@ public:
     static FlipY3D* create(float duration);
 
     // Overrides
-    virtual void update(float time) override;
-    virtual FlipY3D* clone() const override;
+    virtual void update(float time) ;
+    virtual FlipY3D* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     FlipY3D() {}
@@ -220,8 +220,8 @@ public:
     void setPosition(const Vec2& position);
 
     // Overrides
-    virtual Lens3D* clone() const override;
-    virtual void update(float time) override;
+    virtual Lens3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Lens3D() {}
@@ -308,8 +308,8 @@ public:
     inline void setAmplitudeRate(float fAmplitudeRate) { _amplitudeRate = fAmplitudeRate; }
 
     // Override
-    virtual Ripple3D* clone() const override;
-    virtual void update(float time) override;
+    virtual Ripple3D* clone() const ;
+    virtual void update(float time) ;
 
 CC_CONSTRUCTOR_ACCESS:
     Ripple3D() {}
@@ -359,8 +359,8 @@ public:
     static Shaky3D* create(float initWithDuration, const Size& gridSize, int range, bool shakeZ);
 
     // Overrides
-    virtual Shaky3D* clone() const override;
-    virtual void update(float time) override;
+    virtual Shaky3D* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Shaky3D() {}
@@ -426,8 +426,8 @@ public:
     inline void setAmplitudeRate(float amplitudeRate) { _amplitudeRate = amplitudeRate; }
 
     // Overrides
-    virtual Liquid* clone() const override;
-    virtual void update(float time) override;
+    virtual Liquid* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Liquid() {}
@@ -497,8 +497,8 @@ public:
     inline void setAmplitudeRate(float amplitudeRate) { _amplitudeRate = amplitudeRate; }
 
     // Overrides
-    virtual Waves* clone() const override;
-    virtual void update(float time) override;
+    virtual Waves* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Waves() {}
@@ -582,8 +582,8 @@ public:
 
 
     // Overrides
-    virtual Twirl* clone() const override;
-    virtual void update(float time) override;
+    virtual Twirl* clone() const ;
+    virtual void update(float time) ;
     
 CC_CONSTRUCTOR_ACCESS:
     Twirl() {}

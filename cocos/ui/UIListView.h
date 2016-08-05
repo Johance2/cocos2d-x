@@ -93,13 +93,13 @@ public:
      */
     enum MagneticType
     {
-        NONE,
-        CENTER,
-        BOTH_END,
-        LEFT,
-        RIGHT,
-        TOP,
-        BOTTOM,
+        MT_NONE,
+        MT_CENTER,
+        MT_BOTH_END,
+        MT_LEFT,
+        MT_RIGHT,
+        MT_TOP,
+        MT_BOTTOM,
     };
     
     /**
@@ -259,16 +259,16 @@ public:
      */
     float getScrollDuration() const;
     
-    //override methods
-    virtual void doLayout() override;
-    virtual void requestDoLayout() override;
-    virtual void addChild(Node* child)override;
-    virtual void addChild(Node * child, int localZOrder)override;
-    virtual void addChild(Node* child, int zOrder, int tag) override;
-    virtual void addChild(Node* child, int zOrder, const std::string &name) override;
-    virtual void removeAllChildren() override;
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-    virtual void removeChild(Node* child, bool cleanup = true) override;
+    // methods
+    virtual void doLayout() ;
+    virtual void requestDoLayout() ;
+    virtual void addChild(Node* child);
+    virtual void addChild(Node * child, int localZOrder);
+    virtual void addChild(Node* child, int zOrder, int tag) ;
+    virtual void addChild(Node* child, int zOrder, const std::string &name) ;
+    virtual void removeAllChildren() ;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+    virtual void removeChild(Node* child, bool cleanup = true) ;
 
     /**
      * @brief Query the closest item to a specific position in inner container.
@@ -322,17 +322,17 @@ public:
     /**
      * Override functions
      */
-    virtual void jumpToBottom() override;
-    virtual void jumpToTop() override;
-    virtual void jumpToLeft() override;
-    virtual void jumpToRight() override;
-    virtual void jumpToTopLeft() override;
-    virtual void jumpToTopRight() override;
-    virtual void jumpToBottomLeft() override;
-    virtual void jumpToBottomRight() override;
-    virtual void jumpToPercentVertical(float percent) override;
-    virtual void jumpToPercentHorizontal(float percent) override;
-    virtual void jumpToPercentBothDirection(const Vec2& percent) override;
+    virtual void jumpToBottom() ;
+    virtual void jumpToTop() ;
+    virtual void jumpToLeft() ;
+    virtual void jumpToRight() ;
+    virtual void jumpToTopLeft() ;
+    virtual void jumpToTopRight() ;
+    virtual void jumpToBottomLeft() ;
+    virtual void jumpToBottomRight() ;
+    virtual void jumpToPercentVertical(float percent) ;
+    virtual void jumpToPercentHorizontal(float percent) ;
+    virtual void jumpToPercentBothDirection(const Vec2& percent) ;
 
     /**
      * @brief Jump to specific item
@@ -386,9 +386,9 @@ public:
      *  Direction Direction::VERTICAL means vertical scroll, Direction::HORIZONTAL means horizontal scroll.
      * @param dir Set the list view's scroll direction.
      */
-    virtual void setDirection(Direction dir) override;
+    virtual void setDirection(Direction dir) ;
     
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
     /**
      * @brief Refresh view and layout of ListView manually.
@@ -404,10 +404,10 @@ public:
     CC_DEPRECATED_ATTRIBUTE void refreshView();
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
-    virtual void handleReleaseLogic(Touch *touch) override;
+    virtual void handleReleaseLogic(Touch *touch) ;
 
     virtual void onItemListChanged();
 
@@ -416,16 +416,16 @@ protected:
     void remedyVerticalLayoutParameter(LinearLayoutParameter* layoutParameter, ssize_t itemIndex);
     void remedyHorizontalLayoutParameter(LinearLayoutParameter* layoutParameter,ssize_t itemIndex);
     
-    virtual void onSizeChanged() override;
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void copyClonedWidgetChildren(Widget* model) override;
+    virtual void onSizeChanged() ;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void copyClonedWidgetChildren(Widget* model) ;
     void selectedItemEvent(TouchEventType event);
-    virtual void interceptTouchEvent(Widget::TouchEventType event,Widget* sender,Touch* touch) override;
+    virtual void interceptTouchEvent(Widget::TouchEventType event,Widget* sender,Touch* touch) ;
     
-    virtual Vec2 getHowMuchOutOfBoundary(const Vec2& addition = Vec2::ZERO) override;
+    virtual Vec2 getHowMuchOutOfBoundary(const Vec2& addition = Vec2::ZERO) ;
     
-    virtual void startAttenuatingAutoScroll(const Vec2& deltaMove, const Vec2& initialVelocity) override;
+    virtual void startAttenuatingAutoScroll(const Vec2& deltaMove, const Vec2& initialVelocity) ;
     
     void startMagneticScroll();
     Vec2 calculateItemDestination(const Vec2& positionRatioInView, Widget* item, const Vec2& itemAnchorPoint);

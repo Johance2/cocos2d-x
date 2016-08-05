@@ -68,7 +68,7 @@ public:
         return table;
     }
    
-    virtual void onTouchEnded(Touch *touch, Event *event) override
+    virtual void onTouchEnded(Touch *touch, Event *event) 
     {
         if (!this->isVisible())
         {

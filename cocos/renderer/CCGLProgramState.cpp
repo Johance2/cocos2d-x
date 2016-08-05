@@ -919,8 +919,11 @@ void GLProgramState::setNodeBinding(Node* target)
     // weak ref
     _nodeBinding = target;
 
-    for (const auto autobinding: _autoBindings)
+	for (auto itr = _autoBindings.begin(); itr != _autoBindings.end(); ++itr)
+	{
+		auto &autobinding = *itr;
         applyAutoBinding(autobinding.first, autobinding.second);
+	}
 }
 
 Node* GLProgramState::getNodeBinding() const

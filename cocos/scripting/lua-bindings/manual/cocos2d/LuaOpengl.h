@@ -55,7 +55,7 @@ public:
     virtual ~GLNode(){}
     
     // @cond
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4& transform, uint32_t flags) override;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4& transform, uint32_t flags) ;
     // @endcond
 protected:
     cocos2d::CustomCommand _renderCmd;

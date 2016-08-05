@@ -45,14 +45,14 @@ enum State
     State_RemoteAttack = 0x20,
     State_Attack = 0x40,
 };
-enum class CameraType
+enumCameraType
 {
     Free = 0,
     FirstPerson = 1,
     ThirdPerson = 2,
 };
 
-enum class OperateCamType
+enumOperateCamType
 {
     MoveCamera=0,
     RotateCamera=1,

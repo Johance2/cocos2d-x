@@ -77,7 +77,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void updateTweenAction(float value, const std::string& key) override;
+    virtual void updateTweenAction(float value, const std::string& key) ;
 
 /** Contains the position (in x-axis) of the slider inside the receiver. */
     float _sliderXPosition;

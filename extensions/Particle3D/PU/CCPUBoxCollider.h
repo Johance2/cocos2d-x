@@ -40,8 +40,8 @@ public:
 
     static PUBoxCollider* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** Returns the width of the box
     */
@@ -83,7 +83,7 @@ public:
     */
     void calculateDirectionAfterCollision(PUParticle3D* particle);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUBoxCollider();

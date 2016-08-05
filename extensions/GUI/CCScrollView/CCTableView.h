@@ -271,12 +271,12 @@ public:
     TableViewCell *cellAtIndex(ssize_t idx);
 
     // Overrides
-    virtual void scrollViewDidScroll(ScrollView* view) override;
+    virtual void scrollViewDidScroll(ScrollView* view) ;
     virtual void scrollViewDidZoom(ScrollView* view) {}
-    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchCancelled(Touch *pTouch, Event *pEvent) override;
+    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchCancelled(Touch *pTouch, Event *pEvent) ;
 
 protected:
     long __indexFromOffset(Vec2 offset);

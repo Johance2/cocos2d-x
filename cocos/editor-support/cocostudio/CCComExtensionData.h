@@ -50,24 +50,24 @@ namespace cocostudio
         * @js NA
         * @lua NA
         */
-        virtual void onEnter() override;
+        virtual void onEnter() ;
         /**
         * @js NA
         * @lua NA
         */
-        virtual void onExit() override;
+        virtual void onExit() ;
         /**
         * @js NA
         * @lua NA
         */
-        virtual void onAdd() override;
+        virtual void onAdd() ;
         /**
         * @js NA
         * @lua NA
         */
-        virtual void onRemove() override;
+        virtual void onRemove() ;
         static ComExtensionData* create();
-        virtual bool init() override;
+        virtual bool init() ;
 
         virtual void setCustomProperty(const std::string& customProperty) { _customProperty = customProperty; }
         virtual std::string getCustomProperty() const { return _customProperty; };

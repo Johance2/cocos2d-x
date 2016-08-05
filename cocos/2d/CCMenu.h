@@ -156,25 +156,25 @@ public:
      */
     virtual void setEnabled(bool value) { _enabled = value; };
 
-    virtual bool onTouchBegan(Touch* touch, Event* event) override;
-    virtual void onTouchEnded(Touch* touch, Event* event) override;
-    virtual void onTouchCancelled(Touch* touch, Event* event) override;
-    virtual void onTouchMoved(Touch* touch, Event* event) override;
+    virtual bool onTouchBegan(Touch* touch, Event* event) ;
+    virtual void onTouchEnded(Touch* touch, Event* event) ;
+    virtual void onTouchCancelled(Touch* touch, Event* event) ;
+    virtual void onTouchMoved(Touch* touch, Event* event) ;
     
     // overrides
-    virtual void removeChild(Node* child, bool cleanup) override;
+    virtual void removeChild(Node* child, bool cleanup) ;
     
-    virtual void addChild(Node * child) override;
-    virtual void addChild(Node * child, int zOrder) override;
-    virtual void addChild(Node * child, int zOrder, int tag) override;
-    virtual void addChild(Node * child, int zOrder, const std::string &name) override;
+    virtual void addChild(Node * child) ;
+    virtual void addChild(Node * child, int zOrder) ;
+    virtual void addChild(Node * child, int zOrder, int tag) ;
+    virtual void addChild(Node * child, int zOrder, const std::string &name) ;
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     virtual void setOpacityModifyRGB(bool bValue){CC_UNUSED_PARAM(bValue);}
     virtual bool isOpacityModifyRGB(void) const{ return false;}
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -184,7 +184,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~Menu();
 
     /** initializes an empty Menu */
-    bool init() override;
+    bool init() ;
 
     /** initializes a Menu with a NSArray of MenuItem objects */
     bool initWithArray(const Vector<MenuItem*>& arrayOfItems);

@@ -899,32 +899,32 @@ namespace cocostudio
         layoutComponent->setPercentHeight(sizeYPercent);
         layoutComponent->setStretchWidthEnabled(stretchHorizontalEnabled);
         layoutComponent->setStretchHeightEnabled(stretchVerticalEnabled);
-        ui::LayoutComponent::HorizontalEdge horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::None;
+        ui::LayoutComponent::HorizontalEdge horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::HE_None;
         if (horizontalEdge == P_Layout_LeftEdge)
         {
-            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::Left;
+            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::HE_Left;
         }
         else if (horizontalEdge == P_Layout_RightEdge)
         {
-            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::Right;
+            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::HE_Right;
         }
         else if (horizontalEdge == P_Layout_BothEdge)
         {
-            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::Center;
+            horizontalEdgeType = ui::LayoutComponent::HorizontalEdge::HE_Center;
         }
         layoutComponent->setHorizontalEdge(horizontalEdgeType);
-        ui::LayoutComponent::VerticalEdge verticalEdgeType = ui::LayoutComponent::VerticalEdge::None;
+        ui::LayoutComponent::VerticalEdge verticalEdgeType = ui::LayoutComponent::VerticalEdge::VE_None;
         if (verticalEdge == P_Layout_TopEdge)
         {
-            verticalEdgeType = ui::LayoutComponent::VerticalEdge::Top;
+            verticalEdgeType = ui::LayoutComponent::VerticalEdge::VE_Top;
         }
         else if (verticalEdge == P_Layout_BottomEdge)
         {
-            verticalEdgeType = ui::LayoutComponent::VerticalEdge::Bottom;
+            verticalEdgeType = ui::LayoutComponent::VerticalEdge::VE_Bottom;
         }
         else if (verticalEdge == P_Layout_BothEdge)
         {
-            verticalEdgeType = ui::LayoutComponent::VerticalEdge::Center;
+            verticalEdgeType = ui::LayoutComponent::VerticalEdge::VE_Center;
         }
         layoutComponent->setVerticalEdge(verticalEdgeType);
 

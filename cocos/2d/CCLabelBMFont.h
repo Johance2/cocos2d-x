@@ -104,36 +104,36 @@ public:
     bool initWithString(const std::string& str, const std::string& fntFile, float width = 0, TextHAlignment alignment = TextHAlignment::TH_LEFT,const Vec2& imageOffset = Vec2::ZERO);
 
     // super method
-    virtual void setString(const std::string& newString) override;
+    virtual void setString(const std::string& newString) ;
 
-    virtual const std::string& getString() const override;
+    virtual const std::string& getString() const ;
 
     virtual void setAlignment(TextHAlignment alignment);
     virtual void setWidth(float width);
     virtual void setLineBreakWithoutSpace(bool breakWithoutSpace);
     
     // RGBAProtocol 
-    virtual bool isOpacityModifyRGB() const override;
-    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) override;
+    virtual bool isOpacityModifyRGB() const ;
+    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) ;
 
     void setFntFile(const std::string& fntFile, const Vec2& imageOffset = Vec2::ZERO);
     const std::string& getFntFile() const;
 
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
 
-    virtual const BlendFunc &getBlendFunc() const override;
+    virtual const BlendFunc &getBlendFunc() const ;
 
     virtual Sprite * getLetter(int ID);
-    virtual Node * getChildByTag(int tag) const override;
+    virtual Node * getChildByTag(int tag) const ;
 
-    virtual void setColor(const Color3B& color) override;
+    virtual void setColor(const Color3B& color) ;
 
-    virtual const Size& getContentSize() const override;
-    virtual Rect getBoundingBox() const override;
+    virtual const Size& getContentSize() const ;
+    virtual Rect getBoundingBox() const ;
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 #if CC_LABELBMFONT_DEBUG_DRAW
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 #endif
 
 private:

@@ -60,18 +60,18 @@ public:
 
     /** See ParticleEmitter
     */
-    void notifyStart(void) override;
+    void notifyStart(void) ;
 
     /** See ParticleEmitter
     */
-    virtual unsigned short calculateRequestedParticles(float timeElapsed) override;
+    virtual unsigned short calculateRequestedParticles(float timeElapsed) ;
 
     /** Generate a particle position based on the added positions.
     */
-    virtual void initParticlePosition(PUParticle3D* particle) override;
+    virtual void initParticlePosition(PUParticle3D* particle) ;
 
-    virtual PUPositionEmitter* clone() override;
-    virtual void copyAttributesTo (PUEmitter* emitter) override;
+    virtual PUPositionEmitter* clone() ;
+    virtual void copyAttributesTo (PUEmitter* emitter) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUPositionEmitter(void);

@@ -218,7 +218,7 @@ void WsThreadHelper::sendMessageToCocosThread(const std::function<void()>& cb)
 
 void WsThreadHelper::sendMessageToWebSocketThread(WsMessage *msg)
 {
-    std::lock_guard<boost::mutex> lk(_subThreadWsMessageQueueMutex);
+    boost::lock_guard<boost::mutex> lk(_subThreadWsMessageQueueMutex);
     _subThreadWsMessageQueue->push_back(msg);
 }
 
@@ -313,7 +313,7 @@ WebSocket::WebSocket()
 , _wsHelper(nullptr)
 , _wsInstance(nullptr)
 , _wsContext(nullptr)
-, _isDestroyed(std::make_shared<std::atomic<bool>>(false))
+, _isDestroyed(boost::make_shared<boost::atomic<bool>>(false))
 , _delegate(nullptr)
 , _SSLConnection(0)
 , _wsProtocols(nullptr)
@@ -327,7 +327,7 @@ WebSocket::WebSocket()
 
     __websocketInstances->push_back(this);
     
-    std::shared_ptr<std::atomic<bool>> isDestroyed = _isDestroyed;
+    boost::shared_ptr<boost::atomic<bool>> isDestroyed = _isDestroyed;
     _resetDirectorListener = Director::getInstance()->getEventDispatcher()->addCustomEventListener(Director::EVENT_RESET, [this, isDestroyed](EventCustom*){
         if (*isDestroyed)
             return;
@@ -536,7 +536,7 @@ void WebSocket::closeAsync()
 
 WebSocket::State WebSocket::getReadyState()
 {
-    std::lock_guard<boost::mutex> lk(_readStateMutex);
+    boost::lock_guard<boost::mutex> lk(_readStateMutex);
     return _readyState;
 }
 
@@ -650,7 +650,7 @@ void WebSocket::onSubThreadEnded()
 
 void WebSocket::onClientWritable()
 {
-    std::lock_guard<boost::mutex> lk(_wsHelper->_subThreadWsMessageQueueMutex);
+    boost::lock_guard<boost::mutex> lk(_wsHelper->_subThreadWsMessageQueueMutex);
 
     if (_wsHelper->_subThreadWsMessageQueue->empty())
     {
@@ -818,7 +818,7 @@ void WebSocket::onClientReceivedData(void* in, ssize_t len)
             frameData->push_back('\0');
         }
 
-        std::shared_ptr<std::atomic<bool>> isDestroyed = _isDestroyed;
+        boost::shared_ptr<boost::atomic<bool>> isDestroyed = _isDestroyed;
         _wsHelper->sendMessageToCocosThread([this, frameData, frameSize, isBinary, isDestroyed](){
             // In UI thread
             LOGD("Notify data len %d to Cocos thread.\n", (int)frameSize);
@@ -854,7 +854,7 @@ void WebSocket::onConnectionOpened()
     _readyState = State::OPEN;
     _readStateMutex.unlock();
 
-    std::shared_ptr<std::atomic<bool>> isDestroyed = _isDestroyed;
+    boost::shared_ptr<boost::atomic<bool>> isDestroyed = _isDestroyed;
     _wsHelper->sendMessageToCocosThread([this, isDestroyed](){
         if (*isDestroyed)
         {
@@ -875,7 +875,7 @@ void WebSocket::onConnectionError()
     _readyState = State::CLOSING;
     _readStateMutex.unlock();
 
-    std::shared_ptr<std::atomic<bool>> isDestroyed = _isDestroyed;
+    boost::shared_ptr<boost::atomic<bool>> isDestroyed = _isDestroyed;
     _wsHelper->sendMessageToCocosThread([this, isDestroyed](){
         if (*isDestroyed)
         {
@@ -883,7 +883,7 @@ void WebSocket::onConnectionError()
         }
         else
         {
-            _delegate->onError(this, ErrorCode::CONNECTION_FAILURE);
+            _delegate->onError(this, WebSocket::CONNECTION_FAILURE);
         }
     });
 }
@@ -903,7 +903,7 @@ void WebSocket::onConnectionClosed()
     _readStateMutex.unlock();
 
     _wsHelper->quitWebSocketThread();
-    std::shared_ptr<std::atomic<bool>> isDestroyed = _isDestroyed;
+    boost::shared_ptr<boost::atomic<bool>> isDestroyed = _isDestroyed;
     _wsHelper->sendMessageToCocosThread([this, isDestroyed](){
         if (*isDestroyed)
         {

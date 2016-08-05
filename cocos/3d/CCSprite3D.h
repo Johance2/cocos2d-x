@@ -118,14 +118,14 @@ public:
     void removeAllAttachNode();
 
     // overrides
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
-    virtual const BlendFunc &getBlendFunc() const override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
+    virtual const BlendFunc &getBlendFunc() const ;
     
     // overrides
     /** set GLProgramState, you should bind attributes by yourself */
-    virtual void setGLProgramState(GLProgramState *glProgramState) override;
+    virtual void setGLProgramState(GLProgramState *glProgramState) ;
     /** just remember bind attributes */
-    virtual void setGLProgram(GLProgram *glprogram) override;
+    virtual void setGLProgram(GLProgram *glprogram) ;
     
     /*
      * Get AABB
@@ -151,7 +151,7 @@ public:
      *
      * @return An Action pointer
      */
-    virtual Action* runAction(Action* action) override;
+    virtual Action* runAction(Action* action) ;
     
     /**
      * Force to write to depth buffer, this is useful if you want to achieve effects like fading.
@@ -163,7 +163,7 @@ public:
      * Returns 2d bounding-box
      * Note: the bounding-box is just get from the AABB which as Z=0, so that is not very accurate.
      */
-    virtual Rect getBoundingBox() const override;
+    virtual Rect getBoundingBox() const ;
 
     // set which face is going to cull, GL_BACK, GL_FRONT, GL_FRONT_AND_BACK, default GL_BACK
     void setCullFace(GLenum cullFace);
@@ -175,7 +175,7 @@ public:
     unsigned int getLightMask() const { return _lightMask; }
     
     /**draw*/
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
     /** Adds a new material to the sprite.
      The Material will be applied to all the meshes that belong to the sprite.
@@ -210,7 +210,7 @@ CC_CONSTRUCTOR_ACCESS:
     Sprite3D();
     virtual ~Sprite3D();
     
-    virtual bool init() override;
+    virtual bool init() ;
     
     bool initWithFile(const std::string &path);
     
@@ -226,7 +226,7 @@ CC_CONSTRUCTOR_ACCESS:
      * Visits this Sprite3D's children and draw them recursively.
      * Note: all its children will rendered as 3D objects
      */
-    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) ;
     
     /**generate default material*/
     void genMaterial(bool useLight = false);

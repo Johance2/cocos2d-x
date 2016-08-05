@@ -788,26 +788,26 @@ bool UILayoutComponent_Berth_Test::init()
     {
         Sprite* leftTopSprite = Sprite::create("cocosui/CloseSelected.png");
         LayoutComponent* leftTop = LayoutComponent::bindLayoutComponent(leftTopSprite);
-        leftTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::Left);
-        leftTop->setVerticalEdge(LayoutComponent::VerticalEdge::Top);
+        leftTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Left);
+        leftTop->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Top);
         _baseLayer->addChild(leftTopSprite);
 
         Sprite* leftBottomSprite = Sprite::create("cocosui/CloseSelected.png");
         LayoutComponent* leftBottom = LayoutComponent::bindLayoutComponent(leftBottomSprite);
-        leftBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::Left);
-        leftBottom->setVerticalEdge(LayoutComponent::VerticalEdge::Bottom);
+        leftBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Left);
+        leftBottom->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Bottom);
         _baseLayer->addChild(leftBottomSprite);
 
         Sprite* rightTopSprite = Sprite::create("cocosui/CloseSelected.png");
         LayoutComponent* rightTop = LayoutComponent::bindLayoutComponent(rightTopSprite);
-        rightTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::Right);
-        rightTop->setVerticalEdge(LayoutComponent::VerticalEdge::Top);
+        rightTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Right);
+        rightTop->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Top);
         _baseLayer->addChild(rightTopSprite);
 
         Sprite* rightBottomSprite = Sprite::create("cocosui/CloseSelected.png");
         LayoutComponent* rightBottom = LayoutComponent::bindLayoutComponent(rightBottomSprite);
-        rightBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::Right);
-        rightBottom->setVerticalEdge(LayoutComponent::VerticalEdge::Bottom);
+        rightBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Right);
+        rightBottom->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Bottom);
         _baseLayer->addChild(rightBottomSprite);
 
         ui::Helper::doLayout(_baseLayer);
@@ -824,8 +824,8 @@ bool UILayoutComponent_Berth_Stretch_Test::init()
         ImageView* leftTopSprite = ImageView::create("cocosui/CloseSelected.png");
         leftTopSprite->ignoreContentAdaptWithSize(false);
         LayoutComponent* leftTop = LayoutComponent::bindLayoutComponent(leftTopSprite);
-        leftTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::Left);
-        leftTop->setVerticalEdge(LayoutComponent::VerticalEdge::Top);
+        leftTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Left);
+        leftTop->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Top);
         leftTop->setStretchWidthEnabled(true);
         leftTop->setStretchHeightEnabled(true);
         _baseLayer->addChild(leftTopSprite);
@@ -836,8 +836,8 @@ bool UILayoutComponent_Berth_Stretch_Test::init()
         ImageView* leftBottomSprite = ImageView::create("cocosui/CloseSelected.png");
         leftBottomSprite->ignoreContentAdaptWithSize(false);
         LayoutComponent* leftBottom = LayoutComponent::bindLayoutComponent(leftBottomSprite);
-        leftBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::Left);
-        leftBottom->setVerticalEdge(LayoutComponent::VerticalEdge::Bottom);
+        leftBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Left);
+        leftBottom->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Bottom);
         leftBottom->setStretchWidthEnabled(true);
         leftBottom->setStretchHeightEnabled(true);
         _baseLayer->addChild(leftBottomSprite);
@@ -848,8 +848,8 @@ bool UILayoutComponent_Berth_Stretch_Test::init()
         ImageView* rightTopSprite = ImageView::create("cocosui/CloseSelected.png");
         rightTopSprite->ignoreContentAdaptWithSize(false);
         LayoutComponent* rightTop = LayoutComponent::bindLayoutComponent(rightTopSprite);
-        rightTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::Right);
-        rightTop->setVerticalEdge(LayoutComponent::VerticalEdge::Top);
+        rightTop->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Right);
+        rightTop->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Top);
         rightTop->setStretchWidthEnabled(true);
         rightTop->setStretchHeightEnabled(true);
         _baseLayer->addChild(rightTopSprite);
@@ -860,8 +860,8 @@ bool UILayoutComponent_Berth_Stretch_Test::init()
         ImageView* rightBottomSprite = ImageView::create("cocosui/CloseSelected.png");
         rightBottomSprite->ignoreContentAdaptWithSize(false);
         LayoutComponent* rightBottom = LayoutComponent::bindLayoutComponent(rightBottomSprite);
-        rightBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::Right);
-        rightBottom->setVerticalEdge(LayoutComponent::VerticalEdge::Bottom);
+        rightBottom->setHorizontalEdge(LayoutComponent::HorizontalEdge::HE_Right);
+        rightBottom->setVerticalEdge(LayoutComponent::VerticalEdge::VE_Bottom);
         rightBottom->setStretchWidthEnabled(true);
         rightBottom->setStretchHeightEnabled(true);
         _baseLayer->addChild(rightBottomSprite);

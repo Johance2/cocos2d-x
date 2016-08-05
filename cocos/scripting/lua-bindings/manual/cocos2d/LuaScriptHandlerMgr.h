@@ -104,8 +104,8 @@ public:
      * @param func a function pointer for callback.
      */
     bool initWithFunction(const std::function<void(void* self,Node*)>& func);
-    virtual LuaCallFunc* clone() const override;
-    virtual void execute() override;
+    virtual LuaCallFunc* clone() const ;
+    virtual void execute() ;
 protected:
     std::function<void(void* self,Node*)> _functionLua;
     
@@ -122,11 +122,11 @@ public:
     
     /**
      * HandlerType enum.
-     * This enum class represent the processing type for c++ call the Lua function.
+     * This enum represent the processing type for c++ call the Lua function.
      *
      * @js NA
      */
-    enum class HandlerType: int
+    enum HandlerType: int
     {
         NODE = 0,
         MENU_CLICKED,

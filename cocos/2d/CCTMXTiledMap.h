@@ -270,7 +270,7 @@ public:
     /** Get the description.
      * @js NA
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     int  getLayerNum();
     const std::string& getResourceFile() const { return _tmxFile; }

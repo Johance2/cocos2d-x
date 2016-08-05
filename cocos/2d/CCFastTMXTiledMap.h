@@ -202,7 +202,7 @@ public:
         _properties = properties;
     };
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
 protected:
     /**

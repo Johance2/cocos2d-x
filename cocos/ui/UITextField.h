@@ -56,7 +56,7 @@ public:
      */
     ~UICCTextField();
     
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     
     /**
      * Create a UICCTextField instance with a placeholder, a fontName and a fontSize.
@@ -69,17 +69,17 @@ public:
                                  const std::string& fontName,
                                  float fontSize);
     
-    //override functions
-    virtual bool onTextFieldAttachWithIME(TextFieldTTF *pSender) override;
-    virtual bool onTextFieldDetachWithIME(TextFieldTTF * pSender) override;
+    // functions
+    virtual bool onTextFieldAttachWithIME(TextFieldTTF *pSender) ;
+    virtual bool onTextFieldDetachWithIME(TextFieldTTF * pSender) ;
     virtual bool onTextFieldInsertText(TextFieldTTF * pSender,
                                        const char * text,
-                                       size_t nLen) override;
+                                       size_t nLen) ;
     virtual bool onTextFieldDeleteBackward(TextFieldTTF * pSender,
                                            const char * delText,
-                                           size_t nLen) override;
-    void insertText(const char* text, size_t len) override;
-    void deleteBackward() override;
+                                           size_t nLen) ;
+    void insertText(const char* text, size_t len) ;
+    void deleteBackward() ;
     
     /**
      * Open up the IME.
@@ -314,7 +314,7 @@ public:
      */
     void setTouchAreaEnabled(bool enable);
     
-    virtual bool hitTest(const Vec2 &pt, const Camera* camera, Vec3 *p) const override;
+    virtual bool hitTest(const Vec2 &pt, const Camera* camera, Vec3 *p) const ;
     
     
     /**
@@ -426,7 +426,7 @@ public:
      */
     const std::string& getString()const;
     
-    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
+    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) ;
     
     
     /**
@@ -492,7 +492,7 @@ public:
      */
     const char* getPasswordStyleText()const;
     
-    virtual void update(float dt) override;
+    virtual void update(float dt) ;
     
     /**
      * @brief Query whether the IME is attached or not.
@@ -567,7 +567,7 @@ public:
     /**
      * Returns the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
     /**
      * @brief Get the renderer size in auto mode.
@@ -575,10 +575,10 @@ public:
      * @return A delimitation zone.
      */
     virtual Size getAutoRenderSize();
-    //override functions.
-    virtual Size getVirtualRendererSize() const override;
-    virtual Node* getVirtualRenderer() override;
-    virtual void onEnter() override;
+    // functions.
+    virtual Size getVirtualRendererSize() const ;
+    virtual Node* getVirtualRenderer() ;
+    virtual void onEnter() ;
     
     /**
      * @brief Attach the IME for inputing.
@@ -646,21 +646,21 @@ public:
     void setCursorFromPoint(const Vec2 &point, const Camera* camera);
     
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
-    virtual void initRenderer() override;
+    virtual void initRenderer() ;
     void attachWithIMEEvent();
     void detachWithIMEEvent();
     void insertTextEvent();
     void deleteBackwardEvent();
-    virtual void onSizeChanged() override;
+    virtual void onSizeChanged() ;
   
     void textfieldRendererScaleChangedWithSize();
     
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void adaptRenderers() override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void adaptRenderers() ;
 protected:
     UICCTextField* _textFieldRenderer;
 

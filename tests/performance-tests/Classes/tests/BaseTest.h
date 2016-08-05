@@ -38,7 +38,7 @@ class TestCase : public cocos2d::Scene
 {
 public:
     /** TestCase test type.*/
-    enum class Type
+    enum Type
     {
         /** For testing whether test case not crash.*/
         ROBUSTNESS,
@@ -91,9 +91,9 @@ public:
     void setTestCaseName(const std::string& name) { _testCaseName = name; }
     std::string getTestCaseName() const { return _testCaseName; }
 
-    virtual void onEnter() override;
+    virtual void onEnter() ;
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
     cocos2d::MenuItemImage* _priorTestItem;
@@ -164,7 +164,7 @@ public:
     virtual void enterPreviousTest();
 
     int getCurrTestIndex() { return _currTestIndex; }
-    virtual void runThisTest() override;
+    virtual void runThisTest() ;
 
 private:
     std::vector<std::function<cocos2d::Scene*()>> _testCallbacks;
@@ -183,16 +183,16 @@ public:
 
     void addTest(const std::string& testName, std::function<TestBase*()> callback);
 
-    virtual void runThisTest() override;
+    virtual void runThisTest() ;
 
 
-    virtual void tableCellTouched(cocos2d::extension::TableView* table, cocos2d::extension::TableViewCell* cell) override;
-    virtual cocos2d::extension::TableViewCell* tableCellAtIndex(cocos2d::extension::TableView *table, ssize_t idx) override;
-    virtual cocos2d::Size tableCellSizeForIndex(cocos2d::extension::TableView *table, ssize_t idx) override;
-    virtual ssize_t numberOfCellsInTableView(cocos2d::extension::TableView *table) override;
+    virtual void tableCellTouched(cocos2d::extension::TableView* table, cocos2d::extension::TableViewCell* cell) ;
+    virtual cocos2d::extension::TableViewCell* tableCellAtIndex(cocos2d::extension::TableView *table, ssize_t idx) ;
+    virtual cocos2d::Size tableCellSizeForIndex(cocos2d::extension::TableView *table, ssize_t idx) ;
+    virtual ssize_t numberOfCellsInTableView(cocos2d::extension::TableView *table) ;
 
-    virtual void scrollViewDidScroll(cocos2d::extension::ScrollView* view) override{}
-    virtual void scrollViewDidZoom(cocos2d::extension::ScrollView* view) override{}
+    virtual void scrollViewDidScroll(cocos2d::extension::ScrollView* view) {}
+    virtual void scrollViewDidZoom(cocos2d::extension::ScrollView* view) {}
 
 private:
     std::vector<std::function<TestBase*()>> _testCallbacks;
@@ -226,8 +226,8 @@ public:
     virtual void nextCallback(cocos2d::Ref* sender){}
     virtual void backCallback(cocos2d::Ref* sender){}
 
-    virtual void onEnter() override{}
-    virtual void onExit() override{}
+    virtual void onEnter() {}
+    virtual void onExit() {}
 };
 
 #endif /* defined(_CPPTESTS_BASETEST_H__) */

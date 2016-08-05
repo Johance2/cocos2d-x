@@ -242,7 +242,7 @@ void TextureCache::loadImage()
         asyncStruct->loadSuccess = asyncStruct->image.initWithImageFileThreadSafe(asyncStruct->filename);
 
         // ETC1 ALPHA supports.
-        if (asyncStruct->loadSuccess && asyncStruct->image.getFileType() == Image::Format::ETC && !s_etc1AlphaFileSuffix.empty())
+        if (asyncStruct->loadSuccess && asyncStruct->image.getFileType() == Image::Format::Format_ETC && !s_etc1AlphaFileSuffix.empty())
         { // check whether alpha texture exists & load it
             auto alphaFile = asyncStruct->filename + s_etc1AlphaFileSuffix;
             if (FileUtils::getInstance()->isFileExist(alphaFile))
@@ -310,7 +310,7 @@ void TextureCache::addImageAsyncCallBack(float dt)
 
                 texture->autorelease();
                 // ETC1 ALPHA supports.
-                if (asyncStruct->imageAlpha.getFileType() == Image::Format::ETC) {
+                if (asyncStruct->imageAlpha.getFileType() == Image::Format::Format_ETC) {
                     auto alphaTexture = new(std::nothrow) Texture2D();
                     if(alphaTexture != nullptr && alphaTexture->initWithImage(&asyncStruct->imageAlpha, asyncStruct->pixelFormat)) {
                         texture->setAlphaTexture(alphaTexture);
@@ -382,7 +382,7 @@ Texture2D * TextureCache::addImage(const std::string &path)
 
                 //-- ANDROID ETC1 ALPHA SUPPORTS.
                 std::string alphaFullPath = path + s_etc1AlphaFileSuffix;
-                if (image->getFileType() == Image::Format::ETC && !s_etc1AlphaFileSuffix.empty() && FileUtils::getInstance()->isFileExist(alphaFullPath))
+                if (image->getFileType() == Image::Format::Format_ETC && !s_etc1AlphaFileSuffix.empty() && FileUtils::getInstance()->isFileExist(alphaFullPath))
                 {
                     Image alphaImage;
                     if (alphaImage.initWithImageFile(alphaFullPath))

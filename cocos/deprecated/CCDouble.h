@@ -56,7 +56,7 @@ public:
     /*functions */
     virtual void acceptVisitor(DataVisitor &visitor) { visitor.visit(this); }
     
-    virtual __Double* clone() const override
+    virtual __Double* clone() const 
     {
         return __Double::create(_value);
     }

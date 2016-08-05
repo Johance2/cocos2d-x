@@ -68,32 +68,32 @@ public:
 
     //void resize(int width, int height);
 
-    float getFrameZoomFactor() const override;
+    float getFrameZoomFactor() const ;
     //void centerWindow();
 
-    virtual void setViewPortInPoints(float x , float y , float w , float h) override;
-    virtual void setScissorInPoints(float x , float y , float w , float h) override;
-    virtual Rect getScissorRect() const override;
+    virtual void setViewPortInPoints(float x , float y , float w , float h) ;
+    virtual void setScissorInPoints(float x , float y , float w , float h) ;
+    virtual Rect getScissorRect() const ;
 
-    bool windowShouldClose() override;
-    void pollEvents() override;
+    bool windowShouldClose() ;
+    void pollEvents() ;
     GLFWwindow* getWindow() const { return _mainWindow; }
 
     /*functions */
-    virtual bool isOpenGLReady() override;
-    virtual void end() override;
-    virtual void swapBuffers() override;
-    virtual void setFrameSize(float width, float height) override;
-    virtual void setIMEKeyboardState(bool bOpen) override;
+    virtual bool isOpenGLReady() ;
+    virtual void end() ;
+    virtual void swapBuffers() ;
+    virtual void setFrameSize(float width, float height) ;
+    virtual void setIMEKeyboardState(bool bOpen) ;
 
     /*
      * Set zoom factor for frame. This method is for debugging big resolution (e.g.new ipad) app on desktop.
      */
-    void setFrameZoomFactor(float zoomFactor) override;
+    void setFrameZoomFactor(float zoomFactor) ;
     /**
      * Hide or Show the mouse cursor if there is one.
      */
-    virtual void setCursorVisible(bool isVisible) override;
+    virtual void setCursorVisible(bool isVisible) ;
     /** Retina support is disabled by default
      *  @note This method is only available on Mac.
      */

@@ -28,7 +28,7 @@ NS_CC_BEGIN
 class GLNode : public cocos2d::Node
 {
 public:
-    void draw(Renderer *renderer, const Mat4& transform, uint32_t flags) override;
+    void draw(Renderer *renderer, const Mat4& transform, uint32_t flags) ;
 protected:
     void onDraw(Mat4 &transform, uint32_t flags);
     cocos2d::CustomCommand _customCommand;

@@ -233,7 +233,7 @@ protected:
     boost::mutex _requestMutex;
     boost::mutex _responseMutex;
     
-    std::condition_variable _sleepCondition;
+    boost::condition_variable _sleepCondition;
 
     bool _needQuit;
 

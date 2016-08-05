@@ -13,26 +13,26 @@ public:
     AppDelegate();
     virtual ~AppDelegate();
     
-    void initGLContextAttrs() override;
+    void initGLContextAttrs() ;
     
     /**
      @brief    Implement Director and Scene init code here.
      @return true    Initialize success, app continue.
      @return false   Initialize failed, app terminate.
      */
-    virtual bool applicationDidFinishLaunching() override;
+    virtual bool applicationDidFinishLaunching() ;
     
     /**
      @brief  Called when the application moves to the background
      @param  the pointer of the application
      */
-    virtual void applicationDidEnterBackground() override;
+    virtual void applicationDidEnterBackground() ;
     
     /**
      @brief  Called when the application reenters the foreground
      @param  the pointer of the application
      */
-    virtual void applicationWillEnterForeground() override;
+    virtual void applicationWillEnterForeground() ;
 };
 
 #endif // _APP_DELEGATE_H_

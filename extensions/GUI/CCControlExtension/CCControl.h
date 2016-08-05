@@ -171,8 +171,8 @@ public:
     virtual bool isTouchInside(Touch * touch);
 
     // Overrides
-    virtual bool isOpacityModifyRGB() const override;
-    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB) override;
+    virtual bool isOpacityModifyRGB() const ;
+    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB) ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -185,7 +185,7 @@ CC_CONSTRUCTOR_ACCESS:
      */
     virtual ~Control();
 
-    virtual bool init(void) override;
+    virtual bool init(void) ;
 
 protected:
     /**

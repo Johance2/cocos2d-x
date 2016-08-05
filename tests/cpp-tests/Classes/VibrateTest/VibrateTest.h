@@ -46,7 +46,7 @@ public:
     CREATE_FUNC(VibrateControlTest);    
     virtual ~VibrateControlTest();
     
-    virtual bool init()override;    
+    virtual bool init();    
     virtual std::string title() const;
     
 private:

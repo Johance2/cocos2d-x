@@ -31,8 +31,8 @@ NS_CC_BEGIN
 
 namespace ui {
     LayoutComponent::LayoutComponent()
-        :_horizontalEdge(HorizontalEdge::None)
-        , _verticalEdge(VerticalEdge::None)
+        :_horizontalEdge(HorizontalEdge::HE_None)
+        , _verticalEdge(VerticalEdge::VE_None)
         , _leftMargin(0)
         , _rightMargin(0)
         , _bottomMargin(0)
@@ -184,7 +184,7 @@ namespace ui {
             else
             {
                 _positionPercentX = 0;
-                if (_usingPositionPercentX || _horizontalEdge == HorizontalEdge::Center)
+                if (_usingPositionPercentX || _horizontalEdge == HorizontalEdge::HE_Center)
                     ownerPoint.x = 0;
             }
 
@@ -193,7 +193,7 @@ namespace ui {
             else
             {
                 _positionPercentY = 0;
-                if (_usingPositionPercentY || _verticalEdge == VerticalEdge::Center)
+                if (_usingPositionPercentY || _verticalEdge == VerticalEdge::VE_Center)
                     ownerPoint.y = 0;
             }
 
@@ -215,7 +215,7 @@ namespace ui {
         _usingPositionPercentX = isUsed;
         if (_usingPositionPercentX)
         {
-            _horizontalEdge = HorizontalEdge::None;
+            _horizontalEdge = HorizontalEdge::HE_None;
         }
     }
 
@@ -227,7 +227,7 @@ namespace ui {
     {
         _positionPercentX = percentMargin;
 
-        if (_usingPositionPercentX || _horizontalEdge == HorizontalEdge::Center)
+        if (_usingPositionPercentX || _horizontalEdge == HorizontalEdge::HE_Center)
         {
             Node* parent = this->getOwnerParent();
             if (parent != nullptr)
@@ -247,7 +247,7 @@ namespace ui {
         _usingPositionPercentY = isUsed;
         if (_usingPositionPercentY)
         {
-            _verticalEdge = VerticalEdge::None;
+            _verticalEdge = VerticalEdge::VE_None;
         }
     }
 
@@ -259,7 +259,7 @@ namespace ui {
     {
         _positionPercentY = percentMargin;
 
-        if (_usingPositionPercentY || _verticalEdge == VerticalEdge::Center)
+        if (_usingPositionPercentY || _verticalEdge == VerticalEdge::VE_Center)
         {
             Node* parent = this->getOwnerParent();
             if (parent != nullptr)
@@ -277,7 +277,7 @@ namespace ui {
     void LayoutComponent::setHorizontalEdge(HorizontalEdge hEage)
     {
         _horizontalEdge = hEage;
-        if (_horizontalEdge != HorizontalEdge::None)
+        if (_horizontalEdge != HorizontalEdge::HE_None)
         {
             _usingPositionPercentX = false;
         }
@@ -290,7 +290,7 @@ namespace ui {
     void LayoutComponent::setVerticalEdge(VerticalEdge vEage)
     {
         _verticalEdge = vEage;
-        if (_verticalEdge != VerticalEdge::None)
+        if (_verticalEdge != VerticalEdge::VE_None)
         {
             _usingPositionPercentY = false;
         }
@@ -350,7 +350,7 @@ namespace ui {
             else
             {
                 _percentWidth = 0;
-                if (_usingPercentWidth || (this->_horizontalEdge != HorizontalEdge::Center && this->_usingStretchWidth))
+                if (_usingPercentWidth || (this->_horizontalEdge != HorizontalEdge::HE_Center && this->_usingStretchWidth))
                     ownerSize.width = 0;
             }
 
@@ -359,7 +359,7 @@ namespace ui {
             else
             {
                 _percentHeight = 0;
-                if (_usingPercentHeight || (this->_verticalEdge != VerticalEdge::Center && this->_usingStretchHeight))
+                if (_usingPercentHeight || (this->_verticalEdge != VerticalEdge::VE_Center && this->_usingStretchHeight))
                     ownerSize.height = 0;
             }
 
@@ -540,7 +540,7 @@ namespace ui {
 
         switch (this->_horizontalEdge)
         {
-        case HorizontalEdge::None:
+        case HorizontalEdge::HE_None:
             if (_usingStretchWidth && !_isPercentOnly)
             {
                 ownerSize.width = parentSize.width * _percentWidth;
@@ -554,21 +554,21 @@ namespace ui {
                     ownerSize.width = parentSize.width * _percentWidth;
             }
             break;
-        case HorizontalEdge::Left:
+        case HorizontalEdge::HE_Left:
             if (_isPercentOnly)
                 break;
             if (_usingPercentWidth || _usingStretchWidth)
                 ownerSize.width = parentSize.width * _percentWidth;
             ownerPosition.x = _leftMargin + ownerAnchor.x * ownerSize.width;
             break;
-        case HorizontalEdge::Right:
+        case HorizontalEdge::HE_Right:
             if (_isPercentOnly)
                 break;
             if (_usingPercentWidth || _usingStretchWidth)
                 ownerSize.width = parentSize.width * _percentWidth;
             ownerPosition.x = parentSize.width - (_rightMargin + (1 - ownerAnchor.x) * ownerSize.width);
             break;
-        case HorizontalEdge::Center:
+        case HorizontalEdge::HE_Center:
             if (_isPercentOnly)
                 break;
             if (_usingStretchWidth)
@@ -591,7 +591,7 @@ namespace ui {
 
         switch (this->_verticalEdge)
         {
-        case VerticalEdge::None:
+        case VerticalEdge::VE_None:
             if (_usingStretchHeight && !_isPercentOnly)
             {
                 ownerSize.height = parentSize.height * _percentHeight;
@@ -605,21 +605,21 @@ namespace ui {
                     ownerSize.height = parentSize.height * _percentHeight;
             }
             break;
-        case VerticalEdge::Bottom:
+        case VerticalEdge::VE_Bottom:
             if (_isPercentOnly)
                 break;
             if (_usingPercentHeight || _usingStretchHeight)
                 ownerSize.height = parentSize.height * _percentHeight;
             ownerPosition.y = _bottomMargin + ownerAnchor.y * ownerSize.height;
             break;
-        case VerticalEdge::Top:
+        case VerticalEdge::VE_Top:
             if (_isPercentOnly)
                 break;
             if (_usingPercentHeight || _usingStretchHeight)
                 ownerSize.height = parentSize.height * _percentHeight;
             ownerPosition.y = parentSize.height - (_topMargin + (1 - ownerAnchor.y) * ownerSize.height);
             break;
-        case VerticalEdge::Center:
+        case VerticalEdge::VE_Center:
             if (_isPercentOnly)
                 break;
             if (_usingStretchHeight)

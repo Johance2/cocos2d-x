@@ -13,9 +13,9 @@ public:
     virtual void performTests();
     void performTestsPNG(const char* filename, const char* fileType, const char* resolution, const char* remark);
 
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
-    virtual void onEnter() override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
+    virtual void onEnter() ;
 };
 
 #endif

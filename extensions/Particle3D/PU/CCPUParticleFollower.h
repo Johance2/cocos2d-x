@@ -41,8 +41,8 @@ public:
 
     static PUParticleFollower* create();
 
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
-    virtual void firstParticleUpdate(PUParticle3D *particle, float deltaTime) override;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
+    virtual void firstParticleUpdate(PUParticle3D *particle, float deltaTime) ;
 
     /** 
     */
@@ -54,7 +54,7 @@ public:
     float getMinDistance(void) const;
     void setMinDistance(float minDistance);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUParticleFollower(void);

@@ -172,8 +172,8 @@ public:
     // Overrides
     //
     // TextureProtocol
-    virtual Texture2D* getTexture() const override;
-    virtual void setTexture(Texture2D *texture) override;
+    virtual Texture2D* getTexture() const ;
+    virtual void setTexture(Texture2D *texture) ;
     /**
     *@code
     * When this function bound into js or lua,the parameter will be changed.
@@ -181,36 +181,36 @@ public:
     * @endcode
     * @lua NA 
     */
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
     /**
     * @lua NA
     */
-    virtual const BlendFunc& getBlendFunc() const override;
+    virtual const BlendFunc& getBlendFunc() const ;
 
     /**
      * @js NA
      */
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
     
     using Node::addChild;
-    virtual void addChild(Node * child, int zOrder, int tag) override;
-    virtual void addChild(Node * child, int zOrder, const std::string &name) override;
-    virtual void reorderChild(Node *child, int zOrder) override;
+    virtual void addChild(Node * child, int zOrder, int tag) ;
+    virtual void addChild(Node * child, int zOrder, const std::string &name) ;
+    virtual void reorderChild(Node *child, int zOrder) ;
         
-	virtual void removeChild(Node *child, bool cleanup) override;
+	virtual void removeChild(Node *child, bool cleanup) ;
     /**
      * @js NA
      */
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-	virtual void sortAllChildren() override;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+	virtual void sortAllChildren() ;
 	/**
 	* @js NA
 	*/
-	virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+	virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 	/**
 	* @js NA
 	*/
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     /** Inserts a quad at a certain index into the texture atlas. The Sprite won't be added into the children array.
      * This method should be called only when you are dealing with very big AtlasSprite and when most of the Sprite won't be updated.
@@ -244,7 +244,7 @@ CC_CONSTRUCTOR_ACCESS:
      * @lua init
      */
     bool initWithFile(const std::string& fileImage, ssize_t capacity = DEFAULT_CAPACITY);
-    bool init() override;
+    bool init() ;
     
 protected:
     /** Updates a quad at a certain index into the texture atlas. The Sprite won't be added into the children array.

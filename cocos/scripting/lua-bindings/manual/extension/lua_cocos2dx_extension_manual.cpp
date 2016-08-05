@@ -40,7 +40,7 @@ public:
     virtual ~LuaScrollViewDelegate()
     {}
     
-    virtual void scrollViewDidScroll(ScrollView* view) override
+    virtual void scrollViewDidScroll(ScrollView* view) 
     {
         if (nullptr != view)
         {
@@ -55,7 +55,7 @@ public:
         }
     }
     
-    virtual void scrollViewDidZoom(ScrollView* view) override
+    virtual void scrollViewDidZoom(ScrollView* view) 
     {
         if (nullptr != view)
         {
@@ -364,7 +364,7 @@ public:
     virtual ~LuaAssetsManagerDelegateProtocol()
     {}
     
-    virtual void onProgress(int percent) override
+    virtual void onProgress(int percent) 
     {
         int handler = ScriptHandlerMgr::getInstance()->getObjectHandler((void*)this, ScriptHandlerMgr::HandlerType::ASSETSMANAGER_PROGRESS);
         if (0 != handler)
@@ -375,7 +375,7 @@ public:
         }
     }
     
-    virtual void onSuccess() override
+    virtual void onSuccess() 
     {
         int handler = ScriptHandlerMgr::getInstance()->getObjectHandler((void*)this, ScriptHandlerMgr::HandlerType::ASSETSMANAGER_SUCCESS);
         if (0 != handler)
@@ -386,7 +386,7 @@ public:
         }
     }
     
-    virtual void onError(AssetsManager::ErrorCode errorCode) override
+    virtual void onError(AssetsManager::ErrorCode errorCode) 
     {
         int handler = ScriptHandlerMgr::getInstance()->getObjectHandler((void*)this, ScriptHandlerMgr::HandlerType::ASSETSMANAGER_ERROR);
         if (0 != handler)
@@ -483,7 +483,7 @@ public:
     virtual ~LUA_TableViewDelegate(){}
     
     
-    virtual void scrollViewDidScroll(ScrollView* view) override
+    virtual void scrollViewDidScroll(ScrollView* view) 
     {
         if (nullptr != view)
         {
@@ -497,7 +497,7 @@ public:
         }
     }
     
-    virtual void scrollViewDidZoom(ScrollView* view) override
+    virtual void scrollViewDidZoom(ScrollView* view) 
     {
         if (nullptr != view)
         {
@@ -511,7 +511,7 @@ public:
         }
     }
     
-    virtual void tableCellTouched(TableView* table, TableViewCell* cell) override
+    virtual void tableCellTouched(TableView* table, TableViewCell* cell) 
     {
         if (nullptr != table && nullptr != cell)
         {
@@ -525,7 +525,7 @@ public:
         }
     }
     
-    virtual void tableCellHighlight(TableView* table, TableViewCell* cell) override
+    virtual void tableCellHighlight(TableView* table, TableViewCell* cell) 
     {
         if (nullptr != table && nullptr != cell)
         {
@@ -539,7 +539,7 @@ public:
         }
     }
     
-    virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell) override
+    virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell) 
     {
         if (nullptr != table && nullptr != cell)
         {
@@ -553,7 +553,7 @@ public:
         }
     }
     
-    virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell) override
+    virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell) 
     {
         if (nullptr != table && nullptr != cell)
         {
@@ -633,7 +633,7 @@ public:
     LUA_TableViewDataSource(){}
     virtual ~LUA_TableViewDataSource(){}
     
-    virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) override
+    virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) 
     {
         if (nullptr != table )
         {
@@ -660,7 +660,7 @@ public:
         return Size::ZERO;
     }
     
-    virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) override
+    virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) 
     {
         if (nullptr != table )
         {
@@ -683,7 +683,7 @@ public:
         return NULL;
     }
     
-    virtual ssize_t numberOfCellsInTableView(TableView *table) override
+    virtual ssize_t numberOfCellsInTableView(TableView *table) 
     {
         if (nullptr != table )
         {

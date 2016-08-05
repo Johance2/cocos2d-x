@@ -77,10 +77,10 @@ public:
     virtual bool isContinuous() const;
 
     // Overrides
-    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) override;
-    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) override;
-    void update(float dt) override;
+    virtual bool onTouchBegan(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchMoved(Touch *pTouch, Event *pEvent) ;
+    virtual void onTouchEnded(Touch *pTouch, Event *pEvent) ;
+    void update(float dt) ;
 
     /** Update the layout of the stepper with the given touch location. */
     void updateLayoutUsingTouchLocation(Vec2 location);

@@ -624,6 +624,7 @@ Data FileUtils::getDataFromFile(const std::string& filename)
 {
     Data d;
     getContents(filename, &d);
+
     return d;
 }
 

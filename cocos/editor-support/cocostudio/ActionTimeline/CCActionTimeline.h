@@ -187,21 +187,21 @@ public:
     /** Inherit from Action. */
 
     /** Returns a clone of ActionTimeline */
-    virtual ActionTimeline* clone() const override; 
+    virtual ActionTimeline* clone() const ; 
 
     /** Returns a reverse of ActionTimeline. 
      *  Not implement yet.
      */
     virtual ActionTimeline* reverse() const{ return nullptr; }
 
-    virtual void step(float delta) override; 
-    virtual void startWithTarget(cocos2d::Node *target) override;  
+    virtual void step(float delta) ; 
+    virtual void startWithTarget(cocos2d::Node *target) ;  
     virtual bool isDone() const{ return false; }
     
     /// @{
     /// @name implement Playable Protocol
-    virtual void start() override;
-    virtual void stop() override;
+    virtual void start() ;
+    virtual void stop() ;
     /// @} end of PlaybleProtocol
 
 protected:

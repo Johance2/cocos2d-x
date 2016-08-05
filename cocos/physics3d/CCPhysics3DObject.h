@@ -332,8 +332,8 @@ public:
     /** Check rigid body is kinematic object. */
     bool isKinematic() const;
     
-    /** override. */
-    virtual cocos2d::Mat4 getWorldTransform() const override;
+    /** . */
+    virtual cocos2d::Mat4 getWorldTransform() const ;
     
     /** Get constraint by index. */
     Physics3DConstraint* getConstraint(unsigned int idx) const;
@@ -487,7 +487,7 @@ public:
     */
     float getCcdSweptSphereRadius() const;
 
-    /** override. */
+    /** . */
     virtual cocos2d::Mat4 getWorldTransform() const;
 
     /** Set a callback when trigger enter. */

@@ -56,7 +56,7 @@ public:
     /*functions */
     virtual void acceptVisitor(DataVisitor &visitor) { visitor.visit(this); }
     
-    virtual __Float* clone() const override
+    virtual __Float* clone() const 
     {
         return __Float::create(_value);
     }

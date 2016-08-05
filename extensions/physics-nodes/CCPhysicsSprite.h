@@ -87,7 +87,7 @@ public:
 
     PhysicsSprite();
 
-    virtual bool isDirty() const override;
+    virtual bool isDirty() const ;
 
     /** Keep the sprite's rotation separate from the body. */
     bool isIgnoreBodyRotation() const;
@@ -112,21 +112,21 @@ public:
     virtual void syncPhysicsTransform() const;
 
     // overrides
-    virtual const Vec2& getPosition() const override;
-    virtual void getPosition(float* x, float* y) const override;
-    virtual float getPositionX() const override;
-    virtual float getPositionY() const override;
-    virtual Vec3 getPosition3D() const override;
-    virtual void setPosition(const Vec2 &position) override;
-    virtual void setPosition(float x, float y) override;
-    virtual void setPositionX(float x) override;
-    virtual void setPositionY(float y) override;
-    virtual void setPosition3D(const Vec3& position) override;
-    virtual float getRotation() const override;
-    virtual void setRotation(float fRotation) override;
+    virtual const Vec2& getPosition() const ;
+    virtual void getPosition(float* x, float* y) const ;
+    virtual float getPositionX() const ;
+    virtual float getPositionY() const ;
+    virtual Vec3 getPosition3D() const ;
+    virtual void setPosition(const Vec2 &position) ;
+    virtual void setPosition(float x, float y) ;
+    virtual void setPositionX(float x) ;
+    virtual void setPositionY(float y) ;
+    virtual void setPosition3D(const Vec3& position) ;
+    virtual float getRotation() const ;
+    virtual void setRotation(float fRotation) ;
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
 
 protected:
     const Vec2& getPosFromPhysics() const;

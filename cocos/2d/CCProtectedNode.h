@@ -144,11 +144,11 @@ public:
     /**
      * @js NA
      */
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
     
-    virtual void cleanup() override;
+    virtual void cleanup() ;
     
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     
     /** Event callback that is invoked when the Node enters in the 'stage'.
      * If the Node enters the 'stage' with a transition, this event is called when the transition finishes.
@@ -156,7 +156,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onEnterTransitionDidFinish() ;
     
     /**
      * Event callback that is invoked every time the Node leaves the 'stage'.
@@ -166,7 +166,7 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void onExit() override;
+    virtual void onExit() ;
     
     /**
      * Event callback that is called every time the Node leaves the 'stage'.
@@ -174,13 +174,13 @@ public:
      * @js NA
      * @lua NA
      */
-    virtual void onExitTransitionDidStart() override;
+    virtual void onExitTransitionDidStart() ;
 
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;
-    virtual void updateDisplayedColor(const Color3B& parentColor) override;
-    virtual void disableCascadeColor() override;
-    virtual void disableCascadeOpacity()override;
-    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) override;
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity) ;
+    virtual void updateDisplayedColor(const Color3B& parentColor) ;
+    virtual void disableCascadeColor() ;
+    virtual void disableCascadeOpacity();
+    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) ;
 CC_CONSTRUCTOR_ACCESS:
     ProtectedNode();
     virtual ~ProtectedNode();

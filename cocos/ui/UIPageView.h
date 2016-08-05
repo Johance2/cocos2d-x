@@ -113,7 +113,7 @@ public:
      *  Direction Direction::VERTICAL means vertical scroll, Direction::HORIZONTAL means horizontal scroll.
      * @param direction Set the page view's scroll direction.
      */
-    virtual void setDirection(Direction direction) override;
+    virtual void setDirection(Direction direction) ;
 
     /**
      * Add a widget as a page of PageView in a given index.
@@ -239,8 +239,8 @@ public:
      */
     void addEventListener(const ccPageViewCallback& callback);
     using ScrollView::addEventListener;
-    //override methods
-    virtual std::string getDescription() const override;
+    // methods
+    virtual std::string getDescription() const ;
 
     /**
      * @brief Toggle page indicator enabled.
@@ -380,23 +380,23 @@ public:
     void setAutoScrollStopEpsilon(float epsilon);
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
 
-    //override methods
-    virtual void doLayout() override;
+    // methods
+    virtual void doLayout() ;
 
 protected:
     void pageTurningEvent();
-    virtual float getAutoScrollStopEpsilon() const override;
+    virtual float getAutoScrollStopEpsilon() const ;
 
-    virtual void remedyLayoutParameter(Widget* item)override;
-    virtual void moveInnerContainer(const Vec2& deltaMove, bool canStartBounceBack) override;
-    virtual void onItemListChanged() override;
-    virtual void onSizeChanged() override;
-    virtual void handleReleaseLogic(Touch *touch) override;
+    virtual void remedyLayoutParameter(Widget* item);
+    virtual void moveInnerContainer(const Vec2& deltaMove, bool canStartBounceBack) ;
+    virtual void onItemListChanged() ;
+    virtual void onSizeChanged() ;
+    virtual void handleReleaseLogic(Touch *touch) ;
 
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
 
     void refreshIndicatorPosition();
 

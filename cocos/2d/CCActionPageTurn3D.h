@@ -50,7 +50,7 @@ public:
     /**
      * @js NA 
      */
-    virtual GridBase* getGrid() override;
+    virtual GridBase* getGrid() ;
 
     /**
     @brief Create an action with duration, grid size.
@@ -61,8 +61,8 @@ public:
     static PageTurn3D* create(float duration, const Size& gridSize);
 
     // Overrides
-    virtual PageTurn3D* clone() const override;
-    virtual void update(float time) override;
+    virtual PageTurn3D* clone() const ;
+    virtual void update(float time) ;
 };
 
 // end of actions group

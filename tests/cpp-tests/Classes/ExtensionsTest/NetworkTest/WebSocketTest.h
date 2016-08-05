@@ -25,10 +25,10 @@ public:
     WebSocketTest();
     virtual ~WebSocketTest();
     
-    virtual void onOpen(cocos2d::network::WebSocket* ws)override;
-    virtual void onMessage(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::Data& data)override;
-    virtual void onClose(cocos2d::network::WebSocket* ws)override;
-    virtual void onError(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::ErrorCode& error)override;
+    virtual void onOpen(cocos2d::network::WebSocket* ws);
+    virtual void onMessage(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::Data& data);
+    virtual void onClose(cocos2d::network::WebSocket* ws);
+    virtual void onError(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::ErrorCode& error);
     
     // Menu Callbacks
     void onMenuSendTextClicked(cocos2d::Ref *sender);
@@ -58,10 +58,10 @@ class WebSocketCloseTest : public TestCase
 public:
     CREATE_FUNC(WebSocketCloseTest);
 
-    virtual void onOpen(cocos2d::network::WebSocket* ws)override;
-    virtual void onMessage(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::Data& data)override;
-    virtual void onClose(cocos2d::network::WebSocket* ws)override;
-    virtual void onError(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::ErrorCode& error)override;
+    virtual void onOpen(cocos2d::network::WebSocket* ws);
+    virtual void onMessage(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::Data& data);
+    virtual void onClose(cocos2d::network::WebSocket* ws);
+    virtual void onError(cocos2d::network::WebSocket* ws, const cocos2d::network::WebSocket::ErrorCode& error);
 
     WebSocketCloseTest();
     virtual ~WebSocketCloseTest();

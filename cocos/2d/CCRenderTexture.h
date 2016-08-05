@@ -262,8 +262,8 @@ public:
     void setSprite(Sprite* sprite);
     
     // Overrides
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
     /** Flag: Use stack matrix computed from scene hierarchy or generate new modelView and projection matrix.
      *

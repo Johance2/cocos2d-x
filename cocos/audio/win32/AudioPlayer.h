@@ -78,7 +78,7 @@ protected:
     ALuint _bufferIds[QUEUEBUFFER_NUM];
     boost::thread _rotateBufferThread;
     boost::mutex _sleepMutex;
-    std::condition_variable _sleepCondition;
+    boost::condition_variable _sleepCondition;
     bool _exitThread;
     bool _readForRemove;
     

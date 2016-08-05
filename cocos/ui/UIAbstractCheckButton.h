@@ -116,9 +116,9 @@ public:
      */
     void setSelected(bool selected);
     
-    //override functions
-    virtual Size getVirtualRendererSize() const override;
-    virtual Node* getVirtualRenderer() override;
+    // functions
+    virtual Size getVirtualRendererSize() const ;
+    virtual Node* getVirtualRenderer() ;
     
     /** When user pressed the CheckBox, the button will zoom to a scale.
      * Thescale of the CheckBox  equals (CheckBox original scale + _zoomScale)
@@ -169,7 +169,7 @@ public:
     ResourceData getCrossDisabledFile();
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool init(const std::string& backGround,
                       const std::string& backGroundSeleted,
                       const std::string& cross,
@@ -190,10 +190,10 @@ protected:
      */
     virtual ~AbstractCheckButton();
     
-    virtual void initRenderer() override;
-    virtual void onPressStateChangedToNormal() override;
-    virtual void onPressStateChangedToPressed() override;
-    virtual void onPressStateChangedToDisabled() override;
+    virtual void initRenderer() ;
+    virtual void onPressStateChangedToNormal() ;
+    virtual void onPressStateChangedToPressed() ;
+    virtual void onPressStateChangedToDisabled() ;
     
     void setupBackgroundTexture();
     void loadTextureBackGround(SpriteFrame* spriteFrame);
@@ -208,7 +208,7 @@ protected:
     
     virtual void dispatchSelectChangedEvent(bool selected) = 0;
     
-    virtual void onSizeChanged() override;
+    virtual void onSizeChanged() ;
     
     void backGroundTextureScaleChangedWithSize();
     void backGroundSelectedTextureScaleChangedWithSize();
@@ -216,8 +216,8 @@ protected:
     void backGroundDisabledTextureScaleChangedWithSize();
     void frontCrossDisabledTextureScaleChangedWithSize();
     
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void adaptRenderers() override;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void adaptRenderers() ;
 protected:
     Sprite* _backGroundBoxRenderer;
     Sprite* _backGroundSelectedBoxRenderer;

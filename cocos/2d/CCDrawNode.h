@@ -311,7 +311,7 @@ public:
     virtual void onDrawGLPoint(const Mat4 &transform, uint32_t flags);
     
     // Overrides
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
     
     void setLineWidth(int lineWidth);
 
@@ -321,7 +321,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     DrawNode(int lineWidth = DEFAULT_LINE_WIDTH);
     virtual ~DrawNode();
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
     void ensureCapacity(int count);

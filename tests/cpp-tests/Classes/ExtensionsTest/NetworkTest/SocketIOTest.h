@@ -46,11 +46,11 @@ public:
 	/**
 	*  @brief Used for network level socket close (not for disconnect from the socket.io server)
 	*/
-	virtual void onClose(cocos2d::network::SIOClient* client)override;
+	virtual void onClose(cocos2d::network::SIOClient* client);
 	/**
 	*  @brief Used for network level socket error (not for disconnect from the socket.io server)
 	**/
-	virtual void onError(cocos2d::network::SIOClient* client, const std::string& data)override;
+	virtual void onError(cocos2d::network::SIOClient* client, const std::string& data);
 	/**
 	*  @brief Common function to call on both socket.io disconnect and websocket close
 	**/

@@ -266,9 +266,9 @@ public:
     //
     // Override
     //
-    virtual std::string getDescription() const override;
-    virtual void draw(Renderer *renderer, const Mat4& transform, uint32_t flags) override;
-    void removeChild(Node* child, bool cleanup = true) override;
+    virtual std::string getDescription() const ;
+    virtual void draw(Renderer *renderer, const Mat4& transform, uint32_t flags) ;
+    void removeChild(Node* child, bool cleanup = true) ;
 
 protected:
 

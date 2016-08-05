@@ -47,27 +47,27 @@ public:
     //
     // Overrides
     //
-    virtual ActionInstant* clone() const override
+    virtual ActionInstant* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
     
-    virtual ActionInstant * reverse() const override
+    virtual ActionInstant * reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
 
-    virtual bool isDone() const override;
+    virtual bool isDone() const ;
     /**
      * @param dt In seconds.
      */
-    virtual void step(float dt) override;
+    virtual void step(float dt) ;
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
+    virtual void update(float time) ;
 };
 
 /** @class Show
@@ -88,9 +88,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual ActionInstant* reverse() const override;
-    virtual Show* clone() const override;
+    virtual void update(float time) ;
+    virtual ActionInstant* reverse() const ;
+    virtual Show* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     Show(){}
@@ -118,9 +118,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual ActionInstant* reverse() const override;
-    virtual Hide* clone() const override;
+    virtual void update(float time) ;
+    virtual ActionInstant* reverse() const ;
+    virtual Hide* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     Hide(){}
@@ -148,9 +148,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual ToggleVisibility* reverse() const override;
-    virtual ToggleVisibility* clone() const override;
+    virtual void update(float time) ;
+    virtual ToggleVisibility* reverse() const ;
+    virtual ToggleVisibility* clone() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     ToggleVisibility(){}
@@ -179,9 +179,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual RemoveSelf* clone() const override;
-    virtual RemoveSelf* reverse() const override;
+    virtual void update(float time) ;
+    virtual RemoveSelf* clone() const ;
+    virtual RemoveSelf* reverse() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     RemoveSelf() : _isNeedCleanUp(true){}
@@ -217,9 +217,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual FlipX* reverse() const override;
-    virtual FlipX* clone() const override;
+    virtual void update(float time) ;
+    virtual FlipX* reverse() const ;
+    virtual FlipX* clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     FlipX() :_flipX(false) {}
@@ -255,9 +255,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual FlipY* reverse() const override;
-    virtual FlipY* clone() const override;
+    virtual void update(float time) ;
+    virtual FlipY* reverse() const ;
+    virtual FlipY* clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     FlipY() :_flipY(false) {}
@@ -293,9 +293,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual Place* reverse() const override;
-    virtual Place* clone() const override;
+    virtual void update(float time) ;
+    virtual Place* reverse() const ;
+    virtual Place* clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     Place(){}
@@ -371,9 +371,9 @@ public:
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
-    virtual CallFunc* reverse() const override;
-    virtual CallFunc* clone() const override;
+    virtual void update(float time) ;
+    virtual CallFunc* reverse() const ;
+    virtual CallFunc* clone() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     CallFunc()
@@ -437,8 +437,8 @@ public:
     //
     // Overrides
     //
-    virtual CallFuncN* clone() const override;
-    virtual void execute() override;
+    virtual CallFuncN* clone() const ;
+    virtual void execute() ;
     
 CC_CONSTRUCTOR_ACCESS:
     CallFuncN():_functionN(nullptr){}
@@ -483,8 +483,8 @@ public:
     //
     // Overrides
     //
-    virtual __CCCallFuncND* clone() const override;
-    virtual void execute() override;
+    virtual __CCCallFuncND* clone() const ;
+    virtual void execute() ;
     
 CC_CONSTRUCTOR_ACCESS:
     __CCCallFuncND() {}
@@ -524,8 +524,8 @@ public:
     //
     // Overrides
     //
-    virtual __CCCallFuncO* clone() const override;
-    virtual void execute() override;
+    virtual __CCCallFuncO* clone() const ;
+    virtual void execute() ;
     
     Ref* getObject() const;
     void setObject(Ref* obj);

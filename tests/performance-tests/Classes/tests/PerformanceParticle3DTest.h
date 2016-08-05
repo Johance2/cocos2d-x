@@ -17,8 +17,8 @@ public:
     virtual void doTest() = 0;
 
     // overrides
-    virtual void onExitTransitionDidStart() override;
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onExitTransitionDidStart() ;
+    virtual void onEnterTransitionDidFinish() ;
     void beginStat(float dt);
     void endStat(float dt);
     void doAutoTest();
@@ -42,9 +42,9 @@ class Particle3DPerformTest : public Particle3DMainScene
 public:
     CREATE_FUNC(Particle3DPerformTest);
 
-    virtual bool init() override;
-    virtual std::string title() const override;
-    virtual void doTest()override{};
+    virtual bool init() ;
+    virtual std::string title() const ;
+    virtual void doTest(){};
 };
 
 #endif

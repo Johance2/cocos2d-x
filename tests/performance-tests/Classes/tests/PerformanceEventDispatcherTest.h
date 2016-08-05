@@ -20,12 +20,12 @@ public:
         std::function<void()> func;
     };
     
-    virtual bool init() override;
+    virtual bool init() ;
     virtual void initWithQuantityOfNodes(unsigned int nNodes);
     virtual void generateTestFunctions() = 0;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
     virtual void updateQuantityOfNodes();
 
     void updateStatus();
@@ -40,9 +40,9 @@ public:
     void dumpProfilerInfo(float dt);
     
     // overrides
-    virtual void update(float dt) override;
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void update(float dt) ;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     
 protected:
     static int quantityOfNodes;
@@ -68,10 +68,10 @@ class TouchEventDispatchingPerfTest : public PerformanceEventDispatcherScene
 public:
     CREATE_FUNC(TouchEventDispatchingPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class KeyboardEventDispatchingPerfTest : public PerformanceEventDispatcherScene
@@ -79,10 +79,10 @@ class KeyboardEventDispatchingPerfTest : public PerformanceEventDispatcherScene
 public:
     CREATE_FUNC(KeyboardEventDispatchingPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class CustomEventDispatchingPerfTest : public PerformanceEventDispatcherScene
@@ -90,13 +90,13 @@ class CustomEventDispatchingPerfTest : public PerformanceEventDispatcherScene
 public:
     CREATE_FUNC(CustomEventDispatchingPerfTest);
     
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
     
 private:
     std::vector<cocos2d::EventListener*> _customListeners;

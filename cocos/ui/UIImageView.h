@@ -118,32 +118,32 @@ public:
      */
     const Rect& getCapInsets()const;
 
-    //override methods.
-    virtual void ignoreContentAdaptWithSize(bool ignore) override;
-    virtual std::string getDescription() const override;
-    virtual Size getVirtualRendererSize() const override;
-    virtual Node* getVirtualRenderer() override;
+    // methods.
+    virtual void ignoreContentAdaptWithSize(bool ignore) ;
+    virtual std::string getDescription() const ;
+    virtual Size getVirtualRendererSize() const ;
+    virtual Node* getVirtualRenderer() ;
 
     ResourceData getRenderFile();
 
-    virtual void setGLProgram(GLProgram* glProgram) override;
-    virtual void setGLProgramState(cocos2d::GLProgramState* glProgramState) override;
+    virtual void setGLProgram(GLProgram* glProgram) ;
+    virtual void setGLProgramState(cocos2d::GLProgramState* glProgramState) ;
 CC_CONSTRUCTOR_ACCESS:
     //initializes state of widget.
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool init(const std::string& imageFileName, TextureResType texType = TextureResType::LOCAL);
 
 protected:
-    virtual void initRenderer() override;
-    virtual void onSizeChanged() override;
+    virtual void initRenderer() ;
+    virtual void onSizeChanged() ;
     
-    virtual void adaptRenderers() override;
+    virtual void adaptRenderers() ;
     void loadTexture(SpriteFrame* spriteframe);
     void setupTexture();
     
     void imageTextureScaleChangedWithSize();
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
 protected:
     bool _scale9Enabled;
     bool _prevIgnoreSize;

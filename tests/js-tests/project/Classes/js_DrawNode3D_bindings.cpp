@@ -77,12 +77,12 @@ public:
     void onDraw(const Mat4 &transform, uint32_t flags);
     
     // Overrides
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
     
 CC_CONSTRUCTOR_ACCESS:
     DrawNode3D();
     virtual ~DrawNode3D();
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
     struct V3F_C4B

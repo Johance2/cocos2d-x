@@ -53,7 +53,7 @@ public:
     /**
      * Radio button event types.
      */
-    enum class EventType
+    enum EventType
     {
         SELECTED,
         UNSELECTED
@@ -147,7 +147,7 @@ public:
     /**
      * Radio button group event types.
      */
-    enum class EventType
+    enum EventType
     {
         SELECT_CHANGED,
     };

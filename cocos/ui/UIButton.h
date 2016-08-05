@@ -187,11 +187,11 @@ public:
      */
     void setPressedActionEnabled(bool enabled);
 
-    //override methods
-    virtual void ignoreContentAdaptWithSize(bool ignore) override;
-    virtual Size getVirtualRendererSize() const override;
-    virtual Node* getVirtualRenderer() override;
-    virtual std::string getDescription() const override;
+    // methods
+    virtual void ignoreContentAdaptWithSize(bool ignore) ;
+    virtual Size getVirtualRendererSize() const ;
+    virtual Node* getVirtualRenderer() ;
+    virtual std::string getDescription() const ;
 
     /**
      * Return the inner title renderer of Button.
@@ -306,7 +306,7 @@ public:
     ResourceData getDisabledFile();
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool init(const std::string& normalImage,
                       const std::string& selectedImage = "",
                       const std::string& disableImage = "",
@@ -315,11 +315,11 @@ CC_CONSTRUCTOR_ACCESS:
     virtual Size getNormalTextureSize() const;
 
 protected:
-    virtual void initRenderer() override;
-    virtual void onPressStateChangedToNormal() override;
-    virtual void onPressStateChangedToPressed() override;
-    virtual void onPressStateChangedToDisabled() override;
-    virtual void onSizeChanged() override;
+    virtual void initRenderer() ;
+    virtual void onPressStateChangedToNormal() ;
+    virtual void onPressStateChangedToPressed() ;
+    virtual void onPressStateChangedToDisabled() ;
+    virtual void onSizeChanged() ;
 
     void loadTextureNormal(SpriteFrame* normalSpriteFrame);
     void setupNormalTexture(bool textureLoaded);
@@ -332,13 +332,13 @@ protected:
     void pressedTextureScaleChangedWithSize();
     void disabledTextureScaleChangedWithSize();
 
-    virtual void adaptRenderers() override;
+    virtual void adaptRenderers() ;
     void updateTitleLocation();
     void updateContentSize();
     void createTitleRenderer();
 
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
 
     virtual Size getNormalSize() const;
 protected:

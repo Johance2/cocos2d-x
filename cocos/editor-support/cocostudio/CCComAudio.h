@@ -51,29 +51,29 @@ public:
 public:
     static ComAudio* create();
 
-    virtual bool init() override;
+    virtual bool init() ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     /**
      * @js NA
      * @lua NA
      */
-    virtual void onExit() override;
+    virtual void onExit() ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onAdd() override;
+    virtual void onAdd() ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual void onRemove() override;
+    virtual void onRemove() ;
 
-    virtual bool serialize(void* r) override;
+    virtual bool serialize(void* r) ;
 public:
     /**
     * @lua endToLua
@@ -113,9 +113,9 @@ public:
     /// @{
     /// @name implement Playable Protocol
     // play the effect sound path in _filePath
-    virtual void start() override;
+    virtual void start() ;
     // stop the effect sound which started with latest start()
-    virtual void stop() override;
+    virtual void stop() ;
     /// @} end of PlaybleProtocol
 
 private:

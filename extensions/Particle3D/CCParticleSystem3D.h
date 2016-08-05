@@ -161,22 +161,22 @@ public:
     /**
      *function
      */
-    virtual void update(float delta) override;
+    virtual void update(float delta) ;
     
     /**
      *function
      */
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
     
     /**
      *function
      */
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
     
     /**
      *function
      */
-    virtual const BlendFunc &getBlendFunc() const override;
+    virtual const BlendFunc &getBlendFunc() const ;
     
     /**
      * particle system play control

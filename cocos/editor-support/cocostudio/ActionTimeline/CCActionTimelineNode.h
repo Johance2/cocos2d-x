@@ -41,7 +41,7 @@ public:
     ActionTimelineNode();
     ~ActionTimelineNode();
     
-    bool init() override;
+    bool init() ;
     bool init(cocos2d::Node* root, ActionTimeline* action);
     
     virtual void setRoot(cocos2d::Node* root);

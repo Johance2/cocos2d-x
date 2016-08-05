@@ -12,22 +12,22 @@ public:
 
     virtual ~LabelMainScene();
 
-    std::string title() const override;
-    virtual bool init() override;
+    std::string title() const ;
+    virtual bool init() ;
     void updateNodes();
 
     void onIncrease(cocos2d::Ref* sender);
     void onDecrease(cocos2d::Ref* sender);
     void updateText(float dt);
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     void beginStat(float dt);
     void endStat(float dt);
     void doAutoTest();
 
-    virtual void nextTestCallback(cocos2d::Ref* sender) override;
-    virtual void priorTestCallback(cocos2d::Ref* sender) override;
+    virtual void nextTestCallback(cocos2d::Ref* sender) ;
+    virtual void priorTestCallback(cocos2d::Ref* sender) ;
 
 private:
     cocos2d::Layer* _labelContainer;

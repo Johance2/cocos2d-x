@@ -126,7 +126,7 @@ public:
     /** changes the string to render
     * @warning Changing the string is as expensive as creating a new LabelTTF. To obtain better performance use LabelAtlas
     */
-    virtual void setString(const std::string &label) override;
+    virtual void setString(const std::string &label) ;
     virtual const std::string& getString(void) const;
     
     TextHAlignment getHorizontalAlignment() const;
@@ -144,22 +144,22 @@ public:
     const std::string& getFontName() const;
     void setFontName(const std::string& fontName);
 
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
 
-    virtual const BlendFunc &getBlendFunc() const override;
+    virtual const BlendFunc &getBlendFunc() const ;
 
     virtual void setFlippedX(bool flippedX);
     virtual void setFlippedY(bool flippedY);
 
-    virtual Rect getBoundingBox() const override;
+    virtual Rect getBoundingBox() const ;
 
     /**
      * @js NA
      * @lua NA
      */
-    virtual std::string getDescription() const override;
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
-    virtual const Size& getContentSize() const override;
+    virtual std::string getDescription() const ;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
+    virtual const Size& getContentSize() const ;
 protected:
     Label*    _renderLabel;
     bool _contentDirty;

@@ -28,6 +28,8 @@ THE SOFTWARE.
 #include "renderer/CCTextureCache.h"
 #include "2d/CCSpriteFrame.h"
 #include "base/CCDirector.h"
+#include <cmath>
+#include <limits>
 
 NS_CC_BEGIN
 
@@ -104,7 +106,7 @@ bool SpriteFrame::initWithTexture(Texture2D* texture, const Rect& rect, bool rot
     _originalSizeInPixels = originalSize;
     _originalSize = CC_SIZE_PIXELS_TO_POINTS( _originalSizeInPixels );
     _rotated = rotated;
-    _anchorPoint = Vec2(NAN, NAN);
+	_anchorPoint = Vec2(0, 0);
 
     return true;
 }
@@ -120,7 +122,7 @@ bool SpriteFrame::initWithTextureFilename(const std::string& filename, const Rec
     _originalSizeInPixels = originalSize;
     _originalSize = CC_SIZE_PIXELS_TO_POINTS( _originalSizeInPixels );
     _rotated = rotated;
-    _anchorPoint = Vec2(NAN, NAN);
+	_anchorPoint = Vec2(std::numeric_limits<float>::max(), std::numeric_limits<float>::max());
 
     return true;
 }
@@ -188,7 +190,7 @@ void SpriteFrame::setAnchorPoint(const Vec2& anchorPoint)
 
 bool SpriteFrame::hasAnchorPoint() const
 {
-    return !std::isnan(_anchorPoint.x);
+	return !(_anchorPoint.x == std::numeric_limits<float>::max());
 }
 
 void SpriteFrame::setTexture(Texture2D * texture)

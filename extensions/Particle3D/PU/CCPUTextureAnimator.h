@@ -51,9 +51,9 @@ public:
 
     static PUTextureAnimator* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void initParticleForEmission(PUParticle3D* particle) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void initParticleForEmission(PUParticle3D* particle) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** Returns the AnimationTimeStep. The AnimationTimeStep defines the time between each animation frame. */
     float getAnimationTimeStep(void) const;
@@ -85,7 +85,7 @@ public:
     /** Todo */
     void setStartRandom(bool startRandom);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:	
     PUTextureAnimator(void);

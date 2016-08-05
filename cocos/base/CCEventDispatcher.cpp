@@ -1280,7 +1280,7 @@ void EventDispatcher::updateDirtyFlagForSceneGraph()
             auto iter = _nodeListenersMap.find(node);
             if (iter != _nodeListenersMap.end())
             {
-                for(auto itr3 = *iter->second.begin(); itr3 != *iter->second.end(); ++itr3)
+                for(auto itr3 = (*iter).second->begin(); itr3 != (*iter).second->end(); ++itr3)
                 {
                 	auto &l=*itr3;
                     setDirty(l->getListenerID(), DirtyFlag::SCENE_GRAPH_PRIORITY);
@@ -1377,7 +1377,7 @@ void EventDispatcher::sortEventListenersOfFixedPriority(const EventListener::Lis
     
     // FIXME: Should use binary search
     int index = 0;
-    for(auto itr0 = *fixedListeners.begin(); itr0 != *fixedListeners.end(); ++itr0)
+    for(auto itr0 = (*fixedListeners).begin(); itr0 != (*fixedListeners).end(); ++itr0)
     {
     	auto &listener=*itr0;
         if (listener->getFixedPriority() >= 0)

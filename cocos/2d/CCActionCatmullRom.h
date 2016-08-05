@@ -218,14 +218,14 @@ public:
     }
 
     // Overrides
-    virtual CardinalSplineTo *clone() const override;
-    virtual CardinalSplineTo* reverse() const override;
-    virtual void startWithTarget(Node *target) override;
+    virtual CardinalSplineTo *clone() const ;
+    virtual CardinalSplineTo* reverse() const ;
+    virtual void startWithTarget(Node *target) ;
     
     /**
      * @param time In seconds.
      */
-    virtual void update(float time) override;
+    virtual void update(float time) ;
 
 protected:
     /** Array of control points */
@@ -260,10 +260,10 @@ public:
     CardinalSplineBy();
 
     // Overrides
-    virtual void startWithTarget(Node *target) override;
-    virtual void updatePosition(Vec2 &newPos) override;
-    virtual CardinalSplineBy *clone() const override;
-    virtual CardinalSplineBy* reverse() const override;
+    virtual void startWithTarget(Node *target) ;
+    virtual void updatePosition(Vec2 &newPos) ;
+    virtual CardinalSplineBy *clone() const ;
+    virtual CardinalSplineBy* reverse() const ;
 
 protected:
     Vec2 _startPosition;
@@ -299,8 +299,8 @@ public:
     bool initWithDuration(float dt, PointArray* points);
 
     // Override
-    virtual CatmullRomTo *clone() const override;
-    virtual CatmullRomTo *reverse() const override;
+    virtual CatmullRomTo *clone() const ;
+    virtual CatmullRomTo *reverse() const ;
 };
 
 /** @class CatmullRomBy
@@ -331,8 +331,8 @@ public:
     bool initWithDuration(float dt, PointArray* points);
 
     // Override
-    virtual CatmullRomBy *clone() const override;
-    virtual CatmullRomBy *reverse() const override;
+    virtual CatmullRomBy *clone() const ;
+    virtual CatmullRomBy *reverse() const ;
 
 };
 

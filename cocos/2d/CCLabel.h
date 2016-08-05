@@ -307,7 +307,7 @@ public:
     /// @}
 
     /** Sets the text that this Label is to display.*/
-    virtual void setString(const std::string& text) override;
+    virtual void setString(const std::string& text) ;
 
     /** Return the text the Label is currently displaying.*/
     virtual const std::string& getString() const{  return _utf8Text; }
@@ -570,26 +570,26 @@ public:
     FontAtlas* getFontAtlas() { return _fontAtlas; }
 
     virtual const BlendFunc& getBlendFunc() const{ return _blendFunc; }
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
 
     virtual bool isOpacityModifyRGB() const{ return _isOpacityModifyRGB; }
-    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) override;
-    virtual void updateDisplayedColor(const Color3B& parentColor) override;
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;
+    virtual void setOpacityModifyRGB(bool isOpacityModifyRGB) ;
+    virtual void updateDisplayedColor(const Color3B& parentColor) ;
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity) ;
 
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
-    virtual const Size& getContentSize() const override;
-    virtual Rect getBoundingBox() const override;
+    virtual const Size& getContentSize() const ;
+    virtual Rect getBoundingBox() const ;
 
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
-    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) override;
+    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) ;
 
-    virtual void removeAllChildrenWithCleanup(bool cleanup) override;
-    virtual void removeChild(Node* child, bool cleanup = true) override;
-    virtual void setGlobalZOrder(float globalZOrder) override;
+    virtual void removeAllChildrenWithCleanup(bool cleanup) ;
+    virtual void removeChild(Node* child, bool cleanup = true) ;
+    virtual void setGlobalZOrder(float globalZOrder) ;
 
     CC_DEPRECATED_ATTRIBUTE static Label* create(const std::string& text, const std::string& font, float fontSize,
         const Size& dimensions = Size::ZERO, TextHAlignment hAlignment = TextHAlignment::TH_LEFT,
@@ -683,7 +683,7 @@ protected:
 
     FontDefinition _getFontDefinition() const;
 
-    virtual void updateColor() override;
+    virtual void updateColor() ;
 
     LabelType _currentLabelType;
     bool _contentDirty;

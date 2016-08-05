@@ -40,15 +40,15 @@ public:
      
     static PUGravityAffector* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** 
     */
     float getGravity(void) const;
     void setGravity(float gravity);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUGravityAffector(void);

@@ -414,51 +414,51 @@ namespace ui {
         void setReturnType(EditBox::KeyboardReturnType returnType);
             
         /*functions */
-        virtual void setPosition(const Vec2& pos) override;
-        virtual void setVisible(bool visible) override;
-        virtual void setContentSize(const Size& size) override;
-        virtual void setAnchorPoint(const Vec2& anchorPoint) override;
+        virtual void setPosition(const Vec2& pos) ;
+        virtual void setVisible(bool visible) ;
+        virtual void setContentSize(const Size& size) ;
+        virtual void setAnchorPoint(const Vec2& anchorPoint) ;
 
         /**
          * Returns the "class name" of widget.
          */
-        virtual std::string getDescription() const override;
+        virtual std::string getDescription() const ;
 
         /**
          * @js NA
          * @lua NA
          */
-        virtual void draw(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+        virtual void draw(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void onEnter(void) override;
+        virtual void onEnter(void) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void onExit(void) override;
+        virtual void onExit(void) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void keyboardWillShow(IMEKeyboardNotificationInfo& info) override;
+        virtual void keyboardWillShow(IMEKeyboardNotificationInfo& info) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void keyboardDidShow(IMEKeyboardNotificationInfo& info) override;
+        virtual void keyboardDidShow(IMEKeyboardNotificationInfo& info) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void keyboardWillHide(IMEKeyboardNotificationInfo& info) override;
+        virtual void keyboardWillHide(IMEKeyboardNotificationInfo& info) ;
         /**
          * @js NA
          * @lua NA
          */
-        virtual void keyboardDidHide(IMEKeyboardNotificationInfo& info) override;
+        virtual void keyboardDidHide(IMEKeyboardNotificationInfo& info) ;
             
         /* callback functions
          * @js NA
@@ -467,7 +467,7 @@ namespace ui {
         void touchDownAction(Ref *sender, TouchEventType controlEvent);
             
     protected:
-        virtual void adaptRenderers() override;
+        virtual void adaptRenderers() ;
 
         void updatePosition(float dt);
         EditBoxImpl*      _editBoxImpl;

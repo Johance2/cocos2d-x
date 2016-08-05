@@ -94,9 +94,9 @@ class CC_DLL Particle3DQuadRender : public Particle3DRender
 public:
     static Particle3DQuadRender* create(const std::string& texFile = "");
     
-    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) override;
+    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) ;
 
-    virtual void reset()override;
+    virtual void reset();
 CC_CONSTRUCTOR_ACCESS:
     Particle3DQuadRender();
     virtual ~Particle3DQuadRender();
@@ -130,9 +130,9 @@ class CC_DLL Particle3DModelRender : public Particle3DRender
 public:
     static Particle3DModelRender* create(const std::string& modelFile, const std::string &texFile = "");
 
-    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) override;
+    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) ;
     
-    virtual void reset()override;
+    virtual void reset();
 CC_CONSTRUCTOR_ACCESS:
     Particle3DModelRender();
     virtual ~Particle3DModelRender();

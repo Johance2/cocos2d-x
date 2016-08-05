@@ -20,12 +20,12 @@ public:
         std::function<void()> func;
     };
     
-    virtual bool init() override;
+    virtual bool init() ;
     virtual void initWithQuantityOfNodes(unsigned int nNodes);
     virtual void generateTestFunctions() = 0;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
     virtual void updateQuantityOfNodes();
     
     void switchTestType(unsigned int index);
@@ -40,9 +40,9 @@ public:
     void dumpProfilerInfo(float dt);
     
     // overrides
-    virtual void update(float dt) override;
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    virtual void update(float dt) ;
+    virtual void onEnter() ;
+    virtual void onExit() ;
     
 protected:
     static int quantityOfNodes;
@@ -68,10 +68,10 @@ class TemplateVectorPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(TemplateVectorPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class ArrayPerfTest : public PerformanceContainerScene
@@ -79,10 +79,10 @@ class ArrayPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(ArrayPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class TemplateMapStringKeyPerfTest : public PerformanceContainerScene
@@ -90,10 +90,10 @@ class TemplateMapStringKeyPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(TemplateMapStringKeyPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class DictionaryStringKeyPerfTest : public PerformanceContainerScene
@@ -101,10 +101,10 @@ class DictionaryStringKeyPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(DictionaryStringKeyPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class TemplateMapIntKeyPerfTest : public PerformanceContainerScene
@@ -112,10 +112,10 @@ class TemplateMapIntKeyPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(TemplateMapIntKeyPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 class DictionaryIntKeyPerfTest : public PerformanceContainerScene
@@ -123,10 +123,10 @@ class DictionaryIntKeyPerfTest : public PerformanceContainerScene
 public:
     CREATE_FUNC(DictionaryIntKeyPerfTest);
     
-    virtual void generateTestFunctions() override;
+    virtual void generateTestFunctions() ;
     
-    virtual std::string title() const override;
-    virtual std::string subtitle() const override;
+    virtual std::string title() const ;
+    virtual std::string subtitle() const ;
 };
 
 #endif // __PERFORMANCE_CONTAINER_TEST_H__

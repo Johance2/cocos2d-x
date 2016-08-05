@@ -66,14 +66,14 @@ public:
 
     FT_Encoding getEncoding() const { return _encoding; }
 
-    int* getHorizontalKerningForTextUTF16(const std::u16string& text, int &outNumLetters) const override;
+    int* getHorizontalKerningForTextUTF16(const std::u16string& text, int &outNumLetters) const ;
     
     unsigned char* getGlyphBitmap(unsigned short theChar, long &outWidth, long &outHeight, Rect &outRect,int &xAdvance);
     
     int getFontAscender() const;
     const char* getFontFamily() const;
 
-    virtual FontAtlas* createFontAtlas() override;
+    virtual FontAtlas* createFontAtlas() ;
     virtual int getFontMaxHeight() const{ return _lineHeight; }
 
     static void releaseFont(const std::string &fontName);

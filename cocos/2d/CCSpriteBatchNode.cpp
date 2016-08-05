@@ -256,7 +256,7 @@ void SpriteBatchNode::removeAllChildrenWithCleanup(bool doCleanup)
     if (_textureAtlas) {_textureAtlas->removeAllQuads();}
 }
 
-//override sortAllChildren
+// sortAllChildren
 void SpriteBatchNode::sortAllChildren()
 {
     if (_reorderChildDirty)

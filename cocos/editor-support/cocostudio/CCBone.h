@@ -68,7 +68,7 @@ public:
     /**
      * Initializes an empty Bone with nothing init.
      */
-    virtual bool init() override;
+    virtual bool init() ;
 
     /**
      * Initializes a Bone with the specified name
@@ -134,18 +134,18 @@ public:
      */
     void removeChildBone(Bone *bone, bool recursion);
 
-    void update(float delta) override;
+    void update(float delta) ;
 
-    void updateDisplayedColor(const cocos2d::Color3B &parentColor) override;
-    void updateDisplayedOpacity(GLubyte parentOpacity) override;
+    void updateDisplayedColor(const cocos2d::Color3B &parentColor) ;
+    void updateDisplayedOpacity(GLubyte parentOpacity) ;
 
     //! Update color to render display
-    virtual void updateColor() override;
+    virtual void updateColor() ;
 
     //! Update zorder
     void updateZOrder();
 
-    virtual void setLocalZOrder(int zOrder) override;
+    virtual void setLocalZOrder(int zOrder) ;
 
     Tween *getTween();
 
@@ -156,7 +156,7 @@ public:
     virtual bool isTransformDirty() { return _boneTransformDirty; }
 
     virtual cocos2d::Mat4 getNodeToArmatureTransform() const;
-    virtual cocos2d::Mat4 getNodeToWorldTransform() const override;
+    virtual cocos2d::Mat4 getNodeToWorldTransform() const ;
 
     cocos2d::Node *getDisplayRenderNode();
     DisplayType getDisplayRenderNodeType();

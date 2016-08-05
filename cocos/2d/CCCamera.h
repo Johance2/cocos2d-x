@@ -236,9 +236,9 @@ public:
      */
     float getNearPlane() const { return _nearPlane; }
     
-    //override
-    virtual void onEnter() override;
-    virtual void onExit() override;
+    //
+    virtual void onEnter() ;
+    virtual void onExit() ;
 
     /**
      Before rendering scene with this camera, the background need to be cleared. It clears the depth buffer with max depth by default. Use setBackgroundBrush to modify the default behavior
@@ -279,7 +279,7 @@ public:
      */
     CameraBackgroundBrush* getBackgroundBrush() const { return _clearBrush; }
 
-    virtual void visit(Renderer* renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer* renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
 
     bool isBrushValid();
 

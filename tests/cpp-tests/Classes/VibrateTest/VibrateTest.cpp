@@ -135,7 +135,7 @@ namespace {
     class SliderEx : public Slider
     {
     public:
-        enum class TouchEvent
+        enumTouchEvent
         {
             DOWN,
             MOVE,

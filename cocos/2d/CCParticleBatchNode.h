@@ -100,7 +100,7 @@ public:
      * @param doCleanup True if all actions and callbacks on this node should be removed, false otherwise.
      */
     void removeChildAtIndex(int index, bool doCleanup);
-    void removeAllChildrenWithCleanup(bool doCleanup) override;
+    void removeAllChildrenWithCleanup(bool doCleanup) ;
 
     /** Disables a particle by inserting a 0'd quad into the texture atlas.
      *
@@ -121,16 +121,16 @@ public:
     inline void setTextureAtlas(TextureAtlas* atlas) { _textureAtlas = atlas; };
     
     // Overrides
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
 
     using Node::addChild;
-    virtual void addChild(Node * child, int zOrder, int tag) override;
-    virtual void addChild(Node * child, int zOrder, const std::string &name) override;
-    virtual void removeChild(Node* child, bool cleanup) override;
-    virtual void reorderChild(Node * child, int zOrder) override;
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
-    virtual Texture2D* getTexture(void) const override;
-    virtual void setTexture(Texture2D *texture) override;
+    virtual void addChild(Node * child, int zOrder, int tag) ;
+    virtual void addChild(Node * child, int zOrder, const std::string &name) ;
+    virtual void removeChild(Node* child, bool cleanup) ;
+    virtual void reorderChild(Node * child, int zOrder) ;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
+    virtual Texture2D* getTexture(void) const ;
+    virtual void setTexture(Texture2D *texture) ;
     /**
     * @code
     * When this function bound into js or lua,the parameter will be changed
@@ -138,12 +138,12 @@ public:
     * @endcode
     * @lua NA
     */
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual const BlendFunc& getBlendFunc(void) const override;
+    virtual const BlendFunc& getBlendFunc(void) const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**

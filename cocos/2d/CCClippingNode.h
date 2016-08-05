@@ -119,22 +119,22 @@ public:
     /**
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     /**
      * @lua NA
      */
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onEnterTransitionDidFinish() ;
     /**
      * @lua NA
      */
-    virtual void onExitTransitionDidStart() override;
+    virtual void onExitTransitionDidStart() ;
     /**
      * @lua NA
      */
-    virtual void onExit() override;
-    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void onExit() ;
+    virtual void visit(Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
     
-    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) override;
+    virtual void setCameraMask(unsigned short mask, bool applyChildren = true) ;
     
 CC_CONSTRUCTOR_ACCESS:
     ClippingNode();
@@ -147,7 +147,7 @@ CC_CONSTRUCTOR_ACCESS:
 
     /** Initializes a clipping node without a stencil.
      */
-    virtual bool init() override;
+    virtual bool init() ;
     
     /** Initializes a clipping node with an other node as its stencil.
      The stencil node will be retained, and its parent will be set to this clipping node.

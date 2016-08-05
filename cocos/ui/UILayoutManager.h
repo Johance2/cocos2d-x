@@ -71,7 +71,7 @@ private:
     LinearVerticalLayoutManager(){};
     virtual ~LinearVerticalLayoutManager(){};
     static LinearVerticalLayoutManager* create();
-    virtual void doLayout(LayoutProtocol *layout) override;
+    virtual void doLayout(LayoutProtocol *layout) ;
     
     friend class Layout;
 };
@@ -88,7 +88,7 @@ private:
     LinearHorizontalLayoutManager(){};
     virtual ~LinearHorizontalLayoutManager(){};
     static LinearHorizontalLayoutManager* create();
-    virtual void doLayout(LayoutProtocol *layout) override;
+    virtual void doLayout(LayoutProtocol *layout) ;
     
     friend class Layout;
 };
@@ -111,7 +111,7 @@ private:
     {}
     virtual ~RelativeLayoutManager(){};
     static RelativeLayoutManager* create();
-    virtual void doLayout(LayoutProtocol *layout) override;
+    virtual void doLayout(LayoutProtocol *layout) ;
     
     Vector<Widget*> getAllWidgets(LayoutProtocol *layout);
     Widget* getRelativeWidget(Widget* widget);

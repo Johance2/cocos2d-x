@@ -470,9 +470,9 @@ public:
      */
     void formatText();
 
-    //override functions.
-    virtual void ignoreContentAdaptWithSize(bool ignore) override;
-    virtual std::string getDescription() const override;
+    // functions.
+    virtual void ignoreContentAdaptWithSize(bool ignore) ;
+    virtual std::string getDescription() const ;
 
     void setWrapMode(WrapMode wrapMode);                /*!< sets the wrapping mode: WRAP_PER_CHAR or WRAP_PER_WORD */
     WrapMode getWrapMode() const;                       /*!< returns the current wrapping mode */
@@ -539,14 +539,14 @@ public:
     void setOpenUrlHandler(const OpenUrlHandler& handleOpenUrl);
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
 
     bool initWithXML(const std::string& xml, const ValueMap& defaults = ValueMap(), const OpenUrlHandler& handleOpenUrl = nullptr);
 
 protected:
-    virtual void adaptRenderers() override;
+    virtual void adaptRenderers() ;
 
-    virtual void initRenderer() override;
+    virtual void initRenderer() ;
     void pushToContainer(Node* renderer);
     void handleTextRenderer(const std::string& text, const std::string& fontName, float fontSize, const Color3B& color,
                             GLubyte opacity, uint32_t flags, const std::string& url="",

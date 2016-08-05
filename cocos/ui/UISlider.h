@@ -233,26 +233,26 @@ public:
      */
     void addEventListener(const ccSliderCallback& callback);
 
-    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchMoved(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) override;
-    virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) override;
+    virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchMoved(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchEnded(Touch *touch, Event *unusedEvent) ;
+    virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) ;
     
-    //override "getVirtualRendererSize" method of widget.
-    virtual Size getVirtualRendererSize() const override;
+    // "getVirtualRendererSize" method of widget.
+    virtual Size getVirtualRendererSize() const ;
     
-    //override "getVirtualRenderer" method of widget.
-    virtual Node* getVirtualRenderer() override;
+    // "getVirtualRenderer" method of widget.
+    virtual Node* getVirtualRenderer() ;
     
-    //override "ignoreContentAdaptWithSize" method of widget.
-    virtual void ignoreContentAdaptWithSize(bool ignore) override;
+    // "ignoreContentAdaptWithSize" method of widget.
+    virtual void ignoreContentAdaptWithSize(bool ignore) ;
     
-    //override the widget's hitTest function to perform its own
-    virtual bool hitTest(const Vec2 &pt, const Camera* camera, Vec3 *p) const override;
+    // the widget's hitTest function to perform its own
+    virtual bool hitTest(const Vec2 &pt, const Camera* camera, Vec3 *p) const ;
     /**
      * Returns the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
     /** When user pressed the button, the button will zoom to a scale.
      * Thescale of the button  equals (button original scale + _zoomScale)
@@ -272,16 +272,16 @@ public:
     ResourceData getBallDisabledFile();
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
 
 protected:
-    virtual void initRenderer() override;
+    virtual void initRenderer() ;
     float getPercentWithBallPos(const Vec2 &pt) const;
     void percentChangedEvent(EventType event);
-    virtual void onPressStateChangedToNormal() override;
-    virtual void onPressStateChangedToPressed() override;
-    virtual void onPressStateChangedToDisabled() override;
-    virtual void onSizeChanged() override;
+    virtual void onPressStateChangedToNormal() ;
+    virtual void onPressStateChangedToPressed() ;
+    virtual void onPressStateChangedToDisabled() ;
+    virtual void onSizeChanged() ;
 
     void setupBarTexture();
     void loadBarTexture(SpriteFrame* spriteframe);
@@ -293,9 +293,9 @@ protected:
    
     void barRendererScaleChangedWithSize();
     void progressBarRendererScaleChangedWithSize();
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void adaptRenderers() override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void adaptRenderers() ;
 protected:
     Scale9Sprite*  _barRenderer;
     Scale9Sprite* _progressBarRenderer;

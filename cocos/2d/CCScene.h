@@ -84,7 +84,7 @@ public:
     static Scene *createWithSize(const Size& size);
 
     using Node::addChild;
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
     
     /** Get all cameras.
      * 
@@ -112,13 +112,13 @@ public:
     virtual void render(Renderer* renderer, const Mat4& eyeTransform, const Mat4* eyeProjection = nullptr);
     
     /**function */
-    virtual void removeAllChildren() override;
+    virtual void removeAllChildren() ;
     
 CC_CONSTRUCTOR_ACCESS:
     Scene();
     virtual ~Scene();
     
-    bool init() override;
+    bool init() ;
     bool initWithSize(const Size& size);
     
     void setCameraOrderDirty() { _cameraOrderDirty = true; }

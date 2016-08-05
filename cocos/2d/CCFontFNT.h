@@ -44,8 +44,8 @@ public:
     Removes from memory the cached configurations and the atlas name dictionary.
     */
     static void purgeCachedData();
-    virtual int* getHorizontalKerningForTextUTF16(const std::u16string& text, int &outNumLetters) const override;
-    virtual FontAtlas *createFontAtlas() override;
+    virtual int* getHorizontalKerningForTextUTF16(const std::u16string& text, int &outNumLetters) const ;
+    virtual FontAtlas *createFontAtlas() ;
     void setFontSize(float fontSize);
     int getOriginalFontSize()const;
 

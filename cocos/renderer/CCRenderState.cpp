@@ -222,7 +222,7 @@ void RenderState::StateBlock::bind()
     // When the public bind() is called with no RenderState object passed in,
     // we assume we are being called to bind the state of a single StateBlock,
     // irrespective of whether it belongs to a hierarchy of RenderStates.
-    // Therefore, we call restore() here with only this StateBlock's override
+    // Therefore, we call restore() here with only this StateBlock's 
     // bits to restore state before applying the new state.
     StateBlock::restore(_bits);
 

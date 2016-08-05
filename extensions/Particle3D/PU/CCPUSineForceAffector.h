@@ -41,8 +41,8 @@ public:
 
     static PUSineForceAffector* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** 
     */
@@ -54,7 +54,7 @@ public:
     float getFrequencyMax() const;
     void setFrequencyMax(const float frequencyMax);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:	
     PUSineForceAffector(void);

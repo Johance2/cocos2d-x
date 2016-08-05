@@ -41,8 +41,8 @@ public:
 
     static PUSphereCollider* create();
 
-    virtual void preUpdateAffector(float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void preUpdateAffector(float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** Returns the radius of the sphere
     */
@@ -68,7 +68,7 @@ public:
     */
     void calculateDirectionAfterCollision(PUParticle3D* particle, Vec3 distance, float distanceLength);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:	
     PUSphereCollider(void);

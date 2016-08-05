@@ -39,8 +39,8 @@ public:
 
     static PUAlignAffector* create();
 
-    virtual void firstParticleUpdate(PUParticle3D *particle, float deltaTime) override;
-    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) override;
+    virtual void firstParticleUpdate(PUParticle3D *particle, float deltaTime) ;
+    virtual void updatePUAffector(PUParticle3D *particle, float deltaTime) ;
 
     /** See setResize().
     */
@@ -51,7 +51,7 @@ public:
     */
     void setResize(bool resize);
 
-    virtual void copyAttributesTo (PUAffector* affector) override;
+    virtual void copyAttributesTo (PUAffector* affector) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUAlignAffector();

@@ -1907,12 +1907,12 @@ static void _clientSocketWriteAndClearString(std::string& s)
 }
 
 static void processInput(const std::string& data) {
-    std::lock_guard<std::mutex> lk(g_qMutex);
+    boost::lock_guard<std::mutex> lk(g_qMutex);
     g_queue.push_back(data);
 }
 
 static void clearBuffers() {
-    std::lock_guard<std::mutex> lk(g_rwMutex);
+    boost::lock_guard<std::mutex> lk(g_rwMutex);
     // only process input if there's something and we're not locked
     if (inData.length() > 0) {
         processInput(inData);

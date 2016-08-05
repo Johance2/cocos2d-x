@@ -220,26 +220,26 @@ public:
 
     /** Build the data if the mesh name has been set.
     */
-    virtual void prepare() override;
+    virtual void prepare() ;
 
     /** Reverse it.
     */
-    virtual void unPrepare() override;
+    virtual void unPrepare() ;
 
     /** Determine a particle position on the mesh surface.
     */
-    virtual void initParticlePosition(PUParticle3D* particle) override;
+    virtual void initParticlePosition(PUParticle3D* particle) ;
 
     /** See ParticleEmitter.
     */
-    virtual unsigned short calculateRequestedParticles(float timeElapsed) override;
+    virtual unsigned short calculateRequestedParticles(float timeElapsed) ;
 
     /** Determine the particle direction.
     */
-    virtual void initParticleDirection(PUParticle3D* particle) override;
+    virtual void initParticleDirection(PUParticle3D* particle) ;
 
-    virtual PUMeshSurfaceEmitter* clone() override;
-    virtual void copyAttributesTo (PUEmitter* emitter) override;
+    virtual PUMeshSurfaceEmitter* clone() ;
+    virtual void copyAttributesTo (PUEmitter* emitter) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUMeshSurfaceEmitter(void);

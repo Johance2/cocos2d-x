@@ -95,8 +95,8 @@ class SocketIOPacketV10x : public SocketIOPacket
 public:
     SocketIOPacketV10x();
     virtual ~SocketIOPacketV10x();
-    int typeAsNumber()const override;
-    std::string stringify()const override;
+    int typeAsNumber()const ;
+    std::string stringify()const ;
 private:
     std::vector<std::string> _typesMessage;
 };

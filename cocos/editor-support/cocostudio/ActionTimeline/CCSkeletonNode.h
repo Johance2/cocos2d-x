@@ -70,20 +70,20 @@ public:
     */
     void addSkinGroup(std::string groupName, std::map<std::string, std::string> boneSkinNameMap);
 
-    cocos2d::Rect getBoundingBox() const override;
+    cocos2d::Rect getBoundingBox() const ;
 
 CC_CONSTRUCTOR_ACCESS:
     SkeletonNode();
     virtual ~SkeletonNode();
-    virtual bool init() override;
+    virtual bool init() ;
     
 protected:
-    virtual void updateVertices() override;
-    virtual void updateColor() override;
+    virtual void updateVertices() ;
+    virtual void updateColor() ;
 
-    virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4& parentTransform, uint32_t parentFlags) override;
-    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) override;
-    virtual void onDraw(const cocos2d::Mat4 &transform, uint32_t flags) override;
+    virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4& parentTransform, uint32_t parentFlags) ;
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags) ;
+    virtual void onDraw(const cocos2d::Mat4 &transform, uint32_t flags) ;
 
 protected:
     cocos2d::Map<std::string, BoneNode*> _subBonesMap;

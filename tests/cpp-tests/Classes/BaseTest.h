@@ -38,7 +38,7 @@ class TestCase : public cocos2d::Scene
 {
 public:
     /** TestCase test type.*/
-    enum class Type
+    enum Type
     {
         /** For testing whether test case not crash.*/
         ROBUSTNESS,

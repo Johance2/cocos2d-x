@@ -9,7 +9,7 @@ class ParticleMainScene : public TestCase
 {
 public:
     ParticleMainScene();
-    virtual bool init() override;
+    virtual bool init() ;
     virtual void initWithSubTest(int subtest, int particles);
 
     void step(float dt);
@@ -20,8 +20,8 @@ public:
     virtual void doTest();
 
     // overrides
-    virtual void onExitTransitionDidStart() override;
-    virtual void onEnterTransitionDidFinish() override;
+    virtual void onExitTransitionDidStart() ;
+    virtual void onEnterTransitionDidFinish() ;
     void beginStat(float dt);
     void endStat(float dt);
     void doAutoTest();
@@ -45,8 +45,8 @@ class ParticlePerformTest1 : public ParticleMainScene
 public:
     CREATE_FUNC(ParticlePerformTest1);
 
-    virtual std::string title() const override;
-    virtual void initWithSubTest(int subtest, int particles) override;
+    virtual std::string title() const ;
+    virtual void initWithSubTest(int subtest, int particles) ;
 };
 
 class ParticlePerformTest2 : public ParticleMainScene
@@ -54,8 +54,8 @@ class ParticlePerformTest2 : public ParticleMainScene
 public:
     CREATE_FUNC(ParticlePerformTest2);
 
-    virtual std::string title() const override;
-    virtual void initWithSubTest(int subtest, int particles) override;
+    virtual std::string title() const ;
+    virtual void initWithSubTest(int subtest, int particles) ;
 };
 
 class ParticlePerformTest3 : public ParticleMainScene
@@ -63,8 +63,8 @@ class ParticlePerformTest3 : public ParticleMainScene
 public:
     CREATE_FUNC(ParticlePerformTest3);
 
-    virtual std::string title() const override;
-    virtual void initWithSubTest(int subtest, int particles) override;
+    virtual std::string title() const ;
+    virtual void initWithSubTest(int subtest, int particles) ;
 };
 
 class ParticlePerformTest4 : public ParticleMainScene
@@ -72,8 +72,8 @@ class ParticlePerformTest4 : public ParticleMainScene
 public:
     CREATE_FUNC(ParticlePerformTest4);
 
-    virtual std::string title() const override;
-    virtual void initWithSubTest(int subtest, int particles) override;
+    virtual std::string title() const ;
+    virtual void initWithSubTest(int subtest, int particles) ;
 };
 
 #endif

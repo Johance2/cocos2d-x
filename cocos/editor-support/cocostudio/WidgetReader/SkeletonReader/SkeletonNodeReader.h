@@ -41,6 +41,6 @@ public:
     CC_DEPRECATED_ATTRIBUTE static void purge();
     static void destroyInstance();
 
-    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* boneOptions) override;
+    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* boneOptions) ;
 };
 #endif //_SKELETONNODEREADER_H_

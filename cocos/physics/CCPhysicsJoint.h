@@ -141,7 +141,7 @@ public:
      */
     static PhysicsJointFixed* construct(PhysicsBody* a, PhysicsBody* b, const Vec2& anchr);
 
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointFixed() {}
@@ -200,7 +200,7 @@ public:
     /** Set the max distance of the anchor points.*/
     void setMax(float max);
 
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointLimit() {}
@@ -237,7 +237,7 @@ public:
      */
     static PhysicsJointPin* construct(PhysicsBody* a, PhysicsBody* b, const Vec2& anchr1, const Vec2& anchr2);
 
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointPin() {}
@@ -266,7 +266,7 @@ public:
     float getDistance() const;
     /** Set the distance of the anchor points.*/
     void setDistance(float distance);
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointDistance() {}
@@ -322,7 +322,7 @@ public:
     /** Set the spring soft constant.*/
     void setDamping(float damping);
     
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointSpring() {}
@@ -367,7 +367,7 @@ public:
     /** Set the anchor point on body b.*/
     void setAnchr2(const Vec2& anchr2);
     
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointGroove() {}
@@ -410,7 +410,7 @@ public:
     /** Set the spring soft constant.*/
     void setDamping(float damping);
     
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointRotarySpring() {}
@@ -454,7 +454,7 @@ public:
     /** Set the max rotation limit.*/
     void setMax(float max);
     
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointRotaryLimit() {}
@@ -495,7 +495,7 @@ public:
 
     /** Set the distance between "clicks".*/
     void setRatchet(float ratchet);
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointRatchet() {}
@@ -531,7 +531,7 @@ public:
     /** Set the ratio.*/
     void setRatio(float ratchet);
 
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointGear() {}
@@ -559,7 +559,7 @@ public:
     
     /** Set the relative angular velocity.*/
     void setRate(float rate);
-    virtual bool createConstraints() override;
+    virtual bool createConstraints() ;
 
 protected:
     PhysicsJointMotor() {}

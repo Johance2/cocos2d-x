@@ -489,9 +489,9 @@ void TMXMapInfo::startElement(void *ctx, const char *name, const char **atts)
         // Parse everything automatically
         const char* keys[] = {"name", "type", "width", "height", "gid", "id"};
         
-        for(auto itr = keys.begin(); itr != keys.end(); ++itr)
+        for(int i = 0; i < sizeof(keys)/sizeof(const char*); i++)
         {
-        	auto &key=*itr;
+        	auto &key=keys[i];
             Value value = attributeDict[key];
             dict[key] = value;
         }

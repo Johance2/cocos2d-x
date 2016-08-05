@@ -285,13 +285,13 @@ public:
      @warning addChild(z, tag); is not supported on TMXLayer. Instead of setTileGID.
      */
     using SpriteBatchNode::addChild;
-    virtual void addChild(Node * child, int zOrder, int tag) override;
+    virtual void addChild(Node * child, int zOrder, int tag) ;
     // super method
-    void removeChild(Node* child, bool cleanup) override;
+    void removeChild(Node* child, bool cleanup) ;
     /**
     * @js NA
     */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
 protected:
     Vec2 getPositionForIsoAt(const Vec2& pos);

@@ -89,14 +89,14 @@ public:
 
     static PURibbonTrailRender* create(const std::string &texFile = "");
 
-    virtual void notifyRescaled(const Vec3& scale) override;
-    virtual void prepare() override;
-    virtual void unPrepare() override;
-    virtual void updateRender(PUParticle3D *particle, float deltaTime, bool firstParticle) override;
+    virtual void notifyRescaled(const Vec3& scale) ;
+    virtual void prepare() ;
+    virtual void unPrepare() ;
+    virtual void updateRender(PUParticle3D *particle, float deltaTime, bool firstParticle) ;
 
-    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) override;
-    virtual void particleEmitted(PUParticleSystem3D* particleSystem, PUParticle3D* particle) override;
-    virtual void particleExpired(PUParticleSystem3D* particleSystem, PUParticle3D* particle) override;
+    virtual void render(Renderer* renderer, const Mat4 &transform, ParticleSystem3D* particleSystem) ;
+    virtual void particleEmitted(PUParticleSystem3D* particleSystem, PUParticle3D* particle) ;
+    virtual void particleExpired(PUParticleSystem3D* particleSystem, PUParticle3D* particle) ;
 
     /** Getters and Setters
     */
@@ -125,7 +125,7 @@ public:
     */
     void destroyAll(void);
 
-    virtual PURibbonTrailRender* clone() override;
+    virtual PURibbonTrailRender* clone() ;
     void copyAttributesTo(PURibbonTrailRender *render);
 
 CC_CONSTRUCTOR_ACCESS:

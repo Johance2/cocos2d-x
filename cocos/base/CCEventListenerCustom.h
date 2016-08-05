@@ -68,8 +68,8 @@ public:
     static EventListenerCustom* create(const std::string& eventName, const std::function<void(EventCustom*)>& callback);
     
     /// Overrides
-    virtual bool checkAvailable() override;
-    virtual EventListenerCustom* clone() override;
+    virtual bool checkAvailable() ;
+    virtual EventListenerCustom* clone() ;
     
 CC_CONSTRUCTOR_ACCESS:
     /** Constructor */

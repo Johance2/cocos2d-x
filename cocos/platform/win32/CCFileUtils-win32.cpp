@@ -195,7 +195,7 @@ FileUtils::Status FileUtilsWin32::getContents(const std::string& filename, Resiz
     ::CloseHandle(fileHandle);
 
     if (!successed) {
-		CCLOG("Get data from file(%s) failed, error code is %s", filename.data(), std::to_string(::GetLastError()).data());
+		CCLOG("Get data from file(%s) failed, error code is %s", filename.data(), std::to_string((long long)::GetLastError()).data());
 		buffer->resize(sizeRead);
 		return FileUtils::Status::ReadFailed;
     }
@@ -306,8 +306,8 @@ bool FileUtilsWin32::renameFile(const std::string &path, const std::string &oldn
     std::string newPath = path + name;
 
     std::regex pat("\\/");
-    std::string _old = std::regex_replace(oldPath, pat, "\\");
-    std::string _new = std::regex_replace(newPath, pat, "\\");
+    std::string _old = std::regex_replace(oldPath, pat, std::string("\\"));
+    std::string _new = std::regex_replace(newPath, pat, std::string("\\"));
 
     return renameFile(_old, _new);
 }
@@ -372,7 +372,7 @@ bool FileUtilsWin32::createDirectory(const std::string& dirPath)
 bool FileUtilsWin32::removeFile(const std::string &filepath)
 {
     std::regex pat("\\/");
-    std::string win32path = std::regex_replace(filepath, pat, "\\");
+    std::string win32path = std::regex_replace(filepath, pat, std::string("\\"));
 
     if (DeleteFile(StringUtf8ToWideChar(win32path).c_str()))
     {

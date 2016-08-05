@@ -56,8 +56,8 @@ public:
     virtual ~EventListenerAcceleration();
     
     /// Overrides
-    virtual EventListenerAcceleration* clone() override;
-    virtual bool checkAvailable() override;
+    virtual EventListenerAcceleration* clone() ;
+    virtual bool checkAvailable() ;
     
 CC_CONSTRUCTOR_ACCESS:
     EventListenerAcceleration();

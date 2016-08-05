@@ -240,8 +240,9 @@ void PhysicsShape::setRestitution(float restitution)
 {
     _material.restitution = restitution;
     
-    for (cpShape* shape : _cpShapes)
+    for(auto itr = _cpShapes.begin(); itr != _cpShapes.end(); ++itr)
     {
+    	auto shape=*itr;
         cpShapeSetElasticity(shape, restitution);
     }
 }
@@ -250,8 +251,9 @@ void PhysicsShape::setFriction(float friction)
 {
     _material.friction = friction;
     
-    for (cpShape* shape : _cpShapes)
+    for(auto itr = _cpShapes.begin(); itr != _cpShapes.end(); ++itr)
     {
+    	auto shape=*itr;
         cpShapeSetFriction(shape, friction);
     }
 }
@@ -260,8 +262,9 @@ void PhysicsShape::setSensor(bool sensor)
 {
     if (sensor != _sensor)
     {
-        for (cpShape* shape : _cpShapes)
+        for(auto itr = _cpShapes.begin(); itr != _cpShapes.end(); ++itr)
         {
+        	auto shape=*itr;
             cpShapeSetSensor(shape, sensor);
         }
         _sensor = sensor;

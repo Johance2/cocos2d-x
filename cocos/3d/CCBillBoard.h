@@ -91,17 +91,17 @@ public:
     /** Get the billboard rotation mode. */
     Mode getMode() const;
 
-    //override
+    //
     
     /** update billboard's transform and turn it towards camera */
-    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
+    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) ;
     
     /** 
      * draw BillBoard object.
      *
      * @lua NA
      */
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
 
 CC_CONSTRUCTOR_ACCESS:

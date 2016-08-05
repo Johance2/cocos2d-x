@@ -18,7 +18,7 @@ public:
     virtual std::string title() const;
     virtual void onClickTrackNode(bool bClicked) = 0;
 
-    virtual void keyboardWillShow(cocos2d::IMEKeyboardNotificationInfo& info)override;
+    virtual void keyboardWillShow(cocos2d::IMEKeyboardNotificationInfo& info);
 
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);

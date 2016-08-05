@@ -210,12 +210,12 @@ public:
     //
     // Overrides
     //
-    virtual FiniteTimeAction* reverse() const override
+    virtual FiniteTimeAction* reverse() const 
     {
         CC_ASSERT(0);
         return nullptr;
     }
-    virtual FiniteTimeAction* clone() const override
+    virtual FiniteTimeAction* clone() const 
     {
         CC_ASSERT(0);
         return nullptr;
@@ -277,19 +277,19 @@ public:
     //
     // Override
     //
-    virtual Speed* clone() const override;
-    virtual Speed* reverse() const override;
-    virtual void startWithTarget(Node* target) override;
-    virtual void stop() override;
+    virtual Speed* clone() const ;
+    virtual Speed* reverse() const ;
+    virtual void startWithTarget(Node* target) ;
+    virtual void stop() ;
     /**
      * @param dt in seconds.
      */
-    virtual void step(float dt) override;
+    virtual void step(float dt) ;
     /** Return true if the action has finished.
      *
      * @return Is true if the action has finished.
      */
-    virtual bool isDone() const  override;
+    virtual bool isDone() const  ;
     
 CC_CONSTRUCTOR_ACCESS:
     Speed();
@@ -364,15 +364,15 @@ public:
     //
     // Override
     //
-    virtual Follow* clone() const override;
-    virtual Follow* reverse() const override;
+    virtual Follow* clone() const ;
+    virtual Follow* reverse() const ;
     /**
      * @param dt in seconds.
      * @js NA
      */
-    virtual void step(float dt) override;
-    virtual bool isDone() const override;
-    virtual void stop() override;
+    virtual void step(float dt) ;
+    virtual bool isDone() const ;
+    virtual void stop() ;
 
 CC_CONSTRUCTOR_ACCESS:
     /**

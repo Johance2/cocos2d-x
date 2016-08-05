@@ -229,32 +229,32 @@ public:
     static PUParticleSystem3D* create(const std::string &filePath);
     static PUParticleSystem3D* create(const std::string &filePath, const std::string &materialPath);
     
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
 
-    virtual void update(float delta) override;
+    virtual void update(float delta) ;
     void forceUpdate(float delta);
     
     /**
      * particle system play control
      */
-    virtual void startParticleSystem() override;
+    virtual void startParticleSystem() ;
     
     /**
      * stop particle
      */
-    virtual void stopParticleSystem() override;
+    virtual void stopParticleSystem() ;
     
     /**
      * pause particle
      */
-    virtual void pauseParticleSystem() override;
+    virtual void pauseParticleSystem() ;
     
     /**
      * resume particle
      */
-    virtual void resumeParticleSystem() override;
+    virtual void resumeParticleSystem() ;
 
-    virtual int getAliveParticleCount() const override;
+    virtual int getAliveParticleCount() const ;
 
     /** 
      * Returns the velocity scale, defined in the particle system, but passed to the technique for convenience.

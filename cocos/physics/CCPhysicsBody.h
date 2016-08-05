@@ -452,7 +452,7 @@ public:
      *
      * If the body it isn't enabled, it will not has simulation by world.
      */
-    virtual void setEnabled(bool enable) override;
+    virtual void setEnabled(bool enable) ;
     
     /** Whether the body can rotation. */
     inline bool isRotationEnabled() const { return _rotationEnabled; }
@@ -481,16 +481,16 @@ public:
     /** Get the rigid body of chipmunk. */
     cpBody* getCPBody() const { return _cpBody; }
 
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual void onAdd() override;
-    virtual void onRemove() override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
+    virtual void onAdd() ;
+    virtual void onRemove() ;
     
 protected:
     PhysicsBody();
     virtual ~PhysicsBody();
 
-    virtual bool init()override;
+    virtual bool init();
     
     virtual void setPosition(float positionX, float positionY);
 
@@ -498,7 +498,7 @@ protected:
 
     virtual void setScale(float scaleX, float scaleY);
     
-    void update(float delta)override;
+    void update(float delta);
     
     void removeJoint(PhysicsJoint* joint);
 

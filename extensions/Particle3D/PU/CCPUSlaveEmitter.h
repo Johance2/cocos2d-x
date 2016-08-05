@@ -52,38 +52,38 @@ public:
 
     /** See ParticleEmitter.
     */
-    virtual void initParticlePosition(PUParticle3D* particle) override;
+    virtual void initParticlePosition(PUParticle3D* particle) ;
 
     /** See ParticleEmitter.
     */
-    virtual void initParticleDirection(PUParticle3D* particle) override;
+    virtual void initParticleDirection(PUParticle3D* particle) ;
 
     /** See ParticleEmitter.
     */
-    virtual void prepare() override;
+    virtual void prepare() ;
 
     /** See ParticleEmitter.
     */
-    virtual void unPrepare() override;
+    virtual void unPrepare() ;
 
     /** See ParticleEmitter.
     */
-    virtual void notifyStart (void) override;
+    virtual void notifyStart (void) ;
 
     /** Initialise the emitted particle. This means that its position is set.
     */
-    virtual void particleEmitted(PUParticleSystem3D* particleSystem, PUParticle3D* particle) override;
+    virtual void particleEmitted(PUParticleSystem3D* particleSystem, PUParticle3D* particle) ;
 
     /** No implementation.
     */
-    virtual void particleExpired(PUParticleSystem3D* particleSystem, PUParticle3D* particle) override{};
+    virtual void particleExpired(PUParticleSystem3D* particleSystem, PUParticle3D* particle) {};
 
     /** 
     */
     void setMasterEmitterName(const std::string& masterEmitterName);
 
-    virtual PUSlaveEmitter* clone() override;
-    virtual void copyAttributesTo (PUEmitter* emitter) override;
+    virtual PUSlaveEmitter* clone() ;
+    virtual void copyAttributesTo (PUEmitter* emitter) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUSlaveEmitter(void);

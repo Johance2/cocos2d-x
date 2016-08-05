@@ -430,10 +430,10 @@ public:
      */
     virtual void setRotatePerSecondVar(float degrees);
 
-    virtual void setScale(float s) override;
-    virtual void setRotation(float newRotation) override;
-    virtual void setScaleX(float newScaleX) override;
-    virtual void setScaleY(float newScaleY) override;
+    virtual void setScale(float s) ;
+    virtual void setRotation(float newRotation) ;
+    virtual void setScaleX(float newScaleX) ;
+    virtual void setScaleY(float newScaleY) ;
 
     /** Whether or not the particle system is active.
      *
@@ -742,11 +742,11 @@ public:
     inline void setPositionType(PositionType type) { _positionType = type; };
     
     // Overrides
-    virtual void onEnter() override;
-    virtual void onExit() override;
-    virtual void update(float dt) override;
-    virtual Texture2D* getTexture() const override;
-    virtual void setTexture(Texture2D *texture) override;
+    virtual void onEnter() ;
+    virtual void onExit() ;
+    virtual void update(float dt) ;
+    virtual Texture2D* getTexture() const ;
+    virtual void setTexture(Texture2D *texture) ;
     /**
     *@code
     *When this function bound into js or lua,the parameter will be changed
@@ -754,19 +754,19 @@ public:
     *In lua: local setBlendFunc(local src, local dst)
     *@endcode
     */
-    virtual void setBlendFunc(const BlendFunc &blendFunc) override;
+    virtual void setBlendFunc(const BlendFunc &blendFunc) ;
     /**
     * @js NA
     * @lua NA
     */
-    virtual const BlendFunc &getBlendFunc() const override;
+    virtual const BlendFunc &getBlendFunc() const ;
 
     const std::string& getResourceFile() const { return _plistFile; }
 
     /// @{
     /// @name implement Playable Protocol
-    virtual void start() override;
-    virtual void stop() override;
+    virtual void start() ;
+    virtual void stop() ;
     /// @} end of PlaybleProtocol
     
 CC_CONSTRUCTOR_ACCESS:
@@ -781,7 +781,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~ParticleSystem();
 
     /** initializes a ParticleSystem*/
-    bool init() override;
+    bool init() ;
     /** initializes a ParticleSystem from a plist file.
      This plist files can be created manually or with Particle Designer:
      http://particledesigner.71squared.com/

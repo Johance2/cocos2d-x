@@ -123,21 +123,21 @@ public:
      *
      * @param object the key object to remove script object.
      */
-    virtual void removeScriptObjectByObject(Ref* object) override;
+    virtual void removeScriptObjectByObject(Ref* object) ;
     
     /**
      * Remove Lua function reference by nHandler by setting toluafix_refid_function_mapping[nHandle] nil.
      *
      * @param nHandler the function reference index to find the corresponding Lua function pointer.
      */
-    virtual void removeScriptHandler(int nHandler) override;
+    virtual void removeScriptHandler(int nHandler) ;
     
     /**
      * Reallocate Lua function reference index to the Lua function pointer to add reference.
      *
      * @param nHandler the function reference index to find the corresponding Lua function pointer.
      */
-    virtual int reallocateScriptHandler(int nHandler) override;
+    virtual int reallocateScriptHandler(int nHandler) ;
     
     /**
      * Execute script code contained in the given string.
@@ -145,7 +145,7 @@ public:
      * @param codes holding the valid script code that should be executed.
      * @return 0 if the string is executed correctly, other if the string is executed wrongly.
      */
-    virtual int executeString(const char* codes) override;
+    virtual int executeString(const char* codes) ;
     
     /**
      * Execute a script file.
@@ -153,7 +153,7 @@ public:
      * @param filename String object holding the filename of the script file that is to be executed.
      * @return the return values by calling executeFunction.
      */
-    virtual int executeScriptFile(const char* filename) override;
+    virtual int executeScriptFile(const char* filename) ;
     
     /**
      * Execute a scripted global function.
@@ -162,7 +162,7 @@ public:
      * @param functionName String object holding the name of the function, in the global script environment, that is to be executed.
      * @return The integer value returned from the script function.
      */
-    virtual int executeGlobalFunction(const char* functionName) override;
+    virtual int executeGlobalFunction(const char* functionName) ;
     virtual int executeNodeEvent(Node* pNode, int nAction);
     virtual int executeMenuItemEvent(MenuItem* pMenuItem);
     virtual int executeNotificationEvent(__NotificationCenter* pNotificationCenter, const char* pszName);
@@ -178,7 +178,7 @@ public:
      *
      * @return return true if current _callFromLua of LuaStack is not equal to 0 otherwise return false.
      */
-    virtual bool handleAssert(const char *msg) override;
+    virtual bool handleAssert(const char *msg) ;
     
     /**
      * Parse the config information data.
@@ -187,7 +187,7 @@ public:
      * @param str  the information data.
      * @return if __onParseConfig function exist in the Lua, it return the value that _stack->executeFunction returns otherwise return false.
      */
-    virtual bool parseConfig(ConfigType type, const std::string& str) override;
+    virtual bool parseConfig(ConfigType type, const std::string& str) ;
     
     /**
      * When some events triggered in the c++ also needs to pass on to lua to handle, we could call this function to send events.
@@ -195,7 +195,7 @@ public:
      * @param message the ScriptEvent object that has ScriptEventType and the pointer to information data.
      * @return default return 0 otherwise return values the same as handleNodeEvent, handleMenuClickedEvent or handleCallFuncActionEvent,etc.
      */
-    virtual int sendEvent(ScriptEvent* message) override;
+    virtual int sendEvent(ScriptEvent* message) ;
     
     /**
      * Pass on the events related with ScrollView,TableCell,AssertManager, Armature, Accelerometer, Keyboard, Touch, Touches ,Mouse and Custom event to lua to handle.

@@ -49,17 +49,17 @@ public:
     NavMeshDebugDraw();
     virtual ~NavMeshDebugDraw();
 
-    virtual void depthMask(bool state)override;
-    virtual void texture(bool state)override{};
-    virtual void begin(duDebugDrawPrimitives prim, float size = 1.0f) override;
+    virtual void depthMask(bool state);
+    virtual void texture(bool state){};
+    virtual void begin(duDebugDrawPrimitives prim, float size = 1.0f) ;
 
-    virtual void vertex(const float* pos, unsigned int color) override;
-    virtual void vertex(const float x, const float y, const float z, unsigned int color) override;
+    virtual void vertex(const float* pos, unsigned int color) ;
+    virtual void vertex(const float x, const float y, const float z, unsigned int color) ;
 
-    virtual void vertex(const float* pos, unsigned int color, const float* uv) override;
-    virtual void vertex(const float x, const float y, const float z, unsigned int color, const float u, const float v) override;
+    virtual void vertex(const float* pos, unsigned int color, const float* uv) ;
+    virtual void vertex(const float x, const float y, const float z, unsigned int color, const float u, const float v) ;
 
-    virtual void end() override;
+    virtual void end() ;
 
     void draw(Renderer* renderer);
 

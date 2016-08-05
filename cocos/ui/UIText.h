@@ -185,11 +185,11 @@ public:
      */
     bool isTouchScaleChangeEnabled()const;
 
-    //override "getVirtualRendererSize" method of widget.
-    virtual Size getVirtualRendererSize() const override;
+    // "getVirtualRendererSize" method of widget.
+    virtual Size getVirtualRendererSize() const ;
 
-    //override "getVirtualRenderer" method of widget.
-    virtual Node* getVirtualRenderer() override;
+    // "getVirtualRenderer" method of widget.
+    virtual Node* getVirtualRenderer() ;
 
     /** Gets the render size in auto mode.
      *
@@ -200,7 +200,7 @@ public:
     /**
      * Returns the "class name" of widget.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     /**
      * Sets the rendering size of the text, you should call this method
@@ -324,22 +324,22 @@ public:
     Color4B getEffectColor() const;
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init() override;
+    virtual bool init() ;
     virtual bool init(const std::string& textContent,
                       const std::string& fontName,
                       float fontSize);
 
 protected:
-    virtual void initRenderer() override;
-    virtual void onPressStateChangedToNormal() override;
-    virtual void onPressStateChangedToPressed() override;
-    virtual void onPressStateChangedToDisabled() override;
-    virtual void onSizeChanged() override;
+    virtual void initRenderer() ;
+    virtual void onPressStateChangedToNormal() ;
+    virtual void onPressStateChangedToPressed() ;
+    virtual void onPressStateChangedToDisabled() ;
+    virtual void onSizeChanged() ;
 
     void labelScaleChangedWithSize();
-    virtual Widget* createCloneInstance() override;
-    virtual void copySpecialProperties(Widget* model) override;
-    virtual void adaptRenderers() override;
+    virtual Widget* createCloneInstance() ;
+    virtual void copySpecialProperties(Widget* model) ;
+    virtual void adaptRenderers() ;
 protected:
     bool _touchScaleChangeEnabled;
     float _normalScaleValueX;

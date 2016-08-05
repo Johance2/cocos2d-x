@@ -41,7 +41,7 @@ namespace cocos2d { namespace network
         DownloaderCURL(const DownloaderHints& hints);
         virtual ~DownloaderCURL();
 
-        virtual IDownloadTask *createCoTask(std::shared_ptr<const DownloadTask>& task) override;
+        virtual IDownloadTask *createCoTask(std::shared_ptr<const DownloadTask>& task) ;
 
     protected:
         class Impl;

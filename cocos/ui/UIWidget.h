@@ -300,7 +300,7 @@ public:
     /**
      * @js NA
      */
-    virtual void visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) ;
 
     /**
      * Sets the touch event target/selector to the widget
@@ -333,7 +333,7 @@ public:
      *
      * @param pos  The position (x,y) of the widget in OpenGL coordinates
      */
-    virtual void setPosition(const Vec2 &pos) override;
+    virtual void setPosition(const Vec2 &pos) ;
 
     /**
      * Set the percent(x,y) of the widget in OpenGL coordinates
@@ -414,15 +414,15 @@ public:
     /** @deprecated Use setFlippedY() instead */
     CC_DEPRECATED_ATTRIBUTE void setFlipY(bool flipY) { setFlippedY(flipY); };
 
-    //override the setScale function of Node
-    virtual void setScaleX(float scaleX) override;
-    virtual void setScaleY(float scaleY) override;
-    virtual void setScale(float scale) override;
-    virtual void setScale(float scalex, float scaley) override;
+    // the setScale function of Node
+    virtual void setScaleX(float scaleX) ;
+    virtual void setScaleY(float scaleY) ;
+    virtual void setScale(float scale) ;
+    virtual void setScale(float scalex, float scaley) ;
     using Node::setScaleZ;
-    virtual float getScaleX() const override;
-    virtual float getScaleY() const override;
-    virtual float getScale() const override;
+    virtual float getScaleX() const ;
+    virtual float getScaleY() const ;
+    virtual float getScale() const ;
     using Node::getScaleZ;
     
     /**
@@ -488,7 +488,7 @@ public:
      * Changes the size that is widget's size
      * @param contentSize A content size in `Size`.
      */
-    virtual void setContentSize(const Size& contentSize) override;
+    virtual void setContentSize(const Size& contentSize) ;
 
     /**
      * Changes the percent that is widget's percent size
@@ -594,7 +594,7 @@ public:
      * @see LayoutParameter
      * @return LayoutParameter
      */
-    LayoutParameter* getLayoutParameter()const override;
+    LayoutParameter* getLayoutParameter()const ;
     /**
      * Gets LayoutParameter of widget.
      *
@@ -650,7 +650,7 @@ public:
      * Returns the string representation of widget class name
      * @return get the class description.
      */
-    virtual std::string getDescription() const override;
+    virtual std::string getDescription() const ;
 
     /**
      * Create a new widget copy of the original one.
@@ -660,12 +660,12 @@ public:
     /**
      * @lua NA
      */
-    virtual void onEnter() override;
+    virtual void onEnter() ;
     
     /**
      * @lua NA
      */
-    virtual void onExit() override;
+    virtual void onExit() ;
 
     /**
      * Update all children's contents size and position recursively.
@@ -845,7 +845,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
 
     //initializes state of widget.
-    virtual bool init() override;
+    virtual bool init() ;
 
     /*
      * @brief Sends the touch event to widget's parent, if a widget wants to handle touch event under another widget, 

@@ -153,12 +153,12 @@ public:
     inline Vec2 getBarChangeRate() const { return _barChangeRate; }
 
     // Overrides
-    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) override;
-    virtual void setAnchorPoint(const Vec2& anchorPoint) override;
-    virtual void setColor(const Color3B &color) override;
-    virtual const Color3B& getColor() const override;
-    virtual void setOpacity(GLubyte opacity) override;
-    virtual GLubyte getOpacity() const override;
+    virtual void draw(Renderer *renderer, const Mat4 &transform, uint32_t flags) ;
+    virtual void setAnchorPoint(const Vec2& anchorPoint) ;
+    virtual void setColor(const Color3B &color) ;
+    virtual const Color3B& getColor() const ;
+    virtual void setOpacity(GLubyte opacity) ;
+    virtual GLubyte getOpacity() const ;
     
 CC_CONSTRUCTOR_ACCESS:
     /**
@@ -182,7 +182,7 @@ protected:
     void updateProgress(void);
     void updateBar(void);
     void updateRadial(void);
-    virtual void updateColor(void) override;
+    virtual void updateColor(void) ;
     Vec2 boundaryTexCoord(char index);
 
     Type _type;

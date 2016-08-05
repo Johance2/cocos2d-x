@@ -42,11 +42,11 @@ public:
     static void destroyInstance();
     
     flatbuffers::Offset<flatbuffers::Table> createOptionsWithFlatBuffers(const tinyxml2::XMLElement* objectData,
-                                                                         flatbuffers::FlatBufferBuilder* builder) override;
+                                                                         flatbuffers::FlatBufferBuilder* builder) ;
     
-    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) override;
+    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) ;
     
-    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) override;
+    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) ;
 private:
     static TabControlReader* _tabReaderInstance;
 };
@@ -63,12 +63,12 @@ public:
     static void destroyInstance();
     
     flatbuffers::Offset<flatbuffers::Table> createOptionsWithFlatBuffers(const tinyxml2::XMLElement* objectData,
-                                                                         flatbuffers::FlatBufferBuilder* builder) override;
+                                                                         flatbuffers::FlatBufferBuilder* builder) ;
     
-    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) override;
+    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) ;
     
     //CSArmatureNode
-    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) override;
+    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) ;
 private:
     static TabHeaderReader* _tabheaderReaderInstance;
     int    getResourceType(std::string key);
@@ -89,12 +89,12 @@ public:
                                                                                        const tinyxml2::XMLElement* objectData,
                                                                                        flatbuffers::FlatBufferBuilder* builder);
     
-    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) override;
+    void setPropsWithFlatBuffers(cocos2d::Node* node, const flatbuffers::Table* nodeOption) ;
     
-    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) override;
+    cocos2d::Node* createNodeWithFlatBuffers(const flatbuffers::Table* nodeOptions) ;
     
     virtual flatbuffers::Offset<flatbuffers::Table> createOptionsWithFlatBuffers(
-                                                                                 const tinyxml2::XMLElement* objectData, flatbuffers::FlatBufferBuilder* builder) override;
+                                                                                 const tinyxml2::XMLElement* objectData, flatbuffers::FlatBufferBuilder* builder) ;
     
 private:
     static TabItemReader* _tabItemReaderInstance;

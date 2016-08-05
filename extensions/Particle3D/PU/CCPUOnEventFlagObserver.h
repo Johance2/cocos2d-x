@@ -50,14 +50,14 @@ public:
 
     /** 
     */
-    virtual bool observe (PUParticle3D* particle, float timeElapsed) override;
+    virtual bool observe (PUParticle3D* particle, float timeElapsed) ;
 
     /** 
     */
     unsigned int getEventFlag(void) const {return _eventFlag;};
     void setEventFlag(unsigned int eventFlag){_eventFlag = eventFlag;};
 
-    virtual void copyAttributesTo (PUObserver* observer) override;
+    virtual void copyAttributesTo (PUObserver* observer) ;
 
 CC_CONSTRUCTOR_ACCESS:
     PUOnEventFlagObserver(void);

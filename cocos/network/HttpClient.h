@@ -197,7 +197,7 @@ private:
 
     HttpCookie* _cookie;
 
-    std::condition_variable_any _sleepCondition;
+    boost::condition_variable_any _sleepCondition;
 
     char _responseMessage[RESPONSE_BUFFER_SIZE];
 
