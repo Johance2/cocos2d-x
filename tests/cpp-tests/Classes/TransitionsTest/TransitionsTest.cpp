@@ -233,10 +233,10 @@ TransitionsTests::TransitionsTests()
 {
     int sceneIndex = 0;
 
-    for(auto itr0 = transitions.begin(); itr0 != transitions.end(); ++itr0)
+    for(int i = 0; i < sizeof(transitions)/sizeof(_transitions);i++)
     {
-    	auto &test=*itr0;
-        addTestCase(test.name, [sceneIndex](){
+    	auto &test=transitions[i];
+        addTestCase(test.name, [sceneIndex]()->TransitionScene*{
             auto scene = TransitionsTest::create();
             // fix bug #486, without setDepthTest(false), FlipX,Y will flickers
             Director::getInstance()->setDepthTest(false);

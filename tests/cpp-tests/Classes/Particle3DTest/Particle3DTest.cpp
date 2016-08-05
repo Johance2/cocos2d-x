@@ -79,7 +79,7 @@ bool Particle3DTestDemo::init()
 
 
     TTFConfig config("fonts/tahoma.ttf",10);
-    _particleLab = Label::createWithTTF(config,"Particle Count: 0",TextHAlignment::LEFT);
+    _particleLab = Label::createWithTTF(config,"Particle Count: 0",TextHAlignment::TH_LEFT);
     _particleLab->retain();
     _particleLab->setPosition(Vec2(0.0f, size.height / 6.0f));
     _particleLab->setAnchorPoint(Vec2(0.0f, 0.0f));

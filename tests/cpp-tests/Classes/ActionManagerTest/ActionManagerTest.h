@@ -89,10 +89,10 @@ public:
     virtual void onEnter();
     void stopAction(float time);
 protected:
-    const unsigned int kMoveFlag = 0x01;
-    const unsigned int kScaleFlag = 0x02;
-    const unsigned int kRotateFlag = 0x04;
-    const unsigned int kRepeatForeverFlag = 0x08; // You don't need this for the test, but it's for demonstration how to activate several flags on an action.
+    static const unsigned int kMoveFlag = 0x01;
+    static const unsigned int kScaleFlag = 0x02;
+    static const unsigned int kRotateFlag = 0x04;
+    static const unsigned int kRepeatForeverFlag = 0x08; // You don't need this for the test, but it's for demonstration how to activate several flags on an action.
 };
 
 class Issue14050Test : public ActionManagerTest

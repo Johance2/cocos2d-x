@@ -65,7 +65,7 @@ bool AssetsManagerExLoaderScene::init()
     sprite->setPosition( VisibleRect::center() );
     
     TTFConfig config("fonts/tahoma.ttf", 30);
-    _progress = Label::createWithTTF(config, "0%", TextHAlignment::CENTER);
+    _progress = Label::createWithTTF(config, "0%", TextHAlignment::TH_CENTER);
     _progress->setPosition( Vec2(VisibleRect::center().x, VisibleRect::center().y + 50) );
     _loadLayer->addChild(_progress);
     

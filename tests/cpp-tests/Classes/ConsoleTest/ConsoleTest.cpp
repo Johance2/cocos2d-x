@@ -72,15 +72,14 @@ std::string BaseTestConsole::title() const
 ConsoleCustomCommand::ConsoleCustomCommand()
 {
     _console = Director::getInstance()->getConsole();
-    static struct Console::Command commands[] = {
-        {"hello", "This is just a user generated command", [](int fd, const std::string& args) {
+	static struct Console::Command commands = Console::Command(
+        "hello", "This is just a user generated command", [](int fd, const std::string& args) {
             const char msg[] = "how are you?\nArguments passed: ";
             send(fd, msg, sizeof(msg),0);
             send(fd, args.c_str(), args.length(),0);
             send(fd, "\n",1,0);
-        }},
-    };
-    _console->addCommand(commands[0]);
+	});
+    _console->addCommand(commands);
 }
 
 ConsoleCustomCommand::~ConsoleCustomCommand()
@@ -118,7 +117,7 @@ ConsoleUploadFile::ConsoleUploadFile()
     _target_file_name = std::string("grossini") + buf;
 
     _src_file_path = FileUtils::getInstance()->fullPathForFilename(s_pathGrossini);
-    std::thread t = std::thread( &ConsoleUploadFile::uploadFile, this);
+    boost::thread t = boost::thread( &ConsoleUploadFile::uploadFile, this);
     t.detach();
 }
 

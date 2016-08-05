@@ -64,7 +64,7 @@ void TouchableSpriteTest::onEnter()
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->setSwallowTouches(true);
     
-    listener1->onTouchBegan = [](Touch* touch, Event* event){
+    listener1->onTouchBegan = [](Touch* touch, Event* event)->bool{
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
         
         Vec2 locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -177,7 +177,7 @@ public:
         auto listener = EventListenerTouchOneByOne::create();
         listener->setSwallowTouches(true);
         
-        listener->onTouchBegan = [=](Touch* touch, Event* event){
+        listener->onTouchBegan = [=](Touch* touch, Event* event)->bool{
             
             Vec2 locationInNode = this->convertToNodeSpace(touch->getLocation());
             Size s = this->getContentSize();
@@ -282,7 +282,7 @@ void RemoveListenerWhenDispatching::onEnter()
     
     std::shared_ptr<bool> firstClick(new bool(true));
     
-    listener1->onTouchBegan = [=](Touch* touch, Event* event){
+    listener1->onTouchBegan = [=](Touch* touch, Event* event)->bool{
         Vec2 locationInNode = sprite1->convertToNodeSpace(touch->getLocation());
         Size s = sprite1->getContentSize();
         Rect rect = Rect(0, 0, s.width, s.height);
@@ -537,7 +537,7 @@ void RemoveAndRetainNodeTest::onEnter()
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->setSwallowTouches(true);
     
-    listener1->onTouchBegan = [](Touch* touch, Event* event){
+    listener1->onTouchBegan = [](Touch* touch, Event* event)->bool{
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
         
         Vec2 locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -620,8 +620,9 @@ void RemoveListenerAfterAddingTest::onEnter()
     item1->setPosition(VisibleRect::center() + Vec2(0, 80));
     
     auto addNextButton = [this](){
-        auto next = MenuItemFont::create("Please Click Me To Reset!", [this](Ref* sender){
-            getTestSuite()->restartCurrTest();
+		auto pThis = this;
+        auto next = MenuItemFont::create("Please Click Me To Reset!", [pThis](Ref* sender){
+            pThis->getTestSuite()->restartCurrTest();
         });
         next->setPosition(VisibleRect::center() + Vec2(0, -40));
         
@@ -812,7 +813,7 @@ GlobalZTouchTest::GlobalZTouchTest()
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
     
-    listener->onTouchBegan = [](Touch* touch, Event* event){
+    listener->onTouchBegan = [](Touch* touch, Event* event) -> bool{
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
         
         Vec2 locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -894,7 +895,7 @@ StopPropagationTest::StopPropagationTest()
     auto touchOneByOneListener = EventListenerTouchOneByOne::create();
     touchOneByOneListener->setSwallowTouches(true);
     
-    touchOneByOneListener->onTouchBegan = [=](Touch* touch, Event* event){
+    touchOneByOneListener->onTouchBegan = [=](Touch* touch, Event* event) -> bool{
         // Skip if don't touch top half screen.
         if (!this->isPointInTopHalfAreaOfScreen(touch->getLocation()))
             return false;
@@ -1061,10 +1062,12 @@ PauseResumeTargetTest::PauseResumeTargetTest()
         auto colorLayer = LayerColor::create(Color4B(0, 0, 255, 100));
         this->addChild(colorLayer, 99999);
         
-        auto closeItem = MenuItemFont::create("close", [=](Ref* sender){
+		auto pThis = this;
+		auto sprite32 = sprite3;
+        auto closeItem = MenuItemFont::create("close", [pThis, colorLayer, sprite32](Ref* sender){
             colorLayer->removeFromParent();
-            _eventDispatcher->resumeEventListenersForTarget(this, true);
-            sprite3->getListener()->setEnabled(true);
+            pThis->_eventDispatcher->resumeEventListenersForTarget(pThis, true);
+            sprite32->getListener()->setEnabled(true);
         });
         
         closeItem->setPosition(VisibleRect::center());

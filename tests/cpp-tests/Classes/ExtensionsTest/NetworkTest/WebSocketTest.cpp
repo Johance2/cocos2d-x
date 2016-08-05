@@ -49,19 +49,19 @@ WebSocketTest::WebSocketTest()
     
 
     // Send Text Status Label
-    _sendTextStatus = Label::createWithTTF("Send Text WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::CENTER, TextVAlignment::TOP);
+    _sendTextStatus = Label::createWithTTF("Send Text WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::TH_CENTER, TextVAlignment::TV_TOP);
     _sendTextStatus->setAnchorPoint(Vec2(0, 0));
     _sendTextStatus->setPosition(Vec2(VisibleRect::left().x, VisibleRect::rightBottom().y + 25));
     this->addChild(_sendTextStatus);
     
     // Send Binary Status Label
-    _sendBinaryStatus = Label::createWithTTF("Send Binary WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::CENTER, TextVAlignment::TOP);
+    _sendBinaryStatus = Label::createWithTTF("Send Binary WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::TH_CENTER, TextVAlignment::TV_TOP);
     _sendBinaryStatus->setAnchorPoint(Vec2(0, 0));
     _sendBinaryStatus->setPosition(Vec2(VisibleRect::left().x + 160, VisibleRect::rightBottom().y + 25));
     this->addChild(_sendBinaryStatus);
     
     // Error Label
-    _errorStatus = Label::createWithTTF("Error WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::CENTER, TextVAlignment::TOP);
+    _errorStatus = Label::createWithTTF("Error WS is waiting...", "fonts/arial.ttf", 16, Size(160, 100), TextHAlignment::TH_CENTER, TextVAlignment::TV_TOP);
     _errorStatus->setAnchorPoint(Vec2(0, 0));
     _errorStatus->setPosition(Vec2(VisibleRect::left().x + 320, VisibleRect::rightBottom().y + 25));
     this->addChild(_errorStatus);
@@ -286,7 +286,7 @@ WebSocketCloseTest::WebSocketCloseTest()
 
     auto notifyLabel = Label::createWithTTF("See log window, when enter there's should have\n'Websocket opened' log,\nwhen close there's should have'websocket closed' log", "fonts/arial.ttf", 20);
     notifyLabel->setPosition(VisibleRect::right().x / 2, VisibleRect::top().y / 3);
-    notifyLabel->setAlignment(TextHAlignment::CENTER);
+    notifyLabel->setAlignment(TextHAlignment::TH_CENTER);
     addChild(notifyLabel, 1);
 }
 

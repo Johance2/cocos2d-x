@@ -91,37 +91,37 @@ AllocatorTest::AllocatorTest()
     tTest2Container test2Container;
     test2Container.reserve(kNumberOfInstances);
 
-    std::chrono::time_point<std::chrono::high_resolution_clock> alloc1Start, alloc1End, alloc2Start, alloc2End;
-    std::chrono::time_point<std::chrono::high_resolution_clock> free1Start, free1End, free2Start, free2End;
+    boost::chrono::time_point<boost::chrono::high_resolution_clock> alloc1Start, alloc1End, alloc2Start, alloc2End;
+    boost::chrono::time_point<boost::chrono::high_resolution_clock> free1Start, free1End, free2Start, free2End;
 
-    alloc1Start = std::chrono::high_resolution_clock::now();
+    alloc1Start = boost::chrono::high_resolution_clock::now();
     for (int i = 0; i < kNumberOfInstances; ++i)
         test1Container.push_back(new Test1);
-    alloc1End = std::chrono::high_resolution_clock::now();
+    alloc1End = boost::chrono::high_resolution_clock::now();
 
-    free1Start = std::chrono::high_resolution_clock::now();
+    free1Start = boost::chrono::high_resolution_clock::now();
     for (int i = 0; i < kNumberOfInstances; ++i)
         delete test1Container[i];
-    free1End = std::chrono::high_resolution_clock::now();
+    free1End = boost::chrono::high_resolution_clock::now();
     test1Container.clear();
 
-    alloc2Start = std::chrono::high_resolution_clock::now();
+    alloc2Start = boost::chrono::high_resolution_clock::now();
     for (int i = 0; i < kNumberOfInstances; ++i)
         test2Container.push_back(new Test2);
-    alloc2End = std::chrono::high_resolution_clock::now();
+    alloc2End = boost::chrono::high_resolution_clock::now();
 
 
-    free2Start = std::chrono::high_resolution_clock::now();
+    free2Start = boost::chrono::high_resolution_clock::now();
     for (int i = 0; i < kNumberOfInstances; ++i)
         delete test2Container[i];
-    free2End = std::chrono::high_resolution_clock::now();
+    free2End = boost::chrono::high_resolution_clock::now();
 
     test2Container.clear();
 
-    std::chrono::duration<double> elapsed_seconds_alloc1 = alloc1End - alloc1Start;
-    std::chrono::duration<double> elapsed_seconds_alloc2 = alloc2End - alloc2Start;
-    std::chrono::duration<double> elapsed_seconds_free1 = free1End - free1Start;
-    std::chrono::duration<double> elapsed_seconds_free2 = free2End - free2Start;
+    boost::chrono::duration<double> elapsed_seconds_alloc1 = alloc1End - alloc1Start;
+    boost::chrono::duration<double> elapsed_seconds_alloc2 = alloc2End - alloc2Start;
+    boost::chrono::duration<double> elapsed_seconds_free1 = free1End - free1Start;
+    boost::chrono::duration<double> elapsed_seconds_free2 = free2End - free2Start;
 
     char buf[1000];
 

@@ -289,8 +289,8 @@ bool UITextFieldTest_LineWrap::init()
         ((Label*)(textField->getVirtualRenderer()))->setLineBreakWithoutSpace(true);
         textField->setContentSize(Size(240, 170));
         textField->setString("input words here");
-        textField->setTextHorizontalAlignment(TextHAlignment::CENTER);
-        textField->setTextVerticalAlignment(TextVAlignment::CENTER);
+        textField->setTextHorizontalAlignment(TextHAlignment::TH_CENTER);
+        textField->setTextVerticalAlignment(TextVAlignment::TV_CENTER);
         textField->setPosition(Vec2(widgetSize.width / 2.0f, widgetSize.height / 2.0f));
         textField->addEventListener(CC_CALLBACK_2(UITextFieldTest_LineWrap::textFieldEvent, this));
         _uiLayer->addChild(textField);
@@ -310,8 +310,8 @@ void UITextFieldTest_LineWrap::textFieldEvent(Ref *pSender, TextField::EventType
             Size widgetSize = _widget->getContentSize();
             textField->runAction(MoveTo::create(0.225f,
                                                   Vec2(widgetSize.width / 2.0f, widgetSize.height / 2.0f + 30)));
-            textField->setTextHorizontalAlignment(TextHAlignment::LEFT);
-            textField->setTextVerticalAlignment(TextVAlignment::TOP);
+            textField->setTextHorizontalAlignment(TextHAlignment::TH_LEFT);
+            textField->setTextVerticalAlignment(TextVAlignment::TV_TOP);
             
             _displayValueLabel->setString(StringUtils::format("attach with IME"));
         }
@@ -322,8 +322,8 @@ void UITextFieldTest_LineWrap::textFieldEvent(Ref *pSender, TextField::EventType
             TextField* textField = dynamic_cast<TextField*>(pSender);
             Size widgetSize = _widget->getContentSize();
             textField->runAction(MoveTo::create(0.175f, Vec2(widgetSize.width / 2.0f, widgetSize.height / 2.0f)));
-            textField->setTextHorizontalAlignment(TextHAlignment::CENTER);
-            textField->setTextVerticalAlignment(TextVAlignment::CENTER);
+            textField->setTextHorizontalAlignment(TextHAlignment::TH_CENTER);
+            textField->setTextVerticalAlignment(TextVAlignment::TV_CENTER);
             
             _displayValueLabel->setString(StringUtils::format("detach with IME"));
         }

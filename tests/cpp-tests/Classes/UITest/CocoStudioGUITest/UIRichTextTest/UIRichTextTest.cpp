@@ -1411,11 +1411,11 @@ bool UIRichTextXMLExtend::init()
         _widget->addChild(button2);
         
         /* Tag extension */
-        RichText::setTagDescription("CloseNormal", false, [](const ValueMap& tagAttrValueMap) {
+        RichText::setTagDescription("CloseNormal", false, [](const ValueMap& tagAttrValueMap) ->std::pair<ValueMap, RichElement*>{
             RichElementImage* richElement = RichElementImage::create(0, Color3B::WHITE, 255, "cocosui/CloseNormal.png");
             return make_pair(ValueMap(), richElement);
         });
-        RichText::setTagDescription("CloseSelected", false, [](const ValueMap& tagAttrValueMap) {
+        RichText::setTagDescription("CloseSelected", false, [](const ValueMap& tagAttrValueMap)->std::pair<ValueMap, RichElement*> {
             RichElementImage* richElement = RichElementImage::create(0, Color3B::WHITE, 255, "cocosui/CloseSelected.png");
             return make_pair(ValueMap(), richElement);
         });

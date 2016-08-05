@@ -180,7 +180,8 @@ void NavMeshBaseTestDemo::createAgent(const Vec3 &pos)
     auto agent = NavMeshAgent::create(param);
     auto agentNode = Sprite3D::create(filePath);
     agent->setOrientationRefAxes(Vec3(-1.0f, 0.0f, 1.0f));
-    AgentUserData *data = new AgentUserData{ 0.0f };
+    AgentUserData *data = new AgentUserData;
+	data->time = 0.0;
     agent->setUserData(data);
     agentNode->setScale(0.05f);
     agentNode->addComponent(agent);

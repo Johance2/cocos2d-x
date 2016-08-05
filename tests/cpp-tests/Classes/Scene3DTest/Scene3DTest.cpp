@@ -495,10 +495,11 @@ void Scene3DTestScene::createUI()
         if (text) cb->setName(text);
         cb->setAnchorPoint(Vec2(0, 0.5));
         cb->setScale(0.8f);
-        cb->addClickEventListener([this](Ref* sender)
+		auto pThis = this;
+        cb->addClickEventListener([pThis](Ref* sender)
             {
                 auto index = static_cast<Node *>(sender)->getTag();
-                auto camera = this->_gameCameras[index];
+                auto camera = pThis->_gameCameras[index];
                 camera->setVisible(!camera->isVisible());
             });
         if (text)
@@ -664,12 +665,14 @@ void Scene3DTestScene::createDetailDlg()
     capture->setScale(0.5);
     capture->setAnchorPoint(Vec2(0.5, 0));
     capture->setPosition(Vec2(dlgSize.width / 3, margin));
-    capture->addClickEventListener([this](Ref* sender)
+    capture->addClickEventListener([=](Ref* sender)
     {
         Director::getInstance()->getTextureCache()->removeTextureForKey(_snapshotFile);
         _osdScene->removeChildByTag(SNAPSHOT_TAG);
         _snapshotFile = "CaptureScreenTest.png";
-        utils::captureScreen([this](bool succeed, const std::string& outputFile)
+		auto pThis = this;
+		auto _osdScene2 = _osdScene;
+        utils::captureScreen([pThis, _osdScene2](bool succeed, const std::string& outputFile)
         {
             if (!succeed)
             {
@@ -677,11 +680,11 @@ void Scene3DTestScene::createDetailDlg()
                 return;
             }
             auto sp = Sprite::create(outputFile);
-            _osdScene->addChild(sp, 0, SNAPSHOT_TAG);
+			_osdScene2->addChild(sp, 0, Scene3DTestScene::SNAPSHOT_TAG);
             Size s = Director::getInstance()->getWinSize();
             sp->setPosition(s.width / 2, s.height / 2);
             sp->setScale(0.25);
-            _snapshotFile = outputFile;
+            pThis->_snapshotFile = outputFile;
         }, _snapshotFile);
     });
     capture->setTitleText("Take Snapshot");
@@ -816,7 +819,7 @@ void Scene3DTestScene::createDescDlg()
         for (ssize_t i = 0; i < this->_reskinGirl->getMeshCount(); i++) {
             auto mesh = this->_reskinGirl->getMeshByIndex(static_cast<int>(i));
             bool isVisible = false;
-            for (int j = 0; j < (int)SkinType::MAX_TYPE; j++) {
+            for (int j = 0; j < (int)Scene3DTestScene::SkinType::MAX_TYPE; j++) {
                 if (mesh->getName() == _skins[j].at(_curSkin[j]))
                 {
                     isVisible = true;
@@ -851,7 +854,7 @@ void Scene3DTestScene::createDescDlg()
         btn->addClickEventListener([this, applyCurSkin](Ref* sender)
         {
             auto index = static_cast<Node *>(sender)->getTag();
-            if (index < SkinType::MAX_TYPE)
+			if (index < Scene3DTestScene::SkinType::MAX_TYPE)
             {
                 _curSkin[index] = (_curSkin[index] + 1) % _skins[index].size();
                 applyCurSkin();

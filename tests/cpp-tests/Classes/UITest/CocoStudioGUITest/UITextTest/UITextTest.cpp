@@ -62,7 +62,7 @@ bool UITextTest_LineWrap::init()
                                   "AmericanTypewriter",32);
         text->ignoreContentAdaptWithSize(false);
         text->setContentSize(Size(280, 150));
-        text->setTextHorizontalAlignment(TextHAlignment::CENTER);
+        text->setTextHorizontalAlignment(TextHAlignment::TH_CENTER);
         text->setTouchScaleChangeEnabled(true);
         text->setTouchEnabled(true);
         text->addTouchEventListener([=](Ref* sender, Widget::TouchEventType type)
@@ -254,8 +254,8 @@ bool UITextTest_IgnoreConentSize::init()
         auto halighButton = Button::create();
         halighButton->setTitleText("Alignment Right");
         halighButton->addClickEventListener([=](Ref*){
-            leftText->setTextHorizontalAlignment(TextHAlignment::RIGHT);
-            rightText->setTextHorizontalAlignment(TextHAlignment::RIGHT);
+            leftText->setTextHorizontalAlignment(TextHAlignment::TH_RIGHT);
+            rightText->setTextHorizontalAlignment(TextHAlignment::TH_RIGHT);
         });
         halighButton->setPosition(Vec2(widgetSize.width/2 - 50,
                                        widgetSize.height/2 - 50));

@@ -135,7 +135,7 @@ namespace {
     class SliderEx : public Slider
     {
     public:
-        enumTouchEvent
+        enum TouchEvent
         {
             DOWN,
             MOVE,
@@ -272,7 +272,7 @@ bool VibrateControlTest::init()
     
     auto& layerSize = this->getContentSize();
 
-    auto vibrateItem = TextButton::create("vibrate", [&](TextButton* button){
+    auto vibrateItem = TextButton::create("vibrate", [this](TextButton* button){
         Device::vibrate(_duration);
     });
     vibrateItem->setPosition(layerSize.width * 0.5f, layerSize.height * 0.7f);

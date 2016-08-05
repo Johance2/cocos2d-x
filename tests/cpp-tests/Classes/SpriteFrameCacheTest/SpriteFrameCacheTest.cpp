@@ -41,7 +41,7 @@ SpriteFrameCachePixelFormatTest::SpriteFrameCachePixelFormatTest()
 
     infoLabel = Label::create();
     infoLabel->setAnchorPoint(Point(0.5f, 1.0f));
-    infoLabel->setAlignment(cocos2d::TextHAlignment::CENTER);
+    infoLabel->setAlignment(cocos2d::TextHAlignment::TH_CENTER);
     infoLabel->setPosition(screenSize.width * 0.5f, screenSize.height * 0.7f);
     addChild(infoLabel);
     

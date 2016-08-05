@@ -224,7 +224,7 @@ bool UIScale9SpriteTouchTest::init()
         auto listener1 = EventListenerTouchOneByOne::create();
         listener1->setSwallowTouches(true);
         
-        listener1->onTouchBegan = [](Touch* touch, Event* event){
+        listener1->onTouchBegan = [](Touch* touch, Event* event)->bool{
             auto target = static_cast<Sprite*>(event->getCurrentTarget());
             
             Vec2 locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -987,7 +987,9 @@ bool UIS9BatchTest::init()
         this->addChild(label);
         
         auto preferedSize = Size(150,99);
-        std::vector<std::string>  spriteFrameNameArray = {"blocks9.png", "blocks9r.png"};
+        std::vector<std::string>  spriteFrameNameArray;
+		spriteFrameNameArray.push_back("blocks9.png");
+		spriteFrameNameArray.push_back("blocks9r.png");
         auto addSpriteButton = ui::Button::create("cocosui/animationbuttonnormal.png", "cocosui/animationbuttonpressed.png");
         addSpriteButton->setPosition(Vec2(winSize.width/2 - 50,winSize.height - 100));
         addSpriteButton->setTitleText("Add Normal Sprite");

@@ -378,7 +378,7 @@ void Material_parsePerformance::onEnter()
     slider->setPercent(50);
     
     slider->setPosition(Vec2(screenSize.width / 2.0f, screenSize.height / 3.0f));
-    slider->addEventListener([&](Ref* sender, ui::Slider::EventType type) {
+    slider->addEventListener([this](Ref* sender, ui::Slider::EventType type) {
         
         if (type == ui::Slider::EventType::ON_SLIDEBALL_UP)
         {
@@ -391,10 +391,11 @@ void Material_parsePerformance::onEnter()
             {
                 label->setString("Testing start!");
             }
+			Material_parsePerformance *pThis = this;
             this->scheduleOnce(
-                               [this, p, slider](float)
+                               [pThis, p, slider](float)
                                {
-                                   this->parsingTesting(p * _maxParsingCoumt);
+                                   pThis->parsingTesting(p * pThis->_maxParsingCoumt);
                                    slider->setTouchEnabled(true);
                                },
                                1.0, "schedule test parsing");

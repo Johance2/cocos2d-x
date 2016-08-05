@@ -637,8 +637,8 @@ void TestGetContents::onEnter()
 
     auto testIfCompiles = [fs]() {
         fs->getContents("", (CustomBuffer*)(nullptr));
-        AlreadyExistsBuffer buf;
-        fs->getContents("", &buf);
+        //AlreadyExistsBuffer buf;
+        //fs->getContents("", &buf);
     };
 
     (void)(testIfCompiles);
@@ -649,12 +649,20 @@ void TestGetContents::onEnter()
     this->addChild(readResult);
     readResult->setPosition(winSize.width / 2, winSize.height / 2);
 
-    std::vector<char> binary = {'\r','\n','\r','\n','\0','\0','\r','\n'};
+    std::vector<char> binary;
+	binary.push_back('\r');
+	binary.push_back('\n');
+	binary.push_back('\r');
+	binary.push_back('\n');
+	binary.push_back('\0');
+	binary.push_back('\0');
+	binary.push_back('\r');
+	binary.push_back('\n');
     _generatedFile = fs->getWritablePath() + "file-with-zeros-and-crlf";
     saveAsBinaryText(_generatedFile, binary);
 
 
-    auto runTests = [&]() {
+    auto runTests = [&]() ->std::string{
         // Test read string in binary mode
         std::string bs;
         fs->getContents(_generatedFile, &bs);
@@ -668,9 +676,9 @@ void TestGetContents::onEnter()
 
 
         std::string files[] = {_generatedFile, "background.wav", "fileLookup.plist"};
-        for(auto itr = files.begin(); itr != files.end(); ++itr)
+        for(int i = 0; i < sizeof(files)/sizeof(std::string); i++)
         {
-        	auto &file=*itr;
+        	auto &file=files[i];
             std::string sbuf;
 
             auto serr = fs->getContents(file, &sbuf);

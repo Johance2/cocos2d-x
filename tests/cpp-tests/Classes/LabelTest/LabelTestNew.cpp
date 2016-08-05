@@ -427,13 +427,13 @@ LabelFNTandTTFEmpty::LabelFNTandTTFEmpty()
     auto s = Director::getInstance()->getWinSize();
 
     // LabelBMFont
-    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest3.fnt", "", TextHAlignment::CENTER, s.width);
+    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest3.fnt", "", TextHAlignment::TH_CENTER, s.width);
     addChild(label1, 0, kTagBitmapAtlas1);
     label1->setPosition(Vec2(s.width/2, s.height - 100));
 
     // LabelTTF
     TTFConfig ttfConfig("fonts/arial.ttf",24);
-    auto label2 = Label::createWithTTF(ttfConfig,"", TextHAlignment::CENTER,s.width);
+    auto label2 = Label::createWithTTF(ttfConfig,"", TextHAlignment::TH_CENTER,s.width);
     addChild(label2, 0, kTagBitmapAtlas2);
     label2->setPosition(Vec2(s.width/2, s.height / 2));
     
@@ -562,7 +562,7 @@ LabelFNTMultiLineAlignment::LabelFNTMultiLineAlignment()
     auto size = Director::getInstance()->getWinSize();
 
     // create and initialize a Label
-    this->_labelShouldRetain = Label::createWithBMFont("fonts/markerFelt.fnt", LongSentencesExample, TextHAlignment::CENTER, size.width/1.5);
+    this->_labelShouldRetain = Label::createWithBMFont("fonts/markerFelt.fnt", LongSentencesExample, TextHAlignment::TH_CENTER, size.width/1.5);
     this->_labelShouldRetain->retain();
 
     this->_arrowsBarShouldRetain = Sprite::create("Images/arrowsBar.png");
@@ -671,13 +671,13 @@ void LabelFNTMultiLineAlignment::alignmentChanged(cocos2d::Ref *sender)
     switch(item->getTag())
     {
     case LeftAlign:
-        this->_labelShouldRetain->setAlignment(TextHAlignment::LEFT);
+        this->_labelShouldRetain->setAlignment(TextHAlignment::TH_LEFT);
         break;
     case CenterAlign:
-        this->_labelShouldRetain->setAlignment(TextHAlignment::CENTER);
+        this->_labelShouldRetain->setAlignment(TextHAlignment::TH_CENTER);
         break;
     case RightAlign:
-        this->_labelShouldRetain->setAlignment(TextHAlignment::RIGHT);
+        this->_labelShouldRetain->setAlignment(TextHAlignment::TH_RIGHT);
         break;
 
     default:
@@ -744,7 +744,7 @@ LabelFNTUNICODELanguages::LabelFNTUNICODELanguages()
 
     auto s = Director::getInstance()->getWinSize();
 
-    auto label1 = Label::createWithBMFont("fonts/arial-unicode-26.fnt", spanish, TextHAlignment::CENTER, 200);
+    auto label1 = Label::createWithBMFont("fonts/arial-unicode-26.fnt", spanish, TextHAlignment::TH_CENTER, 200);
     addChild(label1);
     label1->setPosition(Vec2(s.width/2, s.height/5*3));
     
@@ -779,7 +779,7 @@ LabelFNTBounds::LabelFNTBounds()
     addChild(layer, -10);
     
     // LabelBMFont
-    auto label1 = Label::createWithBMFont("fonts/boundsTestFont.fnt", "Testing Glyph Designer", TextHAlignment::CENTER,s.width);
+    auto label1 = Label::createWithBMFont("fonts/boundsTestFont.fnt", "Testing Glyph Designer", TextHAlignment::TH_CENTER,s.width);
     addChild(label1);
     label1->setPosition(Vec2(s.width/2, s.height/2));
 
@@ -817,7 +817,7 @@ LabelTTFLongLineWrapping::LabelTTFLongLineWrapping()
 
     // Long sentence
     TTFConfig ttfConfig("fonts/arial.ttf", 14);
-    auto label1 = Label::createWithTTF(ttfConfig, LongSentencesExample, TextHAlignment::CENTER,size.width);
+    auto label1 = Label::createWithTTF(ttfConfig, LongSentencesExample, TextHAlignment::TH_CENTER,size.width);
     label1->setPosition( Vec2(size.width/2, size.height/2) );
     label1->setAnchorPoint(Vec2(0.5, 1.0));
     addChild(label1);
@@ -839,19 +839,19 @@ LabelTTFColor::LabelTTFColor()
 
     TTFConfig ttfConfig("fonts/arial.ttf", 18);
     // Green
-    auto label1 = Label::createWithTTF(ttfConfig,"Green", TextHAlignment::CENTER, size.width);
+    auto label1 = Label::createWithTTF(ttfConfig,"Green", TextHAlignment::TH_CENTER, size.width);
     label1->setPosition(size.width/2, size.height * 0.5f);
     label1->setTextColor( Color4B::GREEN );
     addChild(label1);
 
     // Red
-    auto label2 = Label::createWithTTF(ttfConfig,"Red", TextHAlignment::CENTER, size.width);
+    auto label2 = Label::createWithTTF(ttfConfig,"Red", TextHAlignment::TH_CENTER, size.width);
     label2->setPosition(size.width/2, size.height * 0.65f);
     label2->setTextColor( Color4B::RED );
     addChild(label2);
 
     // Blue
-    auto label3 = Label::createWithTTF(ttfConfig,"Blue", TextHAlignment::CENTER, size.width);
+    auto label3 = Label::createWithTTF(ttfConfig,"Blue", TextHAlignment::TH_CENTER, size.width);
     label3->setPosition(size.width/2, size.height * 0.35f);
     label3->setTextColor( Color4B::BLUE );
     addChild(label3);
@@ -872,7 +872,7 @@ LabelTTFDynamicAlignment::LabelTTFDynamicAlignment()
     auto winSize = Director::getInstance()->getWinSize();
 
     TTFConfig ttfConfig("fonts/arial.ttf", 23);
-    _label = Label::createWithTTF(ttfConfig, LongSentencesExample, TextHAlignment::CENTER, winSize.width);
+    _label = Label::createWithTTF(ttfConfig, LongSentencesExample, TextHAlignment::TH_CENTER, winSize.width);
     _label->setPosition(winSize.width / 2, winSize.height / 2);
     addChild(_label);
 
@@ -897,19 +897,19 @@ void  LabelTTFDynamicAlignment::updateAlignment()
 
 void LabelTTFDynamicAlignment::setAlignmentLeft(Ref* sender)
 {
-    _horizAlign = TextHAlignment::LEFT;
+    _horizAlign = TextHAlignment::TH_LEFT;
     this->updateAlignment();
 }
 
 void LabelTTFDynamicAlignment::setAlignmentCenter(Ref* sender)
 {
-    _horizAlign = TextHAlignment::CENTER;
+    _horizAlign = TextHAlignment::TH_CENTER;
     this->updateAlignment();
 }
 
 void LabelTTFDynamicAlignment::setAlignmentRight(Ref* sender)
 {
-    _horizAlign = TextHAlignment::RIGHT;
+    _horizAlign = TextHAlignment::TH_RIGHT;
     this->updateAlignment();
 }
 
@@ -942,7 +942,7 @@ LabelTTFCJKWrappingTest::LabelTTFCJKWrappingTest()
     
     TTFConfig ttfConfig("fonts/HKYuanMini.ttf", 25, GlyphCollection::DYNAMIC);
     auto label1 = Label::createWithTTF(ttfConfig,
-        "你好，Cocos2d-x v3的New Label.", TextHAlignment::LEFT, size.width * 0.75);
+        "你好，Cocos2d-x v3的New Label.", TextHAlignment::TH_LEFT, size.width * 0.75);
     if(label1) {
         label1->setTextColor(Color4B(128, 255, 255, 255));
         label1->setPosition(Vec2(size.width * 0.1, size.height * 0.6));
@@ -955,7 +955,7 @@ LabelTTFCJKWrappingTest::LabelTTFCJKWrappingTest()
     }
 
     auto label2 = Label::createWithTTF(ttfConfig,
-        "早上好，Cocos2d-x v3的New Label.", TextHAlignment::LEFT, size.width * 0.75);
+        "早上好，Cocos2d-x v3的New Label.", TextHAlignment::TH_LEFT, size.width * 0.75);
     if(label2) {
         label2->setTextColor(Color4B(255, 128, 255, 255));
         label2->setPosition(Vec2(size.width * 0.1, size.height * 0.4));
@@ -964,7 +964,7 @@ LabelTTFCJKWrappingTest::LabelTTFCJKWrappingTest()
     }
 
     auto label3 = Label::createWithTTF(ttfConfig,
-        "美好的一天啊美好的一天啊美好的一天啊", TextHAlignment::LEFT, size.width * 0.75);
+        "美好的一天啊美好的一天啊美好的一天啊", TextHAlignment::TH_LEFT, size.width * 0.75);
     if(label3) {
         label3->setTextColor(Color4B(255, 255, 128, 255));
         label3->setPosition(Vec2(size.width * 0.1, size.height * 0.2));
@@ -1037,7 +1037,7 @@ LabelTTFFontsTestNew::LabelTTFFontsTestNew()
 
     for (int i = 0; i < fontCount; ++i) {
         ttfConfig.fontFilePath = ttfpaths[i];
-        auto label = Label::createWithTTF(ttfConfig, ttfpaths[i], TextHAlignment::CENTER,0);
+        auto label = Label::createWithTTF(ttfConfig, ttfpaths[i], TextHAlignment::TH_CENTER,0);
         if( label ) {            
             label->setPosition(size.width / 2, ((size.height * 0.6) / fontCount * i) + (size.height / 4));
             addChild(label);
@@ -1062,7 +1062,7 @@ LabelTTFDistanceField::LabelTTFDistanceField()
     auto size = Director::getInstance()->getWinSize();
     TTFConfig ttfConfig("fonts/arial.ttf", 40, GlyphCollection::DYNAMIC,nullptr,true);
 
-    auto label1 = Label::createWithTTF(ttfConfig,"Distance Field",TextHAlignment::CENTER,size.width);
+    auto label1 = Label::createWithTTF(ttfConfig,"Distance Field",TextHAlignment::TH_CENTER,size.width);
     label1->setPosition( Vec2(size.width/2, size.height * 0.6f) );
     label1->setTextColor( Color4B::GREEN );
     addChild(label1);
@@ -1074,7 +1074,7 @@ LabelTTFDistanceField::LabelTTFDistanceField()
         nullptr);
     label1->runAction(RepeatForever::create(action));
 
-    auto label2 = Label::createWithTTF(ttfConfig,"Distance Field",TextHAlignment::CENTER,size.width);
+    auto label2 = Label::createWithTTF(ttfConfig,"Distance Field",TextHAlignment::TH_CENTER,size.width);
     label2->setPosition( Vec2(size.width/2, size.height * 0.3f) );
     label2->setTextColor( Color4B::RED );
     addChild(label2);
@@ -1099,28 +1099,28 @@ LabelOutlineAndGlowTest::LabelOutlineAndGlowTest()
 
     TTFConfig ttfConfig("fonts/arial.ttf", 40, GlyphCollection::DYNAMIC,nullptr,true);
 
-    auto label1 = Label::createWithTTF(ttfConfig,"Glow", TextHAlignment::CENTER, size.width);
+    auto label1 = Label::createWithTTF(ttfConfig,"Glow", TextHAlignment::TH_CENTER, size.width);
     label1->setPosition( Vec2(size.width/2, size.height*0.7) );
     label1->setTextColor( Color4B::GREEN );
     label1->enableGlow(Color4B::YELLOW);
     addChild(label1);
 
     ttfConfig.outlineSize = 1;
-    auto label2 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::CENTER, size.width);
+    auto label2 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::TH_CENTER, size.width);
     label2->setPosition( Vec2(size.width/2, size.height*0.6) );
     label2->setTextColor( Color4B::RED );
     label2->enableOutline(Color4B::BLUE);
     addChild(label2);
 
     ttfConfig.outlineSize = 2;
-    auto label3 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::CENTER, size.width);
+    auto label3 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::TH_CENTER, size.width);
     label3->setPosition( Vec2(size.width/2, size.height*0.48) );
     label3->setTextColor( Color4B::RED );
     label3->enableOutline(Color4B::BLUE);
     addChild(label3);
 
     ttfConfig.outlineSize = 3;
-    auto label4 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::CENTER, size.width);
+    auto label4 = Label::createWithTTF(ttfConfig,"Outline", TextHAlignment::TH_CENTER, size.width);
     label4->setPosition( Vec2(size.width/2, size.height*0.36) );
     label4->setTextColor( Color4B::RED );
     label4->enableOutline(Color4B::BLUE);
@@ -1321,7 +1321,7 @@ LabelCrashTest::LabelCrashTest()
 
     TTFConfig ttfConfig("fonts/arial.ttf", 40, GlyphCollection::DYNAMIC,nullptr,true);
 
-    auto label1 = Label::createWithTTF(ttfConfig,"Test崩溃123", TextHAlignment::CENTER, size.width);
+    auto label1 = Label::createWithTTF(ttfConfig,"Test崩溃123", TextHAlignment::TH_CENTER, size.width);
     label1->setPosition( Vec2(size.width/2, size.height/2) );
     addChild(label1);
 }
@@ -1460,32 +1460,32 @@ LabelAlignmentTest::LabelAlignmentTest()
 
 void LabelAlignmentTest::setAlignmentLeft(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::LEFT);
+    _label->setHorizontalAlignment(TextHAlignment::TH_LEFT);
 }
 
 void LabelAlignmentTest::setAlignmentCenter(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::CENTER);
+    _label->setHorizontalAlignment(TextHAlignment::TH_CENTER);
 }
 
 void LabelAlignmentTest::setAlignmentRight(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::RIGHT);
+    _label->setHorizontalAlignment(TextHAlignment::TH_RIGHT);
 }
 
 void LabelAlignmentTest::setAlignmentTop(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::TOP);
+    _label->setVerticalAlignment(TextVAlignment::TV_TOP);
 }
 
 void LabelAlignmentTest::setAlignmentMiddle(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
 }
 
 void LabelAlignmentTest::setAlignmentBottom(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::BOTTOM);
+    _label->setVerticalAlignment(TextVAlignment::TV_BOTTOM);
 }
 
 std::string LabelAlignmentTest::title() const
@@ -2224,32 +2224,32 @@ void LabelLayoutBaseTest::initDrawNode(const cocos2d::Size& size)
 
 void LabelLayoutBaseTest::setAlignmentLeft(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::LEFT);
+    _label->setHorizontalAlignment(TextHAlignment::TH_LEFT);
 }
 
 void LabelLayoutBaseTest::setAlignmentCenter(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::CENTER);
+    _label->setHorizontalAlignment(TextHAlignment::TH_CENTER);
 }
 
 void LabelLayoutBaseTest::setAlignmentRight(Ref* sender)
 {
-    _label->setHorizontalAlignment(TextHAlignment::RIGHT);
+    _label->setHorizontalAlignment(TextHAlignment::TH_RIGHT);
 }
 
 void LabelLayoutBaseTest::setAlignmentTop(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::TOP);
+    _label->setVerticalAlignment(TextVAlignment::TV_TOP);
 }
 
 void LabelLayoutBaseTest::setAlignmentMiddle(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
 }
 
 void LabelLayoutBaseTest::setAlignmentBottom(Ref* sender)
 {
-    _label->setVerticalAlignment(TextVAlignment::BOTTOM);
+    _label->setVerticalAlignment(TextVAlignment::TV_BOTTOM);
 }
 
 
@@ -2308,7 +2308,7 @@ LabelWrapByWordTest::LabelWrapByWordTest()
 {
     _label->setLineSpacing(5);
     _label->setAdditionalKerning(2);
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
     _label->setOverflow(Label::Overflow::CLAMP);
 
 }
@@ -2329,7 +2329,7 @@ LabelWrapByCharTest::LabelWrapByCharTest()
     _label->setString("五六七八This \nis a very long sentence一二三四.");
     _label->setLineSpacing(5);
     _label->setAdditionalKerning(2);
-    _label->setVerticalAlignment(TextVAlignment::TOP);
+    _label->setVerticalAlignment(TextVAlignment::TV_TOP);
     _label->setOverflow(Label::Overflow::CLAMP);
 
 }
@@ -2349,7 +2349,7 @@ LabelShrinkByWordTest::LabelShrinkByWordTest()
     _label->setLineSpacing(5);
     _label->setAdditionalKerning(2);
     _label->setString("This is  Hello World  hehe I love 一二三");
-    _label->setVerticalAlignment(TextVAlignment::TOP);
+    _label->setVerticalAlignment(TextVAlignment::TV_TOP);
     _label->setOverflow(Label::Overflow::SHRINK);
 }
 
@@ -2369,7 +2369,7 @@ LabelShrinkByCharTest::LabelShrinkByCharTest()
     _label->setAdditionalKerning(2);
     _label->setLineBreakWithoutSpace(true);
     _label->setString("This is  Hello World  hehe I love 一二三");
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
     _label->setOverflow(Label::Overflow::SHRINK);
 }
 
@@ -2387,7 +2387,7 @@ LabelResizeTest::LabelResizeTest()
 {
     _label->setLineSpacing(5);
     _label->setAdditionalKerning(2);
-    _label->setVerticalAlignment(TextVAlignment::TOP);
+    _label->setVerticalAlignment(TextVAlignment::TV_TOP);
     _label->setOverflow(Label::Overflow::RESIZE_HEIGHT);
 
 
@@ -2453,7 +2453,7 @@ LabelToggleTypeTest::LabelToggleTypeTest()
 {
     _label->setLineSpacing(5);
     _label->setAdditionalKerning(2);
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
     _label->setOverflow(Label::Overflow::NONE);
 
 
@@ -2519,7 +2519,11 @@ void LabelToggleTypeTest::initToggleCheckboxes()
     // Create the radio buttons
     static const int NUMBER_OF_BUTTONS = 4;
     startPosX = winSize.width / 2.0f - (NUMBER_OF_BUTTONS - 1 ) * 0.5 * BUTTON_WIDTH - 30;
-    std::vector<std::string> labelTypes = {"Normal", "Clamp", "Shrink", "RESIZE"};
+    std::vector<std::string> labelTypes;
+	labelTypes.push_back("Normal");
+	labelTypes.push_back("Clamp");
+	labelTypes.push_back("Shrink");
+	labelTypes.push_back("RESIZE");
     
     for(int i = 0; i < NUMBER_OF_BUTTONS; ++i)
     {
@@ -2590,7 +2594,7 @@ void LabelToggleTypeTest::onChangedRadioButtonSelect(RadioButton* radioButton, R
 LabelSystemFontTest::LabelSystemFontTest()
 {
     _label->setLineSpacing(5);
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
     _label->setOverflow(Label::Overflow::NONE);
     _label->setSystemFontName("Hiragino Sans GB");
     _label->setSystemFontSize(20);
@@ -2664,7 +2668,11 @@ void LabelSystemFontTest::initToggleCheckboxes()
     // Create the radio buttons
     static const int NUMBER_OF_BUTTONS = 4;
     startPosX = winSize.width / 2.0f - (NUMBER_OF_BUTTONS - 1 ) * 0.5 * BUTTON_WIDTH - 30;
-    std::vector<std::string> labelTypes = {"Normal", "Clamp", "Shrink", "RESIZE"};
+    std::vector<std::string> labelTypes;
+	labelTypes.push_back("Normal");
+	labelTypes.push_back("Clamp");
+	labelTypes.push_back("Shrink");
+	labelTypes.push_back("RESIZE");
 
     for(int i = 0; i < NUMBER_OF_BUTTONS; ++i)
     {
@@ -2733,7 +2741,7 @@ void LabelSystemFontTest::onChangedRadioButtonSelect(RadioButton* radioButton, R
 LabelCharMapFontTest::LabelCharMapFontTest()
 {
     _label->setLineSpacing(5);
-    _label->setVerticalAlignment(TextVAlignment::CENTER);
+    _label->setVerticalAlignment(TextVAlignment::TV_CENTER);
     _label->setOverflow(Label::Overflow::NONE);
     _label->setCharMap("fonts/tuffy_bold_italic-charmap.plist");
     _label->setString("Hello World, This is a char map test.");
@@ -2814,12 +2822,12 @@ LabelItalics::LabelItalics()
     auto s = Director::getInstance()->getWinSize();
 
     // LabelBMFont
-    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-italics", TextHAlignment::CENTER, s.width);
+    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-italics", TextHAlignment::TH_CENTER, s.width);
     addChild(label1, 0, kTagBitmapAtlas1);
     label1->setPosition(Vec2(s.width/2, s.height*4/6));
     // you can enable italics by calling this method
 
-    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello italics", TextHAlignment::CENTER, s.width);
+    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello italics", TextHAlignment::TH_CENTER, s.width);
     addChild(_label1a, 0, kTagBitmapAtlas1);
     _label1a->setPosition(Vec2(s.width/2, s.height*3/6));
     // you can enable italics by calling this method
@@ -2828,13 +2836,13 @@ LabelItalics::LabelItalics()
 
     // LabelTTF
     TTFConfig ttfConfig("fonts/arial.ttf",24);
-    auto label2 = Label::createWithTTF(ttfConfig, "hello non-italics", TextHAlignment::CENTER,s.width);
+    auto label2 = Label::createWithTTF(ttfConfig, "hello non-italics", TextHAlignment::TH_CENTER,s.width);
     addChild(label2, 0, kTagBitmapAtlas2);
     label2->setPosition(Vec2(s.width/2, s.height*2/6));
 
     // or by setting the italics parameter on TTFConfig
     ttfConfig.italics = true;
-    _label2a = Label::createWithTTF(ttfConfig, "hello italics", TextHAlignment::CENTER,s.width);
+    _label2a = Label::createWithTTF(ttfConfig, "hello italics", TextHAlignment::TH_CENTER,s.width);
     addChild(_label2a, 0, kTagBitmapAtlas2);
     _label2a->setPosition(Vec2(s.width/2, s.height*1/6));
 
@@ -2866,12 +2874,12 @@ LabelBold::LabelBold()
     auto s = Director::getInstance()->getWinSize();
 
     // LabelBMFont
-    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-bold", TextHAlignment::CENTER, s.width);
+    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-bold", TextHAlignment::TH_CENTER, s.width);
     addChild(label1, 0, kTagBitmapAtlas1);
     label1->setPosition(Vec2(s.width/2, s.height*4/6));
     // you can enable italics by calling this method
 
-    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello bold", TextHAlignment::CENTER, s.width);
+    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello bold", TextHAlignment::TH_CENTER, s.width);
     addChild(_label1a, 0, kTagBitmapAtlas1);
     _label1a->setPosition(Vec2(s.width/2, s.height*3/6));
     // you can enable italics by calling this method
@@ -2880,13 +2888,13 @@ LabelBold::LabelBold()
 
     // LabelTTF
     TTFConfig ttfConfig("fonts/arial.ttf",24);
-    auto label2 = Label::createWithTTF(ttfConfig, "hello non-bold", TextHAlignment::CENTER,s.width);
+    auto label2 = Label::createWithTTF(ttfConfig, "hello non-bold", TextHAlignment::TH_CENTER,s.width);
     addChild(label2, 0, kTagBitmapAtlas2);
     label2->setPosition(Vec2(s.width/2, s.height*2/6));
 
     // or by setting the italics parameter on TTFConfig
     ttfConfig.bold = true;
-    _label2a = Label::createWithTTF(ttfConfig, "hello bold", TextHAlignment::CENTER,s.width);
+    _label2a = Label::createWithTTF(ttfConfig, "hello bold", TextHAlignment::TH_CENTER,s.width);
     addChild(_label2a, 0, kTagBitmapAtlas2);
     _label2a->setPosition(Vec2(s.width/2, s.height*1/6));
 
@@ -2918,12 +2926,12 @@ LabelUnderline::LabelUnderline()
     auto s = Director::getInstance()->getWinSize();
 
     // LabelBMFont
-    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-underline", TextHAlignment::CENTER, s.width);
+    auto label1 = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello non-underline", TextHAlignment::TH_CENTER, s.width);
     addChild(label1, 0, kTagBitmapAtlas1);
     label1->setPosition(Vec2(s.width/2, s.height*4/6));
     // you can enable italics by calling this method
 
-    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello underline", TextHAlignment::CENTER, s.width);
+    _label1a = Label::createWithBMFont("fonts/bitmapFontTest2.fnt", "hello underline", TextHAlignment::TH_CENTER, s.width);
     addChild(_label1a, 0, kTagBitmapAtlas1);
     _label1a->setPosition(Vec2(s.width/2, s.height*3/6));
     // you can enable underline by calling this method
@@ -2932,13 +2940,13 @@ LabelUnderline::LabelUnderline()
 
     // LabelTTF
     TTFConfig ttfConfig("fonts/arial.ttf",24);
-    auto label2 = Label::createWithTTF(ttfConfig, "hello non-underline", TextHAlignment::CENTER,s.width);
+    auto label2 = Label::createWithTTF(ttfConfig, "hello non-underline", TextHAlignment::TH_CENTER,s.width);
     addChild(label2, 0, kTagBitmapAtlas2);
     label2->setPosition(Vec2(s.width/2, s.height*2/6));
 
     // or by setting the italics parameter on TTFConfig
     ttfConfig.underline = true;
-    _label2a = Label::createWithTTF(ttfConfig, "hello underline", TextHAlignment::CENTER,s.width);
+    _label2a = Label::createWithTTF(ttfConfig, "hello underline", TextHAlignment::TH_CENTER,s.width);
     addChild(_label2a, 0, kTagBitmapAtlas2);
     _label2a->setPosition(Vec2(s.width/2, s.height*1/6));
 
@@ -2970,7 +2978,7 @@ LabelUnderlineMultiline::LabelUnderlineMultiline()
     auto s = Director::getInstance()->getWinSize();
 
     // bmfont
-    _label1a = Label::createWithBMFont("fonts/bitmapFontTest5.fnt", "hello underline\nand multiline", TextHAlignment::CENTER, s.width);
+    _label1a = Label::createWithBMFont("fonts/bitmapFontTest5.fnt", "hello underline\nand multiline", TextHAlignment::TH_CENTER, s.width);
     addChild(_label1a, 0, kTagBitmapAtlas1);
     _label1a->setPosition(Vec2(s.width/2, s.height*2/3));
     // you can enable underline by calling this method
@@ -2979,7 +2987,7 @@ LabelUnderlineMultiline::LabelUnderlineMultiline()
     // ttf
     TTFConfig ttfConfig("fonts/arial.ttf",24);
     ttfConfig.underline = true;
-    _label2a = Label::createWithTTF(ttfConfig, "hello\nunderline\nwith multiline", TextHAlignment::LEFT, s.width);
+    _label2a = Label::createWithTTF(ttfConfig, "hello\nunderline\nwith multiline", TextHAlignment::TH_LEFT, s.width);
     addChild(_label2a, 0, kTagBitmapAtlas2);
     _label2a->setPosition(Vec2(s.width/2, s.height*1/3));
 
@@ -3011,7 +3019,7 @@ LabelStrikethrough::LabelStrikethrough()
     auto s = Director::getInstance()->getWinSize();
 
     // bmfont
-    _label1a = Label::createWithBMFont("fonts/bitmapFontTest4.fnt", "hello strikethrough\nand multiline", TextHAlignment::LEFT, s.width);
+    _label1a = Label::createWithBMFont("fonts/bitmapFontTest4.fnt", "hello strikethrough\nand multiline", TextHAlignment::TH_LEFT, s.width);
     addChild(_label1a, 0, kTagBitmapAtlas1);
     _label1a->setPosition(Vec2(s.width/2, s.height*2/3));
     // you can enable underline by calling this method
@@ -3020,7 +3028,7 @@ LabelStrikethrough::LabelStrikethrough()
     // ttf
     TTFConfig ttfConfig("fonts/arial.ttf",24);
     ttfConfig.strikethrough = true;
-    _label2a = Label::createWithTTF(ttfConfig, "hello\nstrikethrough\nwith multiline", TextHAlignment::RIGHT, s.width);
+    _label2a = Label::createWithTTF(ttfConfig, "hello\nstrikethrough\nwith multiline", TextHAlignment::TH_RIGHT, s.width);
     addChild(_label2a, 0, kTagBitmapAtlas2);
     _label2a->setPosition(Vec2(s.width/2, s.height*1/3));
 
@@ -3064,7 +3072,10 @@ LabelLocalizationTest::LabelLocalizationTest()
     // Create the radio buttons
     const int NUMBER_OF_BUTTONS = 3;
     startPosX = winSize.width / 2.0f - (NUMBER_OF_BUTTONS - 1) * 0.5 * BUTTON_WIDTH - 30;
-    std::vector<std::string> labelTypes = { "English", "Chinese", "Japanese" };
+    std::vector<std::string> labelTypes;
+	labelTypes.push_back("English");
+	labelTypes.push_back("Chinese");
+	labelTypes.push_back("Japanese");
 
     for (int i = 0; i < NUMBER_OF_BUTTONS; ++i)
     {

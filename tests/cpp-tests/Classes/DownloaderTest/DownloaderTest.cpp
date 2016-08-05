@@ -111,7 +111,7 @@ struct DownloaderTest : public TestCase
         label->setAnchorPoint(Vec2(0.5, 0.5));
         label->setPosition(Vec2(viewSize.width / 2, viewSize.height / 2));
         label->setContentSize(Size(viewSize.width, 0));
-        label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+        label->setAlignment(TextHAlignment::TH_CENTER, TextVAlignment::TV_CENTER);
         label->setDimensions(viewSize.width, viewSize.height);
         bg->addChild(label, 20);
         

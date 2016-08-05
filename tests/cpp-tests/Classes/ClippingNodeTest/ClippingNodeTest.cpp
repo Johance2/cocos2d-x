@@ -922,7 +922,7 @@ void ClippingToRenderTextureTest::setup()
 {
     auto button = MenuItemFont::create("Reproduce bug", [&](Ref *sender) {
         std::vector<Node*> nodes;
-        enumerateChildren("remove me [0-9]", [&](Node *node) {
+        enumerateChildren("remove me [0-9]", [&](Node *node) ->bool{
             nodes.push_back(node);
             return false;
         });

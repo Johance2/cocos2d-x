@@ -28,30 +28,30 @@ static std::string fontList[] =
 static int vAlignIdx = 0;
 static TextVAlignment verticalAlignment[] =
 {
-    TextVAlignment::TOP,
-    TextVAlignment::CENTER,
-    TextVAlignment::BOTTOM,
+    TextVAlignment::TV_TOP,
+    TextVAlignment::TV_CENTER,
+    TextVAlignment::TV_BOTTOM,
 };
 
 
 FontTests::FontTests()
 {
-    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
+    for(int i = 0; i < sizeof(fontList)/sizeof(std::string); i++)
     {
-    	auto &fontFile=*itr0;
-        addTestCase("FontTests", [&](){vAlignIdx = 0; return FontTest::create(fontFile); });
+    	auto &fontFile=fontList[i];
+        addTestCase("FontTests", [&]()->FontTest*{vAlignIdx = 0; return FontTest::create(fontFile); });
     }
     
-    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
+    for(int i = 0; i < sizeof(fontList)/sizeof(std::string); i++)
     {
-    	auto &fontFile=*itr0;
-        addTestCase("FontTests", [&](){ vAlignIdx = 1;  return FontTest::create(fontFile); });
+    	auto &fontFile=fontList[i];
+        addTestCase("FontTests", [&]()->FontTest*{ vAlignIdx = 1;  return FontTest::create(fontFile); });
     }
     
-    for(auto itr0 = fontList.begin(); itr0 != fontList.end(); ++itr0)
+    for(int i = 0; i < sizeof(fontList)/sizeof(std::string); i++)
     {
-    	auto &fontFile=*itr0;
-        addTestCase("FontTests", [&](){vAlignIdx = 2; return FontTest::create(fontFile); });
+    	auto &fontFile=fontList[i];
+        addTestCase("FontTests", [&]()->FontTest*{vAlignIdx = 2; return FontTest::create(fontFile); });
     }
 }
 
@@ -72,11 +72,11 @@ void FontTest::showFont(const std::string& fontFile)
 
     auto top = Label::createWithSystemFont(fontFile, fontFile, 24);
     auto left = Label::createWithSystemFont("alignment left", fontFile, fontSize,
-                                          blockSize, TextHAlignment::LEFT, verticalAlignment[vAlignIdx]);
+                                          blockSize, TextHAlignment::TH_LEFT, verticalAlignment[vAlignIdx]);
     auto center = Label::createWithSystemFont("alignment center", fontFile, fontSize,
-                                            blockSize, TextHAlignment::CENTER, verticalAlignment[vAlignIdx]);
+                                            blockSize, TextHAlignment::TH_CENTER, verticalAlignment[vAlignIdx]);
     auto right = Label::createWithSystemFont("alignment right", fontFile, fontSize,
-                                           blockSize, TextHAlignment::RIGHT, verticalAlignment[vAlignIdx]);
+                                           blockSize, TextHAlignment::TH_RIGHT, verticalAlignment[vAlignIdx]);
 
     auto leftColor = LayerColor::create(Color4B(100, 100, 100, 255), blockSize.width, blockSize.height);
     auto centerColor = LayerColor::create(Color4B(200, 100, 100, 255), blockSize.width, blockSize.height);

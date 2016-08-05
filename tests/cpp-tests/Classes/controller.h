@@ -78,10 +78,10 @@ private:
     TestList* _rootTestList;
     TestSuite* _testSuite;
 
-    std::thread _autoTestThread;
+    boost::thread _autoTestThread;
 
     boost::condition_variable _sleepCondition;
-    std::unique_lock<std::mutex>* _sleepUniqueLock;
+    boost::unique_lock<boost::mutex>* _sleepUniqueLock;
 
     cocos2d::Director* _director;
     cocos2d::EventListenerTouchOneByOne* _touchListener;

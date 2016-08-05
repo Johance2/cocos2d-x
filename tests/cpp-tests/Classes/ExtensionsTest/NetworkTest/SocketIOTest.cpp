@@ -100,7 +100,7 @@ SocketIOTest::SocketIOTest()
 	menuRequest->addChild(itemTestEndpointDisconnect);
 
 	// Shared Status Label
-	_sioClientStatus = Label::createWithTTF("Not connected...", "fonts/arial.ttf", 14, Size(320, 100), TextHAlignment::LEFT);
+	_sioClientStatus = Label::createWithTTF("Not connected...", "fonts/arial.ttf", 14, Size(320, 100), TextHAlignment::TH_LEFT);
 	_sioClientStatus->setAnchorPoint(Vec2(0, 0));
 	_sioClientStatus->setPosition(Vec2(VisibleRect::left().x, VisibleRect::rightBottom().y));
 	this->addChild(_sioClientStatus);

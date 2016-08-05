@@ -700,7 +700,7 @@ Sprite3DHitTest::Sprite3DHitTest()
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->setSwallowTouches(true);
     
-    listener1->onTouchBegan = [](Touch* touch, Event* event){
+    listener1->onTouchBegan = [](Touch* touch, Event* event)->bool{
         auto target = static_cast<Sprite3D*>(event->getCurrentTarget());
       
         Rect rect = target->getBoundingBox();        
@@ -1784,14 +1784,14 @@ UseCaseSprite3D::UseCaseSprite3D()
                                           [&](Ref *sender) {
                                               _caseIdx--;
                                               if (_caseIdx < 0)
-                                                  _caseIdx = (int)USECASE::MAX_CASE_NUM - 1;
+                                                  _caseIdx = (int)UseCaseSprite3D::USECASE::MAX_CASE_NUM - 1;
                                               this->switchCase();
                                           });
     
     auto itemNext = MenuItemImage::create("Images/f1.png", "Images/f2.png",
                                           [&](Ref *sender) {
                                               _caseIdx++;
-                                              if (_caseIdx >= (int)USECASE::MAX_CASE_NUM)
+                                              if (_caseIdx >= (int)UseCaseSprite3D::USECASE::MAX_CASE_NUM)
                                                   _caseIdx = 0;
                                               this->switchCase();
                                           });
@@ -2658,8 +2658,9 @@ void Sprite3DPropertyTest::printMeshName(cocos2d::Ref* sender)
 {
     CCLOG("MeshName Begin");
     Vector<Mesh*> meshes =_sprite->getMeshes();
-    for(Mesh* mesh : meshes)
+	for(int i = 0; i < meshes.size(); i++)
     {
+		auto mesh = meshes.at(i);
         log("MeshName: %s ", mesh->getName().c_str());
     }
     CCLOG("MeshName End");
@@ -2685,8 +2686,9 @@ void Sprite3DPropertyTest::resetTexture(cocos2d::Ref* sender)
 void Sprite3DPropertyTest::refreshSpriteRender()
 {
     Vector<Mesh*> meshes = _sprite->getMeshes();
-    for (Mesh* mesh : meshes)
+	for(int i = 0; i < meshes.size(); i++)
     {
+		auto mesh = meshes.at(i);
         std::string file = mesh->getTextureFileName();
         Texture2D* cacheTex = Director::getInstance()->getTextureCache()->getTextureForKey(file);
         if (cacheTex == nullptr)

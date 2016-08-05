@@ -366,7 +366,8 @@ bool AudioLoadTest::init()
         auto preloadItem = TextButton::create("preload", [&, stateLabel](TextButton* button){
             stateLabel->setString("status:loading...");
             auto isDestroyed = _isDestroyed;
-            AudioEngine::preload("audio/SoundEffectsFX009/FX082.mp3", [isDestroyed, stateLabel](bool isSuccess){
+			auto &stateLabel2 = stateLabel;
+            AudioEngine::preload("audio/SoundEffectsFX009/FX082.mp3", [isDestroyed, stateLabel2](bool isSuccess){
                 if (*isDestroyed)
                 {
                     CCLOG("AudioLoadTest scene was destroyed, no need to set the label text.");
@@ -375,11 +376,11 @@ bool AudioLoadTest::init()
                 
                 if (isSuccess)
                 {
-                    stateLabel->setString("status:load success");
+                    stateLabel2->setString("status:load success");
                 }
                 else
                 {
-                    stateLabel->setString("status:load fail");
+                    stateLabel2->setString("status:load fail");
                 }
             });
         });
@@ -686,18 +687,17 @@ bool AudioPerformanceTest::init()
 {
     if (AudioEngineTestDemo::init())
     {
-        std::vector<std::string> audioFiles = {
-            "audio/SoundEffectsFX009/FX081.mp3",
-            "audio/SoundEffectsFX009/FX082.mp3",
-            "audio/SoundEffectsFX009/FX083.mp3",
-            "audio/SoundEffectsFX009/FX084.mp3",
-            "audio/SoundEffectsFX009/FX085.mp3",
-            "audio/SoundEffectsFX009/FX086.mp3",
-            "audio/SoundEffectsFX009/FX087.mp3",
-            "audio/SoundEffectsFX009/FX088.mp3",
-            "audio/SoundEffectsFX009/FX089.mp3",
-            "audio/SoundEffectsFX009/FX090.mp3"
-        };
+        std::vector<std::string> audioFiles;
+		audioFiles.push_back("audio/SoundEffectsFX009/FX081.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX082.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX083.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX084.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX085.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX086.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX087.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX088.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX089.mp3");
+		audioFiles.push_back("audio/SoundEffectsFX009/FX090.mp3");
         
         for(auto itr = audioFiles.begin(); itr != audioFiles.end(); ++itr)
         {
@@ -712,10 +712,11 @@ bool AudioPerformanceTest::init()
             static_cast<TextButton*>(getChildByName("DisplayButton"))->setEnabled(true);
             
             unschedule("test");
-            schedule([audioFiles](float dt){
-                int index = cocos2d::random(0, (int)(audioFiles.size()-1));
+			auto &audioFiles2 = audioFiles;
+            schedule([audioFiles2](float dt){
+                int index = cocos2d::random(0, (int)(audioFiles2.size()-1));
                 CC_PROFILER_START("play2d");
-                AudioEngine::play2d(audioFiles[index]);
+                AudioEngine::play2d(audioFiles2[index]);
                 CC_PROFILER_STOP("play2d");
             }, 0.25f, "test");
         });
