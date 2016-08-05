@@ -482,7 +482,7 @@ bool jsval_to_ushort( JSContext *cx, JS::HandleValue vp, unsigned short *outval 
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
-    ok &= !std::isnan(dp);
+    ok &= !isnan(dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
     *outval = (unsigned short)dp;
@@ -496,7 +496,7 @@ bool jsval_to_int32( JSContext *cx, JS::HandleValue vp, int32_t *outval )
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
-    ok &= !std::isnan(dp);
+    ok &= !isnan(dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
     *outval = (int32_t)dp;
@@ -510,7 +510,7 @@ bool jsval_to_uint32( JSContext *cx, JS::HandleValue vp, uint32_t *outval )
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
-    ok &= !std::isnan(dp);
+    ok &= !isnan(dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
     *outval = (uint32_t)dp;
@@ -524,7 +524,7 @@ bool jsval_to_uint16( JSContext *cx, JS::HandleValue vp, uint16_t *outval )
     double dp;
     ok &= JS::ToNumber(cx, vp, &dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
-    ok &= !std::isnan(dp);
+    ok &= !isnan(dp);
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
     *outval = (uint16_t)dp;
@@ -675,8 +675,7 @@ bool jsval_to_quaternion( JSContext *cx, JS::HandleValue v, cocos2d::Quaternion*
         JS::ToNumber(cx, y, &yy) &&
         JS::ToNumber(cx, z, &zz) &&
         JS::ToNumber(cx, w, &ww) &&
-        !std::isnan(xx) && !std::isnan(yy) && !std::isnan(zz) && !std::
-isnan(ww);
+        !isnan(xx) && !isnan(yy) && !isnan(zz) && !isnan(ww);
 
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
@@ -1539,7 +1538,7 @@ bool jsval_to_vector2(JSContext *cx, JS::HandleValue vp, cocos2d::Vec2* ret)
     JS_GetProperty(cx, tmp, "y", &jsy) &&
     JS::ToNumber(cx, jsx, &x) &&
     JS::ToNumber(cx, jsy, &y) &&
-    !std::isnan(x) && !std::isnan(y);
+    !isnan(x) && !isnan(y);
 
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
@@ -1563,7 +1562,7 @@ bool jsval_to_vector3(JSContext *cx, JS::HandleValue vp, cocos2d::Vec3* ret)
     JS::ToNumber(cx, jsx, &x) &&
     JS::ToNumber(cx, jsy, &y) &&
     JS::ToNumber(cx, jsz, &z) &&
-    !std::isnan(x) && !std::isnan(y) && !std::isnan(z);
+    !isnan(x) && !isnan(y) && !isnan(z);
 
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
@@ -1591,7 +1590,7 @@ bool jsval_to_vector4(JSContext *cx, JS::HandleValue vp, cocos2d::Vec4* ret)
     JS::ToNumber(cx, jsy, &y) &&
     JS::ToNumber(cx, jsz, &z) &&
     JS::ToNumber(cx, jsw, &w) &&
-    !std::isnan(x) && !std::isnan(y) && !std::isnan(z) && !std::isnan(w);
+    !isnan(x) && !isnan(y) && !isnan(z) && !isnan(w);
 
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
@@ -1658,7 +1657,7 @@ bool jsval_to_cctex2f(JSContext* cx, JS::HandleValue vp, cocos2d::Tex2F* ret)
     JS_GetProperty(cx, tmp, "y", &jsy) &&
     JS::ToNumber(cx, jsx, &x) &&
     JS::ToNumber(cx, jsy, &y) &&
-    !std::isnan(x) && !std::isnan(y);
+    !isnan(x) && !isnan(y);
 
     JSB_PRECONDITION3(ok, cx, false, "Error processing arguments");
 
@@ -2329,8 +2328,8 @@ bool jsval_to_FontDefinition( JSContext *cx, JS::HandleValue vp, FontDefinition 
     // default values
     const char *            defautlFontName         = "Arial";
     const int               defaultFontSize         = 32;
-    TextHAlignment         defaultTextAlignment    = TextHAlignment::LEFT;
-    TextVAlignment defaultTextVAlignment   = TextVAlignment::TOP;
+    TextHAlignment         defaultTextAlignment    = TextHAlignment::TH_LEFT;
+    TextVAlignment defaultTextVAlignment   = TextVAlignment::TV_TOP;
 
     // by default shadow and stroke are off
     out->_shadow._shadowEnabled = false;
@@ -2762,9 +2761,10 @@ jsval std_vector_string_to_jsval( JSContext *cx, const std::vector<std::string>&
 {
     JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, v.size()));
 
-    int i = 0;
-    for (const std::string obj : v)
-    {
+	int i = 0;
+	for (int i = 0; i < v.size(); i++)
+	{
+		auto &obj = v[i];
         JS::RootedValue arrElement(cx);
         arrElement = std_string_to_jsval(cx, obj);
 
@@ -2781,8 +2781,9 @@ jsval std_vector_int_to_jsval( JSContext *cx, const std::vector<int>& v)
     JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, v.size()));
 
     int i = 0;
-    for (const int obj : v)
-    {
+	for (int i = 0; i < v.size(); i++)
+	{
+		auto &obj = v[i];
         JS::RootedValue arrElement(cx);
         arrElement = int32_to_jsval(cx, obj);
 
@@ -2799,8 +2800,9 @@ jsval std_vector_float_to_jsval( JSContext *cx, const std::vector<float>& v)
     JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, v.size()));
 
     int i = 0;
-    for (const float obj : v)
-    {
+	for (int i = 0; i < v.size(); i++)
+	{
+		auto &obj = v[i];
         JS::RootedValue arrElement(cx);
         arrElement = DOUBLE_TO_JSVAL(obj);
 
@@ -2892,8 +2894,9 @@ jsval vector_vec2_to_jsval(JSContext *cx, const std::vector<cocos2d::Vec2>& v)
     JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, v.size()));
 
     int i = 0;
-    for (const cocos2d::Vec2 obj : v)
-    {
+	for (int i = 0; i < v.size(); i++)
+	{
+		auto &obj = v[i];
         JS::RootedValue arrElement(cx);
         arrElement = vector2_to_jsval(cx, obj);
 

@@ -5789,7 +5789,7 @@ static void cloneTouchOneByOneHandler(const EventListenerTouchOneByOne* src,Even
         {
             case ScriptHandlerMgr::HandlerType::EVENT_TOUCH_BEGAN:
                 {
-                    dst->onTouchBegan = [=](Touch* touch, Event* event){
+                    dst->onTouchBegan = [=](Touch* touch, Event* event)->int{
                         LuaEventTouchData touchData(touch, event);
                         BasicScriptData data((void*)dst,(void*)&touchData);
                         return LuaEngine::getInstance()->handleEvent(type, (void*)&data);
@@ -5918,7 +5918,7 @@ static int tolua_cocos2dx_EventListenerTouchOneByOne_registerScriptHandler(lua_S
                 {
                     ScriptHandlerMgr::getInstance()->addObjectHandler((void*)self, handler, type);
 
-                    self->onTouchBegan = [=](Touch* touch, Event* event){
+                    self->onTouchBegan = [=](Touch* touch, Event* event)->int{
                         LuaEventTouchData touchData(touch, event);
                         BasicScriptData data((void*)self,(void*)&touchData);
                         return LuaEngine::getInstance()->handleEvent(type, (void*)&data);
@@ -6839,7 +6839,7 @@ static int lua_cocos2dx_Console_wait(lua_State* tolua_S)
         if(!ok)
             return 0;
 
-        std::chrono::milliseconds dura( arg0 * 1000 );
+        boost::chrono::milliseconds dura( arg0 * 1000 );
         boost::this_thread::sleep_for( dura );
         return 0;
     }
@@ -6897,7 +6897,7 @@ static int lua_cocos2dx_Console_addCommand(lua_State* tolua_S)
             handler = (  toluafix_ref_function(tolua_S,3,0));
             ScriptHandlerMgr::getInstance()->addCustomHandler((void*)cobj, handler);
 
-            struct Console::Command outValue = {
+            struct Console::Command outValue = Console::Command(
                 name,
                 help,
                 [=](int fd, const std::string& args)
@@ -6908,7 +6908,7 @@ static int lua_cocos2dx_Console_addCommand(lua_State* tolua_S)
 
                     LuaEngine::getInstance()->getLuaStack()->executeFunctionByHandler(handler, 2);
                 }
-            };
+            );
             cobj->addCommand(outValue);
         }
         lua_settop(tolua_S, 1);

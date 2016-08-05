@@ -75,7 +75,7 @@ void Particle3DMainScene::initScene()
     this->addChild(camera);
 
     TTFConfig config("fonts/tahoma.ttf",10);
-    _particleLab = Label::createWithTTF(config,"Particle Count: 0",TextHAlignment::LEFT);
+    _particleLab = Label::createWithTTF(config,"Particle Count: 0",TextHAlignment::TH_LEFT);
     _particleLab->setPosition(Vec2(0.0f, s.height / 6.0f));
     _particleLab->setAnchorPoint(Vec2(0.0f, 0.0f));
     this->addChild(_particleLab);

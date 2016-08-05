@@ -81,8 +81,8 @@ using namespace cocos2d;
 static std::string inData;
 static std::string outData;
 static std::vector<std::string> g_queue;
-static std::mutex g_qMutex;
-static std::mutex g_rwMutex;
+static boost::mutex g_qMutex;
+static boost::mutex g_rwMutex;
 static int clientSocket = -1;
 static uint32_t s_nestedLoopLevel = 0;
 
@@ -1847,7 +1847,7 @@ static bool NS_ProcessNextEvent()
             break;
     }
 //    boost::this_thread::yield();
-    boost::this_thread::sleep_for(std::chrono::milliseconds(10));
+    boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
 
     return true;
 }
@@ -1907,12 +1907,12 @@ static void _clientSocketWriteAndClearString(std::string& s)
 }
 
 static void processInput(const std::string& data) {
-    boost::lock_guard<std::mutex> lk(g_qMutex);
+    boost::lock_guard<boost::mutex> lk(g_qMutex);
     g_queue.push_back(data);
 }
 
 static void clearBuffers() {
-    boost::lock_guard<std::mutex> lk(g_rwMutex);
+    boost::lock_guard<boost::mutex> lk(g_rwMutex);
     // only process input if there's something and we're not locked
     if (inData.length() > 0) {
         processInput(inData);
@@ -2073,7 +2073,7 @@ void ScriptingCore::enableDebugger(unsigned int port)
         }
 
         // start bg thread
-        auto t = std::thread(&serverEntryPoint,port);
+        auto t = boost::thread(&serverEntryPoint,port);
         t.detach();
 
         Scheduler* scheduler = Director::getInstance()->getScheduler();

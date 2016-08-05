@@ -57,7 +57,7 @@ void TestController::startAutoTest()
     {
         _stopAutoTest = false;
         _logIndentation = "";
-        _autoTestThread = std::thread(&TestController::traverseThreadFunc, this);
+        _autoTestThread = boost::thread(&TestController::traverseThreadFunc, this);
         _autoTestThread.detach();
     }
 }
@@ -74,8 +74,8 @@ void TestController::stopAutoTest()
 
 void TestController::traverseThreadFunc()
 {
-    std::mutex sleepMutex;
-    auto lock = std::unique_lock<std::mutex>(sleepMutex);
+    boost::mutex sleepMutex;
+    auto lock = boost::unique_lock<boost::mutex>(sleepMutex);
     _sleepUniqueLock = &lock;
     traverseTestList(_rootTestList);
     _sleepUniqueLock = nullptr;
@@ -89,12 +89,12 @@ void TestController::traverseTestList(TestList* testList)
 {
     if (testList == _rootTestList)
     {
-        _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(500));
+        _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(500));
     }
     else
     {
         _logIndentation += LOG_INDENTATION;
-        _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(500));
+        _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(500));
     }
     logEx("%s%sBegin traverse TestList:%s", LOG_TAG, _logIndentation.c_str(), testList->getTestName().c_str());
 
@@ -107,7 +107,7 @@ void TestController::traverseTestList(TestList* testList)
         while (_isRunInBackground)
         {
             logEx("_director is paused");
-            _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(500));
+            _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(500));
         }
         if (callback)
         {
@@ -141,7 +141,7 @@ void TestController::traverseTestList(TestList* testList)
             scheduler->performFunctionInCocosThread([&](){
                 testList->_parentTest->runThisTest();
             });
-            _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(500));
+            _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(500));
             testList->release();
         }
         
@@ -175,7 +175,7 @@ void TestController::traverseTestSuite(TestSuite* testSuite)
         while (_isRunInBackground)
         {
             logEx("_director is paused");
-            _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(500));
+            _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(500));
         }
         //Run test case in the cocos[GL] thread.
         scheduler->performFunctionInCocosThread([&, logIndentation, testName](){
@@ -214,7 +214,7 @@ void TestController::traverseTestSuite(TestSuite* testSuite)
         float waitTime = 0.0f;
         while (!testScene && !_stopAutoTest)
         {
-            _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(50));
+            _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(50));
             if (!_isRunInBackground)
             {
                 waitTime += 0.05f;
@@ -231,14 +231,14 @@ void TestController::traverseTestSuite(TestSuite* testSuite)
         if (_stopAutoTest) break;
 
         //Wait for test completed.
-        _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(int(1000 * testCaseDuration)));
+        _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(int(1000 * testCaseDuration)));
 
         if (transitionScene == nullptr)
         {
             waitTime = 0.0f;
             while (!_stopAutoTest && testCase->isAutoTesting())
             {
-                _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(50));
+                _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(50));
                 if (!_isRunInBackground)
                 {
                     waitTime += 0.05f;
@@ -268,7 +268,7 @@ void TestController::traverseTestSuite(TestSuite* testSuite)
             parentTest->runThisTest();
         });
 
-        _sleepCondition.wait_for(*_sleepUniqueLock, std::chrono::milliseconds(1000));
+        _sleepCondition.wait_for(*_sleepUniqueLock, boost::chrono::milliseconds(1000));
         testSuite->release();
     }
 

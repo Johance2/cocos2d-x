@@ -924,7 +924,7 @@ void __JSDownloaderDelegator::download()
 void __JSDownloaderDelegator::downloadAsync()
 {
     retain();
-    auto t = std::thread(&__JSDownloaderDelegator::startDownload, this);
+    auto t = boost::thread(&__JSDownloaderDelegator::startDownload, this);
     t.detach();
 }
 

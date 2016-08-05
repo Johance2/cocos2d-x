@@ -134,9 +134,9 @@ void PerformanceEventDispatcherScene::initWithQuantityOfNodes(unsigned int nNode
     CCASSERT(!_testFunctions.empty(), "Should not be empty after generate test functions");
     
     
-    for(auto itr0 = _testFunctions.begin(); itr0 != _testFunctions.end(); ++itr0)
+    for(int i = 0; i < _testFunctions.size(); i++)
     {
-    	auto &f=*itr0;
+    	auto &f=_testFunctions[i];
         toggleItems.pushBack(MenuItemFont::create(f.name));
     }
 
@@ -168,7 +168,7 @@ void PerformanceEventDispatcherScene::initWithQuantityOfNodes(unsigned int nNode
     start->setPosition(VisibleRect::right() + Vec2(0, 40));
     _startItem = start;
     
-    auto stop = MenuItemFont::create("stop", [=](Ref* sender){
+    auto stop = MenuItemFont::create("stop", [this](Ref* sender){
         auto director = Director::getInstance();
         auto sched = director->getScheduler();
         
@@ -645,9 +645,9 @@ void TouchEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -725,9 +725,9 @@ void KeyboardEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -822,9 +822,9 @@ void CustomEventDispatchingPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }

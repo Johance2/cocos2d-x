@@ -33,7 +33,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_setTimeScale(JSContext *cx, uint32_t arg
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_spine_SkeletonRenderer_setTimeScale : Invalid Native Object");
     if (argc == 1) {
         double arg0 = 0;
-        ok &= JS::ToNumber( cx, args.get(0), &arg0) && !std::isnan(arg0);
+        ok &= JS::ToNumber( cx, args.get(0), &arg0) && !isnan(arg0);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_spine_SkeletonRenderer_setTimeScale : Error processing arguments");
         cobj->setTimeScale(arg0);
         args.rval().setUndefined();
@@ -347,7 +347,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_initWithFile(JSContext *cx, uint32_t arg
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj->initWithFile(arg0, arg1, arg2);
             args.rval().setUndefined();
@@ -380,7 +380,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_initWithFile(JSContext *cx, uint32_t arg
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj->initWithFile(arg0, arg1, arg2);
             args.rval().setUndefined();
@@ -536,7 +536,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_createWithFile(JSContext *cx, uint32_t a
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             spine::SkeletonRenderer* ret = spine::SkeletonRenderer::createWithFile(arg0, arg1, arg2);
             jsval jsret = JSVAL_NULL;
@@ -592,7 +592,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_createWithFile(JSContext *cx, uint32_t a
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             spine::SkeletonRenderer* ret = spine::SkeletonRenderer::createWithFile(arg0, arg1, arg2);
             jsval jsret = JSVAL_NULL;
@@ -694,7 +694,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_constructor(JSContext *cx, uint32_t argc
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonRenderer(arg0, arg1, arg2);
 
@@ -735,7 +735,7 @@ bool js_cocos2dx_spine_SkeletonRenderer_constructor(JSContext *cx, uint32_t argc
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonRenderer(arg0, arg1, arg2);
 
@@ -957,7 +957,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_setMix(JSContext *cx, uint32_t argc, js
         double arg2 = 0;
         ok &= jsval_to_std_string(cx, args.get(0), &arg0);
         ok &= jsval_to_std_string(cx, args.get(1), &arg1);
-        ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+        ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_spine_SkeletonAnimation_setMix : Error processing arguments");
         cobj->setMix(arg0, arg1, arg2);
         args.rval().setUndefined();
@@ -1109,7 +1109,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_update(JSContext *cx, uint32_t argc, js
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_spine_SkeletonAnimation_update : Invalid Native Object");
     if (argc == 1) {
         double arg0 = 0;
-        ok &= JS::ToNumber( cx, args.get(0), &arg0) && !std::isnan(arg0);
+        ok &= JS::ToNumber( cx, args.get(0), &arg0) && !isnan(arg0);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_spine_SkeletonAnimation_update : Error processing arguments");
         cobj->update(arg0);
         args.rval().setUndefined();
@@ -1411,7 +1411,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1, arg2);
             jsval jsret = JSVAL_NULL;
@@ -1467,7 +1467,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1, arg2);
             jsval jsret = JSVAL_NULL;
@@ -1569,7 +1569,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_constructor(JSContext *cx, uint32_t arg
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonAnimation(arg0, arg1, arg2);
 
@@ -1610,7 +1610,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_constructor(JSContext *cx, uint32_t arg
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonAnimation(arg0, arg1, arg2);
 
@@ -1703,7 +1703,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_ctor(JSContext *cx, uint32_t argc, jsva
 			ok = false;
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonAnimation(arg0, arg1, arg2);
 
@@ -1736,7 +1736,7 @@ bool js_cocos2dx_spine_SkeletonAnimation_ctor(JSContext *cx, uint32_t argc, jsva
             ok &= jsval_to_std_string(cx, args.get(1), &arg1);
             if (!ok) { ok = true; break; }
             double arg2 = 0;
-            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !std::isnan(arg2);
+            ok &= JS::ToNumber( cx, args.get(2), &arg2) && !isnan(arg2);
             if (!ok) { ok = true; break; }
             cobj = new (std::nothrow) spine::SkeletonAnimation(arg0, arg1, arg2);
 

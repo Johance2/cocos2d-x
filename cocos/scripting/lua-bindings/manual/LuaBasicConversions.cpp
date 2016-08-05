@@ -830,8 +830,8 @@ bool luaval_to_fontdefinition(lua_State* L, int lo, FontDefinition* outValue , c
         // default values
         const char *            defautlFontName         = "Arial";
         const int               defaultFontSize         = 32;
-        TextHAlignment          defaultTextAlignment    = TextHAlignment::LEFT;
-        TextVAlignment          defaultTextVAlignment   = TextVAlignment::TOP;
+        TextHAlignment          defaultTextAlignment    = TextHAlignment::TH_LEFT;
+        TextVAlignment          defaultTextVAlignment   = TextVAlignment::TV_TOP;
 
         // by default shadow and stroke are off
         outValue->_shadow._shadowEnabled = false;
@@ -3217,8 +3217,9 @@ void ccvector_std_string_to_luaval(lua_State* L, const std::vector<std::string>&
 
     int index = 1;
 
-    for (const std::string& value : inValue)
+    for (int i = 0; i < inValue.size(); i++)
     {
+		auto &value = inValue[i];
         lua_pushnumber(L, (lua_Number)index);
         lua_pushstring(L, value.c_str());
         lua_rawset(L, -3);
@@ -3234,8 +3235,9 @@ void ccvector_int_to_luaval(lua_State* L, const std::vector<int>& inValue)
     lua_newtable(L);
 
     int index = 1;
-    for (const int value : inValue)
+    for (int i = 0; i < inValue.size(); i++)
     {
+		auto &value = inValue[i];
         lua_pushnumber(L, (lua_Number)index);
         lua_pushnumber(L, (lua_Number)value);
         lua_rawset(L, -3);
@@ -3251,8 +3253,9 @@ void ccvector_float_to_luaval(lua_State* L, const std::vector<float>& inValue)
     lua_newtable(L);
 
     int index = 1;
-    for (const float value : inValue)
+    for (int i = 0; i < inValue.size(); i++)
     {
+		auto &value = inValue[i];
         lua_pushnumber(L, (lua_Number)index);
         lua_pushnumber(L, (lua_Number)value);
         lua_rawset(L, -3);
@@ -3268,8 +3271,9 @@ void ccvector_ushort_to_luaval(lua_State* L, const std::vector<unsigned short>& 
     lua_newtable(L);
 
     int index = 1;
-    for (const unsigned short value : inValue)
+    for (int i = 0; i < inValue.size(); i++)
     {
+		auto &value = inValue[i];
         lua_pushnumber(L, (lua_Number)index);
         lua_pushnumber(L, (lua_Number)value);
         lua_rawset(L, -3);
@@ -3326,8 +3330,9 @@ void std_vector_vec3_to_luaval(lua_State* L, const std::vector<cocos2d::Vec3>& i
     lua_newtable(L);
 
     int index = 1;
-    for (const cocos2d::Vec3& value : inValue)
+    for (int i = 0; i < inValue.size(); i++)
     {
+		auto &value = inValue[i];
         lua_pushnumber(L, (lua_Number)index);
         vec3_to_luaval(L, value);
         lua_rawset(L, -3);

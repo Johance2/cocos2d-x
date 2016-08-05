@@ -138,9 +138,9 @@ void PerformanceContainerScene::initWithQuantityOfNodes(unsigned int nNodes)
     CCASSERT(!_testFunctions.empty(), "Should not be empty after generate test functions");
 
     
-    for(auto itr0 = _testFunctions.begin(); itr0 != _testFunctions.end(); ++itr0)
+    for(int i = 0; i < _testFunctions.size(); i++)
     {
-    	auto &f=*itr0;
+    	auto &f=_testFunctions[i];
         toggleItems.pushBack(MenuItemFont::create(f.name));
     }
     
@@ -347,7 +347,7 @@ const char*  PerformanceContainerScene::testName()
 void TemplateVectorPerfTest::generateTestFunctions()
 {
     _typePrefix = "Vector";
-    auto createVector = [this](){
+    auto createVector = [this]()->Vector<Node*>{
         Vector<Node*> ret;
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -536,9 +536,9 @@ void TemplateVectorPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < _testFunctions.size(); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=_testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -572,7 +572,7 @@ std::string ArrayPerfTest::subtitle() const
 void ArrayPerfTest::generateTestFunctions()
 {
     _typePrefix = "__Array";
-    auto createArray = [this](){
+    auto createArray = [this]()->__Array*{
         __Array* ret = __Array::create();
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -728,9 +728,9 @@ void ArrayPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < _testFunctions.size(); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=_testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -744,7 +744,7 @@ void ArrayPerfTest::generateTestFunctions()
 void TemplateMapStringKeyPerfTest::generateTestFunctions()
 {
     _typePrefix = "MapStringKey";
-    auto createMap = [this](){
+    auto createMap = [this]()->Map<std::string, Node*>{
         Map<std::string, Node*> ret;
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -902,9 +902,9 @@ void TemplateMapStringKeyPerfTest::generateTestFunctions()
         
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -928,7 +928,7 @@ std::string TemplateMapStringKeyPerfTest::subtitle() const
 void DictionaryStringKeyPerfTest::generateTestFunctions()
 {
     _typePrefix = "__DictStringKey";
-    auto createDict = [this](){
+    auto createDict = [this]()->__Dictionary*{
         __Dictionary* ret = __Dictionary::create();
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -1087,9 +1087,9 @@ void DictionaryStringKeyPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -1114,7 +1114,7 @@ std::string DictionaryStringKeyPerfTest::subtitle() const
 void TemplateMapIntKeyPerfTest::generateTestFunctions()
 {
     _typePrefix = "MapIntKey";
-    auto createMap = [this](){
+    auto createMap = [this]()->Map<int,Node*>{
         Map<int, Node*> ret;
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -1248,9 +1248,9 @@ void TemplateMapIntKeyPerfTest::generateTestFunctions()
         
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }
@@ -1274,7 +1274,7 @@ std::string TemplateMapIntKeyPerfTest::subtitle() const
 void DictionaryIntKeyPerfTest::generateTestFunctions()
 {
     _typePrefix = "__DictIntKey";
-    auto createDict = [this](){
+    auto createDict = [this]()->__Dictionary*{
         __Dictionary* ret = __Dictionary::create();
         
         for( int i=0; i<quantityOfNodes; ++i)
@@ -1410,9 +1410,9 @@ void DictionaryIntKeyPerfTest::generateTestFunctions()
         } } ,
     };
     
-    for(auto itr0 = testFunctions.begin(); itr0 != testFunctions.end(); ++itr0)
+    for(int i = 0; i < sizeof(testFunctions)/sizeof(TestFunction); i++)
     {
-    	auto &func=*itr0;
+    	auto &func=testFunctions[i];
         _testFunctions.push_back(func);
     }
 }

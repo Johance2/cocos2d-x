@@ -122,7 +122,7 @@ NS_CC_END
 
 // Conflicted with math.h isnan
 #include <cmath>
-using std::isnan;
+using isnan;
 
 inline int vsnprintf_s(char *buffer, size_t sizeOfBuffer, size_t count,
                  const char *format, va_list argptr) {
