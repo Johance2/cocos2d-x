@@ -1,3 +1,0 @@
-#pragma once
-#include <boost/thread/thread.hpp>
-#include <boost/make_shared.hpp>

@@ -3,10 +3,6 @@
 this is an cocos3.x version clone form  https://github.com/cocos2d/cocos2d-x， use Visual Studio 2010
 这是一个克隆cocos2d/cocos2d-x的版本 用于Visual Studio 2010
 
-1. you must uncompress boost in boost folder
-1. 你必须解压boost下的boost.zip
-
-
 cocos2d-x
 =========
 

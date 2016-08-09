@@ -29,6 +29,7 @@ THE SOFTWARE.
 #include "base/ccMacros.h"
 #include "base/CCRef.h"
 #include <vector>
+#include <list>
 #include <functional>
 #include <algorithm> // for std::find
 
